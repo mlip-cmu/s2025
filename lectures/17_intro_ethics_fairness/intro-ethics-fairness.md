@@ -1,7 +1,7 @@
 ---
 author: Eunsuk Kang & Christian Kaestner
 title: "MLiP: Intro to Ethics and Fairness"
-semester: Spring 2023
+semester: Spring 2024
 footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
@@ -446,7 +446,7 @@ _Discrimination in Online Ad Delivery_, Latanya Sweeney, SSRN (2013).
 <!-- references_ -->
 
 _Challenges of incorporating algorithmic fairness into practice_, FAT* Tutorial (2019).
-
+*
 ----
 ## Role of Requirements Engineering
 
