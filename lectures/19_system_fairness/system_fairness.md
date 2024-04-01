@@ -420,6 +420,23 @@ Notes: skip me
 [Figure from Big Data and Social Science, Ch. 11](https://textbook.coleridgeinitiative.org/chap-bias.html#ref-angwin2016b)
 A. Chouldechova [Fair prediction with disparate impact: A study of bias in recidivism prediction instruments](https://arxiv.org/pdf/1703.00056.pdf)
 
+Notes:
+False discovery rate: rate of Type 1 errors
+(reject null hypothesis when it's true)
+
+Positive predictive value is the probability that a patient with a positive
+(abnormal) test result actually has the disease. Negative predictive value is
+the probability that a person with a negative (normal) test result is truly free
+of disease.
+
+when the positive predictive values are constrained to be equal but the
+prevalences differ across groups, the false positive and false negative rates
+cannot both be equal across those groups.
+
+(i) Allow unequal false negative rates to retain equal PPV’s and achieve equal false positive rates
+(ii) Allow unequal false positive rates to retain equal PPV’s and achieve equal false negative rates
+(iii) Allow unequal PPV’s to achieve equal false positive and false negative rates
+
 ---
 # Dataset Construction for Fairness
 
@@ -574,6 +591,17 @@ _Fairness-aware Machine Learning_, Bennett et al., WSDM Tutorial (2019).
 
 _Datasheets for Dataset_, Gebru et al., (2019). https://arxiv.org/abs/1803.09010
 
+Noes: 
+
+In the electronics industry, every component, no matter how simple or complex,
+is accompanied with a datasheet that describes its operating characteristics,
+test results, recommended uses, and other information. By analogy, we propose
+that every dataset be accompanied with a datasheet that documents its
+motivation, composition, collection process, recommended uses, and so on.
+Datasheets for datasets will facilitate better communication between dataset
+creators and dataset consumers, and encourage the machine learning community to
+prioritize transparency and accountability.
+
 ----
 ## Model Cards
 
@@ -584,7 +612,7 @@ See also: https://modelcards.withgoogle.com/about
 
 <!-- references_ -->
 
-Mitchell, Margaret, et al. "[Model cards for model reporting](https://www.seas.upenn.edu/~cis399/files/lecture/l22/reading2.pdf)." In Proceedings of the Conference on fairness, accountability, and transparency, pp. 220-229. 2019.
+Mitchell, Margaret, et al. "[Model cards for model reporting](https://arxiv.org/abs/1810.03993)." In Proceedings of the Conference on fairness, accountability, and transparency, pp. 220-229. 2019.
 
 
 ----
