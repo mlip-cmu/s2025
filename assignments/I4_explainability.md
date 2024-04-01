@@ -20,6 +20,8 @@ Learning goals:
 
 In this assignment, you will work on a model for a potential medical application ([diabetic retinopathy detection with a smartphone app](https://github.com/cmu-seai/diabetic-retinopathy)) and one of six policies providing regulatory requirements, which we randomly assign (they are all comparable in workload and difficulty and have exactly the same grading criteria). You find your specific policy in the assignment text on Canvas. Create a GitHub repository with optional starter code for your work with the provided GitHub classroom link on Canvas. While we only provide the model and training/test data, assume that the model is embedded in a real-world software product as described in the repository. 
 
+*Assume the policy was created for internal use by the company that creates the smartphone app to hold itself to high standards of responsible engineering -- management has affirmed it and it is mandatory for all projects using machine learning.*
+
 The task is to generate two forms of transparency mechanisms/explanations, discuss policy compliance, and reflect on the experience:
 
 **Global explanations about the model or data:** Consider what external stakeholders might want to know about the product, the model, or the data (transparency). Create a HTML site that includes information about the data or model in a form that the company producing the product may disclose for transparency. This might include information about the data, about accuracy, about important features, or about fairness. We recommend but do not require automating the creation of this site.
