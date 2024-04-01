@@ -591,7 +591,7 @@ _Fairness-aware Machine Learning_, Bennett et al., WSDM Tutorial (2019).
 
 _Datasheets for Dataset_, Gebru et al., (2019). https://arxiv.org/abs/1803.09010
 
-Noes: 
+Notes: 
 
 In the electronics industry, every component, no matter how simple or complex,
 is accompanied with a datasheet that describes its operating characteristics,
