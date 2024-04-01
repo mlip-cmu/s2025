@@ -249,7 +249,7 @@ Equity (minimize disparate impact):
 * Strive for similar outcomes (distributive justice)
 * Group-fairness-style fairness; equality of outcomes
 
-Each rooted in long history of law/philosophy, and typically incompatable. 
+Each rooted in long history of law/philosophy, and typically incompatible. 
 Problem and goal dependent
 
 </div>
