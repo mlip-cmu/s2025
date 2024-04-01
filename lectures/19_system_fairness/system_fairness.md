@@ -614,6 +614,19 @@ See also: https://modelcards.withgoogle.com/about
 
 Mitchell, Margaret, et al. "[Model cards for model reporting](https://arxiv.org/abs/1810.03993)." In Proceedings of the Conference on fairness, accountability, and transparency, pp. 220-229. 2019.
 
+Notes:
+
+Model cards are short documents accompanying trained machine learning models
+that provide benchmarked evaluation in a variety of conditions, such as across
+different cultural, demographic, or phenotypic groups (e.g., race, geographic
+location, sex, Fitzpatrick skin type) and intersectional groups (e.g., age and
+race, or sex and Fitzpatrick skin type) that are relevant to the intended
+application domains. Model cards also disclose the context in which models are
+intended to be used, details of the performance evaluation procedures, and other
+relevant information. While we focus primarily on human-centered machine
+learning models in the application fields of computer vision and natural
+language processing, this framework can be used to document any trained machine
+learning model.
 
 ----
 ## Dataset Exploration
