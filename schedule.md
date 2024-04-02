@@ -35,7 +35,7 @@
 | Wed, Mar 27 | [Measuring Fairness](https://mlip-cmu.github.io/s2024/slides/18_fairness_measures/model_fairness.html) ([book chapter](https://ckaestne.medium.com/fairness-in-machine-learning-and-ml-enabled-products-8ee05ed8ffc4))  |  |  |
 | Fri, Mar 29 | ![Lab](https://img.shields.io/badge/-lab-yellow.svg) Container orchestration: Kubernetis  |  |  |
 | Mon, Apr 01 | [Building Fairer Systems](https://mlip-cmu.github.io/s2024/slides/19_system_fairness/system_fairness.html) ([book chapter](https://ckaestne.medium.com/fairness-in-machine-learning-and-ml-enabled-products-8ee05ed8ffc4))  |  |  |
-| Wed, Apr 03 | Explainability & Interpretability ([book chapter](https://ckaestne.medium.com/interpretability-and-explainability-a80131467856)) |  |  |
+| Wed, Apr 03 | [Explainability & Interpretability](https://mlip-cmu.github.io/s2024/slides/20_explainability/explainability.html) ([book chapter](https://ckaestne.medium.com/interpretability-and-explainability-a80131467856)) |  |  |
 | Fri, Apr 05 | ![Lab](https://img.shields.io/badge/-lab-yellow.svg) Explainability Tools |  |  |
 | Mon, Apr 08 | Transparency & Accountability ([book chapter](https://ckaestne.medium.com/transparency-and-accountability-in-ml-enabled-systems-f8ed0b6fd183)) |  | [M3: Monitoring and CD](https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md) |
 | Wed, Apr 10 | Security and Privacy ([book chapter](https://ckaestne.medium.com/security-and-privacy-in-ml-enabled-systems-1855f561b894)) |  |  |
