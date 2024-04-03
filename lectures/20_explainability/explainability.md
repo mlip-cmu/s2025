@@ -15,6 +15,44 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 ---
+# Administrativa
+
+[Homework I4](https://github.com/mlip-cmu/s2024/blob/main/assignments/I4_explainability.md) to be released Monday; 1 week assignment, due Apr 17
+
+<!-- colstart -->
+
+![diabetic retinopathy, screening photo](diabetic_retinopathy_screening.jpg)
+
+<!-- col -->
+
+![diabetic retinopathy, eye photo](diabetic_retinopathy.png)
+
+<!-- col -->
+
+![smartphone with lense attached](diabetic_retinopathy_lens.jpg)
+
+<!-- colend -->
+
+----
+## Research in this Course (in I4)
+
+<div class="small">
+
+> We are conducting academic research on explainability policies and evidence. This research will involve analyzing student work of this assignment. You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar (nadian@andrew.cmu.edu). Participants will not receive any compensation or extra credit. The data collected as part of this research will not include student grades. All analyses of data from participants’ coursework will be conducted after the course is over and final grades are submitted -- instructors will not know who chooses not to participate before final grades are submitted. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers. If you have questions pertaining to your rights as a research participant, or to report concerns to this study, please contact Nadia Nahar (nadian@andrew.cmu.edu) or the Office of Research Integrity and Compliance at Carnegie Mellon University (irb-review@andrew.cmu.edu; phone: 412-268-4721).
+
+</div>
+
+
+----
+
+![Solar eclipse](solareclipse.png)
+<!-- .element: class="plain stretch" -->
+
+----
+## TAing Next Semester?
+
+
+---
 ## Explainability as Building Block in Responsible Engineering
 
 ![Overview of course content](../_assets/overview.svg)
