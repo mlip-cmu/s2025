@@ -42,6 +42,14 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 </div>
 
+----
+## Milestone 3: Availability Requirement
+
+> 10pt: The recommendation service is at least 70% available in the 72 hours before the submission and the 96 hours after (i.e., max downtime of 50h), while at least two updates are performed in that time period.
+ 
+> 5pt: Bonus points if the recommendation service is at least 99% available in the same 7-day window (max 100min downtime), while at least two updates are performed in that time period.
+
+
 
 ----
 
