@@ -11,11 +11,11 @@
 	</style>
 	<script type="text/javascript"><!--
 
+	const maxTeamsize = 6;
 	function init() {
-		const teamsize = 5
 		const options = document.getElementById('tmpl')
-		for (let rater=1; rater<=teamsize; rater++) {
-			for (let rated=1; rated<=teamsize; rated++) {
+		for (let rater=1; rater<=maxTeamsize; rater++) {
+			for (let rated=1; rated<=maxTeamsize; rated++) {
 				const id= 'r'+rated+rater
 				const r=document.getElementById(id)
 				if (r)
@@ -26,7 +26,7 @@
 	}
 	function update() {
 		const teamsize = parseInt(document.getElementById('nr').value)
-		let v = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+		let v = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
 		let total = 0
 		for (let rater=1; rater<=teamsize; rater++) {
 			for (let rated=1; rated<=teamsize; rated++) {
@@ -53,11 +53,10 @@
 	}
 	function updateNr() {
 		const teamsize = parseInt(document.getElementById('nr').value)
-		for (let idx=4;idx<=5;idx++) {
-			console.log(idx,teamsize, idx<=teamsize)
+		for (let idx=4;idx<=maxTeamsize;idx++) {
 			document.getElementById('h'+idx).style.visibility = (idx<=teamsize ? '' : 'hidden')
 			document.getElementById('r'+idx).style.visibility = (idx<=teamsize ? '' : 'hidden')
-			for (let rater=1; rater<=teamsize; rater++) {
+			for (let rater=1; rater<=maxTeamsize; rater++) {
 				document.getElementById('r'+rater+idx).style.visibility = (idx<=teamsize ? '' : 'hidden')
 			}
 		}
@@ -79,7 +78,7 @@
 </div>
 
 <div>
-	<label>Team members: <select id='nr' onchange="updateNr()"><option>3</option><option>4</option><option selected="true">5</option></select></label>
+	<label>Team members: <select id='nr' onchange="updateNr()"><option>3</option><option>4</option><option selected="true">5</option><option>6</option></select></label>
 </div>
 <div>
 	<table>
@@ -90,6 +89,7 @@
 			<th>Rated by Team member 3</th>
 			<th id='h4'>Rated by Team member 4</th>
 			<th id='h5'>Rated by Team member 5</th>
+			<th id='h6'>Rated by Team member 6</th>
 			<th>Indiv. Avg.</th>
 			<th>Team Avg.</th>
 			<th>Grade adjustment</th>
@@ -101,6 +101,7 @@
 			<td><span id="r13" /></td>
 			<td><span id="r14" /></td>
 			<td><span id="r15" /></td>
+			<td><span id="r16" /></td>
 			<td><span id="ia1" /></td>
 			<td><span id="ta1" /></td>
 			<td><span id="t1" /></td>
@@ -112,6 +113,7 @@
 			<td><span id="r23" /></td>
 			<td><span id="r24" /></td>
 			<td><span id="r25" /></td>
+			<td><span id="r26" /></td>
 			<td><span id="ia2" /></td>
 			<td><span id="ta2" /></td>
 			<td><span id="t2" /></td>
@@ -123,6 +125,7 @@
 			<td><span id="r33" /></td>
 			<td><span id="r34" /></td>
 			<td><span id="r35" /></td>
+			<td><span id="r36" /></td>
 			<td><span id="ia3" /></td>
 			<td><span id="ta3" /></td>
 			<td><span id="t3" /></td>
@@ -134,6 +137,7 @@
 			<td><span id="r43" /></td>
 			<td><span id="r44" /></td>
 			<td><span id="r45" /></td>
+			<td><span id="r46" /></td>
 			<td><span id="ia4" /></td>
 			<td><span id="ta4" /></td>
 			<td><span id="t4" /></td>
@@ -145,9 +149,23 @@
 			<td><span id="r53" /></td>
 			<td><span id="r54" /></td>
 			<td><span id="r55" /></td>
+			<td><span id="r56" /></td>
 			<td><span id="ia5" /></td>
 			<td><span id="ta5" /></td>
 			<td><span id="t5" /></td>
+		</tr>
+
+		<tr id='r6'>
+			<th>Team member 6</th>
+			<td><span id="r61" /></td>
+			<td><span id="r62" /></td>
+			<td><span id="r63" /></td>
+			<td><span id="r64" /></td>
+			<td><span id="r65" /></td>
+			<td><span id="r66" /></td>
+			<td><span id="ia6" /></td>
+			<td><span id="ta6" /></td>
+			<td><span id="t6" /></td>
 		</tr>
 	</table>
 

@@ -1,8 +1,8 @@
 ---
-author: Eunsuk Kang and Christian Kaestner
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Data Quality"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Eunsuk Kang & Christian Kaestner, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/12_dataquality.jpg" -->
@@ -23,7 +23,7 @@ One week from today, here
 
 Questions based on shared scenario, apply concepts
 
-Past midterms [online](https://github.com/mlip-cmu/s2023/tree/main/exams), similar style
+Past midterms [online](https://github.com/mlip-cmu/s2024/tree/main/exams), similar style
 
 All lectures and readings in scope, focus on concepts with opportunity to practice (e.g., recitations, homeworks, in-class exercises)
 
@@ -42,7 +42,7 @@ Closed book, but 6 sheets of notes (sorry, no ChatGPT)
 ## Readings
 
 Required reading:
-* Sambasivan, N., Kapania, S., Highfill, H., Akrong, D., Paritosh, P., & Aroyo, L. M. (2021, May). “[Everyone wants to do the model work, not the data work”: Data Cascades in High-Stakes AI](https://dl.acm.org/doi/abs/10.1145/3411764.3445518). In Proc. Conference on Human Factors in Computing Systems (pp. 1-15).
+* Sambasivan, N., Kapania, S., Highfill, H., Akrong, D., Paritosh, P., & Aroyo, L. M. (2021, May). [“Everyone wants to do the model work, not the data work”: Data Cascades in High-Stakes AI](https://dl.acm.org/doi/abs/10.1145/3411764.3445518). In Proc. Conference on Human Factors in Computing Systems (pp. 1-15).
 
 
 
@@ -67,18 +67,6 @@ Recommended reading:
 
 (often delayed, hard-to-fix consequences)
 
-----
-
-![Data explosion](data-explosion.png)
-<!-- .element: class="stretch" -->
-
-<!-- references_ -->
-Image source: https://medium.com/@melodyucros/ladyboss-heres-why-you-should-study-big-data-721b04b8a0ca
-
-----
-
-![Oprah data](everybody-data.jpeg)
-<!-- .element: class="stretch" -->
 
 ----
 ## GIGO: Garbage in, garbage out
@@ -310,7 +298,7 @@ Inaccurate data -> misleading models, biased models
 
 ---
 
-# Data Schema
+# Data Integrety / Schema
 
 Ensuring basic consistency about shape and types
 
@@ -324,19 +312,6 @@ Ensuring basic consistency about shape and types
 *Problems with this data?*
 
 
-
-----
-## Data Quality Problems
-
-![Quality Problems Taxonomy](qualityproblems.png)
-<!-- .element: class="stretch" -->
-
-* Schema-level: Generic, domain-independent issues in data
-* Instance-level: Application- and domain-specific
-
-<!-- references_ -->
-
-Source: Rahm, Erhard, and Hong Hai Do. [Data cleaning: Problems and current approaches](http://dc-pubs.dbs.uni-leipzig.de/files/Rahm2000DataCleaningProblemsand.pdf). IEEE Data Eng. Bull. 23.4 (2000): 3-13.
 
 
 ----
@@ -542,7 +517,7 @@ Well supported in databases and many tools
 
 
 ---
-# Instance-Level Problems
+# Wrong and Inconsistent Data
 
 Application- and domain-specific data issues
 
@@ -556,7 +531,7 @@ Application- and domain-specific data issues
 
 
 ----
-## Instance-Level Problems
+## Wrong and Inconsistent Data
 
 
 * Missing values: `phone=9999-999999`
@@ -574,7 +549,7 @@ Further readings: Rahm, Erhard, and Hong Hai Do. [Data cleaning: Problems and cu
 
 
 ----
-## Discussion: Instance-Level Problems?
+## Discussion: Wrong and Inconsistent Data?
 
 ![Shelves in a warehouse](warehouse.jpg)
 <!-- .element: class="stretch" -->
@@ -822,6 +797,14 @@ Define term for target audience
 
 ![Random letters](../_assets/onterminology.jpg)<!-- .element: class="cornerimg" -->
 
+
+----
+## Last AIV Warning for Breakouts
+
+From the first lecture and syllabus:
+
+> Within groups, we expect that you are honest about your contribution to the group's work. [...] This also applies to in-class discussions, where indicating working with others who did not participate in the discussion is considered an academic honesty violation.
+
 ----
 ## Breakout: Drift in the Inventory System
 
@@ -844,11 +827,9 @@ As a group, tagging members, write plausible examples in `#lecture`:
 ----
 ## Watch for Degradation in Prediction Accuracy
 
-![Model Drift](model_drift.jpg)
-<!-- .element: class="stretch" -->
+![Model Drift](drift-refresh.svg)
+<!-- .element: class="stretch plain" -->
 
-<!-- references_ -->
-Image source: Joel Thomas and Clemens Mewald. [Productionizing Machine Learning: From Deployment to Drift Detection](https://databricks.com/blog/2019/09/18/productionizing-machine-learning-from-deployment-to-drift-detection.html). Databricks Blog, 2019
 
 
 
@@ -865,6 +846,8 @@ Image source: Joel Thomas and Clemens Mewald. [Productionizing Machine Learning:
 Model degradations observed with telemetry
 
 Telemetry indicates different outputs over time for similar inputs
+
+Differences in influential features and feature importance over time
 
 Relabeling training data changes labels
 
@@ -1020,6 +1003,14 @@ Several ideas for documenting distributions, including [Datasheets](https://dl.a
 🗎 Gebru, Timnit, et al. "[Datasheets for datasets](https://dl.acm.org/doi/fullHtml/10.1145/3458723)." Communications of the ACM 64, no. 12 (2021). <br />
 🗎 Nahar, Nadia, et al. “[Collaboration Challenges in Building ML-Enabled Systems: Communication, Documentation, Engineering, and Process](https://arxiv.org/abs/2110.10234).” In Pro. ICSE, 2022.
 
+
+----
+## Example Data Card (excerpt)
+
+[![Excerpt of a data card](data-card-example.png)](https://storage.googleapis.com/openimages/open_images_extended_miap/Open%20Images%20Extended%20-%20MIAP%20-%20Data%20Card.pdf)
+<!-- .element: class="plain stretch" -->
+
+Notes: Source: https://storage.googleapis.com/openimages/open_images_extended_miap/Open%20Images%20Extended%20-%20MIAP%20-%20Data%20Card.pdf
 
 ----
 ## Common Data Cascades

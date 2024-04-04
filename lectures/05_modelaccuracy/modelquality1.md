@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Model Correctness and Accuracy"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/03_accuracy.jpg" -->
@@ -152,8 +152,6 @@ More on system vs model goals and other model qualities later
 <div class="small">
 
 **Model:** $\overline{X} \rightarrow Y$
-
-**Training/validation/test data:** sets of $(\overline{X}, Y)$ pairs indicating desired outcomes for select inputs
 
 **Performance:** In machine learning, "performance" typically refers to accuracy: 
 "this model performs better" = it produces more accurate results
@@ -617,18 +615,6 @@ As a group, post your answer to `#lecture` tagging all group members.
 
 </div>
 
-----
-## Correlation vs Causation
-
-
-![causation1](causation1.png)
-
-![causation2](causation2.png)
-
-<!-- references_ -->
-
-https://www.tylervigen.com/spurious-correlations
-
 
 ----
 
@@ -647,67 +633,6 @@ https://www.tylervigen.com/spurious-correlations
 <!-- .element: class="stretch" -->
 
 <!-- colend -->
-----
-## Risks of Metrics as Incentives
-
-Metrics-driven incentives can:
-  * Extinguish intrinsic motivation
-  * Diminish performance
-  * Encourage cheating, shortcuts, and unethical behavior
-  * Become addictive
-  * Foster short-term thinking
-
-Often, different stakeholders have different incentives
-
-**Make sure data scientists and software engineers share goals and success measures**
-
-----
-## Example: University Rankings
-
-<!-- colstart -->
-
-![US News](us-news.jpg)
-
-<!-- col -->
-
-* Originally: Opinion-based polls, but complaints by schools on subjectivity
-* Data-driven model: Rank colleges in terms of "educational excellence"
-* Input: SAT scores, student-teacher ratios, acceptance rates,
-retention rates, campus facilities, alumni donations, etc.,
-
-<!-- colend -->
-----
-## Example: University Rankings
-
-<!-- colstart -->
-
-![US News](us-news.jpg)
-
-<!-- col -->
-
-* Can the ranking-based metric be misused or cause unintended side effects?
-
-
-<!-- colend -->
-
-<!-- references -->
-
-For more, see Weapons of Math Destruction by Cathy O'Neil
-
-
-Notes:
-
-* Example 1
-  * Schools optimize metrics for higher ranking (add new classrooms, nicer
-  facilities)
-  * Tuition increases, but is not part of the model!
-  * Higher ranked schools become more expensive
-  * Advantage to students from wealthy families
-* Example 2
-  * A university founded in early 2010's
-  * Math department ranked by US News as top 10 worldwide
-  * Top international faculty paid \$\$ as a visitor; asked to add affiliation
-  * Increase in publication citations => skyrocket ranking!
 
 
 
@@ -1178,7 +1103,8 @@ Note: The curve is the real trend, red points are training data, green points ar
 
 Example: Kaggle competition on detecting distracted drivers
 
-![Driver Picture 1](driver_phone1.png) ![Driver Picture 2](driver_phone2.png)
+![Driver Picture 1](driver_phone1.png) 
+![Driver Picture 2](driver_phone2.png)
 <!-- .element: class="stretch" -->
 
 Relation of datapoints may not be in the data (e.g., driver)

@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Planning for Operations"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/14_containers.jpg" -->

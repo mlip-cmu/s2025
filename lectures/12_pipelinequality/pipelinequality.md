@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Automating and Testing ML Pipelines"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/11_infrastructurequality.jpg" -->
@@ -228,6 +228,19 @@ print(lr.score(X_test, y_test))
 **How to test??**
 
 ----
+## Testability can be decomposed into...
+
+<!-- colstart -->
+Controllability:
+* Ability to influence system internal state or behavior by changing its inputs
+
+<!-- col -->
+Observability
+* Degree to which you can determine that the behavior went as expected. 
+
+<!-- colend -->
+
+----
 ## Pipeline restructed into separate function
 
 <div class="small">
@@ -343,6 +356,15 @@ df.loc[idx_nan_age,'Age'].loc[idx_nan_age] =
 df["Weight"].astype(str).astype(int)
 ```
 
+Notes:
+
+1 attempting to remove na values from column, not table, drops the whole data frame
+
+2 loc[] called twice, resulting in assignment to temporary column only, goal was
+a slice of a slice
+
+3 astype() is not an in-place operation. the intention is probably to change the
+type but it doesn’t do it in place
 
 ----
 ## Subtle Bugs in Data Wrangling Code (continued)
@@ -384,171 +406,14 @@ Can test individual parts
 
 
 ---
-# Excursion: Test Automation
-
-----
-## From Manual Testing to Continuous Integration
-
-<!-- colstart -->
-![Manual Testing](manualtesting.jpg)
-<!-- col -->
-![Continuous Integration](ci.png)
-<!-- colend -->
-
-
-----
-## Anatomy of a Unit Test
-
-```java
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-
-public class AdjacencyListTest {
-    @Test
-    public void testSanityTest(){
-        // set up
-        Graph g1 = new AdjacencyListGraph(10);
-        Vertex s1 = new Vertex("A");
-        Vertex s2 = new Vertex("B");
-        // check expected results (oracle)
-        assertEquals(true, g1.addVertex(s1));
-        assertEquals(true, g1.addVertex(s2));
-        assertEquals(true, g1.addEdge(s1, s2));
-        assertEquals(s2, g1.getNeighbors(s1)[0]);
-    }
-
-    // use abstraction, e.g. common setups
-    private int helperMethod…
-}
-```
-
-----
-## Ingredients to a Test
-
-Specification
-
-Controlled environment
-
-Test inputs (calls and parameters)
-
-Expected outputs/behavior (oracle)
-
-
-----
-## Unit Testing Pitfalls
-
-
-Working code, failing tests
-
-"Works on my machine"
-
-Tests break frequently
-
-**How to avoid?**
-
-
-----
-## Testable Code
-
-Think about testing when writing code
-
-Unit testing encourages you to write testable code
-
-Separate parts of the code to make them independently testable
-
-Abstract functionality behind interface, make it replaceable
-
-Bonus: Test-Driven Development is a design and development method in which you *always* write tests *before* writing code
-
-
-
-
-----
-## Build systems & Continuous Integration
-
-Automate all build, analysis, test, and deployment steps from a command line call
-
-Ensure all dependencies and configurations are defined
-
-Ideally reproducible and incremental
-
-Distribute work for large jobs
-
-Track results
-
-**Key CI benefit: Tests are regularly executed, part of process**
-
-----
-![Continuous Integration example](ci.png)
-
-
-
-----
-## Tracking Build Quality
-
-Track quality indicators over time, e.g.,
-* Build time
-* Coverage
-* Static analysis warnings
-* Performance results
-* Model quality measures
-* Number of TODOs in source code
-
-
-
-----
-## Coverage
-
-![](coverage.png)
-
-
-
-----
-[![Jenkins Dashboard with Metrics](https://blog.octo.com/wp-content/uploads/2012/08/screenshot-dashboard-jenkins1.png)](https://blog.octo.com/en/jenkins-quality-dashboard-ios-development/)
-
-<!-- references -->
-
-Source: https://blog.octo.com/en/jenkins-quality-dashboard-ios-development/
-
-
-----
-## Tracking Model Qualities
-
-Many tools: MLFlow, ModelDB, Neptune, TensorBoard, Weights & Biases, Comet.ml, ...
-
-![MLFlow interface](mlflow-web-ui.png)
-
-----
-## ModelDB Example
-
-```python
-from verta import Client
-client = Client("http://localhost:3000")
-
-proj = client.set_project("My first ModelDB project")
-expt = client.set_experiment("Default Experiment")
-
-# log a training run
-run = client.set_experiment_run("First Run")
-run.log_hyperparameters({"regularization" : 0.5})
-model1 = # ... model training code goes here
-run.log_metric('accuracy', accuracy(model1, validationData))
-```
-
-
-
-
-
-
-
-
----
 # Testing Maturity
 
 
 <!-- references -->
 
 Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://research.google.com/pubs/archive/46555.pdf). Proceedings of IEEE Big Data (2017)
+
+Notes:
 
 
 ----
@@ -643,6 +508,171 @@ Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. [The ML Test 
 * In `#lecture`, tagging group members, suggest what top 2 tests to implement and how
 
 
+---
+# Excursion: Test Automation
+
+----
+## From Manual Testing to Continuous Integration
+
+<!-- colstart -->
+![Manual Testing](manualtesting.jpg)
+<!-- col -->
+![Continuous Integration](ci.png)
+<!-- colend -->
+
+
+----
+## Anatomy of a Unit Test
+
+```java
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class AdjacencyListTest {
+    @Test
+    public void testSanityTest(){
+        // set up
+        Graph g1 = new AdjacencyListGraph(10);
+        Vertex s1 = new Vertex("A");
+        Vertex s2 = new Vertex("B");
+        // check expected results (oracle)
+        assertEquals(true, g1.addVertex(s1));
+        assertEquals(true, g1.addVertex(s2));
+        assertEquals(true, g1.addEdge(s1, s2));
+        assertEquals(s2, g1.getNeighbors(s1)[0]);
+    }
+
+    // use abstraction, e.g. common setups
+    private int helperMethod…
+}
+```
+
+----
+## Ingredients to a Test
+
+Specification
+
+Controlled environment
+
+Test inputs (calls and parameters)
+
+Expected outputs/behavior (oracle)
+
+
+----
+## Unit Testing Pitfalls
+
+
+Working code, failing tests
+
+"Works on my machine"
+
+Tests break frequently
+
+**How to avoid?**
+
+
+----
+## Testability can be decomposed into...
+
+<!-- colstart -->
+Controllability:
+* Ability to influence system internal state or behavior by changing its inputs
+
+<!-- col -->
+Observability
+* Degree to which you can determine that the behavior went as expected. 
+
+<!-- colend -->
+
+----
+## Testable Code
+
+Think about testing when writing code
+
+Unit testing encourages you to write testable code
+
+Separate parts of the code to make them independently testable
+
+Abstract functionality behind interface, make it replaceable
+
+Bonus: Test-Driven Development is a design and development method in which you *always* write tests *before* writing code
+
+
+
+
+----
+## Build systems & Continuous Integration
+
+Automate all build, analysis, test, and deployment steps from a command line call
+
+Ensure all dependencies and configurations are defined
+
+Ideally reproducible and incremental
+
+Distribute work for large jobs
+
+Track results
+
+**Key CI benefit: Tests are regularly executed, part of process**
+
+----
+![Continuous Integration example](ci.png)
+
+
+
+----
+## Tracking Build Quality
+
+Track quality indicators over time, e.g.,
+* Build time
+* Coverage
+* Static analysis warnings
+* Performance results
+* Model quality measures
+* Number of TODOs in source code
+
+
+
+----
+## Coverage
+
+![](coverage.png)
+
+
+
+----
+## Tracking Model Qualities
+
+Many tools: MLFlow, ModelDB, Neptune, TensorBoard, Weights & Biases, Comet.ml, ...
+
+![MLFlow interface](mlflow-web-ui.png)
+
+----
+## ModelDB Example
+
+```python
+from verta import Client
+client = Client("http://localhost:3000")
+
+proj = client.set_project("My first ModelDB project")
+expt = client.set_experiment("Default Experiment")
+
+# log a training run
+run = client.set_experiment_run("First Run")
+run.log_hyperparameters({"regularization" : 0.5})
+model1 = # ... model training code goes here
+run.log_metric('accuracy', accuracy(model1, validationData))
+```
+
+Notes: 
+ModelDB is an open-source system to version machine learning models including their ingredients code, data, config, and environment and to track ML metadata across the model lifecycle.
+
+Use ModelDB to:
+
+Make your ML models reproducible
+Manage your ML experiments, build performance dashboards, and share reports
+Track models across their lifecycle including development, deployment, and live monitoring
 
 
 ---
@@ -737,10 +767,6 @@ def test_do_not_overwrite_gender():
 
 ---
 # Testing Error Handling / Infrastructure Robustness
-
-----
-<!-- .element: class="titleslide"  data-background="bluescreen.png" -->
-
 
 ----
 ## General Error Handling Strategies
@@ -1318,67 +1344,6 @@ Testing in production
 ![V-Model](vmodel.svg)
 <!-- .element: class="stretch plain" -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 # Code Review and Static Analysis
 
@@ -1511,10 +1476,10 @@ Further readings: Hynes, Nick, D. Sculley, and Michael Terry. [The data linter: 
 
 <div class="smallish">
 
-* 🗎 O'Leary, Katie, and Makoto Uchida. "[Common problems with Creating Machine Learning Pipelines from Existing Code](https://research.google/pubs/pub48984.pdf)." Proc. Third Conference on Machine Learning and Systems (MLSys) (2020).
-* 🗎 Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction. Proceedings of IEEE Big Data (2017)
-* 📰 Zinkevich, Martin. [Rules of Machine Learning: Best Practices for ML Engineering](https://developers.google.com/machine-learning/guides/rules-of-ml/). Google Blog Post, 2017
-* 🗎 Serban, Alex, Koen van der Blom, Holger Hoos, and Joost Visser. "[Adoption and Effects of Software Engineering Best Practices in Machine Learning](https://arxiv.org/pdf/2007.14130)." In Proc. ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (2020).
+* O'Leary, Katie, and Makoto Uchida. "[Common problems with Creating Machine Learning Pipelines from Existing Code](https://research.google/pubs/pub48984.pdf)." Proc. Third Conference on Machine Learning and Systems (MLSys) (2020).
+* Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction. Proceedings of IEEE Big Data (2017)
+* Zinkevich, Martin. [Rules of Machine Learning: Best Practices for ML Engineering](https://developers.google.com/machine-learning/guides/rules-of-ml/). Google Blog Post, 2017
+* Serban, Alex, Koen van der Blom, Holger Hoos, and Joost Visser. "[Adoption and Effects of Software Engineering Best Practices in Machine Learning](https://arxiv.org/pdf/2007.14130)." In Proc. ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (2020).
 
 </div>
 

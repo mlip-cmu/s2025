@@ -78,7 +78,7 @@ Run `train.py` as it is. This should create a basic SciKit Learn Iris Classifier
 ### Step 2 - Fill in the Blanks in predict()
 In `server.py`, there is a function `predict()`. Fill in the TODOs to:
 1. Load a Machine Learning model 
-2. Run inference on an input sent through `GET` (Check **Calling a GET Request** for the curl command)
+2. Run inference on an input sent through `GET` (Check [Calling a GET Request](https://github.com/eshetty/mlip-docker-lab/blob/dc7b44b3a0d55190a125565d275fe61aa6f40bbe/Dockerfile#L11) for the curl command)
 3. Return prediction back as a response. Run the Flask App locally to see if your implementation works.
 
 ### Step 3 - Update the Dockerfile

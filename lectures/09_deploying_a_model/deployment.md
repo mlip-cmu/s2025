@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Deploying a Model"
 semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/09_deployment.jpg" -->
@@ -625,12 +625,16 @@ Plan location of non-ML safeguards and other processing logic
 <!-- .element: class="plain" -->
 
 
+----
+## Composing Models: Retrieval Augmented Generation (RAG)
 
 
+![RAG architecture](rag.webp)
+<!-- .element: class="stretch plain" -->
 
 
-
-
+<!-- references_ -->
+Figure by [Leonie Monigatti](https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2)
 
 ---
 # Documenting Model Inference Interfaces

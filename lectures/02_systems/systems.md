@@ -1,8 +1,8 @@
 ---
 author: Christian Kaestner
 title: "MLiP: From Models to Systems"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/02_systems.jpg" -->
@@ -18,6 +18,16 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 ---
+
+# Administrativa
+
+* Still waiting for registrar to add another section
+* Follow up on syllabus discussion:
+  * When not feeling well -- please stay home and get well, and email us for accommodation
+  * When using generative AI to generate responses (or email/slack messages) -- please ask it to be brief and to the point!
+
+
+----
 
 # Learning goals
 
@@ -379,6 +389,13 @@ Passi, S., & Sengers, P. (2020). [Making data science systems work](https://jour
 
 
 ----
+## Model vs System Goal?
+
+![Model and system goals not aligning at booking.com](bookingcom2.png)
+<!-- .element: class="stretch" -->
+
+
+----
 ## More Accurate Predictions may not be THAT Important
 
 * "Good enough" may be good enough
@@ -427,7 +444,7 @@ Wagstaff, Kiri. "Machine learning that matters." In Proceedings of the 29 th Int
 * **MLOps** ~ technical infrastructure automating ML pipelines
 * sometimes **ML Systems Engineering** -- but often this refers to building distributed and scalable ML and data storage platforms
 * "AIOps" ~ using AI to make automated decisions in operations; "DataOps" ~ use of agile methods and automation in business data analytics
-* My preference: **Production Systems with Machine-Learning Components**
+* My preference: **Software Products with Machine-Learning Components**
 
 </div>
 
@@ -466,7 +483,7 @@ Start understanding the **requirements** of the system and its components
 <div class="small">
 
 * **Organizational objectives:** Innate/overall goals of the organization
-* **System goals:** Goals of the software system/feature to be built
+* **System goals:** Goals of the software system/product/feature to be built
 * **User outcomes:** How well the system is serving its users, from the user's perspective
 * **Model properties:** Quality of the model used in a system, from the model's perspective
 *
@@ -622,7 +639,25 @@ As a group post answer to `#lecture` tagging all group members using template:
 > User goals: ...<br />
 > Model goals: ...<br />
 
+----
+## Academic Integrity Issue
 
+* Please do not cover for people not participating in discussion
+* Easy to detect discrepancy between # answers and # people in classroom 
+* Please let's not have to have unpleasant meetings.
+
+
+----
+## Breakout: Automating Admission Decisions
+
+What are different types of goals behind automating admissions decisions to a Master's program?
+
+As a group post answer to `#lecture` tagging all group members using template:
+> Organizational goals: ...<br />
+> Leading indicators: ...<br />
+> System goals: ...<br />
+> User goals: ...<br />
+> Model goals: ...<br />
 
 
 

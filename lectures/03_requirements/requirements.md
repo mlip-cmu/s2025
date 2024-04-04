@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner & Eunsuk Kang
+author: Claire Le Goues & Christian Kaestner 
 title: "MLiP: Gathering Requirements"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Eunsuk Kang & Christian Kaestner, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/06_requirements.jpg" -->
@@ -34,10 +34,10 @@ failures
 ----
 ## Readings
 
-Required reading: 🗎 Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
+Required reading: Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
 
 
-Going deeper: 🕮 Van Lamsweerde, Axel. [Requirements engineering: From system goals to UML models to software](https://bookshop.org/books/requirements-engineering-from-system-goals-to-uml-models-to-software-specifications/9780470012703). John Wiley & Sons, 2009.
+Going deeper: Van Lamsweerde, Axel. [Requirements engineering: From system goals to UML models to software](https://bookshop.org/books/requirements-engineering-from-system-goals-to-uml-models-to-software-specifications/9780470012703). John Wiley & Sons, 2009.
 
 ---
 # Failures in ML-Based Systems
@@ -571,7 +571,7 @@ Slate, 01/2022
 <!-- discussion -->
 
 <!-- references -->
-See 🗎 Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
+See Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
 
 ----
 ## Understanding requirements is hard
@@ -589,7 +589,7 @@ See 🗎 Jackson, Michael. "[The world and the machine](https://web.archive.org/
 
 <!-- references -->
 
-See also 🗎 Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
+See also Jackson, Michael. "[The world and the machine](https://web.archive.org/web/20170519054102id_/http://mcs.open.ac.uk:80/mj665/icse17kn.pdf)." In Proceedings of the International Conference on Software Engineering. IEEE, 1995.
 
 ----
 ## Start with Stakeholders...
@@ -779,12 +779,12 @@ Identify stakeholders, interview them, resolve conflicts
 
 <div class="smaller">
 
-* 🕮 Van Lamsweerde, Axel. Requirements engineering: From system goals to UML models to software. John Wiley & Sons, 2009.
-* 🗎 Vogelsang, Andreas, and Markus Borg. "Requirements Engineering for Machine Learning: Perspectives from Data Scientists." In Proc. of the 6th International Workshop on Artificial Intelligence for Requirements Engineering (AIRE), 2019.
-* 🗎 Rahimi, Mona, Jin LC Guo, Sahar Kokaly, and Marsha Chechik. "Toward Requirements Specification for Machine-Learned Components." In 2019 IEEE 27th International Requirements Engineering Conference Workshops (REW), pp. 241-244. IEEE, 2019.
-* 🗎 Kulynych, Bogdan, Rebekah Overdorf, Carmela Troncoso, and Seda Gürses. "POTs: protective optimization technologies." In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp. 177-188. 2020.
-* 🗎 Wiens, Jenna, Suchi Saria, Mark Sendak, Marzyeh Ghassemi, Vincent X. Liu, Finale Doshi-Velez, Kenneth Jung et al. "Do no harm: a roadmap for responsible machine learning for health care." Nature medicine 25, no. 9 (2019): 1337-1340.
-* 🗎 Bietti, Elettra. "From ethics washing to ethics bashing: a view on tech ethics from within moral philosophy." In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp. 210-219. 2020.
-* 🗎 Guizani, Mariam, Lara Letaw, Margaret Burnett, and Anita Sarma. "Gender inclusivity as a quality requirement: Practices and pitfalls." IEEE Software 37, no. 6 (2020).
+*  Van Lamsweerde, Axel. Requirements engineering: From system goals to UML models to software. John Wiley & Sons, 2009.
+*  Vogelsang, Andreas, and Markus Borg. "Requirements Engineering for Machine Learning: Perspectives from Data Scientists." In Proc. of the 6th International Workshop on Artificial Intelligence for Requirements Engineering (AIRE), 2019.
+*  Rahimi, Mona, Jin LC Guo, Sahar Kokaly, and Marsha Chechik. "Toward Requirements Specification for Machine-Learned Components." In 2019 IEEE 27th International Requirements Engineering Conference Workshops (REW), pp. 241-244. IEEE, 2019.
+*  Kulynych, Bogdan, Rebekah Overdorf, Carmela Troncoso, and Seda Gürses. "POTs: protective optimization technologies." In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp. 177-188. 2020.
+*  Wiens, Jenna, Suchi Saria, Mark Sendak, Marzyeh Ghassemi, Vincent X. Liu, Finale Doshi-Velez, Kenneth Jung et al. "Do no harm: a roadmap for responsible machine learning for health care." Nature medicine 25, no. 9 (2019): 1337-1340.
+*  Bietti, Elettra. "From ethics washing to ethics bashing: a view on tech ethics from within moral philosophy." In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp. 210-219. 2020.
+*  Guizani, Mariam, Lara Letaw, Margaret Burnett, and Anita Sarma. "Gender inclusivity as a quality requirement: Practices and pitfalls." IEEE Software 37, no. 6 (2020).
 
 </div>

@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Scaling Data Storage and Data Processing"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/13_dataatscale.jpg" -->
@@ -755,14 +755,14 @@ How do you get the right data to the right place in the right format?
 Molham Aref "[Business Systems with Machine Learning](https://www.youtube.com/watch?v=_bvrzYOA8dY)"
 
 ---
-# Breakout: Vimeo Videos
+# Breakout: Scaling Albumly 
 
 As a group, discuss and post in `#lecture`, tagging group members:
 * How to distribute storage:
-* How to design scalable copy-right protection solution:
-* How to design scalable analytics (views, ratings, ...):
+* How to design scalable search index (object detect):
+* How to design scalable analytics (view count):
 
-[![Vimeo page](vimeo.png)](https://vimeo.com/about)
+![Albumy screenshot](albumy.png)
 
 ---
 # Excursion: ETL Tools

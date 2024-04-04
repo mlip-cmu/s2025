@@ -1,8 +1,8 @@
 ---
-author: Eunsuk Kang & Christian Kaestner
+author: Claire Le Goues & Christian Kaestner
 title: "MLiP: Motivation, Syllabus, and Introductions"
-semester: Fall 2022
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/01_intro.jpg" -->
@@ -32,12 +32,14 @@ Setup the ability to read/post to Slack during lecture
 
 `¯\_(ツ)_/¯`
 
-Best guess: Most people will get in, but it may take a few days
+About 120 students waitlisted
+
+Best guess: 40 more people will get in, but it may take a few days
 
 For those joining late:
   * Ask us for recording of missed lectures on Slack
   * Post introduction on Slack (`#intro`) when joining
-  * If joining after Jan 25, automatic 5 day extension for Homework I1
+  * See Canvas for automatic extensions and makeup opportunities for quizzes, labs, and homeworks 
   * Automatically excused for participation in missed lectures
 
 
@@ -306,18 +308,12 @@ Example:
 
 # Syllabus and Class Structure
 
-17-445/17-645/17-745/11-695, Spring 2023, 12 units
+17-445/17-645/17-745/11-695, Spring 2024, 12 units
 
-Monday/Wednesdays 2-3:25pm
+Monday/Wednesdays 2-3:20pm
 
-Recitation Fridays 10:00-10:50am / 12:00-12:50pm
+Recitation Fridays 9:30am, 11am, and 2pm
 
-----
-
-## Instructors
-
-![Faces of instructors](tas.png)
-<!-- .element: class="r-stretch" -->
 
 ----
 
@@ -325,10 +321,10 @@ Recitation Fridays 10:00-10:50am / 12:00-12:50pm
 
 * Email us or ping us on Slack (invite link on Canvas)
 * All announcements through Slack `#announcements`
-* Weekly office hours (see Canvas for schedule)
+* Weekly office hours, starting next week, schedule on Canvas
 * Post questions on Slack
   * Please use `#general` or `#assignments` and post publicly if possible; your classmates will benefit from your Q&A!
-* All course materials (slides, assignments, old midterms) available on GitHub and course website: https://mlip-cmu.github.io/s2023/ 
+* All course materials (slides, assignments, old midterms) available on GitHub and course website: https://mlip-cmu.github.io/s2024/ 
   * Pull requests encouraged!
 
 ----
@@ -391,7 +387,7 @@ Both text-based and code-based homework assignments
 <!-- colstart -->
 *"Coding warmup assignment"*
 
-[Out now](https://github.com/ckaestne/seai/blob/F2022/assignments/I1_mlproduct.md), due Monday Jan 30
+[Out now](https://github.com/mlip-cmu/s2024/blob/main/assignments/I1_mlproduct.md), due Monday Jan 29
 
 Enhance simple web *application* with ML-based features: Image search and automated  captioning
 
@@ -501,9 +497,7 @@ Mostly similar coverage to lecture
 
 Not required, use as supplementary reading
 
-Still evolving, feedback appreciated! 
-
-Published [online](https://ckaestne.medium.com/machine-learning-in-production-book-overview-63be62393581)
+Published [online](https://ckaestne.medium.com/machine-learning-in-production-book-overview-63be62393581) (and in book form next year)
 
 
 
@@ -514,7 +508,7 @@ Published [online](https://ckaestne.medium.com/machine-learning-in-production-bo
 
 <div class="smallish">
 
-All [assignments](https://github.com/mlip-cmu/s2023/tree/main/assignments) available on GitHub now
+Most [assignments](https://github.com/mlip-cmu/s2024/tree/main/assignments) available on GitHub now
 
 Series of 4 small to medium-sized **individual assignments**:
 * Engage with practical challenges
@@ -541,38 +535,54 @@ Design your own research project and write a report
 
 Very open ended: Align with own research interests and existing projects
 
-See the [project description](https://github.com/mlip-cmu/s2023/blob/main/assignments/research_project.md) and talk to us
+See the [project requirements](https://github.com/mlip-cmu/s2024/blob/main/assignments/research_project.md) and talk to us
 
 First hard milestone: initial description due Feb 27
 
+<!--
 
-----
+-- --
 ## Timeline
 
 
-![Timeline](timeline.svg)<!-- .element: class="plain" style="width:100%" -->
+![Timeline](timeline.svg).element: class="plain" style="width:100%"
 
+-->
 
 ----
-## Recitations
+## Labs
 
 Introducing various tools, e.g., fastAPI (serving), Kafka (stream processing), Jenkins (continuous integration), MLflow (experiment tracking), Docker & Kubernetis (containers), Prometheus & Grafana (monitoring), CHAP (explainability)...
 
 Hands on exercises, bring a laptop
 
-Often introducing tools relevant for assignments
+Often introducing tools useful for assignments
 
-First recitation on **this Friday**: Calling, securing, and creating APIs
+about 1h of work, graded pass/fail, low stakes, show work to TA
+
+First lab on **this Friday**: Calling, securing, and creating APIs
+
+----
+## Lab grading and collaboration
+
+We recommend to start at lab before the recitation, but can be completed during
+
+Graded pass/fail by TA on the spot, can retry
+
+*Relaxed collaboration policy:* Can work with others before and during recitation, but have to present/explain solution to TA individually
+
+(Think of recitations as mandatory office hours)
 
 ----
 
 ## Grading
 
-* 40% individual assignment
+* 35% individual assignment
 * 30% group project with final presentation
 * 10% midterm
 * 10% participation
 * 10% reading quizzes
+* 5% labs
 * No final exam (final presentations will take place in that timeslot)
 
 Expected grade cutoffs in syllabus (>82% B, >94 A-, >96% A, >99% A+)
@@ -600,14 +610,14 @@ Opportunities to resubmit work until last day of class
 
 <div class="smallish">
 
-7 individual tokens per student:
+8 individual tokens per student:
 - Submit individual assignment 1 day late for 1 token (after running out of tokens 15% penalty per late day)
 - Redo individual assignment for 3 token
 - Resubmit or submit reading quiz late for 1 token
+- Redo or complete a lab late for 1 token (show in office hours)
 - Remaining tokens count toward participation
-- 1 bonus token for attending >66% of recitations
 
-7 team tokens per team:
+8 team tokens per team:
 - Submit milestone 1 day late for 1 token (no late submissions accepted when out of tokens)
 - Redo milestone for 3 token 
 
@@ -617,9 +627,9 @@ Opportunities to resubmit work until last day of class
 ## How to use tokens
 
 * No need to tell us if you plan to submit very late. We will assign 0 and you can resubmit
-* Instructions and form for resubmission on Canvas 
+* Instructions and Google form for resubmission on Canvas 
 * We will automatically use remaining tokens toward participation and quizzes at the end
-* Remaining individual tokens reflected on Canvas, for remaining team tokens ask your TA.
+* Remaining individual tokens reflected on Canvas, for remaining team tokens ask your team mentor.
 
 
 
@@ -629,9 +639,9 @@ Opportunities to resubmit work until last day of class
 
 Instructor-assigned teams
 
-Teams stay together for project throughout semester, starting Feb 6
+Teams stay together for project throughout semester, starting Feb 5
 
-Fill out Catme Team survey before Feb 6 (3pt)
+Fill out Catme Team survey before Feb 5 (3pt)
 
 
 Some advice in lectures; we'll help with debugging team issues
@@ -651,6 +661,8 @@ In a nutshell: do not copy from other students, do not lie, do not share or publ
 
 In group work, be honest about contributions of team members, do not cover for others
 
+Collaboration okay on labs, but not quizzes, individual assignments, or exams
+
 If you feel overwhelmed or stressed, please come and talk to us (see syllabus for other support opportunities)
 
 ----
@@ -659,7 +671,7 @@ If you feel overwhelmed or stressed, please come and talk to us (see syllabus fo
 <!-- discussion -->
 
 
-GPT3, ChatGPT, ...? Reading quizzes, homework submissions, ...?
+GPT4, ChatGPT, CoPilot...? Reading quizzes, homework submissions, ...?
 
 
 ----
@@ -669,9 +681,9 @@ This is a course on responsible building of ML products. This includes questions
 
 Feel free to use them and explore whether they are useful. Welcome to share insights/feedback.
 
-Warning: They are *[bullshit generators](https://aisnakeoil.substack.com/p/chatgpt-is-a-bullshit-generator-but)*! Requires understanding to check answers. We test them ourselves and they often generate bad/wrong answers for reading quizzes.
+Warning: Be aware of hallucinations. Requires understanding to check answers. We test them ourselves and they often generate bad/wrong answers for reading quizzes.
 
-**You are still responsible for the correctness of what you submit!**
+**You are responsible for the correctness of what you submit!**
 
 
 

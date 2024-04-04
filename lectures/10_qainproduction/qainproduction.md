@@ -2,7 +2,7 @@
 author: Christian Kaestner and Eunsuk Kang
 title: "MLiP: Testing in Production"
 semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/10_qainproduction.jpg" -->
@@ -41,7 +41,7 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 Required Reading: 
-* 🕮 Hulten, Geoff. "[Building Intelligent Systems: A Guide to Machine Learning Engineering.](https://www.buildingintelligentsystems.com/)" Apress, 2018, Chapters 14 and 15 (Intelligence Management and Intelligent Telemetry).
+* Hulten, Geoff. "[Building Intelligent Systems: A Guide to Machine Learning Engineering.](https://www.buildingintelligentsystems.com/)" Apress, 2018, Chapters 14 and 15 (Intelligence Management and Intelligent Telemetry).
 
 Suggested Readings: 
 * Alec Warner and Štěpán Davidovič. "[Canary Releases](https://landing.google.com/sre/workbook/chapters/canarying-releases/)." in [The Site Reliability Workbook](https://landing.google.com/sre/books/), O'Reilly 2018
@@ -238,6 +238,8 @@ As a group post to `#lecture` and tag team members:
 > * Operationalization:
 
 </div>
+
+Notes: about 30 minutes to here
 
 ----
 ## Monitoring Model Quality in Production
@@ -482,6 +484,7 @@ Toward causal inference
 
 ![A/B test example of a single button's color](ab-button.png)<!-- .element: style="width:1000px" --> 
 
+Note: about an hour in
 
 
 ----
@@ -500,6 +503,7 @@ Map users to treatment group
 Monitor outcomes *per group*
 * Telemetry, sales, time on site, server load, crash rate
 
+Note: divide them into groups 
 ----
 ## Feature Flags (Boolean flags)
 
@@ -523,13 +527,30 @@ def isEnabled(user): Boolean = (hash(user.id) % 100) < 10
 
 </div>
 
+Note: mapping somewhere One way of doing this randomly is hashing user ID
+random but stable
+same users always in the same group
+some offset to get a new sample
+for telemetry you need to know what group a user was in.
+Once you have a mapping from flags here then it's easier
+you can also use a load balancer to manage this you need an if statement somewhere
+chrome, facebook, if statements are in the backend/code
+
 ----
 ![split.io screenshot](splitio.png)
 <!-- .element: class="stretch" --> 
 
 
 
+Notes:
+There are companies that do this as a service
+exposre your database. 
+"boolean option as a service"
+most groups in the past have done it themselves
 
+launch darkley, pslit IO, open source libraries 
+gets complicated when you want to do multiple experiments, factorial design gets complicated
+the bing team wrote a whole book
 
 
 ---
@@ -561,11 +582,27 @@ average 3:13 min time on site
 average 3:24 min time on site
 
 <!-- colend -->
+
+Notes: What's the problem here?
+t test assumes a normal distribution
+
+statistical tests to see if it's random event
+
+who here knows about the t test?  It's one of the standard tests for this kind of thing. 
 ----
 ## Comparing Distributions
 
 ![Two distributions, 10000 samples each from a normal distribution](twodist.png)
 <!-- .element: class="stretch" --> 
+
+Notes: means of the real distsurbitons from which this are sampled, chances that they're actually different
+
+t test captures that, it's old/simple, it's robust enough for almost everything we're doing here
+
+Originally for agriculture, all about barley vs. hops, it's about beer 
+
+milestone 3 we're going to ask for statistical confidence, T test is fine.  
+all these tools implement this .
 
 ----
 ## Different effect size, same deviations
@@ -627,8 +664,6 @@ Independent measurements
 * 
 * 3 random errors, each +/- 1
 * Measurements : 7 (12.5%), 9 (37.5), 11 (37.5), 12 (12.5)
-----
-<iframe src='https://gfycat.com/ifr/PleasingMeaslyGalapagossealion' frameborder='0' scrolling='no' allowfullscreen width='1200' height='700'></iframe>
 ----
 ## Normal Distribution
 ![Normal distribution](normaldist.png)
@@ -692,7 +727,9 @@ Source: https://cognetik.com/why-you-should-build-an-ab-test-dashboard/
 <!-- Risk of spreading bad designs -->
 <!-- colend -->
 
-
+Notes: 50/50? New model vs. old model 
+about 1:10 to here 
+inherently risky, so you don't want too many  in experiment
 
 
 ---

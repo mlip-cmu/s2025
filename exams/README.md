@@ -10,12 +10,13 @@ Topic-wise, everything covered in class, in the readings, and in recitation is f
 
 Midterms from previous semesters are available as practice. We expect the midterm to have a similar format, though topic coverage differs slightly between semesters.
 
-* [Practice midterm from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/practice_midterm.pdf) (corresponds quite well to topics covered this semester)
-* [Midterm from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/midterm.pdf) (we did not cover version control yet)
-* [Final from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/final_exam.pdf) (covers different topics, but provides yet another scenario)
-* [Midterm from Summer 2020](https://github.com/ckaestne/seai/blob/S2020/exams/midterm.pdf) (slightly fewer topics covered than this semester)
-* [Midterm from Fall 2020](https://github.com/ckaestne/seai/blob/F2020/exams/midterm_f20.pdf) (similar coverage)
-* [Midterm from Spring 2021](https://github.com/ckaestne/seai/blob/S2021/exams/) (similar coverage)
-* [Midterm from Spring 2022](https://github.com/ckaestne/seai/blob/S2022/exams/) (similar coverage, except data quality and infrastructure quality yet)
-* [Midterm from Fall 2022](https://github.com/ckaestne/seai/blob/F2022/exams/) (similar coverage)
+* [Practice midterm from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/practice_midterm.pdf) 
+* [Midterm from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/midterm.pdf) 
+* [Final from Fall 2019](https://github.com/ckaestne/seai/blob/F2019/other_material/final_exam.pdf) 
+* [Midterm from Summer 2020](https://github.com/ckaestne/seai/blob/S2020/exams/midterm.pdf) 
+* [Midterm from Fall 2020](https://github.com/ckaestne/seai/blob/F2020/exams/midterm_f20.pdf) 
+* [Midterm from Spring 2021](https://github.com/ckaestne/seai/blob/S2021/exams/) 
+* [Midterm from Spring 2022](https://github.com/ckaestne/seai/blob/S2022/exams/) 
+* [Midterm from Fall 2022](https://github.com/ckaestne/seai/blob/F2022/exams/) 
+* [Midterm from Spring 2023](https://github.com/mlip-cmu/s2023/tree/main/exams) 
 

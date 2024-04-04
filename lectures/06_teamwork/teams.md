@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Eunsuk Kang
+author: Christian Kaestner and Claire Le Goues
 title: "MLiP: Working with Interdisciplinary (Student) Teams"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/03a_teamwork.jpg" -->
@@ -27,11 +27,11 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ----
 ## Now: First Short Team Meeting (10 min)
 
-* Move to table with your team number
+* Find your team number and seat area
 * Say hi, introduce yourself: Name? SE or ML background? Favorite movie? Fun fact?
 * Find time for first team meeting in next few days
 * Agree on primary communication until team meeting
-* Pick a movie-related team name, post team name and tag all group members on slack in `#social`
+* Pick a movie-related team name (use a language model if needed), post team name and tag all group members on slack in `#social`
 
 ---
 ## Teamwork is crosscutting...
@@ -390,7 +390,7 @@ Based on research and years of own experience
 
 
 ----
-## Breakout: Navigating Team Issues
+## Breakout: Premortem
 
 Pick one or two of the scenarios (or another one team member faced in the past) and openly discuss proactive/reactive solutions
 
@@ -496,6 +496,34 @@ Adjusting grades based on survey and communication with course staff
 </div>
 
 
+
+----
+## Share the Work
+
+* Team members have different strength and weaknesses – that's good
+* Make use of individual strength of team members (split, pair up, help, ...)
+* Usually somebody will take responsibility for team management tasks (e.g., schedule meetings, moderate, meeting notes, track work, reminders, check submission) or reporting
+  * Team management is work too
+  * Consider rotating
+
+
+
+----
+## Maintain Accountability
+
+<div class="smallish">
+ 
+* **Write down explicit deliverables: *Who* does *what* by *when***
+    - Be explicit about expected results, should be verifiable 
+    - Track completion, check off when done
+    - GitHub issues, Jira, Trello board, Miro, Google docs, Slack, ... – **single source of truth, with history tracking**
+* Complete deliverable list **during meeting**: everybody writes their own deliverables, others read all deliverables to check understanding
+    - if not completed during meeting or team member not at meeting, email assignment after meeting to everybody; no objection within 24h counts as agreement with task assignment
+* We will ask for evidence of this with the first milestone
+* Consider sharing with teams' TA mentor
+
+</div>
+
 ----
 ## Some Communication Tips
 
@@ -512,31 +540,6 @@ Adjusting grades based on survey and communication with course staff
 </div>
 
 
-----
-## Share the Work
-
-* Team members have different strength and weaknesses – that's good
-* Make use of individual strength of team members (split, pair up, help, ...)
-* Usually somebody will take responsibility for team management tasks (e.g., schedule meetings, moderate, meeting notes, track work, reminders, check submission) or reporting
-  * Team management is work too
-  * Consider rotating
-
-
-----
-## Maintain Accountability
-
-<div class="smallish">
- 
-* **Write down explicit deliverables: *Who* does *what* by *when***
-    - Be explicit about expected results, should be verifiable 
-    - Track completion, check off when done
-    - GitHub issues, Jira, Trello board, Miro, Google docs, Slack, ... – **single source of truth, with history tracking** (see next recitation)
-* Complete deliverable list **during meeting**: everybody writes their own deliverables, others read all deliverables to check understanding
-    - if not completed during meeting or team member not at meeting, email assignment after meeting to everybody; no objection within 24h counts as agreement with task assignment
-* We will ask for evidence of this with the first milestone
-* Consider sharing with teams' TA mentor
-
-</div>
 
 ----
 ## Recall: Common Sources of Conflict

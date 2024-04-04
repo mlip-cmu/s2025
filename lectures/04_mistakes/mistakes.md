@@ -1,8 +1,8 @@
 ---
-author: Eunsuk Kang and Christian Kaestner
+author: Claire Le Goues & Christian Kaestner
 title: "MLiP: Planning for Mistakes"
-semester: Spring 2023
-footer: "Machine Learning in Production/AI Engineering • Eunsuk Kang & Christian Kaestner, Carnegie Mellon University • Spring 2023"
+semester: Spring 2024
+footer: "Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/07_mistakes.jpg" -->
@@ -11,6 +11,139 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ## Machine Learning in Production
 
 # Planning for Mistakes
+
+---
+# From last time...
+----
+## Requirements elicitation techniques (1)
+
+* Background study: understand organization, read documents, try to use old system
+* Interview different stakeholders
+  * Ask open ended questions about problems, needs, possible solutions, preferences, concerns...
+  * Support with visuals, prototypes, ask about tradeoffs
+  * Use checklists to consider qualities (usability, privacy, latency, ...)
+
+
+**What would you ask in lane keeping software? In fall detection software? In college admissions software?**
+
+----
+## ML Prototyping: Wizard of Oz
+
+![Wizard of oz excerpt](wizard.gif)<!-- .element: style="width:800px" -->
+
+Note: In a wizard of oz experiment a human fills in for the ML model that is to be developed. For example a human might write the replies in the chatbot. 
+
+----
+## Requirements elicitation techniques (2)
+
+* Surveys, groups sessions, workshops: Engage with multiple stakeholders, explore conflicts
+* Ethnographic studies: embed with users, passively observe or actively become part
+* Requirements taxonomies and checklists: Reusing domain knowledge
+* Personas: Shift perspective to explore needs of stakeholders not interviewed
+
+----
+## Negotiating Requirements
+
+Many requirements are conflicting/contradictory
+
+Different stakeholders want different things, have different priorities, preferences, and concerns
+
+Formal requirements and design methods such as [card sorting](https://en.wikipedia.org/wiki/Card_sorting), [affinity diagramming](https://en.wikipedia.org/wiki/Affinity_diagram), [importance-difficulty matrices](https://spin.atomicobject.com/2018/03/06/design-thinking-difficulty-importance-matrix/)
+
+Generally: sort through requirements, identify alternatives and conflicts, resolve with priorities and decisions -> single option, compromise, or configuration
+
+
+
+----
+## Stakeholder Conflict Examples
+
+*User wishes vs developer preferences:* free updates vs low complexity
+
+*Customer wishes vs affected third parties:* privacy preferences vs disclosure
+
+*Product owner priorities vs regulators:* maximizing revenue vs privacy protections
+
+**Conflicts in lane keeping software? In fall detection software? In college admissions software?**
+
+
+**Who makes the decisions?**
+
+----
+## Requirements documentation
+
+
+![paperwork](../_chapterimg/06_requirements.jpg)
+<!-- .element: class="stretch" -->
+
+----
+## Requirements documentation
+
+Write down requirements 
+* what the software *shall* do, what it *shall* not do, what qualities it *shall* have, 
+* document decisions and rationale for conflict resolution
+
+Requirements as input to design and quality assurance
+
+Formal requirements documents often seen as bureaucratic, lightweight options in notes, wikis, issues common 
+
+<b>Systems with higher risk -> consider more formal documentation</b>
+
+----
+## Requirements evaluation (validation!)
+
+![Validation vs verification](validation.svg)
+<!-- .element: class="plain stretch" -->
+
+
+----
+## Requirements evaluation
+
+Manual inspection (like code review)
+
+Show requirements to stakeholders, ask for misunderstandings, gaps
+
+Show prototype to stakeholders
+
+Checklists to cover important qualities
+
+
+Critically inspect assumptions for completeness and realism
+
+<b>Look for unrealistic ML-related assumptions (no false positives, unbiased representative data)</b>
+
+
+----
+## How much requirements eng. and when?
+
+![Waterfall process picture](waterfall.svg)<!-- .element: class="plain" style="width:1100px" -->
+
+----
+## How much requirements eng. and when?
+
+Requirements important in risky systems 
+
+Requirements as basis of a contract (outsourcing, assigning blame)
+
+Rarely ever fully completely upfront and stable, <b>anticipate change</b>
+* Stakeholders see problems in prototypes, change their minds
+* Especially ML requires lots of exploration to establish feasibility
+
+<b>Low-risk problems often use lightweight, agile approaches</b>
+
+(We'll return to this later)
+
+----
+# Summary
+
+Requirements state the needs of the stakeholders and are expressed
+  over the phenomena in the world
+
+Software/ML models have limited influence over the world
+
+Environmental assumptions play just as an important role in
+establishing requirements
+
+Identify stakeholders, interview them, resolve conflicts
 
 
 ---
@@ -32,7 +165,7 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 
-Required reading: 🕮 Hulten, Geoff. "Building Intelligent Systems: A
+Required reading: Hulten, Geoff. "Building Intelligent Systems: A
 Guide to Machine Learning Engineering." (2018), Chapters 6–7 (Why
 creating IE is hard, balancing IE) and 24 (Dealing with mistakes)
 
@@ -56,12 +189,6 @@ creating IE is hard, balancing IE) and 24 (Dealing with mistakes)
 ## Common excuse: Software mistake -- nobody's fault
 
 <div class="tweet" data-src="https://twitter.com/dhh/status/1192945019230945280"></div>
-
-
-----
-## Common excuse: Just software mistake
-
-<div class="tweet" data-src="https://twitter.com/nke_ise/status/897756900753891328"></div>
 
 
 ----
@@ -286,8 +413,7 @@ Notes: Cancer prediction, sentencing + recidivism, Tesla autopilot, military "ki
 
 ![Example of email responses suggested by GMail](email.png)
 
-* Fall detection smartwatch
-* Safe browsing
+* Fall detection smartwatch?
 
 ----
 ## Human in the Loop - Examples?
@@ -692,14 +818,15 @@ A number of methods:
 
 <div class="small">
 
-* Fault tree: A top-down diagram that displays the relationships
-between a system failure (i.e., requirement violation) and its potential causes.  
-  * Identify sequences of events that result in a failure
-  * Prioritize the contributors leading to the failure
-  * Inform decisions about how to (re-)design the system
+* Fault tree: A diagram that displays relationships
+between a system failure (i.e., requirement violation) and potential causes.  
+  * Identify event sequences that can result in failure
+  * Prioritize contributors leading to a failure
+  * Inform design decisions
   * Investigate an accident & identify the root cause 
 * Often used for safety & reliability, but can also be used for
 other types of requirements (e.g., poor performance, security attacks...)
+* (Observation: they're weirdly named!)
 
 </div>
 
@@ -728,7 +855,7 @@ other types of requirements (e.g., poor performance, security attacks...)
 
 Event: An occurrence of a fault or an undesirable action
   * (Intermediate) Event: Explained in terms of other events
-  * Basic Event: No further development or breakdown; leaf
+  * Basic Event: No further development or breakdown; leaf (choice!)
 
 Gate: Logical relationship between an event & its immediate subevents
   * AND: All of the sub-events must take place
@@ -846,12 +973,25 @@ Solution combines a vision-based system identifying people in the door with pres
 
 * Remove basic events with mitigations
 * Increase the size of cut sets with mitigations
-
+* Recall: Guardrails
 
 ![FTA for trapping people in doors of a train](fta-without-mitigation.svg)
 <!-- .element: class="stretch" -->
 
 ----
+## Guardrails - Examples
+
+Recall: Thermal fuse in smart toaster
+
+![Thermal fuse](thermalfuse.png)
+<!-- .element: class="stretch" -->
+
++ maximum toasting time + extra heat sensor
+
+----
+
+<!-- ---- -->
+
 ![Updated FTA for trapping people in doors of a train](fta-mitigation.svg)
 
 
@@ -875,15 +1015,17 @@ Possible mitigations?
 ----
 ## FTA: Caveats
 
+
 In general, building a **complete** tree is impossible
   * There are probably some faulty events that you missed
   * "Unknown unknowns"
+  * Events can always be decomposed; detail level is a choice.
 
 Domain knowledge is crucial for improving coverage
   * Talk to domain experts; augment your tree as you learn more
 
 FTA is still very valuable for risk reduction!
-  * Forces you to think about & explicitly document possible failure scenarios
+  * Forces you to think about, document possible failure scenarios
   * A good starting basis for designing mitigations
 
 

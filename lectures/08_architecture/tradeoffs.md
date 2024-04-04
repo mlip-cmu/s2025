@@ -3,7 +3,7 @@ author: Christian Kaestner and Eunsuk Kang
 title: "MLiP: Toward Architecture and Design"
 semester: Spring 2023
 footer: "17-645 Machine Learning in Production • Christian Kaestner,
-Eunsuk Kang, Carnegie Mellon University • Spring 2023"
+Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/08_architecture.jpg" -->
@@ -90,14 +90,6 @@ Recommended reading: Siebert, Julien, Lisa Joeckel, Jens Heidrich, Koji Nakamich
 ![Architecture between requirements and implementation](req-arch-impl.svg)
 <!-- .element: class="plain" -->
 
-----
-## So far: Requirements
-
-* Identify goals for the system, define success metrics
-* Understand requirements, specifications, and assumptions
-* Consider risks, plan for mitigations to mistakes
-* Approaching component requirements: Understand quality requirements and constraints for models and learning algorithms
-
 
 ----
 ## From Requirements to Implementations...
@@ -166,7 +158,7 @@ Examples:
 * ML: Accuracy, ability to collect data, training latency
 
 ----
-## Architecture Design Involve Quality Trade-offs
+## Architecture Design Involves Quality Trade-offs
 
 ![Monolithic vs microservice](architectures.png)
 <!-- .element: class="stretch" -->
@@ -278,15 +270,8 @@ Make architectural decisions explicit
 Question: **Did the original architect make poor decisions?**
 
 
-
-
-
-
-
-
-
 ---
-# Decomposition, Interfaces, and Responsibility Assignm.
+## Codifying Design Knowledge 
 
 ![Exploded parts diagram of a complex device](parts.png)
 <!-- .element: class="stretch" -->
@@ -302,29 +287,29 @@ Identify components and their responsibilities
 Establishes interfaces and team boundaries
 
 ----
-## Information Hiding
+### Common Components in ML-based Systems
 
-![Information hiding](information-hiding.png)
-<!-- .element: class="stretch plain" -->
-
-Hide design decisions that are likely to change from clients
-
-**Q. Examples? What are the benefits of information hiding?**
+* **Model inference service**: Uses model to make predictions for input data
+* **ML pipeline**: Infrastructure to train/update the model
+* **Monitoring**: Observe model and system
+* **Data sources**: Manual/crowdsourcing/logs/telemetry/...
+* **Data management**: Storage and processing of data, often at scale
+* **Feature store**: Reusable feature engineering code, cached feature computations
 
 ----
-## Information Hiding
+## Common System-Wide Design Challenges
 
-Decomposition enables scaling teams
-* Each team works on a component
-* Coordinate on *interfaces*, but implementations remain hidden
+Separating concerns, understanding interdependencies
+* e.g., anticipating/breaking feedback loops, conflicting needs of components
 
-**Interface descriptions are crucial**
-* Who is responsible for what
-* Component requirements (specifications), behavioral and quality
-* Especially consider nonlocal qualities: e.g., safety, privacy
+Facilitating experimentation, updates with confidence
 
-Challenges: Interfaces rarely fully specified, source of conflicts,
-changing requirements
+Separating training and inference; closing the loop
+* e.g., collecting telemetry to learn from user interactions
+
+Learn, serve, and observe at scale or with resource limits
+* e.g., cloud deployment, embedded devices
+
 
 ----
 ## Each system is different...
@@ -360,7 +345,7 @@ Each system is different, identify important components
 
 
 Examples:
-* Personalized music recommendations: microserivce deployment in cloud, logging of user activity, nightly batch processing for inference, regular model updates, regular experimentation, easy fallback
+* Personalized music recommendations: microservice deployment in cloud, logging of user activity, nightly batch processing for inference, regular model updates, regular experimentation, easy fallback
 * Transcription service: irregular user interactions, large model, expensive inference, inference latency not critical, rare model updates
 * Autonomous vehicle: on-board hardware sets limits, real-time needs, safety critical, updates necessary, limited experimentation in practice, not always online
 * Smart keyboard: privacy focused, small model, federated learning on user device, limited telemetry
@@ -369,31 +354,136 @@ Examples:
 
 
 ----
-## Common Components in ML-based Systems
+## Common System Structures
 
-* **Model inference service**: Uses model to make predictions for input data
-* **ML pipeline**: Infrastructure to train/update the model
-* **Monitoring**: Observe model and system
-* **Data sources**: Manual/crowdsourcing/logs/telemetry/...
-* **Data management**: Storage and processing of data, often at scale
-* **Feature store**: Reusable feature engineering code, cached feature computations
+Designers and architects accumulate tacit and codified knowledge based on their own experience and best practices.
+
+In designing a new system, it is best to start with experience and a design vocabulary, focusing directly on the specific qualities relevant to the tradeoffs.
+
+At the highest level of organizing components, there are common structures shared by many systems, also known as _architectural styles_.
 
 ----
-## Common System-Wide Design Challenges
+## Monolithic system
 
-Separating concerns, understanding interdependencies
-* e.g., anticipating/breaking feedback loops, conflicting needs of components
+![twitter](twitter.png)<!-- .element: style="width:800px" -->
 
-Facilitating experimentation, updates with confidence
+(pre-redesign)
 
-Separating training and inference; closing the loop
-* e.g., collecting telemetry to learn from user interactions
+----
+## Client-Server Architecture 
 
-Learn, serve, and observe at scale or with resource limits
-* e.g., cloud deployment, embedded devices
+![client-server](client-server-model.svg)<!-- .element: style="width:700px" -->
+
+<div class="small">
+
+* A server provides functionality to multiple clients, typically over a network connection. 
+* Resources shared for many users, while clients are fairly simple. 
+
+</div>
 
 
+----
+## Multi-tier architecture
 
+![typical 3-tier architecture](3tier.svg)<!-- .element: style="width:800px" -->
+
+Higher tiers send requests to lower tiers, but not vice versa. 
+
+Common for business and web applications.
+
+Notes: can be conceptually extended with components related to machine learning (as we will show in chapter Deploying a Model).
+
+----
+## SOA and microservices
+
+![audiobook app composed of microservices](microservice.svg)<!-- .element: style="width:600px" -->
+
+Multiple self-contained services/processes that communicate via RPC.  
+
+Notes: allows independent deployment, versioning, and scaling of services and flexible routing of requests at the network level. Many modern, scalable web-based systems use this design, as we will discuss in chapter Scaling the System.  Also independent development. 
+
+----
+## Event-based architecture
+
+![Delivery robot](deliveryrobot.jpg)
+<!-- .element: class="plain stretch" -->
+
+Individual system components listen to messages broadcasted by other components, typically through some message bus.
+
+Notes: Since the component publishing a message does not need to know who consumes it, this architecture strongly decouples components in a system and makes it easy to add new components. We will see this architecture style when discussing stream processing systems in chapter Scaling the System.
+
+----
+## Data-flow architectures
+
+
+![Delivery robot](pipeline.svg)
+<div class="small">
+
+_Dataflow program composed of shell commands._
+
+</div>
+
+The system is organized around data, often in a sequential pipeline. 
+
+Notes: This design allows flexible changes of components and flexible composition of pipelines from different subsets of components. Unix shell commands can be composed through pipes to perform more complex tasks and machine-learning pipelines often follow this design of multiple transformations to a dataset arranged in a sequence or directed acyclic graph. Machine-learning pipelines tend to follow this data-flow style, as do batch processing systems for very large datasets.
+
+----
+## Design Patterns
+
+<!-- colstart -->
+![Design Patterns](pattern-language.jpeg)<!-- .element: style="width:350px" class="stretch" -->
+
+<!-- col -->
+
+Design patterns name and describe common solutions to known design problems, and known advantages and pitfalls. 
+
+Historically popular in OO; now applied broadly across system design, both architecturally and at a lower level (i.e., interactions among subsystems). 
+
+<!-- colend -->
+----
+## Observer or publish-subscribe
+
+![Observer pattern](observer.png)<!-- .element: style="width:800px" -->
+
+<div class="smallish">
+Intent: Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+</div>
+
+Notes: 
+Motivation: [This would include an illustrative example of a user interface that needs to update multiple visual representations of data whenever input data changes, such as multiple diagrams in a spreadsheet.] 
+Solution: [This would include a description of the technical structure with an observer interface implemented by observers and an observable object managing a list of observers and calling them on state changes.]
+Benefits, costs, tradeoffs: Decoupling of the observed object and observers; support of broadcast communication. Implementation overhead; observed objects unaware of consequences and costs of broadcast objects. [Typically this would be explained in more detail with examples.]
+
+
+----
+## Architectural pattern: Heartbeat tactic
+
+
+![Heartbeat tactic](heartbeat.png)<!-- .element: style="width:800px" -->
+
+Intent: Detect when a component is unavailable to trigger mitigations or repair
+
+Notes: Motivation: Detect with low latency when a component or server becomes unavailable to automatically restart it or redirect traffic.
+Solution: The observed component sends heartbeat messages to another component monitoring the system in regular predictable intervals. When the monitoring component does not receive the message it assumes the observed component is unavailable and initiates corrective actions.
+Options: The heartbeat message can carry data to be processed. Standard data messages can stand in for heartbeat messages so that extra messages are only sent when no regular data messages are sent for a period.
+Benefits, costs, tradeoffs: Component operation can be observed. Only unidirectional messaging is needed. The observed component defines heartbeat frequency and thus detection latency and network overhead. Higher detection latency can be achieved at the cost of higher network traffic with more frequent messages; higher confidence in detection can be achieved at the cost of lower latency by waiting for multiple missing messages. 
+Alternatives: Ping/echo tactic where the monitoring component requests responses.
+Source: https://www.se.rit.edu/~swen-440/slides/instructor-specific/Kuehl/Lecture%2019%20Design%20Tactics.pdf
+
+----
+### Machine learning pattern for reproducibility: Feature Store
+
+![Feature store pattern](feature-store.png)<!-- .element: style="width:600px" -->
+
+Intent: Reuse features across projects by decoupling feature creation from model development and serving
+
+Notes: 
+Source: https://changyaochen.github.io/ML-design-pattern-1/
+Motivation: The same feature engineering code is needed during model training and model serving; inconsistencies are dangerous. In addition, some features may be expensive to compute but useful in multiple projects. Also, data scientists often need the same or similar features across multiple projects, but often lack a systematic mechanism for reuse.
+Solution: Separate feature engineering code and reuse it both in the training pipeline and the model inference infrastructure. Catalog features with metadata to make them discoverable. Cache computed features used in multiple projects. Typically implemented in open-source infrastructure projects.
+Benefits: Reusable features across projects; avoiding redundant feature computations; preventing training-serving skew; central versioning of features; separation of concerns.
+Costs: Nontrivial infrastructure; extra engineering overhead in data science projects.
+This concept is discussed in more depth in chapter Deploying a Model.
 
 
 
@@ -409,41 +499,11 @@ From System Quality Requirements to Component Quality Specifications
 ![not-dl](not-dl.jpg)
 
 ----
-## ML Algorithms Today
-
-![ml-methods-poll](ml-methods-poll.jpg)
-
-----
 ## Design Decision: ML Model Selection
 
 How do I decide which ML algorithm to use for my project?
 
 Criteria: Quality Attributes & Constraints
-
-----
-## Recall: Quality Attributes
-
-<div class="small">
-
-Measurable or testable properties of a system that are used to indicate how well it satisfies its goals
-
-Examples
-  * Performance
-  * Features
-  * Reliability
-  * Conformance
-  * Durability
-  * Serviceability
-  * Aesthetics
-  * Perceived quality
-  * and many others
-  
-</div>
-
-<!-- references -->
-
-Reference:
-Garvin, David A., [What Does Product Quality Really Mean](http://oqrm.org/English/What_does_product_quality_really_means.pdf). Sloan management review 25 (1984).
 
 ----
 ## Accuracy is not Everything
@@ -498,7 +558,7 @@ Incrementality
 <!-- Img src https://pixabay.com/photos/credit-card-payment-transaction-926862/ -->
 
 ----
-## Common of ML Qualities to Consider
+## Common ML Qualities to Consider
 
 * Accuracy
 * Correctness guarantees? Probabilistic guarantees (--> symbolic AI)
@@ -511,105 +571,75 @@ Incrementality
 * Robustness, reproducibility, stability
 * Security, privacy, fairness
 
-----
-![Table of NFPs and their relationship to different components](nfps.png)
-<!-- .element: class="plain stretch" -->
 
-<!-- references_ -->
-From: Habibullah, Khan Mohammad, Gregory Gay, and Jennifer Horkoff. "[Non-Functional Requirements for Machine Learning: An Exploration of System Scope and Interest](https://arxiv.org/abs/2203.11063)." arXiv preprint arXiv:2203.11063 (2022).
 
-----
-## Preview: Interpretability/Explainability
 
-<div class="smallish">
+---
+## Constraints and Tradeoffs
 
-*"Why did the model predict X?"*
+![Pareto Front Example](pareto-front.svg)
+<!-- .element: class="stretch plain" -->
 
-**Explaining predictions + Validating Models + Debugging**
+Notes:
 
-```
-IF age between 18–20 and sex is male THEN predict arrest
-ELSE IF age between 21–23 and 2–3 prior offenses THEN predict arrest
-ELSE IF more than three priors THEN predict arrest
-ELSE predict no arrest
-```
+How do I decide which ML algorithm to use for my project?
 
-* Some models inherently simpler to understand
-* Some tools may provide post-hoc explanations
-* Explanations may be more or less truthful
-* How to measure interpretability?
-
-</div>
+Criteria: Quality Attributes & Constraints
 
 ----
-## Preview: Robustness
+## Constraints
 
-![Adversarial Example](adversarial.png)<!-- .element: style="width:800px" -->
+Constraints define the space of attributes for valid design solutions
 
-* Small input modifications may change output
-* Small training data modifications may change predictions
-* How to measure robustness?
+![constraints](design-space.svg)
+<!-- .element: class="stretch plain" -->
 
-
-<!-- references -->
-Image source: [OpenAI blog](https://openai.com/blog/adversarial-example-research/)
+Note: Design space exploration: The space of all possible designs (dotted rectangle) is reduced by several constraints on qualities of the system, leaving only a subset of designs for further consideration (highlighted center area).
 
 
 ----
-## Preview: Fairness
+## Types of Constraints
 
+**Problem constraints**: Minimum required QAs for an acceptable product
 
-*Does the model perform differently for different populations?*
+**Project constraint**s: Deadline, project budget, available personnel/skills
 
-```
-IF age between 18–20 and sex is male THEN predict arrest
-ELSE IF age between 21–23 and 2–3 prior offenses THEN predict arrest
-ELSE IF more than three priors THEN predict arrest
-ELSE predict no arrest
-```
-
-* Many different notions of fairness
-* Often caused by bias in training data
-* Enforce invariants in model or apply corrections outside model
-* Important consideration during requirements solicitation!
-
+**Design constraints**
+* Type of ML task required (regression/classification)
+* Available data
+* Limits on computing resources, max. inference cost/time
 
 ----
-## Recall: Measuring Qualities
+## Constraints: Cancer Prognosis?
 
-<div class="small">
-
-* Define a metric: Define units of interest 
-  - e.g., requests per second, max memory per inference, average training time in seconds for 1 million datasets
-* Collect data 
-* Operationalize metric: Define measurement protocol
-  - e.g., conduct experiment: train model with fixed dataset, report median training time across 5 runs, file size, average accuracy with leave-one-out cross-validation after hyperparameter tuning
-  - e.g., ask 10 humans to independently label evaluation data, report
-    reduction in error from the ML model over human predictions
-* Describe all relevant factors: Inputs/experimental units used, configuration decisions and tuning, hardware used, protocol for manual steps
-
-**On terminology:** *metric/measure* refer a method or standard format for measuring something; *operationalization* is identifying and implementing a method to measure some factor
-
-</div>
-
+![Radiology scans](radiology-scan.jpg) 
+<!-- .element: class="stretch" -->
 
 ----
-## On terminology
+## Constraints: Music Recommendations?
 
-Data scientists seem to speak of *model properties* when referring to accuracy, inference time, fairness, etc
-  * ... but they also use this term for whether a *learning technique* can learn non-linear relationships or whether the learning algorithm is monotonic
+![Spotify](spotify.png) 
+<!-- .element: class="stretch" -->
 
-Software engineering wording would usually be *quality attribute*, *quality requirement*, *quality specification*
-  or *non-functional requirement*
+----
+## Trade-offs between ML algorithms
 
-![Random letters](../_assets/onterminology.jpg)<!-- .element: class="cornerimg" -->
+If there are multiple ML algorithms that satisfy the given constraints, which
+one do we select?
 
+Different ML qualities may conflict with each other; this requires
+making a __trade-off__ between these qualities
+
+Among the qualities of interest, which one(s) do we care the most
+about?
+* And which ML algorithm is most suitable for achieving those qualities?
+* (Similar to requirements conflicts)
 
 ---
 # Common ML Algorithms and their Qualities
 
 ----
-## Linear Regression: Qualities
+## Linear Regression
 
 ![linear-regression](linear-regression.png)
 
@@ -624,189 +654,53 @@ Notes:
 ## Decision Trees
 <!-- colstart -->
 
-![Decision tree](decisiontreeexample-full.png)
-<!-- .element: class="plain stretch" -->
-
-
-----
-## Building Decision Trees
-<!-- colstart -->
 ![Decision tree](decisiontreeexample.png)
 <!-- .element: class="plain stretch" -->
-
 
 <!-- col -->
 
-* Identify all possible decisions
-* Select the decision that best splits the dataset into distinct
-  outcomes (typically via entropy or similar measure)
-* Repeatedly further split subsets, until stopping criteria reached
-
-<!-- colend -->
-
-----
-## Decision Trees: Qualities
-
-![Decision tree](decisiontreeexample.png)
-<!-- .element: class="stretch" -->
   
 * Tasks: Classification & regression
 * Qualities: __Advantages__: ??  __Drawbacks__: ??
 
+<!-- colend -->
 Notes:
-* Easy to interpret (up to a size); can capture non-linearity; can do well with
-  little data
-* High risk of overfitting; possibly very large tree size
-* Obvious ones: fairly small model size, low inference cost, 
-no obvious incremental training; easy to interpret locally and 
-even globally if shallow; easy to understand decision boundaries
-
-<!-- <\!-- smallish -\-> -->
-<!-- * Identify all possible decisions -->
-<!-- * Select the decision that best splits the dataset into distinct outcomes (typically via entropy or similar measure) -->
-<!-- * Repeatedly further split subsets, until stopping criteria reached -->
-
-
-
-----
-## Random Forests
-
-![Random forest](random-forest.png)
-<!-- .element: class="stretch" -->
-
-* Train multiple trees on subsets of data or subsets of decisions.
-* Return average prediction of multiple trees.
-* Qualities: __Advantages__: ??  __Drawbacks__: ??
-
-Note: Increased training time and model size, 
-less prone to overfitting, more difficult to interpret
-
-
+Building:
+* Identify all possible decisions
+* Select the decision that best splits the dataset into distinct
+  outcomes (typically via entropy or similar measure)
+* Repeatedly further split subsets, until stopping criteria reached
+* random forests do the same but with multiple trees, prediction of multiple trees 
 
 ----
 
-# Neural Networks
+### Neural Networks + Deep Learning
+
+<div class="small">
+
+Simulating biological neural networks of neurons (nodes) and synapses (connections).
+Basic building blocks: Artificial neurons, in layers. 
+
+Deep learning: more layers, different numbers of neurons. Different kinds of connections. 
+
+**Advantages ?? Drawbacks??**
 
 ![Xkcd commit 2173](xkcd2173.png)<!-- .element: class="plain" style="width:300px" -->
 
 <!-- references -->
 [XKCD 2173](https://xkcd.com/2173/), cc-by-nc 2.5 Randall Munroe
 
-Note: Artificial neural networks are inspired by how biological neural networks work ("groups of chemically connected or functionally associated neurons" with synapses forming connections)
-
-From "Texture of the Nervous System of Man and the Vertebrates" by Santiago Ramón y Cajal, via https://en.wikipedia.org/wiki/Neural_circuit#/media/File:Cajal_actx_inter.jpg
-
-----
-## Artificial Neural Networks
-
-Simulating biological neural networks of neurons (nodes) and synapses (connections), popularized in 60s and 70s
-
-Basic building blocks: Artificial neurons, with $n$ inputs and one output; output is activated if at least $m$ inputs are active
-
-![Simple computations with artificial neuron](neur_logic.svg)
-<!-- .element: class="stretch" -->
-
-(assuming at least two activated inputs needed to activate output)
-
-----
-## Threshold Logic Unit / Perceptron
-
-computing weighted sum of inputs + step function
-
-$z = w_1 x_1 + w_2 x_2 + ... + w_n x_n = \mathbf{x}^T \mathbf{w}$
-
-e.g., step: `$\phi$(z) = if (z<0) 0 else 1` 
-
-![Perceptron](perceptron.svg)
-<!-- .element: class="stretch" -->
-
-----
-
-<!-- colstart -->
-
-![Perceptron](perceptron.svg)
-<!-- .element: style="width:500px" -->
-
-<!-- col -->
-
-$o_1 = \phi(b_{1}  +  w_{1,1} x_1 + w_{1,2} x_2)$
-$o_2 = \phi(b_{2}  +  w_{2,1} x_1 + w_{2,2} x_2)$
-$o_3 = \phi(b_{3}  +  w_{3,1} x_1 + w_{3,2} x_2)$
-
-<!-- colend -->
-
-****
-$f_{\mathbf{W},\mathbf{b}}(\mathbf{X})=\phi(\mathbf{W} \cdot \mathbf{X}+\mathbf{b})$
-
-($\mathbf{W}$ and $\mathbf{b}$ are parameters of the model)
-
-----
-## Multiple Layers
-
-![Multi Layer Perceptron](mlperceptron.svg)
-<!-- .element: class="stretch" -->
-
-Note: Layers are fully connected here, but layers may have different numbers of neurons
-
-----
-$f_{\mathbf{W}_h,\mathbf{b}_h,\mathbf{W}_o,\mathbf{b}_o}(\mathbf{X})=\phi( \mathbf{W}_o \cdot \phi(\mathbf{W}_h \cdot \mathbf{X}+\mathbf{b}_h)+\mathbf{b}_o)$
-
-![Multi Layer Perceptron](mlperceptron.svg)
-<!-- .element: class="stretch" -->
-
-(matrix multiplications interleaved with step function)
-
-----
-## Learning Model Parameters (Backpropagation)
-
-<div class="smallish">
-
-Intuition:
-- Initialize all weights with random values
-- Compute prediction, remembering all intermediate activations
-- If predicted output has an error (measured with a loss function), 
-  + Compute how much each connection contributed to the error on output layer
-  + Repeat computation on each lower layer
-  + Tweak weights a little toward the correct output (gradient descent)
-- Continue training until weights stabilize
-
-Works efficiently only for certain $\phi$, typically logistic function: $\phi(z)=1/(1+exp(-z))$ or ReLU: $\phi(z)=max(0,z)$.
-
-</div>
-
-----
-## Deep Learning
-
-More layers
-
-Layers with different numbers of neurons 
-
-Different kinds of connections, e.g.,
-  - Fully connected (feed forward)
-  - Not fully connected (eg. convolutional networks)
-  - Keeping state (eg. recurrent neural networks)
-  - Skipping layers
-
-<!-- references -->
 See Chapter 10 in Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019) or any other book on deep learning
 
 
-Note: Essentially the same with more layers and different kinds of architectures.
+</div>
 
-
-----
-## Deep Learning
-
-![neural-network](neural-network.png)
-
-* Tasks: Classification & regression
-* Qualities: __Advantages__: ?? __Drawbacks__: ??
-
-Notes:
+Note: Artificial neural networks are inspired by how biological neural networks work ("groups of chemically connected or functionally associated neurons" with synapses forming connections)
 * High accuracy; can capture a wide range of problems (linear & non-linear)
 * Difficult to interpret; high training costs (time & amount of
 data required, hyperparameter tuning)
 
+From "Texture of the Nervous System of Man and the Vertebrates" by Santiago Ramón y Cajal, via https://en.wikipedia.org/wiki/Neural_circuit#/media/File:Cajal_actx_inter.jpg
 
 ----
 ## Example Scenario
@@ -916,98 +810,6 @@ Strubell, Emma, Ananya Ganesh, and Andrew McCallum. "[Energy and Policy Consider
 <!-- references -->
 Strubell, Emma, Ananya Ganesh, and Andrew McCallum. "[Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/pdf/1906.02243.pdf)." In Proc. ACL, pp. 3645-3650. 2019.
 
-
-
-
-
-
-
-
-
-
----
-# Constraints and Tradeoffs
-
-![Pareto Front Example](pareto-front.svg)
-<!-- .element: class="stretch plain" -->
-
-
-----
-## Design Decision: ML Model Selection
-
-How do I decide which ML algorithm to use for my project?
-
-Criteria: Quality Attributes & Constraints
-
-----
-## Constraints
-
-Constraints define the space of attributes for valid design solutions
-
-![constraints](design-space.svg)
-<!-- .element: class="stretch plain" -->
-
-Note: Design space exploration: The space of all possible designs (dotted rectangle) is reduced by several constraints on qualities of the system, leaving only a subset of designs for further consideration (highlighted center area).
-
-
-----
-## Types of Constraints
-
-**Problem constraints**: Minimum required QAs for an acceptable product
-
-**Project constraint**s: Deadline, project budget, available personnel/skills
-
-**Design constraints**
-* Type of ML task required (regression/classification)
-* Available data
-* Limits on computing resources, max. inference cost/time
-
-----
-## Constraints: Cancer Prognosis?
-
-![Radiology scans](radiology-scan.jpg) 
-<!-- .element: class="stretch" -->
-
-----
-## Constraints: Music Recommendations?
-
-![Spotify](spotify.png) 
-<!-- .element: class="stretch" -->
-
-----
-## Trade-offs between ML algorithms
-
-If there are multiple ML algorithms that satisfy the given constraints, which
-one do we select?
-
-Different ML qualities may conflict with each other; this requires
-making a __trade-off__ between these qualities
-
-Among the qualities of interest, which one(s) do we care the most
-about?
-* And which ML algorithm is most suitable for achieving those qualities?
-* (Similar to requirements conflicts)
-
-----
-## Multi-Objective Optimization
-
-<!-- colstart -->
-
-* Determine optimal solutions given multiple, possibly
-  **conflicting** objectives
-* **Dominated** solution: A solution that is inferior to
-  others in every way 
-* **Pareto frontier**: A set of non-dominated solutions
-* Consider trade-offs among Pareto optimal solutions
-
-<!-- col -->
-
-![Pareto Front Example](pareto-front.svg)
-<!-- .element: class="stretch plain" -->
-
-<!-- colend -->
-
-Note: Tradeoffs among multiple design solutions along two dimensions (cost and error). Gray solutions are all dominated by others that are better both in terms of cost and error (e.g., solution D has worse error and worse cost than solution A). The remaining black solutions are each better than another solution on one dimension but worse on another — they are all pareto optimal and which solution to pick depends on the relative importance of the dimensions.
 
 
 ----

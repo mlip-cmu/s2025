@@ -46,13 +46,13 @@ If you plan to conduct interviews or surveys as part of the project and you plan
 
 ## Deliverables
 
-Submit a draft at the milestone deadlines and a paper and a presentation at the final deadline.
+Email a draft to the instructors at the milestone deadlines and submit the paper to Gradescope for the final deadline. Present the work during the final presentation slot of the class.
 
 The paper should be in a form submittable to a new-idea track, short-paper track, or workshop in the field. It should have at least an introduction motivating the research, one or more clear and motivated research questions, a discussion of the state of the art or related work, and a description of the conducted or planned research, and some results. While we do not enforce a specific page limit or formatting requirements, we would typically expect around 4 pages double-column format, such as for the [ICSE-NIER](https://conf.researchr.org/track/icse-2022/icse-2022-nier---new-ideas-and-emerging-results) track.
 
 The presentation should be no longer than 8 minutes. How you structure the presentation is up to you. You do not need to cover everything, but consider how to make this interesting to the audience. It will be presented in the same time slot as the presentations from the group project.
 
-Send drafts, papers and slides as attachments or links per email to the instructors.
+Send drafts, papers and slides as attachments or links per email to the instructors. Submit the final paper to Gradescope.
 
 ## Grading
 
