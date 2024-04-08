@@ -440,6 +440,19 @@ Consider keeping humans in the loop, balancing harms and costs
 
 
 ---
+# Breakout: Transparency in Admissions
+
+
+For a automated Master's admission support system, consider what you would make transparent and to whom.
+
+In groups, tagging group members, respond in `#lecture`:
+* What information (global, local) would you provide to applicants? What's the purpose?
+* What information (global, local) would you provide to the admissions committee? What's the purpose?
+
+
+
+
+---
 # Accountability and Culpability
 
 *Who is held accountable if things go wrong?*
