@@ -76,11 +76,11 @@ Page limits are recommendations and not strictly enforced. You can exceed the pa
 The assignment is worth 100 points. For full credit, we expect:
 
 * [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. A list of at least 10 stakeholders is provided. All stakeholders are relevant to the product.
-* [ ] 20 points: A description of the global explanations is provided; the description explains for which stakeholders each part of the explanation is relevant; a justification for the chosen explanation is included.
+* [ ] 20 points: A description of the *global explanations* is provided; the description explains for which stakeholders each part of the explanation is relevant; a justification for the chosen explanation is included.
 * [ ] 10 points: An HTML page that provides the described global explanations for the specific model or data is linked.
-* [ ] 20 points: A functional implementation to automatically or semi-automatically create explanations for individual predictions is provided. 
-* [ ] 10 points: Two examples of individual explanations in HTML files are linked. The examples correspond to the description.
-* [ ] 10 points: A stakeholder is indicated for whom the individual explanations are intended. A description of the provided individual explanations and a plausible justification why this form of explanation is appropriate for the stakeholder identified. 
+* [ ] 10 points: A stakeholder is indicated for whom the *individual explanations* are intended. A description of the provided individual explanations and a plausible justification why this form of explanation is appropriate for the stakeholder identified. 
+* [ ] 20 points: A functional implementation to automatically or semi-automatically create explanations for individual predictions is provided. It aligns with the description.
+* [ ] 10 points: Two examples of individual explanations in HTML files are linked. The examples align with the description.
 * [ ] 10 points: A discussion of policy compliance that makes a good faith attempt at providing evidence to demonstrate compliance or discusses additional steps needed for compliance or why compliance may not be possible.
 * [ ] 10 points: A good-faith attempt at reflecting in two clearly identifiable subsections about (a) the challenges of interpreting, complying, or providing evidence for the policy and (b) the benefits of the enforcement of the policy.
 
