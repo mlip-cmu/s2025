@@ -24,6 +24,8 @@ In this assignment, you will work on a model for a potential medical application
 
 The task is to generate two forms of transparency mechanisms/explanations, discuss policy compliance, and reflect on the experience:
 
+**Policy understanding:** Read the policy and identify what the company wants to achieve with the internal policy. This should guide the following two steps.
+
 **Global explanations about the model or data:** Consider what external stakeholders might want to know about the product, the model, or the data (transparency). Create a HTML site that includes information about the data or model in a form that the company producing the product may disclose for transparency. This might include information about the data, about accuracy, about important features, or about fairness. We recommend but do not require automating the creation of this site.
 
 **Individual explanations for predictions:** Identify what users or stakeholders would benefit from explanations about individual predictions and select one of them. Write code that produces an explanation for a specific prediction. Your code (e.g., a command line program or notebook) should receive the inputs for model inference and generate a prediction and corresponding explanation for a relevant stakeholder. The explanation should be presented as an HTML site -- ideally your code automatically generates HTML sites for any input (see scaffolding in the provided notebook), but you can also create the sites for two examples manually with the output of explainability tools.
@@ -60,11 +62,11 @@ Submit your code, the generated HTML file with the global explanations, and two 
 Submit a report as a single PDF file to Gradescope that covers the following topics in clearly labeled sections (ideally each section starts on a new page):
 
 1. **GitHub link:** Start the document with a link to your last commit on GitHub in the format https://github.com/cmu-seai/[repo]/commit/[commitid]. Make sure that the link includes the long ID of the last commit.
-1. **Stakeholders** (0.5 pages max): List at least 10 stakeholders for the product.
-2. **Global explanations** (1 page max): Provide a link to the HTML file in your GitHub repository containing your global explanation. Briefly describe what kind of explanations you included and why. Identify which explanations are relevant for which stakeholder.
-3. **Individual explanations** (1 page max): Provide instructions for how to use your code to generate explanations for specific inputs. Provide links to two HTML files in your GitHub repository that you have generated for example inputs. Clearly identify which stakeholder(s) your explanation is intended for. Describe how you explain the predictions and why you chose that form of explanation for this stakeholder.
-4. **Policy compliance** (open ended): Discuss whether your global and individual explanations if they were integrated into the product comply with the provided policy. Provide evidence for compliance where possible either directly in this submission or as links to external artifacts in your GitHub repository.
-5. **Reflection** (2 page max): Include textual answers to the two reflection prompts (challenges, policy benefits) above in two clearly separated subsections. 
+2. **Stakeholders** (0.5 pages max): List at least 10 stakeholders for the product.
+3. **Global explanations** (1 page max): Provide a link to the HTML file in your GitHub repository containing your global explanation. Briefly describe what kind of explanations you included and why. Identify which explanations are relevant for which stakeholder.
+4. **Individual explanations** (1 page max): Provide instructions for how to use your code to generate explanations for specific inputs. Provide links to two HTML files in your GitHub repository that you have generated for example inputs. Clearly identify which stakeholder(s) your explanation is intended for. Describe how you explain the predictions and why you chose that form of explanation for this stakeholder.
+5. **Policy compliance** (open ended): Discuss whether your global and individual explanations if they were integrated into the product comply with the provided policy. Provide evidence for compliance where possible either directly in this submission or as links to external artifacts in your GitHub repository.
+6. **Reflection** (2 page max): Include textual answers to the two reflection prompts (challenges, policy benefits) above in two clearly separated subsections. 
 
 
 Page limits are recommendations and not strictly enforced. You can exceed the page limit if there is a good reason. We prefer precise and concise answers over long and rambling ones.
