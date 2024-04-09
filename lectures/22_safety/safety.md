@@ -650,6 +650,59 @@ As a group, tagging members, post to `#lecture`:
 
 > 1. What safety concerns can you anticipate?
 > 2. What deviations are you concerned about?
-> 3. How would improve the robustness of the overall system?
+> 3. How would you improve the robustness of the overall system?
 
+
+
+
+
+---
+# Beyond Traditional Safety Critical Systems
+
+----
+## Beyond Traditional Safety Critical Systems
+
+* Recall: Legal vs ethical
+* Safety analysis not only for regulated domains (nuclear power plants, medical devices, planes, cars, ...)
+* Many end-user applications have a safety component 
+
+**Q. Examples?**
+
+
+----
+## Mental Health
+
+[![Social Media vs Mental Health](mentalhealth.png)](https://www.healthline.com/health-news/social-media-use-increases-depression-and-loneliness)
+<!-- .element: class="stretch" -->
+
+----
+## Mental Health
+
+[![Social Media vs Mental Health](mentalhealth.png)](https://www.healthline.com/health-news/social-media-use-increases-depression-and-loneliness)
+<!-- .element: class="stretch" -->
+
+
+----
+## IoT
+
+![Servers down](serversdown.png)
+<!-- .element: class="stretch" -->
+
+
+----
+## Addiction
+
+[![Blog: Robinhood Has Gamified Online Trading Into an Addiction](robinhood.png)](https://marker.medium.com/robinhood-has-gamified-online-trading-into-an-addiction-cc1d7d989b0c)
+<!-- .element: class="stretch" -->
+
+----
+## Society: Unemployment Engineering / Deskilling
+
+![Automated food ordering system](automation.jpg)
+
+Notes: The dangers and risks of automating jobs.
+
+Discuss issues around automated truck driving and the role of jobs.
+
+See for example: Andrew Yang. The War on Normal People. 2019
 
