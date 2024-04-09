@@ -159,7 +159,6 @@ Test model *and* system quality *in production*
 (see requirements engineering and architecture lectures)
 
 
-
 ---
 # System Safety
 
@@ -433,6 +432,10 @@ provides at least 95% availability? What evidence would you provide?
 
 </div>
 
+----
+## Testing is still important!
+
+![UI bug in Omnipod App](pump-bug.png)
 
 
 ----
