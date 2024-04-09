@@ -431,3 +431,9 @@ provides at least 95% availability? What evidence would you provide?
 	* But ultimately, can't replace domain knowledge & critical thinking
 
 </div>
+
+----
+## Testing is still important!
+
+![UI bug in Omnipod App](pump-bug.png)
+
