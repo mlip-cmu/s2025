@@ -2,7 +2,7 @@
 author: Claire Le Goues & Christian Kaestner
 title: "MLiP: Safety"
 semester: Spring 2024
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Eunsuk Kang, Carnegie Mellon University • Spring 2024"
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/22_safety.jpg" -->
@@ -47,14 +47,116 @@ SafeAI Workshop@AAAI (2020).
 
 
 
+---
+# AI Safety
+
+![Robot uprising](robot-uprising.jpg)
+ 
+<!-- references -->
+Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
+
+----
+## Your Favorite AI Dystopia?
+
+<!-- discussion -->
+
+----
+## The AI Alignment Problem
+
+AI is optimized for a specific objective/cost function
+  * Inadvertently cause undesirable effects on the environment
+  * e.g., [Transport robot](https://www.youtube.com/watch?v=JzlsvFN_5HI): Move a box to a specific destination
+  * Side effects: Scratch furniture, bump into humans, etc.,
+
+Side effects may cause ethical/safety issues (e.g., social media optimizing for clicks, causing teen depression)
+
+Difficult to define sensible fitness functions:
+  * Perform X *subject to common-sense constr. on the
+    environment*
+  * Perform X *but avoid side effects to the extent
+      possible*
 
 
 
+----
+## Reward Hacking
+
+> PlayFun algorithm pauses the game of Tetris indefinitely to avoid losing  
+
+> When about to lose a hockey game, the PlayFun algorithm exploits a bug to make one of the players on the opposing team disappear from the map, thus forcing a draw.
+
+> Self-driving car rewarded for speed learns to spin in circles  
+
+[Example: Coast Runner](https://www.youtube.com/watch?v=tlOIHko8ySg)
+
+----
+## Reward Hacking
+
+* AI can be good at finding loopholes to achieve a goal in unintended ways
+* Technically correct, but does not follow *designer's informal intent*
+* Many possible causes, incl. partially observed goals, abstract rewards, feedback loops
+* In general, a very challenging problem!
+  * Difficult to specify goal & reward function to avoid all
+  possible hacks
+  * Requires careful engineering and iterative reward design
+
+<!-- references -->
+Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
+
+----
+## AI Alignment Problem = Requirements Problem
+
+Recall: "World vs. machine"
+* Identify stakeholders in the environment & possible effects on them
+* Anticipate side effects, feedback loops
+* Constrain the scope of the system
+* Perfect contracts usually infeasible, undesirable
+
+But more requirements engineering unlikely to be only solution
+
+
+----
+## Existential AI Risk
+
+Existential risk and AI alignment common in research
+
+Funding through *longtermism* branch of effective altruism *(Longtermism is the view that positively influencing the longterm future is a key moral priority of our time.)*
+
+Ord estimates 10% existential risk from unaligned AI in 100 years
+
+**Our view:** AI alignment not a real concern for the kind of ML-enabled products we consider here
+
+<!-- references -->
+Ord, Toby. The precipice: Existential risk and the future of humanity. Hachette Books, 2020.
+
+Note: Relevant for reinforcement learning and AGI
+
+----
+## More pressing AI isks?
+
+![TechCrunch article](techcrunch.png)
+<!-- .element: class="stretch" -->
+
+> “Those hypothetical risks are the focus of a dangerous ideology
+called longtermism that ignores the actual harms resulting from the
+deployment of AI systems today,” they wrote, citing worker
+exploitation, data theft, synthetic media that props up existing power
+structures and the further concentration of those power structures in
+fewer hands.
 
 
 
+----
+## Practical Alignment Problems
 
+Does the model goal align with the system goal? Does the system goal align with the user's goals?
+* Profits (max. accuracy) vs fairness
+* Engagement (ad sales) vs enjoyment, mental health
+* Accuracy vs operating costs
 
+Test model *and* system quality *in production*
+
+(see requirements engineering and architecture lectures)
 
 
 
@@ -333,11 +435,24 @@ provides at least 95% availability? What evidence would you provide?
 
 
 
+----
+## Other Challenges
 
+<div class="smallish">
 
+* Safe Exploration
+  - Exploratory actions "in production" may have consequences
+  - e.g., trap robots, crash drones
+* Robustness to Drift
+    - Drift may lead to poor performance that may not even be recognized
+* Scalable Oversight
+    - Cannot provide human oversight over every action (or label all possible training data)
+  - Use indirect proxies in telemetry to assess success/satisfaction
 
+</div>
 
-
+<!-- references -->
+Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
 
 
 
@@ -541,155 +656,6 @@ As a group, tagging members, post to `#lecture`:
 
 
 
-
-
----
-# AI Safety
-
-![Robot uprising](robot-uprising.jpg)
- 
-<!-- references -->
-Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
-
-----
-## Your Favorite AI Dystopia?
-
-<!-- discussion -->
-
-----
-## The AI Alignment Problem
-
-AI is optimized for a specific objective/cost function
-  * Inadvertently cause undesirable effects on the environment
-  * e.g., [Transport robot](https://www.youtube.com/watch?v=JzlsvFN_5HI): Move a box to a specific destination
-  * Side effects: Scratch furniture, bump into humans, etc.,
-
-Side effects may cause ethical/safety issues (e.g., social media optimizing for clicks, causing teen depression)
-
-Difficult to define sensible fitness functions:
-  * Perform X *subject to common-sense constr. on the
-    environment*
-  * Perform X *but avoid side effects to the extent
-      possible*
-
-
-
-----
-## Reward Hacking
-
-> PlayFun algorithm pauses the game of Tetris indefinitely to avoid losing  
-
-> When about to lose a hockey game, the PlayFun algorithm exploits a bug to make one of the players on the opposing team disappear from the map, thus forcing a draw.
-
-> Self-driving car rewarded for speed learns to spin in circles  
-
-[Example: Coast Runner](https://www.youtube.com/watch?v=tlOIHko8ySg)
-
-----
-## Reward Hacking
-
-* AI can be good at finding loopholes to achieve a goal in unintended ways
-* Technically correct, but does not follow *designer's informal intent*
-* Many possible causes, incl. partially observed goals, abstract rewards, feedback loops
-* In general, a very challenging problem!
-  * Difficult to specify goal & reward function to avoid all
-  possible hacks
-  * Requires careful engineering and iterative reward design
-
-<!-- references -->
-Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
-
-----
-## Reward Hacking -- Many Examples
-
-<div class="tweet" data-src="https://twitter.com/vkrakovna/status/980786258883612672"></div>
-
-----
-## Exploiting Human Weakness
-
-[![Dark side of A/B testing story](moralityabtesting.png)](https://techcrunch.com/2014/06/29/ethics-in-a-data-driven-world/)
-
-----
-## Exploiting Human Weakness
-
-![The Social Dilemma movie poster](socialdilemma.webp)
-<!-- .element: class="plain stretch" -->
-
-See also [Center for Humane Technology](https://www.humanetech.com/)
-
-----
-## AI Alignment Problem = Requirements Problem
-
-Recall: "World vs. machine"
-* Identify stakeholders in the environment & possible effects on them
-* Anticipate side effects, feedback loops
-* Constrain the scope of the system
-* Perfect contracts usually infeasible, undesirable
-
-But more requirements engineering unlikely to be only solution
-
-
-----
-## Other Challenges
-
-<div class="smallish">
-
-* Safe Exploration
-  - Exploratory actions "in production" may have consequences
-  - e.g., trap robots, crash drones
-* Robustness to Drift
-    - Drift may lead to poor performance that may not even be recognized
-* Scalable Oversight
-    - Cannot provide human oversight over every action (or label all possible training data)
-  - Use indirect proxies in telemetry to assess success/satisfaction
-
-</div>
-
-<!-- references -->
-Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
-
-----
-## Existential AI Risk
-
-Existential risk and AI alignment common in research
-
-Funding through *longtermism* branch of effective altruism *(Longtermism is the view that positively influencing the longterm future is a key moral priority of our time.)*
-
-Ord estimates 10% existential risk from unaligned AI in 100 years
-
-**Our view:** AI alignment not a real concern for the kind of ML-enabled products we consider here
-
-<!-- references -->
-Ord, Toby. The precipice: Existential risk and the future of humanity. Hachette Books, 2020.
-
-Note: Relevant for reinforcement learning and AGI
-
-----
-## More pressing AI isks?
-
-![TechCrunch article](techcrunch.png)
-<!-- .element: class="stretch" -->
-
-> “Those hypothetical risks are the focus of a dangerous ideology
-called longtermism that ignores the actual harms resulting from the
-deployment of AI systems today,” they wrote, citing worker
-exploitation, data theft, synthetic media that props up existing power
-structures and the further concentration of those power structures in
-fewer hands.
-
-
-
-----
-## Practical Alignment Problems
-
-Does the model goal align with the system goal? Does the system goal align with the user's goals?
-* Profits (max. accuracy) vs fairness
-* Engagement (ad sales) vs enjoyment, mental health
-* Accuracy vs operating costs
-
-Test model *and* system quality *in production*
-
-(see requirements engineering and architecture lectures)
 
 
 
