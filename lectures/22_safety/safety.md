@@ -437,3 +437,42 @@ provides at least 95% availability? What evidence would you provide?
 
 ![UI bug in Omnipod App](pump-bug.png)
 
+
+----
+## Other Challenges
+
+<div class="smallish">
+
+* Safe Exploration
+  - Exploratory actions "in production" may have consequences
+  - e.g., trap robots, crash drones
+* Robustness to Drift
+    - Drift may lead to poor performance that may not even be recognized
+* Scalable Oversight
+    - Cannot provide human oversight over every action (or label all possible training data)
+  - Use indirect proxies in telemetry to assess success/satisfaction
+
+</div>
+
+<!-- references -->
+Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
+
+
+
+
+---
+# Robustness for ML-based Systems
+
+----
+## Robustness
+
+Environment sometimes __deviates__ from expected, normal conditions
+- Extreme weathers, unexpected obstacles, etc., 
+- Erratic user behaviors; unusually high service demand
+- Adversarial actors; users trying to game your system, etc., 
+
+Does your system work reasonably well under these deviations? i.e., is
+it _robust_?
+
+Most safety-critical systems require some level of robustness
+- Not enough to show that system is safe in normal conditions
