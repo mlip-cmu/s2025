@@ -476,3 +476,61 @@ it _robust_?
 
 Most safety-critical systems require some level of robustness
 - Not enough to show that system is safe in normal conditions
+
+----
+## Defining Robustness for ML:
+
+* A prediction for input $x$ is robust if the outcome is stable under
+minor perturbations to the input:
+  - $\forall x'. d(x, x')<\epsilon \Rightarrow f(x) = f(x')$
+  - distance function $d$ and permissible distance $\epsilon$ depends
+    on the problem domain!
+* A model is said to be robust if most predictions are robust
+* An important concept in safety and security settings
+  * In safety, perturbations tend to be random or predictable (e.g.,
+  sensor noise due to weather conditions)
+  * In security, perturbations are intentionally crafted (e.g.,
+    adversarial attacks)
+
+----
+## Robustness and Distance for Images
+
++ Slight rotation, stretching, or other transformations
++ Change many pixels minimally (below human perception)
++ Change only few pixels
++ Change most pixels mostly uniformly, e.g., brightness
+
+![Handwritten number transformation](handwriting-transformation.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+Image: [_An abstract domain for certifying neural networks_](https://dl.acm.org/doi/pdf/10.1145/3290354).
+    Gagandeep et al., POPL (2019).
+
+
+----
+## No Model is Fully Robust
+
+* Every useful model has at least one decision boundary
+* Predictions near that boundary are not (and should not) be robust
+
+![Decision boundary](decisionboundary2.svg)
+<!-- .element: class="stretch" -->
+
+----
+## Robustness of Interpretable Models
+
+Is this model robust?
+
+Is the prediction for a 20 year old male with 2 priors robust? Against
+what perturbations? 
+
+```fortran
+IF age between 18–20 and sex is male THEN predict arrest
+ELSE 
+IF age between 21–23 and 2–3 prior offenses THEN predict arrest
+ELSE 
+IF more than three priors THEN predict arrest
+ELSE predict no arrest
+```
+
