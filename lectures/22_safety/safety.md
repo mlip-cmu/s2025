@@ -534,3 +534,122 @@ IF more than three priors THEN predict arrest
 ELSE predict no arrest
 ```
 
+----
+## Evaluating ML Robustness
+
+<div class="smallish">
+
+* Lots of on-going research (especially for DNNs)
+* Formal verification
+  - Constraint solving or abstract interpretation over computations in neuron activations
+  - Conservative abstraction, may label robust inputs as not robust
+  - Currently not very scalable
+  - Example: [_An abstract domain for certifying neural networks_](https://dl.acm.org/doi/pdf/10.1145/3290354).
+    Gagandeep et al., POPL (2019).
+* Sampling
+    - Sample within distance, compare prediction to majority prediction
+  - Probabilistic guarantees possible (with many queries, e.g., 100k)
+  - Example:
+    [_Certified adversarial robustness via randomized smoothing_](https://arxiv.org/abs/1902.02918). Cohen,
+    Rosenfeld, and Kolter, ICML (2019).
+</div>
+
+----
+## ML Robustness: Limitations
+
+* Lots of on-going research (especially for DNNs)
+* Mostly input-centric, focusing on small ($\epsilon$) perburtations
+  * Common use case: Robustness against adversarial attacks
+  * Q. But do these pertubations matter for safety?
+* In practice: Perturbations result from environmental changes! 
+  * Which parts of the world does the software sense?
+  * Can those parts change over time? Can the sensors be noisy,
+  faulty, etc.,? (these are **domain-specific**)
+  * What input pertburbations could be caused by from these changes/noise...?
+
+----
+## Robustness in a Safety Setting
+
+* Does the model detect stop signs under normal conditions?
+* Does the model detect stop signs under deviations?
+  * __Q. What deviations do we care about?__
+
+![Stop Sign](stop-sign.png)
+<!-- .element: class="stretch" -->
+
+----
+## Robustness in a Safety Setting
+
+* Does the model detect stop signs under normal settings?
+* Does the model detect stop signs under deviations?
+  * Poor lighting? In fog? With a tilted camera? Sensor noise?
+  * With stickers taped to the sign? (Does it matter?)
+
+![Stop Sign](stop-sign-adversarial.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+Image: David Silver. [Adversarial Traffic Signs](https://medium.com/self-driving-cars/adversarial-traffic-signs-fd16b7171906). Blog post, 2017
+
+----
+## Improving Robustness for Safety
+
+Q. How do we make ML-based systems more robust?
+
+<!-- discussion -->
+
+----
+## Improving Robustness for Safety
+
+![](weather-conditions.png)
+<!-- .element: class="stretch" -->
+
+Learn more robust models
+  - Test/think about domain-specific deviations that might result in
+    perturbations to model input (e.g., 
+    fogs, snow, sensor noise)
+  - Curate data for those abnormal scenarios or augment training data with transformed inputs
+
+<!-- references_ -->
+_Automated driving recognition technologies for adverse weather
+conditions._ Yoneda et al., (2019).
+
+
+----
+## Improving Robustness for Safety 
+
+![](sensor-fusion.jpeg)
+<!-- .element: class="stretch" -->
+
+Design mechanisms
+  - Deploy redundant components for critical tasks (e.g., vision + map)
+  - Ensemble learning: Combine models with different biases
+  - Multiple, independent sensors (e.g., LiDAR + radar + cameras)
+
+----
+## Improving Robustness for Safety
+
+Design mechanisms
+  - Deploy redundant components for critical tasks (e.g., vision + map)
+  - Ensemble learning: Combine models with different biases
+  - Multiple, independent sensors (e.g., LiDAR + radar + cameras)
+  
+Robustness checking at inference time 
+  - Handle inputs with non-robust predictions differently
+    (e.g. discard or output low confidence score for outliers)
+  - Downside: Raises cost of prediction; may not be suitable
+    for time-sensitive applications (e.g., self-driving cars)
+
+
+----
+## Breakout: Robustness
+
+Scenario: Medical use of transcription service, dictate diagnoses and prescriptions
+
+As a group, tagging members, post to `#lecture`:
+
+> 1. What safety concerns can you anticipate?
+> 2. What deviations are you concerned about?
+> 3. How would improve the robustness of the overall system?
+
+
