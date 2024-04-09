@@ -706,3 +706,93 @@ Discuss issues around automated truck driving and the role of jobs.
 
 See for example: Andrew Yang. The War on Normal People. 2019
 
+
+----
+## Society: Polarization
+
+[![Article: Facebook Executives Shut Down Efforts to Make the Site Less Divisive](facebookdivisive.png)](https://www.wsj.com/articles/facebook-knows-it-encourages-division-top-executives-nixed-solutions-11590507499)
+<!-- .element: class="stretch" -->
+
+
+Notes: Recommendations for further readings: https://www.nytimes.com/column/kara-swisher, https://podcasts.apple.com/us/podcast/recode-decode/id1011668648
+
+Also isolation, Cambridge Analytica, collaboration with ICE, ...
+
+----
+## Environmental: Energy Consumption
+
+[![Article: Creating an AI can be five times worse for the planet than a car](energy.png)](https://www.newscientist.com/article/2205779-creating-an-ai-can-be-five-times-worse-for-the-planet-than-a-car/)
+<!-- .element: class="stretch" -->
+
+----
+## Exercise
+
+*Look at apps on your phone. Which apps have a safety risk and use machine learning?*
+
+Consider safety broadly: including stress, mental health, discrimination, and environment pollution
+
+<!-- discussion -->
+
+
+----
+## Takeaway
+
+* Many systems have safety concerns
+* ... not just nuclear power plants, planes, cars, and medical devices
+* Do the right thing, even without regulation
+* Consider safety broadly: including stress, mental health, discrimination, and environment pollution
+* Start with requirements and hazard analysis
+
+
+
+---
+# Designing for Safety
+
+See Lecture **Planning for Mistakes**
+
+----
+## Safety Assurance with ML Components
+
+* Consider ML components as unreliable, at most probabilistic guarantees
+* Testing, testing, testing (+ simulation)
+  - Focus on data quality & robustness
+* *Adopt a system-level perspective!*
+* Consider safe system design with unreliable components
+  - Traditional systems and safety engineering
+  - Assurance cases
+* Understand the problem and the hazards
+  - System level, goals, hazard analysis, world vs machine
+  - Specify *end-to-end system behavior* if feasible
+
+
+
+
+
+
+
+
+---
+# Summary
+
+* Defining safety: absence of harm to people, property, and environment -- consider broadly; safety != reliability
+* *Adopt a safety mindset!*
+* Assume all components will eventually fail in one way or another, especially ML components
+* Hazard analysis to identify safety risks and requirements; classic
+safety design at the system level
+* Robustness: Identify & address relevant deviations
+* AI alignment: AI goals are difficult to specify precisely; susceptible to negative
+  side effect & reward hacking
+
+----
+## Further Readings
+
+<div class="small">
+
+* Borg, Markus, Cristofer Englund, Krzysztof Wnuk, Boris Duran, Christoffer Levandowski, Shenjian Gao, Yanwen Tan, Henrik Kaijser, Henrik Lönn, and Jonas Törnqvist. “[Safely entering the deep: A review of verification and validation for machine learning and a challenge elicitation in the automotive industry](https://www.atlantis-press.com/journals/jase/125905766).” Journal of Automotive Software Engineering. 2019
+* Leveson, Nancy G. [Engineering a safer world: Systems thinking applied to safety](https://direct.mit.edu/books/book/2908/Engineering-a-Safer-WorldSystems-Thinking-Applied). The MIT Press, 2016.
+* Salay, Rick, and Krzysztof Czarnecki. “[Using machine learning safely in automotive software: An assessment and adaption of software process requirements in ISO 26262](https://arxiv.org/pdf/1808.01614).” arXiv preprint arXiv:1808.01614 (2018).
+* Mohseni, Sina, Mandar Pitale, Vasu Singh, and Zhangyang Wang. “[Practical Solutions for Machine Learning Safety in Autonomous Vehicles](https://arxiv.org/abs/1912.09630).” SafeAI workshop at AAAI’20, (2020).
+* Huang, Xiaowei, Daniel Kroening, Wenjie Ruan, James Sharp, Youcheng Sun, Emese Thamo, Min Wu, and Xinping Yi. “[A survey of safety and trustworthiness of deep neural networks: Verification, testing, adversarial attack and defence, and interpretability](https://arxiv.org/abs/1812.08342).” Computer Science Review 37 (2020).
+* Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf)." arXiv preprint arXiv:1606.06565 (2016).
+
+</div>
