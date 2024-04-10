@@ -202,6 +202,13 @@ Notes: Systems can be unsafe in unexpected ways
 
 Notes: Systems can be unsafe in unexpected ways
 
+
+----
+## IoT
+
+![Servers down](serversdown.png)
+<!-- .element: class="stretch" -->
+
 ----
 ## Safety is a broad concept
 
@@ -212,6 +219,23 @@ Includes harm to mental health
 Includes polluting the environment, including noise pollution
 
 Includes harm to society, e.g. poverty, polarization
+
+## Beyond Traditional Safety Critical Systems
+
+* Recall: Legal vs ethical
+* Safety analysis not only for regulated domains (nuclear power plants, medical devices, planes, cars, ...)
+* Many end-user applications have a safety component 
+
+**Q. Examples?**
+
+----
+## Takeaway
+
+* Many systems have safety concerns
+* ... not just nuclear power plants, planes, cars, and medical devices
+* Do the right thing, even without regulation
+* Consider safety broadly: including stress, mental health, discrimination, and environment pollution
+* Start with requirements and hazard analysis
 
 ----
 ## Case Study: Self-Driving Car
@@ -651,97 +675,6 @@ As a group, tagging members, post to `#lecture`:
 > 1. What safety concerns can you anticipate?
 > 2. What deviations are you concerned about?
 > 3. How would you improve the robustness of the overall system?
-
-
-
-
-
----
-# Beyond Traditional Safety Critical Systems
-
-----
-## Beyond Traditional Safety Critical Systems
-
-* Recall: Legal vs ethical
-* Safety analysis not only for regulated domains (nuclear power plants, medical devices, planes, cars, ...)
-* Many end-user applications have a safety component 
-
-**Q. Examples?**
-
-
-----
-## Mental Health
-
-[![Social Media vs Mental Health](mentalhealth.png)](https://www.healthline.com/health-news/social-media-use-increases-depression-and-loneliness)
-<!-- .element: class="stretch" -->
-
-----
-## Mental Health
-
-[![Social Media vs Mental Health](mentalhealth.png)](https://www.healthline.com/health-news/social-media-use-increases-depression-and-loneliness)
-<!-- .element: class="stretch" -->
-
-
-----
-## IoT
-
-![Servers down](serversdown.png)
-<!-- .element: class="stretch" -->
-
-
-----
-## Addiction
-
-[![Blog: Robinhood Has Gamified Online Trading Into an Addiction](robinhood.png)](https://marker.medium.com/robinhood-has-gamified-online-trading-into-an-addiction-cc1d7d989b0c)
-<!-- .element: class="stretch" -->
-
-----
-## Society: Unemployment Engineering / Deskilling
-
-![Automated food ordering system](automation.jpg)
-
-Notes: The dangers and risks of automating jobs.
-
-Discuss issues around automated truck driving and the role of jobs.
-
-See for example: Andrew Yang. The War on Normal People. 2019
-
-
-----
-## Society: Polarization
-
-[![Article: Facebook Executives Shut Down Efforts to Make the Site Less Divisive](facebookdivisive.png)](https://www.wsj.com/articles/facebook-knows-it-encourages-division-top-executives-nixed-solutions-11590507499)
-<!-- .element: class="stretch" -->
-
-
-Notes: Recommendations for further readings: https://www.nytimes.com/column/kara-swisher, https://podcasts.apple.com/us/podcast/recode-decode/id1011668648
-
-Also isolation, Cambridge Analytica, collaboration with ICE, ...
-
-----
-## Environmental: Energy Consumption
-
-[![Article: Creating an AI can be five times worse for the planet than a car](energy.png)](https://www.newscientist.com/article/2205779-creating-an-ai-can-be-five-times-worse-for-the-planet-than-a-car/)
-<!-- .element: class="stretch" -->
-
-----
-## Exercise
-
-*Look at apps on your phone. Which apps have a safety risk and use machine learning?*
-
-Consider safety broadly: including stress, mental health, discrimination, and environment pollution
-
-<!-- discussion -->
-
-
-----
-## Takeaway
-
-* Many systems have safety concerns
-* ... not just nuclear power plants, planes, cars, and medical devices
-* Do the right thing, even without regulation
-* Consider safety broadly: including stress, mental health, discrimination, and environment pollution
-* Start with requirements and hazard analysis
 
 
 
