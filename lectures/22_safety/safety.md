@@ -656,6 +656,7 @@ As a group, tagging members, post to `#lecture`:
 
 See Lecture **Planning for Mistakes**
 
+
 ----
 ## Safety Assurance with ML Components
 
@@ -672,6 +673,221 @@ See Lecture **Planning for Mistakes**
 
 
 
+---
+# FMEA
+
+
+----
+## Fault-Tree Analysis Discussion
+
+* Town-down, *backward* search for the root cause of issues
+    - from final outcomes to initiating events
+* Issues (TOP events) need to be known upfront
+* Quantitative analysis possible
+* Useful for understanding faults post-hoc
+* Where do outcomes come from?
+
+----
+## Failure Mode and Effects Analysis (FMEA)
+
+![](fmea-radiation.png)
+<!-- .element: class="stretch" -->
+
+* A __forward search__ technique to identify potential hazards
+* Widely used in aeronautics, automotive, healthcare, food services,
+  semiconductor processing, and (to some extent) software
+
+----
+## FMEA Process
+
+(a) Identify system components
+
+(b) Enumerate potential failure modes
+  * *for ML component: Always suspect prediction may be wrong*
+
+(c) For each failure mode, identify:
+  * Potential hazardous effect on the system
+  * Method for detecting the failure
+  * Potential mitigation strategy
+
+
+
+----
+## FMEA Example: Autonomous Train Doors
+
+
+<!-- discussion -->
+
+Failure modes? Failure effects? Detection? Mitigation?
+
+
+
+----
+## Exercise: FMEA Analysis for Smart Toaster
+
+(video sensor, temperature sensor, heat sensor, user setting, ML model, heuristic shutdown, thermal fuse)
+
+
+Failure modes? Failure effects? Detection? Mitigation?
+
+<!-- discussion -->
+
+
+----
+## FMEA Excerpt: Autonomous Car
+
+![FMEA for autonomous car](fmea-car.png)
+
+<!-- references -->
+
+Excerpt of an FMEA table for analyzing components in an autonomous vehicle, from 🗎 David Robert Beachum. Methods for assessing the safety of autonomous vehicles. University of Texas Theses and Dissertations (2019).
+
+----
+## "Wrong Prediction" as Failure Mode?
+
+"Wrong prediction" is a very cause grained failure mode of every model
+
+May not be possible to decompose further
+
+However, may evaluate causes of wrong prediction for better understanding, as far as possible --> FTA?
+
+
+
+
+----
+## FMEA Summary
+
+Forward analysis: From components to possible failures
+
+Focus on single component failures, no interactions
+
+Identifying failure modes may require domain understanding
+
+
+
+
+---
+# HAZOP
+
+
+----
+## Hazard and Interoperability Study (HAZOP)
+   
+*Identify hazards and component fault scenarios through guided inspection of requirements*
+
+![HAZOP example](hazop-perception.jpg)
+
+
+----
+## Hazard and Operability Study (HAZOP)
+
+<!-- colstart -->
+
+A __forward search__ method to identify potential hazards
+
+For each component, use a set of __guide words__ to generate
+possible deviations from expected behavior
+
+Consider the impact of each generated deviation: Can it result in a system-level hazard?
+
+<!-- col -->
+
+![](hazop.png)
+
+<!-- colend -->
+
+----
+## HAZOP Example: Emergency Braking (EB)
+
+<!-- colstart -->
+
+<div class="small">
+
+Specification: EB must apply a maximum braking command to the engine.
+
+  * __NO OR NOT__: EB does not generate any braking command.
+  * __LESS__: EB applies less than max. braking.
+  * __LATE__: EB applies max. braking but after a delay of 2
+  seconds.
+  * __REVERSE__: EB generates an acceleration command instead of braking.
+  * __BEFORE__: EB applies max. braking before a possible crash is detected.
+
+</div>
+
+<!-- col -->
+
+![](hazop-eb.jpg)
+
+<!-- colend -->
+
+
+----
+## HAZOP & ML
+
+In addition to traditional analysis:
+Analyze possible mistakes of all ML components
+
+Original guidewords:
+NO OR NOT,
+MORE,
+LESS,
+AS WELL AS,
+PART OF,
+REVERSE,
+OTHER THAN / INSTEAD,
+EARLY,
+LATE,
+BEFORE,
+AFTER
+
+Additional ML-specific guidewords: WRONG, INVALID, INCOMPLETE, PERTURBED, and INCAPABLE.
+
+
+----
+## Breakout: Automated Train Doors
+
+Analyze the vision component to detect obstacles in train doors
+
+NO OR NOT,
+MORE,
+LESS,
+AS WELL AS,
+PART OF,
+REVERSE,
+OTHER THAN / INSTEAD,
+EARLY,
+LATE,
+BEFORE,
+AFTER, WRONG, INVALID, INCOMPLETE, PERTURBED, and INCAPABLE.
+
+
+Using HAZOP: As a group answer in `#lecture`, tagging group members:
+
+> * What is the specification of the perception component? 
+> * What are possible deviations from the specification?
+> * What are potential hazards resulting from these deviations?
+> * What possible mitigations would you consider? (e.g., human in the loop, undoable actions, guardrails, mistake detection and recovery, containment)
+
+----
+## HAZOP: Benefits & Limitations
+
+* Easy to use; encourages systematic reasoning about component faults
+* Can be combined with FTA/FMEA to generate faults (i.e., basic
+events in FTA)
+* Potentially labor-intensive; relies on engineer's judgement
+* Does not guarantee to find all hazards (but also true for other techniques)
+
+
+
+
+----
+## Remarks: Hazard Analysis
+
+None of these methods guarantee completeness
+  * You may still be missing important hazards, failure modes
+
+Intended as structured approaches to thinking about failures
+  * But cannot replace human expertise and experience
 
 
 
