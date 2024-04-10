@@ -652,28 +652,6 @@ As a group, tagging members, post to `#lecture`:
 
 
 ---
-# Designing for Safety
-
-See Lecture **Planning for Mistakes**
-
-
-----
-## Safety Assurance with ML Components
-
-* Consider ML components as unreliable, at most probabilistic guarantees
-* Testing, testing, testing (+ simulation)
-  - Focus on data quality & robustness
-* *Adopt a system-level perspective!*
-* Consider safe system design with unreliable components
-  - Traditional systems and safety engineering
-  - Assurance cases
-* Understand the problem and the hazards
-  - System level, goals, hazard analysis, world vs machine
-  - Specify *end-to-end system behavior* if feasible
-
-
-
----
 # FMEA
 
 
@@ -712,34 +690,13 @@ See Lecture **Planning for Mistakes**
 
 
 ----
-## FMEA Example: Autonomous Train Doors
-
-
-<!-- discussion -->
-
-Failure modes? Failure effects? Detection? Mitigation?
-
-
-
-----
-## Exercise: FMEA Analysis for Smart Toaster
-
-(video sensor, temperature sensor, heat sensor, user setting, ML model, heuristic shutdown, thermal fuse)
-
-
-Failure modes? Failure effects? Detection? Mitigation?
-
-<!-- discussion -->
-
-
-----
 ## FMEA Excerpt: Autonomous Car
 
 ![FMEA for autonomous car](fmea-car.png)
 
 <!-- references -->
 
-Excerpt of an FMEA table for analyzing components in an autonomous vehicle, from 🗎 David Robert Beachum. Methods for assessing the safety of autonomous vehicles. University of Texas Theses and Dissertations (2019).
+Excerpt of an FMEA table for analyzing components in an autonomous vehicle, from  David Robert Beachum. Methods for assessing the safety of autonomous vehicles. University of Texas Theses and Dissertations (2019).
 
 ----
 ## "Wrong Prediction" as Failure Mode?
@@ -761,8 +718,6 @@ Forward analysis: From components to possible failures
 Focus on single component failures, no interactions
 
 Identifying failure modes may require domain understanding
-
-
 
 
 ---
@@ -844,6 +799,7 @@ Additional ML-specific guidewords: WRONG, INVALID, INCOMPLETE, PERTURBED, and IN
 
 ----
 ## Breakout: Automated Train Doors
+<div class="smallish">
 
 Analyze the vision component to detect obstacles in train doors
 
@@ -867,6 +823,8 @@ Using HAZOP: As a group answer in `#lecture`, tagging group members:
 > * What are potential hazards resulting from these deviations?
 > * What possible mitigations would you consider? (e.g., human in the loop, undoable actions, guardrails, mistake detection and recovery, containment)
 
+</div>
+
 ----
 ## HAZOP: Benefits & Limitations
 
@@ -889,6 +847,25 @@ Intended as structured approaches to thinking about failures
   * But cannot replace human expertise and experience
 
 
+---
+# Designing for Safety
+
+See Lecture **Planning for Mistakes**
+
+
+----
+## Safety Assurance with ML Components
+
+* Consider ML components as unreliable, at most probabilistic guarantees
+* Testing, testing, testing (+ simulation)
+  - Focus on data quality & robustness
+* *Adopt a system-level perspective!*
+* Consider safe system design with unreliable components
+  - Traditional systems and safety engineering
+  - Assurance cases
+* Understand the problem and the hazards
+  - System level, goals, hazard analysis, world vs machine
+  - Specify *end-to-end system behavior* if feasible
 
 
 
