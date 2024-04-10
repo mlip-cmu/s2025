@@ -678,7 +678,7 @@ See Lecture **Planning for Mistakes**
 
 
 ----
-## Fault-Tree Analysis Discussion
+## Reminder: Fault-Tree Analysis 
 
 * Town-down, *backward* search for the root cause of issues
     - from final outcomes to initiating events
@@ -709,7 +709,6 @@ See Lecture **Planning for Mistakes**
   * Potential hazardous effect on the system
   * Method for detecting the failure
   * Potential mitigation strategy
-
 
 
 ----
