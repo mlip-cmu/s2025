@@ -204,12 +204,6 @@ Notes: Systems can be unsafe in unexpected ways
 
 
 ----
-## IoT
-
-![Servers down](serversdown.png)
-<!-- .element: class="stretch" -->
-
-----
 ## Safety is a broad concept
 
 Not just physical harms/injuries to people
@@ -220,6 +214,7 @@ Includes polluting the environment, including noise pollution
 
 Includes harm to society, e.g. poverty, polarization
 
+----
 ## Beyond Traditional Safety Critical Systems
 
 * Recall: Legal vs ethical
@@ -542,23 +537,6 @@ Image: [_An abstract domain for certifying neural networks_](https://dl.acm.org/
 <!-- .element: class="stretch" -->
 
 ----
-## Robustness of Interpretable Models
-
-Is this model robust?
-
-Is the prediction for a 20 year old male with 2 priors robust? Against
-what perturbations? 
-
-```fortran
-IF age between 18–20 and sex is male THEN predict arrest
-ELSE 
-IF age between 21–23 and 2–3 prior offenses THEN predict arrest
-ELSE 
-IF more than three priors THEN predict arrest
-ELSE predict no arrest
-```
-
-----
 ## Evaluating ML Robustness
 
 <div class="smallish">
@@ -592,6 +570,14 @@ ELSE predict no arrest
   * What input pertburbations could be caused by from these changes/noise...?
 
 ----
+## Robustness testing
+
+Evaluates the degree to which a system or component functions correctly in the
+presence of invalid inputs or stressful or off-nominal environmental conditions.
+
+Notes: this has a rich history outside of ML!
+
+----
 ## Robustness in a Safety Setting
 
 * Does the model detect stop signs under normal conditions?
@@ -607,7 +593,7 @@ ELSE predict no arrest
 * Does the model detect stop signs under normal settings?
 * Does the model detect stop signs under deviations?
   * Poor lighting? In fog? With a tilted camera? Sensor noise?
-  * With stickers taped to the sign? (Does it matter?)
+  * With stickers taped to the sign? 
 
 ![Stop Sign](stop-sign-adversarial.png)
 <!-- .element: class="stretch" -->
