@@ -61,61 +61,6 @@ Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and
 <!-- discussion -->
 
 ----
-## The AI Alignment Problem
-
-AI is optimized for a specific objective/cost function
-  * Inadvertently cause undesirable effects on the environment
-  * e.g., [Transport robot](https://www.youtube.com/watch?v=JzlsvFN_5HI): Move a box to a specific destination
-  * Side effects: Scratch furniture, bump into humans, etc.,
-
-Side effects may cause ethical/safety issues (e.g., social media optimizing for clicks, causing teen depression)
-
-Difficult to define sensible fitness functions:
-  * Perform X *subject to common-sense constr. on the
-    environment*
-  * Perform X *but avoid side effects to the extent
-      possible*
-
-
-
-----
-## Reward Hacking
-
-> PlayFun algorithm pauses the game of Tetris indefinitely to avoid losing  
-
-> When about to lose a hockey game, the PlayFun algorithm exploits a bug to make one of the players on the opposing team disappear from the map, thus forcing a draw.
-
-> Self-driving car rewarded for speed learns to spin in circles  
-
-[Example: Coast Runner](https://www.youtube.com/watch?v=tlOIHko8ySg)
-
-----
-## Reward Hacking
-
-* AI can be good at finding loopholes to achieve a goal in unintended ways
-* Technically correct, but does not follow *designer's informal intent*
-* Many possible causes, incl. partially observed goals, abstract rewards, feedback loops
-* In general, a very challenging problem!
-  * Difficult to specify goal & reward function to avoid all
-  possible hacks
-  * Requires careful engineering and iterative reward design
-
-<!-- references -->
-Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
-
-----
-## AI Alignment Problem = Requirements Problem
-
-Recall: "World vs. machine"
-* Identify stakeholders in the environment & possible effects on them
-* Anticipate side effects, feedback loops
-* Constrain the scope of the system
-* Perfect contracts usually infeasible, undesirable
-
-But more requirements engineering unlikely to be only solution
-
-
-----
 ## Existential AI Risk
 
 Existential risk and AI alignment common in research
@@ -144,6 +89,59 @@ exploitation, data theft, synthetic media that props up existing power
 structures and the further concentration of those power structures in
 fewer hands.
 
+----
+## The AI Alignment Problem
+
+AI is optimized for a specific objective/cost function
+  * Inadvertently cause undesirable effects on the environment
+  * e.g., [Transport robot](https://www.youtube.com/watch?v=JzlsvFN_5HI): Move a box to a specific destination
+  * Side effects: Scratch furniture, bump into humans, etc.,
+
+Side effects may cause ethical/safety issues (e.g., social media optimizing for clicks, causing teen depression)
+
+Difficult to define sensible fitness functions:
+  * Perform X *subject to common-sense constr. on the
+    environment*
+  * Perform X *but avoid side effects to the extent
+      possible*
+
+----
+## Reward Hacking
+
+> PlayFun algorithm pauses the game of Tetris indefinitely to avoid losing  
+
+> When about to lose a hockey game, the PlayFun algorithm exploits a bug to make one of the players on the opposing team disappear from the map, thus forcing a draw.
+
+> Self-driving car rewarded for speed learns to spin in circles  
+
+[Example: Coast Runner](https://www.youtube.com/watch?v=tlOIHko8ySg)
+
+----
+## Reward Hacking
+
+* AI can be good at finding loopholes to achieve a goal in unintended ways
+* Technically correct, but does not follow *designer's informal intent*
+* Many possible causes, incl. partially observed goals, abstract rewards, feedback loops
+* In general, a very challenging problem!
+  * Difficult to specify goal & reward function to avoid all
+  possible hacks
+  * Requires careful engineering and iterative reward design
+
+<!-- references -->
+Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and Dan Mané. "[Concrete problems in AI safety](https://arxiv.org/pdf/1606.06565.pdf%20http://arxiv.org/abs/1606.06565)." arXiv preprint arXiv:1606.06565 (2016).
+
+Notes: program repair
+
+----
+## AI Alignment Problem = Requirements Problem
+
+Recall: "World vs. machine"
+* Identify stakeholders in the environment & possible effects on them
+* Anticipate side effects, feedback loops
+* Constrain the scope of the system
+* Perfect contracts usually infeasible, undesirable
+
+But more requirements engineering unlikely to be only solution
 
 
 ----
@@ -174,19 +172,6 @@ Safety is a system concept
   * Can't talk about software/ML being "safe"/"unsafe" on its own
   * Safety is defined in terms of its effect on the **environment**
 
-----
-## Safety != Reliability
-
-Reliability = absence of defects, mean time between failure
-
-Safety = prevents accidents, harms
-
-Can build safe systems from unreliable components (e.g. redundancy, safeguards)
-
-System may be unsafe despite reliable components (e.g. stronger gas tank causes more severe damage in incident)
-
-Accuracy is usually about reliability!
-
 
 ----
 ## Safety of AI-Enabled Systems
@@ -204,33 +189,46 @@ Notes: Systems can be unsafe in unexpected ways
 
 
 ----
+## Safety != Reliability
+
+Reliability = absence of defects, mean time between failure
+
+Safety = prevents accidents, harms
+
+Can build safe systems from unreliable components (e.g. redundancy, safeguards)
+
+System may be unsafe despite reliable components (e.g. stronger gas tank causes more severe damage in incident)
+
+Accuracy is usually about reliability!
+
+----
 ## Safety is a broad concept
 
-Not just physical harms/injuries to people
+Recall: Legal vs ethical
 
-Includes harm to mental health
+Safety analysis not only for regulated domains (nuclear power plants, medical devices, planes, cars, ...), and includes harms beyond physical harms/injury
 
-Includes polluting the environment, including noise pollution
+Many end-user applications have a safety component 
 
-Includes harm to society, e.g. poverty, polarization
+Start with requirements and hazard analyses
 
-----
-## Beyond Traditional Safety Critical Systems
+Notes: Do the right thing, even without regulation
 
-* Recall: Legal vs ethical
-* Safety analysis not only for regulated domains (nuclear power plants, medical devices, planes, cars, ...)
-* Many end-user applications have a safety component 
 
-**Q. Examples?**
+---
+# Safety Engineering
 
 ----
-## Takeaway
+## Safety Engineering
 
-* Many systems have safety concerns
-* ... not just nuclear power plants, planes, cars, and medical devices
-* Do the right thing, even without regulation
-* Consider safety broadly: including stress, mental health, discrimination, and environment pollution
-* Start with requirements and hazard analysis
+Safety Engineering: An engineering discipline which assures that engineered systems provide acceptable levels of safety.
+
+Typical safety engineering process:
+  * Identify relevant hazards & safety requirements
+  * Identify potential root causes for hazards
+  * For each hazard, develop a mitigation strategy
+  * Provide evidence that mitigations are properly implemented
+
 
 ----
 ## Case Study: Self-Driving Car
@@ -286,17 +284,6 @@ __Q. More miles tested => safer?__
 * Gaps in training data; ML unlikely to cover all unknown cases
 * Is this a unique problem for AI? What about humans?
 
-
-----
-## Safety Engineering
-
-Safety Engineering: An engineering discipline which assures that engineered systems provide acceptable levels of safety.
-
-Typical safety engineering process:
-  * Identify relevant hazards & safety requirements
-  * Identify potential root causes for hazards
-  * For each hazard, develop a mitigation strategy
-  * Provide evidence that mitigations are properly implemented
 
 
 
