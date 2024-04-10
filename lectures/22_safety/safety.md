@@ -133,6 +133,13 @@ Amodei, Dario, Chris Olah, Jacob Steinhardt, Paul Christiano, John Schulman, and
 Notes: program repair
 
 ----
+## Gaming the model
+
+This is a problem in automatic bug fixing, and manual bug fixing, too!
+
+![Overfitting](overfit.png)
+
+----
 ## AI Alignment Problem = Requirements Problem
 
 Recall: "World vs. machine"
