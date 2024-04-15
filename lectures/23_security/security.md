@@ -111,7 +111,7 @@ Threat model
 Attack surface
 * Which parts of the system are exposed to the attacker?
 
-Defense mechanisms (mitigiations)
+Defense mechanisms (mitigations)
 * How do we prevent attacker from compromising a security req.?
 
 ----
@@ -157,7 +157,27 @@ day of the application deadline.
 
 **Authorization:** Only users with the right permissions can access a resource/perform an action
 
+----
+## Breakout (I): Dashcam System
 
+<!-- colstart -->
+
+Recall: Dashcam system from I2
+
+As a group, tagging members, post in `#lecture`:
+
+* Security requirements:
+  - Confidentiality (1), Integrity (1), Availability (1)
+
+
+<!-- col -->
+
+![](dashcam-architecture.jpg)
+
+<!-- colend -->
+
+
+----
 ---
 # ML-Specific Threats
 
@@ -209,6 +229,7 @@ Who can access/influence...
 * Untargeted poisoning attacks (availability violation)
 * Model stealing attacks (confidentiality violation against model data)
 * Model inversion attack (confidentiality violation against training data)
+* Prompt Injection (confidentiality, integrity, availability violation)
 
 ----
 ## Evasion Attacks (Adversarial Examples)
@@ -237,6 +258,34 @@ Classification_,
 Eykholt et al., in CVPR (2018).
 
 ----
+
+## Evasion Attacks: Another Example
+
+![](speechtotext.png)
+
+<!-- .element: class="stretch" -->
+</br>
+ <div>
+              <audio controls="controls">
+                <source src="https://nicholas.carlini.com/code/audio_adversarial_examples/extra2a.wav" />
+              </audio>
+              <span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+                &ldquo;the boy looked out at the horizon&rdquo;
+              </span>
+            </div>
+            <div>
+              <audio controls="controls">
+                <source src="https://nicholas.carlini.com/code/audio_adversarial_examples/extra2b.wav" />
+              </audio>
+              <span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+                &ldquo;later we simply let life proeed in its own direction toward its own fate&rdquo;
+              </span>
+            </div>
+
+<!-- references_ -->
+From Carlini et al (2018). [Audio Adversarial Examples: Targeted Attacks on Speech-to-Text](https://arxiv.org/abs/1801.01944). IEEE security and privacy workshops (SPW)
+----
+
 ## Task Decision Boundary vs Model Boundary
 
 [![Decision boundary vs model boundary](decisionboundary.png)](decisionboundary.png)
@@ -348,6 +397,18 @@ _Poison Frogs! Targeted Clean-Label Poisoning Attacks on Neural
 Networks_, Shafahi et al. (2018)
 
 ----
+
+## Targeted Poisoning Attacks on Integrity
+
+The dangers of collecting publicly available data.
+
+![](tay.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+[IEEE Spectrum](https://spectrum.ieee.org/in-2016-microsofts-racist-chatbot-revealed-the-dangers-of-online-conversation)
+----
+
 ## Defense against Poisoning Attacks
 
 
@@ -458,6 +519,24 @@ _Biscotti: A Ledger for Private and Secure Peer-to-Peer Machine
 Learning_, M. Shayan et al., arXiv:1811.09904 (2018).
 
 ----
+## Prompt Injection Attacks
+
+<!-- colstart -->
+
+Range of consequences, including
+* unintended actions
+* unauthorized access to sensitive data (e.g., prompt leaking)
+* manipulation of system behavior (e.g., goal hijacking)
+* leakage of proprietary information
+* remote code execution.
+<!-- col -->
+
+![](chatgpt_chevrolet_hack_2.png)
+
+<!-- colend -->
+
+----
+
 ## Review: ML-Specific Attacks
 
 * Evasion attacks/adversarial examples (integrity violation)
@@ -465,16 +544,16 @@ Learning_, M. Shayan et al., arXiv:1811.09904 (2018).
 * Untargeted poisoning attacks (availability violation)
 * Model stealing attacks (confidentiality violation against model data)
 * Model inversion attack (confidentiality violation against training data)
+* Prompt Injection (confidentiality, integrity, availability violation)
 
 ----
-## Breakout: Dashcam System
+## Breakout (II): Dashcam System
 
 <!-- colstart -->
 
-Recall: Dashcam system from I2/I3
+Recall: Dashcam system from I2
 
 As a group, tagging members, post in `#lecture`:
-  * Security requirements
   * Possible (ML) attacks on the system
   * Possible mitigations against these attacks
 
