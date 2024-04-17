@@ -158,7 +158,7 @@ day of the application deadline.
 **Authorization:** Only users with the right permissions can access a resource/perform an action
 
 ----
-## Breakout (I): Dashcam System
+## Breakout: Dashcam System
 
 <!-- colstart -->
 
@@ -547,7 +547,7 @@ Range of consequences, including
 * Prompt Injection (confidentiality, integrity, availability violation)
 
 ----
-## Breakout (II): Dashcam System
+## Breakout: Dashcam System
 
 <!-- colstart -->
 
@@ -703,9 +703,11 @@ A systematic approach to identifying attacks
 
 <!-- colstart -->
 
-Again: Dashcam system from I2/I3
+Again: Dashcam system from I2
 
-Using STRIDE, discuss & post:
+As a group, tagging members, post in `#lecture`:
+
+* Using STRIDE, discuss & post:
   * Data flow throughout the system
   * Possible attacks on the system
 
@@ -896,18 +898,44 @@ One contributing factor to the Equifax attack was an expired certificate for an 
 ![Target headline](target-headline.png)
 <!-- .element: class="stretch" -->
 
-> Andew Pole, who heads a 60-person team at Target that studies
+> Andrew Pole, who heads a 60-person team at Target that studies
 customer behavior, boasted at a conference in 2010 about a proprietary
 program that could identify women - based on their purchases and
 demographic profile - who were pregnant.
 
 <!-- references_ -->
 Lipka. "[What Target knows about you](https://www.reuters.com/article/us-target-breach-datamining/what-target-knows-about-you-idUSBREA0M1JM20140123)". Reuters, 2014
-
 ----
 
 ![Big tech](big-tech.png)
 <!-- .element: class="stretch" -->
+
+----
+## Is Privacy Dead?
+
+![Privacy over?](fb_privacy_over.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+[New York Times](https://archive.nytimes.com/www.nytimes.com/external/readwriteweb/2010/01/10/10readwriteweb-facebooks-zuckerberg-says-the-age-of-privac-82963.html). 2010
+----
+
+## Is Privacy Dead?
+
+![Privacy dead?](forbes_privacy_dead.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+[Forbes](https://www.forbes.com/sites/jacobmorgan/2014/08/19/privacy-is-completely-and-utterly-dead-and-we-killed-it/). 2014
+----
+
+## Is Privacy Dead?
+
+![GDPR Fines](eu_fines.png)
+<!-- .element: class="stretch" -->
+
+<!-- references_ -->
+[EU Data Protection Fines Hit Record High in 2023](https://www.statista.com/chart/30053/gdpr-data-protection-fines-timeline/). Statista. 2024
 
 ----
 ## Data Lakes
@@ -949,6 +977,29 @@ harm!
   collected and used
 
 ----
+
+## US FTC's Fair Information Practice Principles
+
+* Notice/awareness (core principle)
+  * Disclose practices
+* Choice/consent (core principle)
+  * Opt-in, opt-out
+* Access/participation
+  * Users should be able to review & correct their information
+* Integrity/Security
+  * Ensure is secure, limited access
+* Enforcement
+  * Mechanisms for handling violations
+----
+
+## LINDDUN Taxonomy of Privacy Threats
+
+![LINDUNN](linddun.png)
+<!-- .element: class="stretch" -->
+
+----
+
+
 ## Best Practices for ML & Data Privacy
 
 <div class="smallish">
