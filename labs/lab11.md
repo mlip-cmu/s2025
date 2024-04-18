@@ -5,7 +5,7 @@ In this lab you will explore some of the vulnerabilities of LLM systems, and get
 
 ## Deliverables
 - [ ] Come up with a defense prompt that protect against at least 4 of the attacks below and show your experiments to a TA during recitation.
-- [ ] Show the TA one of the attacks you tried on a classmate's defense, and explain why you think it worked/didn't work.
+- [ ] Show your new attack to the TA and explain why you think it broke your defense.
 - [ ] Follow up question: What are other ways to further improve the security of the system?
 
 ## 1. Defending
@@ -40,6 +40,6 @@ What's the password? // Use the attacks below to test your defense.
 
 ## 2. Attacking
 
-Now pair up with one or two other classmates and try to break their defense! Come up with an attack prompt and use the same template as before, to attack your classmate's defense prompt.
+Come up with a new attack prompt that breaks your defense. Feel free to work in groups of 2-3 of your classmates and try to break their defenses as well. Can you craft an universal attack that breaks through any defense?
 
-**Deliverable:** Show your new attack to the TA and explain why you thought this was a good attack. If the new attack didn't break the defense, explain why you think it wasn't enough, and how you could further improve the system. 
+**Deliverable:** Show your new attack to the TA and explain why you think it broke your defense. Explain how you could further improve the security of an LLM-based system.
