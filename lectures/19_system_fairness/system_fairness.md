@@ -105,9 +105,9 @@ i.e., Requirements engineering
 
 * Does the model meet anti-classification fairness? _Can't tell_
 * Does the model meet group fairness? _Sure_
-   * P[cancer, M] = 0.023, P[cancer, F] = 0.026
+   * P[cancer, M] = 0.034, P[cancer, F] = 0.036
 * Does the model meet equalized odds? _No_
-   * FPR, M = 0.023, F = 0.026
+   * FPR, M = 0.012, F = 0.010
    * FNR, M = 0.64,  F = 0.133 
 * Is the model fair enough to use?  How can we decide?
 
