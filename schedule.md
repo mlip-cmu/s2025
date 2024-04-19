@@ -43,6 +43,6 @@
 | Mon, Apr 15 | [Security and Privacy](https://mlip-cmu.github.io/s2024/slides/23_security/security.html) ([book chapter](https://ckaestne.medium.com/security-and-privacy-in-ml-enabled-systems-1855f561b894)) |  |  |
 | Wed, Apr 17 | More safety, security, privacy  |  | [I4: Explainability](https://github.com/mlip-cmu/s2024/blob/main/assignments/I4_explainability.md) |
 | Fri, Apr 19 | ![Lab](https://img.shields.io/badge/-lab-yellow.svg) Fairness Toolkits |  |  |
-| Mon, Apr 22 | Fostering Interdisciplinary Teams ([book chapter](https://ckaestne.medium.com/building-machine-learning-products-with-interdisciplinary-teams-a1fdfbf49e81)) |  |  |
+| Mon, Apr 22 | [Fostering Interdisciplinary Teams](https://mlip-cmu.github.io/s2024/slides/24_teams/teams.html) ([book chapter](https://ckaestne.medium.com/building-machine-learning-products-with-interdisciplinary-teams-a1fdfbf49e81)) |  |  |
 | Wed, Apr 24 | Summary and Review  |  | [M4: Fairness, Security and Feedback Loops](https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md) |
 | [Thu, May 2](https://www.cmu.edu/hub/docs/final-exams.pdf) (9:30am) | Final Project Presentations  |  | [Final report](https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md) |
