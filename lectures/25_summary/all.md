@@ -86,22 +86,6 @@ As a group, think about challenges that the team will likely focus when turning 
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture2.svg)
 <!-- .element: class="plain stretch" -->
 
-----
-
-<svg version="1.1" viewBox="0.0 0.0 800 400" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="stretch">
-        <style>
-    text { font: 60px sans-serif; }
-        </style>
-        <circle r="180" cx="250", cy="200" fill="#b9ff00" fill-opacity="0.514" />
-        <circle r="180" cx="550", cy="200" fill="#ff5500" fill-opacity="0.514" />
-        <text x=230 y=160 dominant-baseline="middle" text-anchor="middle">Data</text>
-        <text x=230 y=240 dominant-baseline="middle" text-anchor="middle">Scientists</text>
-        <text x=570 y=160 dominant-baseline="middle" text-anchor="middle">Software</text>
-        <text x=570 y=240 dominant-baseline="middle" text-anchor="middle">Engineers</text>
-</svg>
-
-
-<div class="small">and Data engineers + Domain specialists + Operators + Business team + Project managers + Designers, UI Experts + Safety, security specialists + Lawyers + Social scientists + ...</div>
 
 
 ----
