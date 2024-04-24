@@ -136,51 +136,9 @@ Monday/Wednesdays 1:25-2:45pm
 Recitation Fridays 10:10-11:00am / 1:25-2:45pm
 
 ----
-## First Homework Assignment
-
-<!-- colstart -->
-*"Coding warmup assignment"*
-
-[Out now](https://github.com/ckaestne/seai/blob/F2022/assignments/I1_mlproduct.md), due Sep 7
-
-Enhance simple web *application* with ML-based feature: Automated image captioning
-
-Open ended coding assignment, change existing code, learn new APIs
-
-
-<!-- col -->
-![Screenshot of Albumy](albumy.png)
-<!-- colend -->
-
-
-----
 
 ![Class Overview](overview.svg)
 <!-- .element: class="plain" -->
-
-
-----
-## Reading Assignments & Quizzes
-
-<!-- colstart -->
-*Building Intelligent Systems*
-by Geoff Hulten
-
-https://www.buildingintelligentsystems.com/
-
-Most chapters assigned at some point in the semester
-
-Supplemented with research articles, blog posts, videos, podcasts, ...
-
-[Electronic version](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436) in the library
-
-<!-- col -->
-
-![Building intelligent systems book](book.webp)
-
-<!-- colend -->
-
-
 
 ----
 ## Grading Philosophy
@@ -266,12 +224,6 @@ ML intensifies our challenges
 ## Why do we care about image captioning?
 
 ![Image captioning one step](imgcaptioning.png)
-
-
-
-----
-![Image Search on Google Photos](imagesearch.png)
-<!-- .element: class="plain stretch" -->
 
 
 ----
@@ -469,32 +421,6 @@ Outside the model (e.g., "guardrails")
 
 
 ----
-## Things change...
-
-
-<!-- colstart -->
-
-
-Newer better models released (better model architectures, more training data, ...)
-
-Goals and scope change (more domains, handling dialects, ...)
-
-The world changes (new products, names, slang, ...)
-
-Online experimentation
-
-
-
-<!-- col -->
-
-![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.svg)
-<!-- .element: class="plain" -->
-
-
-<!-- colend -->
-
-
-----
 ## Monitoring in Production
 
 Design for telemetry
@@ -674,14 +600,6 @@ See also 🗎 Jackson, Michael. "[The world and the machine](https://web.archive
 
 Note: In a wizard of oz experiment a human fills in for the ML model that is to be developed. For example a human might write the replies in the chatbot. 
 
-----
-## Personas in GenderMag
-
-
-![Gendermag](gendermag1.png)
-
-
-See examples and details http://gendermag.org/foundations.php
 
 
 ----
@@ -736,12 +654,6 @@ Dashcam system
 ![Confounding variable example](confoundingvariables.svg)
 <!-- .element: class="plain" -->
 
-----
-## Reverse Causality
-
-![Chess](chess.jpg)
-
-Note: (from Prediction Machines, Chapter 6) Early 1980s chess  program learned from Grandmaster games, learned that sacrificing queen would be a winning move, because it was occuring frequently in winning games. Program then started to sacrifice queen early.
 
 ----
 ## Reasons barely matter
@@ -827,16 +739,6 @@ Recall: Thermal fuse in smart toaster
 + maximum toasting time + extra heat sensor
 
 
-----
-## Guardrails - Examples
-
-![Metro station Cour Saint-Émilion in Paris with automated platform screen doors that only open when a train is in the station](platformdoors.png)
-<!-- .element: class="stretch" -->
-
-<!-- references_ -->
-
-CC BY-SA 4.0 by Chabe01
-
 
 ----
 ## Mistake detection
@@ -901,12 +803,6 @@ Toby Ord, "The Precipice: Existential Risk and the Future of Humanity", 2020
 
 Note: Discussion on existential risk. Toby Ord, Oxford philosopher predicts 
 
-----
-## What's the worst that could happen?
-
-![Albumy screenshot](albumy.png)
-<!-- .element: class="stretch" -->
-
 
 
 ----
@@ -924,30 +820,6 @@ A number of methods:
   * Fault tree analysis (FTA)
   * ...
 
-
-----
-## Fault Tree Analysis (FTA)
-
-<!-- colstart -->
-
-<div class="small">
-
-* Fault tree: A top-down diagram that displays the relationships
-between a system failure (i.e., requirement violation) and its potential causes.  
-  * Identify sequences of events that result in a failure
-  * Prioritize the contributors leading to the failure
-  * Inform decisions about how to (re-)design the system
-  * Investigate an accident & identify the root cause 
-* Often used for safety & reliability, but can also be used for
-other types of requirements (e.g., poor performance, security attacks...)
-
-</div>
-
-<!-- col -->
-
-![fta-sample](fta-sample.png)<!-- .element: style="width:400px" -->
-
-<!-- colend -->
 
 ----
 ![FTA for trapping people in doors of a train](fta.svg)
