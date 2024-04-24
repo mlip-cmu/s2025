@@ -3557,15 +3557,6 @@ Note: Image source: https://en.wikipedia.org/wiki/Martin_Shkreli#/media/File:Mar
 <!-- references_ -->
 https://leftronic.com/social-media-addiction-statistics
 
-----
-## Who's to blame?
-
-![dont-be-evil](dont-be-evil.png)
-<!-- .element: class="stretch" -->
-
-*Are these companies intentionally trying to cause harm? If not,
-  what are the root causes of the problem?*
-
 
 ----
 ## Liability?
