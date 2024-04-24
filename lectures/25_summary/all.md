@@ -2599,13 +2599,6 @@ Source: Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. [The 
 
 ![Testing levels](unit-integration-system-testing.svg)<!-- .element: class="plain" style="width:1200px" -->
 
-----
-## The V-Model of Testing
-
-![V-Model](vmodel.svg)
-<!-- .element: class="stretch plain" -->
-
-
 
 
 ----
