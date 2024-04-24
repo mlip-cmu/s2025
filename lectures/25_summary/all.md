@@ -3913,10 +3913,6 @@ Cannot satisfy all. People have conflicting preferences...
 > We should stop training radiologists now. It’s just completely obvious that within five years, deep learning is going to do better than radiologists. -- [Geoffrey Hinton](https://www.youtube.com/watch?v=2HMPRXstSvQ&t=29s), 2016
 
 ----
-[![Headline Rutkowski not happy about AI art](rutkowski.png)](https://www.technologyreview.com/2022/09/16/1059598/this-artist-is-dominating-ai-generated-art-and-hes-not-happy-about-it/)
-<!-- .element: class="stretch" -->
-
-----
 ## Who does the Fairness Work?
 
 Within organizations usually little institutional support for fairness work, few activists
