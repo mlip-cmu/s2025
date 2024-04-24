@@ -1412,17 +1412,6 @@ Input divided by genre, rating, and length. Accuracy differs, but also amount of
 Source: Barash, Guy, et al. "Bridging the gap between ML solutions and their business requirements using feature interactions." In Proc. FSE, 2019.
 
 
-----
-## Example: Model Impr. at Apple (Overton)
-
-![Overton system](overton.png)
-<!-- .element: class="stretch" -->
-
-
-<!-- references_ -->
-
-Ré, Christopher, Feng Niu, Pallavi Gudipati, and Charles Srisuwananukorn. "[Overton: A Data System for Monitoring and Improving Machine-Learned Products](https://arxiv.org/abs/1909.05372)." arXiv preprint arXiv:1909.05372 (2019).
-
 
 
 
@@ -1543,31 +1532,6 @@ Identifying invariants requires domain knowledge of the problem!
 <!-- .element: class="stretch" -->
 
 
-
-----
-## One More Thing: Simulation-Based Testing
-
-<div class="small">
-
-<!-- colstart -->
-
-* Derive input-output pairs from simulation, esp. in vision systems
-* Example: Vision for self-driving cars:
-    * Render scene -> add noise -> recognize -> compare recognized result with simulator state
-* Quality depends on quality of simulator: 
-    * examples: render picture/video, synthesize speech, ... 
-    * Less suitable where input-output relationship unknown, e.g., cancer prognosis, housing price prediction
-<!-- col -->
-![Simulation is the inverse of prediction](simulationbased-testing.svg)
-<!-- .element: class="plain" -->
-
-<!-- colend -->
-
-</div>
-
-<!-- references -->
-
-Further readings: Zhang, Mengshi, Yuqun Zhang, Lingming Zhang, Cong Liu, and Sarfraz Khurshid. "DeepRoad: GAN-based metamorphic testing and input validation framework for autonomous driving systems." In Proc. ASE. 2018.
 
 
 ----
@@ -1761,31 +1725,6 @@ Incrementality
 <!-- Img src https://pixabay.com/photos/credit-card-payment-transaction-926862/ -->
 
 ----
-![Table of NFPs and their relationship to different components](nfps.png)
-<!-- .element: class="plain stretch" -->
-
-<!-- references_ -->
-From: Habibullah, Khan Mohammad, Gregory Gay, and Jennifer Horkoff. "[Non-Functional Requirements for Machine Learning: An Exploration of System Scope and Interest](https://arxiv.org/abs/2203.11063)." arXiv preprint arXiv:2203.11063 (2022).
-
-
-----
-## Network Size
-
-<div class="smallish">
-
-* 50 Layer ResNet network -- classifying 224x224 images into 1000 categories
-  * 26 million weights, computes 16 million activations during inference, 168 MB to store weights as floats
-* Google in 2012(!): 1TB-1PB of training data, 1 billion to 1 trillion parameters
-* OpenAI’s GPT-2 (2019) -- text generation
-  - 48 layers, 1.5 billion weights (~12 GB to store weights)
-  - released model reduced to 117 million weights
-  - trained on 7-8 GPUs for 1 month with 40GB of internet text from 8 million web pages
-* OpenAI’s GPT-3 (2020): 96 layers, 175 billion weights, 700 GB in memory, $4.6M in approximate compute cost for training
-</div>
-
-Notes: https://lambdalabs.com/blog/demystifying-gpt-3/
-
-----
 ## Cost & Energy Consumption
 
 <div class="smallish">
@@ -1817,13 +1756,6 @@ Strubell, Emma, Ananya Ganesh, and Andrew McCallum. "[Energy and Policy Consider
 
 
 
-
-
-----
-# Constraints and Tradeoffs
-
-![Pareto Front Example](pareto-front.svg)
-<!-- .element: class="stretch plain" -->
 
 
 
