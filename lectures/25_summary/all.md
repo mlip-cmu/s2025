@@ -210,15 +210,6 @@ ML intensifies our challenges
 ![Image captioning one step](imgcaptioning.png)
 
 
-----
-## Products using Image Synthesis?
-
-![Dall-e generated example of chairs in the form of an avocado](dall-e.png)
-<!-- .element: class="plain stretch" -->
-
-<!-- references_ -->
-From https://openai.com/blog/dall-e/
-
 
 ----
 ## Traditional Model Focus (Data Science)
@@ -642,7 +633,7 @@ Dashcam system
 ----
 ## Reasons barely matter
 
-No model is every "correct"
+No model is ever "correct"
 
 Some mistakes are unavoidable
 
