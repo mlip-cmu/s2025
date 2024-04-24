@@ -1994,14 +1994,6 @@ Based on: Yokoyama, Haruki. "Machine learning system architectural pattern for i
 From Google’s public [object detection API](https://cloud.google.com/vision/docs/object-localizer).
 
 ----
-![Model card screenshot from Google](modelcard2.png)
-<!-- .element: class="stretch" -->
-
-<!-- references_ -->
-From: https://modelcards.withgoogle.com/object-detection
-
-
-----
 ## Anti-Patterns
 
 * Big Ass Script Architecture
@@ -2016,7 +2008,7 @@ From: https://modelcards.withgoogle.com/object-detection
 
 <!-- references -->
 
-See also: 🗎 Washizaki, Hironori, Hiromu Uchida, Foutse Khomh, and Yann-Gaël Guéhéneuc. "[Machine Learning Architecture and Design Patterns](http://www.washi.cs.waseda.ac.jp/wp-content/uploads/2019/12/IEEE_Software_19__ML_Patterns.pdf)." Draft, 2019; 🗎 Sculley, et al. "[Hidden technical debt in machine learning systems](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)." In NeurIPS, 2015.
+See also: Washizaki, Hironori, Hiromu Uchida, Foutse Khomh, and Yann-Gaël Guéhéneuc. "[Machine Learning Architecture and Design Patterns](http://www.washi.cs.waseda.ac.jp/wp-content/uploads/2019/12/IEEE_Software_19__ML_Patterns.pdf)." Draft, 2019; 🗎 Sculley, et al. "[Hidden technical debt in machine learning systems](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)." In NeurIPS, 2015.
 
 
 
@@ -2506,12 +2498,6 @@ Parameterize and use `nbconvert`?
 
 
 ----
-## Real Pipelines can be Complex
-
-![Connections between the pipeline and other components](pipeline-connections.svg)
-<!-- .element: class="plain" -->
-
-----
 ## Possible Mistakes in ML Pipelines
 
 ![Pipeline](pipeline.svg)
@@ -2643,22 +2629,6 @@ Source: Eric Breck, Shanqing Cai, Eric Nielsen, Michael Salib, D. Sculley. [The 
 
 (from S20 midterm; assume cloud or hybrid deployment)
 
-
-
-----
-## Stubbing the Dependency
-
-![Test driver-code-stub](driver-code-stub.svg)<!-- .element: class="plain" style="width:1200px" -->
-
-```python
-def test_do_not_overwrite_gender():
-  def model_stub(first, last, location):
-    return 'M'
-
-  df = pd.DataFrame({'firstname': ['John', 'Jane', 'Jim'], 'lastname': ['Doe', 'Doe', 'Doe'], 'location': ['Pittsburgh, PA', 'Rome, Italy', 'Paris, PA '], 'gender': [np.nan, 'F', np.nan]})
-  out = clean_gender(df, model_stub)
-  assert(out['gender'] ==['M', 'F', 'M']).all()
-```
 
 
 
@@ -3144,16 +3114,6 @@ CC BY-SA 4.0 [Khtan66](https://en.wikipedia.org/wiki/Kubernetes#/media/File:Kube
 
 
 ----
-
-![Hawkular Dashboard](https://www.hawkular.org/img/hawkular-apm/components.png)
-
-<!-- source -->
-https://www.hawkular.org/hawkular-apm/
- 
-
-
-
-----
 ## The DevOps Mindset
 
 * Consider the entire process and tool chain holistically
@@ -3388,32 +3348,6 @@ https://dvc.org/
 
 
 
-----
-## ModelDB Example
-
-```python
-from verta import Client
-client = Client("http://localhost:3000")
-
-proj = client.set_project("My first ModelDB project")
-expt = client.set_experiment("Default Experiment")
-
-# log the first run
-run = client.set_experiment_run("First Run")
-run.log_hyperparameters({"regularization" : 0.5})
-run.log_dataset_version("training_and_testing_data", dataset_version)
-model1 = # ... model training code goes here
-run.log_metric('accuracy', accuracy(model1, validationData))
-run.log_model(model1)
-
-# log the second run
-run = client.set_experiment_run("Second Run")
-run.log_hyperparameters({"regularization" : 0.8})
-run.log_dataset_version("training_and_testing_data", dataset_version)
-model2 = # ... model training code goes here
-run.log_metric('accuracy', accuracy(model2, validationData))
-run.log_model(model2)
-```
 
 
 ----
@@ -3692,12 +3626,6 @@ https://leftronic.com/social-media-addiction-statistics
 > THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Note: Software companies have usually gotten away with claiming no liability for their products
-
-----
-## Buzzword or real progress?
-
-![Microsoft responsible AI principles](responsibleai.png)
-<!-- .element: class="stretch" -->
 
 
 ----
@@ -4132,12 +4060,6 @@ Can address most sources of bias: tainted labels, skewed samples, limited featur
 
 -> World vs machine, data quality, data cascades
 
-
-----
-## Feedback Loops
-
-![Feedback loop](feedbackloop.svg)
-<!-- .element: class="plain" -->
 
 
 ----
