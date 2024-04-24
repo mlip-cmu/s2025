@@ -1011,27 +1011,6 @@ predictAndReport(train = train, test = test)
 
 
 
-----
-## Independence of Data: Related Datapoints
-
-Example: Kaggle competition on detecting distracted drivers
-
-![Driver Picture 1](driver_phone.png) ![Driver Picture 2](driver_phone2.png)
-<!-- .element: class="stretch" -->
-
-Relation of datapoints may not be in the data (e.g., driver)
-
-<!-- references_ -->
-
-https://www.fast.ai/2017/11/13/validation-sets/
-
-Note: 
-Many potential subtle and less subtle problems:
-* Sales from same user
-* Pictures taken on same day
-
-
-
 
 ----
 # Part 2:
