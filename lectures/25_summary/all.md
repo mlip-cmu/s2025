@@ -985,16 +985,6 @@ Pictures: https://pixabay.com/photos/lost-places-panzer-wreck-metal-3907364/, ht
 
 
 
-
-----
-## Production Data -- The Ultimate Unseen Validation Data
-
-more in a later lecture
-
-
-<div class="tweet" data-src="https://twitter.com/changelog/status/1137359428632621060"></div>
-
-
 ----
 ## Common Pitfalls of Evaluating Model Quality?
 
@@ -1044,15 +1034,6 @@ train, test, spamLabelTrain, spamLabelTest =
 predictAndReport(train = train, test = test)
 ```
 
-
-
-----
-## Independence of Data: Temporal
-
-![Temporal dependence](temporaldependence.svg)
-<!-- .element: class="stretch plain" -->
-
-Note: The curve is the real trend, red points are training data, green points are validation data. If validation data is randomly selected, it is much easier to predict, because the trends around it are known.
 
 
 ----
@@ -1261,17 +1242,6 @@ See also https://en.wikipedia.org/wiki/All_models_are_wrong
 # Team issues: Groupthink
 
 ![](groupthink.png)
-
-----
-## Groupthink
-
-* Group minimizing conflict
-* Avoid exploring alternatives
-* Suppressing dissenting views
-* Isolating from outside influences
-* -> Irrational/dysfunctional decision making
-----
-![](svposter.png)<!-- .element: style="width:950px" -->
 
 ----
 # Team issues: Social loafing
