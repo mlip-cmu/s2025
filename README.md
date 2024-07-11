@@ -1,12 +1,12 @@
-# Machine Learning in Production (17-445/17-645/17-745) / AI Engineering (11-695)
+# Machine Learning in Production (17-445/17-645/17-745)
 
-### Spring 2024
+### Fall 2024
 
-<em>CMU course that covers how to build, deploy, assure, and maintain software products with machine-learned models. Includes the entire lifecycle from a prototype ML model to an entire system deployed in production. Covers also **responsible AI** (safety, security, fairness, explainability) and **MLOps**. The course is crosslisted both as **Machine Learning in Production** and **AI Engineering**. For earlier offerings see websites for [Fall 2019](https://ckaestne.github.io/seai/F2019), [Summer 2020](https://ckaestne.github.io/seai/S2020), [Fall 2020](https://ckaestne.github.io/seai/F2020/), [Spring 2021](https://ckaestne.github.io/seai/S2021/)  [Spring 2022](https://ckaestne.github.io/seai/S2022/),  [Fall 2022](https://ckaestne.github.io/seai/F2022/), and [Spring 2023](https://github.com/mlip-cmu/s2023). This Spring 2024 offering is designed for students with some data science experience (e.g., has taken a machine learning course, has used sklearn) and basic programming skills (e.g., basic Python programming with libraries, can navigate a Unix shell), but will not expect a software engineering background (i.e., experience with testing, requirements, architecture, process, or teams is not required). Going forward we expect to offer this course at least every spring semester and possibly some fall semesters (not summer semesters).</em>
+<em>CMU course that covers how to build, deploy, assure, and maintain software products with machine-learned models. Includes the entire lifecycle from a prototype ML model to an entire system deployed in production. Covers also **responsible AI** (including safety, security, fairness, explainability) and **MLOps**. In the spring, the course is crosslisted both as **Machine Learning in Production** and **AI Engineering**. For earlier offerings see websites for [Fall 2019](https://ckaestne.github.io/seai/F2019), [Summer 2020](https://ckaestne.github.io/seai/S2020), [Fall 2020](https://ckaestne.github.io/seai/F2020/), [Spring 2021](https://ckaestne.github.io/seai/S2021/)  [Spring 2022](https://ckaestne.github.io/seai/S2022/),  [Fall 2022](https://ckaestne.github.io/seai/F2022/), [Spring 2023](https://github.com/mlip-cmu/s2023), and [Spring 2024](https://github.com/mlip-cmu/s2024). This Fall 2024 offering is designed for students with some data science experience (e.g., has taken a machine learning course, has used sklearn) and basic programming skills (e.g., basic Python programming with libraries, can navigate a Unix shell), but will not expect a software engineering background (i.e., experience with testing, requirements, architecture, process, or teams is not required). Going forward we expect to offer this course at least every spring semester and possibly some fall semesters (not summer semesters).</em>
 
 ---
 
-For researchers, educators, or others interested in this topic, we share all course material, including slides and assignments, under a creative commons license on GitHub (https://github.com/mlip-cmu) and have also published a [textbook](https://ckaestne.medium.com/machine-learning-in-production-book-overview-63be62393581) with chapters corresponding to almost every lecture. A while ago we also wrote  an article describing the rationale and the initial design of this course: [Teaching Software Engineering for AI-Enabled Systems](https://arxiv.org/abs/2001.06691). Video recordings of the Summer 2020 offering are online on the [course page](https://ckaestne.github.io/seai/S2020/#course-content), though they are a bit outdated by now. We would be happy to see this course or a similar version taught at other universities. See also an [annotated bibliography](https://github.com/ckaestne/seaibib) on research in this field.
+For researchers, educators, or others interested in this topic, we share all course material, including slides and assignments, under a creative commons license on GitHub (https://github.com/mlip-cmu) and have also published a [textbook](https://mlip-cmu.github.io/book/) with chapters corresponding to almost every lecture. A while ago we also wrote  an article describing the rationale and the initial design of this course: [Teaching Software Engineering for AI-Enabled Systems](https://arxiv.org/abs/2001.06691). Video recordings of the Summer 2020 offering are online on the [course page](https://ckaestne.github.io/seai/S2020/#course-content), though they are a bit outdated by now. We would be happy to see this course or a similar version taught at other universities. See also an [annotated bibliography](https://github.com/ckaestne/seaibib) on research in this field.
 
 ## Course Description
 
@@ -44,7 +44,7 @@ In addition, students will gain familiarity with production-quality infrastructu
 
 ## Logistics and People
 
-17-445/17-645/17-745/11-695, 12 Units
+17-445/17-645/17-745, 12 Units
 
 The course is the same under all course numbers, with the exception of the PhD-level 17-745 which replaces two homework assignments with a mandatory [research project](https://github.com/mlip-cmu/s2023/blob/main/assignments/research_project.md).
 
@@ -53,11 +53,11 @@ Open to all undergraduate and graduate students meeting the prerequisites.
 
 ### Spring 2024
 
-Lectures Monday/Wednesday 2-3:20pm, in person, PH 100
+Lectures Monday/Wednesday 3:30-4:50pm, in person, WEH 7500
 
-Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A22 (C) and WEH 5310 (D) and 2-3:20 in PH 226C (E) and GHC 4215 (F).
+Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A22 (C) and  GHC 4102 (D) and 2-3:20 in PH 226C (E) and GHC 4215 (F).
 
-Instructors: [Claire Le Goues](https://clairelegoues.com) and [Christian Kaestner](https://www.cs.cmu.edu/~ckaestne/)
+Instructors: [Sherry Tongshuang Wu](https://www.cs.cmu.edu/~sherryw/) and [Christian Kaestner](https://www.cs.cmu.edu/~ckaestne/)
 
 TAs: tbd
 
@@ -70,7 +70,7 @@ We are happy to answer questions by email and over Slack, meet in person, and wi
 
 The general course content has been fairly stable over the last few years, though specific topics and tools are constantly updated with new research and tooling. Our list of learning goals under [Learning Goals](https://github.com/mlip-cmu/s2023/blob/main/learning_goals.md) describes what we aim to cover. Below is a table of a preliminary schedule. This is subject to change and will be updated as the semester progresses, especially to help focus on requested topics or support learning.
 
-[Schedule](https://github.com/mlip-cmu/s2023/blob/main/schedule.md)
+[Schedule]
 
 
 
