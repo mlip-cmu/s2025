@@ -59,9 +59,9 @@
 <p>In addition, students will gain familiarity with production-quality infrastructure tools, including stream processing with Apache Kafka, test automation with Jenkins, monitoring with Prometheus and Grafana, and deployment with Docker and various MLOps tools.</p>
 <h2>Logistics and People</h2>
 <p>17-445/17-645/17-745, 12 Units</p>
-<p>The course is the same under all course numbers, with the exception of the PhD-level 17-745 which replaces two homework assignments with a mandatory <a href="https://github.com/mlip-cmu/s2023/blob/main/assignments/research_project.md">research project</a>.</p>
+<p>The course is the same under all course numbers, with the exception of the PhD-level 17-745 which replaces two homework assignments with a mandatory <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/research_project.md">research project</a>.</p>
 <p>Open to all undergraduate and graduate students meeting the prerequisites.</p>
-<h3>Spring 2024</h3>
+<h3>Fall 2024</h3>
 <p>Lectures Monday/Wednesday 3:30-4:50pm, in person, WEH 7500</p>
 <p>Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A22 (C) and  GHC 4102 (D) and 2-3:20 in PH 226C (E) and GHC 4215 (F).</p>
 <p>Instructors: <a href="https://www.cs.cmu.edu/~sherryw/">Sherry Tongshuang Wu</a> and <a href="https://www.cs.cmu.edu/~ckaestne/">Christian Kaestner</a></p>
@@ -69,60 +69,339 @@
 <h3>Coordination</h3>
 <p>We are happy to answer questions by email and over Slack, meet in person, and will jump on a quick Zoom call if you ask us. We also always arrive 5 to 10 min early to class and stay longer for discussions and questions. If you have questions about assignments and logistics, we prefer that you ask them publicly on Slack.</p>
 <h2>Course content</h2>
-<p>The general course content has been fairly stable over the last few years, though specific topics and tools are constantly updated with new research and tooling. Our list of learning goals under <a href="https://github.com/mlip-cmu/s2023/blob/main/learning_goals.md">Learning Goals</a> describes what we aim to cover. Below is a table of a preliminary schedule. This is subject to change and will be updated as the semester progresses, especially to help focus on requested topics or support learning.</p>
+<p>The general course content has been fairly stable over the last few years, though specific topics and tools are constantly updated with new research and tooling. Our list of learning goals under <a href="https://github.com/mlip-cmu/f2024/blob/main/learning_goals.md">Learning Goals</a> describes what we aim to cover. Below is a table of a preliminary schedule. This is subject to change and will be updated as the semester progresses, especially to help focus on requested topics or support learning.</p>
 <p>[Schedule]</p>
-<p>| Date  | Topic | <a href="https://mlip-cmu.github.io/book/">Book Chapter</a> | Reading | Assignment due |
-| -     | -     | -       | -              |
-| Mon, Aug 26 | Introduction and Motivation  | <a href="https://mlip-cmu.github.io/book/01/">1</a> |  |  |
-| Wed, Aug 28 | From Models to AI-Enabled Systems | <a href="https://mlip-cmu.github.io/book/02/">2</a>,<a href="https://mlip-cmu.github.io/book/04/">4</a>,<a href="https://mlip-cmu.github.io/book/05/">5</a> |  |  |
-| Fri, Aug 30 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Calling, securing, and creating APIs: Flask | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Sep 2 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Labor day, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> | <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 4, 5, 7, 8 |  |
-| Wed, Sep 4 | Gathering Requirements  | <a href="https://mlip-cmu.github.io/book/06/">6</a> |  |  |
-| Fri, Sep 6 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Stream processing: Apache Kafka | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Sep 9 | Planning for Mistakes | <a href="https://mlip-cmu.github.io/book/07/">7</a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I1_mlproduct.md">I1: ML Product</a> |
-| Wed, Sep 11 | Model Quality | <a href="https://mlip-cmu.github.io/book/15/">15</a> |  |  |
-| Fri, Sep 13 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Sep 16 | Fostering Interdisciplinary (Student) Teams | <a href="https://mlip-cmu.github.io/book/00/"></a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I2_requirements.md">I2: Requirements</a> |
-| Wed, Sep 18 | Behavioral Model Testing | <a href="https://mlip-cmu.github.io/book/15/">15</a> |  |  |
-| Fri, Sep 20 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd (collaboration tools) | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Sep 23 | Toward Architecture and Design  | <a href="https://mlip-cmu.github.io/book/08/">8</a>,<a href="https://mlip-cmu.github.io/book/09/">9</a>,<a href="https://mlip-cmu.github.io/book/11/">11</a> |  |  |
-| Wed, Sep 25 | Deploying a Model | <a href="https://mlip-cmu.github.io/book/10/">10</a> |  |  |
-| Fri, Sep 27 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Containers: Docker | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Sep 30 | Testing and Experimenting in Production | <a href="https://mlip-cmu.github.io/book/19/">19</a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M1: Modeling and First Deployment</a> |
-| Wed, Oct 2 | Data Quality | <a href="https://mlip-cmu.github.io/book/16/">16</a> |  |  |
-| Fri, Oct 4 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Model Testing: Zeno and AdaTest | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Oct 7 | Automating and Testing ML Pipelines | <a href="https://mlip-cmu.github.io/book/11/">11</a>,<a href="https://mlip-cmu.github.io/book/18/">18</a>,<a href="https://mlip-cmu.github.io/book/19/">19</a> |  |  |
-| Wed, Oct 9 | <img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 1 | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Fri, Oct 11 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Continuous Integration: Jenkins | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Oct 14 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Wed, Oct 16 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Fri, Oct 18 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Oct 21 | Scaling the System | <a href="https://mlip-cmu.github.io/book/12/">12</a> |  |  |
-| Wed, Oct 23 | Planning for Operations | <a href="https://mlip-cmu.github.io/book/13/">13</a> |  |  |
-| Fri, Oct 25 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Pipeline automation: MLFlow | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Oct 28 | Versioning, Provenance, and Reproducability | <a href="https://mlip-cmu.github.io/book/24/">24</a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M2: Infrastructure Quality</a> |
-| Wed, Oct 30 | Process &amp; Technical Debt | <a href="https://mlip-cmu.github.io/book/20/">20</a> |  |  |
-| Fri, Nov 1 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Monitoring: Prometheus, Grafana | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Nov 4 | Intro to Ethics + Fairness | <a href="https://mlip-cmu.github.io/book/23/">23</a>,<a href="https://mlip-cmu.github.io/book/26/">26</a> |  | I3: MLOps Tools |
-| Wed, Nov 6 | Measuring Fairness | <a href="https://mlip-cmu.github.io/book/26/">26</a> |  |  |
-| Fri, Nov 8 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Container orchestration: Kubernetis | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Nov 11 | Building Fairer Systems | <a href="https://mlip-cmu.github.io/book/26/">26</a> |  |  |
-| Wed, Nov 13 | Explainability | <a href="https://mlip-cmu.github.io/book/25/">25</a> |  |  |
-| Fri, Nov 15 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Model Explainability Tools | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Nov 18 | Transparency &amp; Accountability | <a href="https://mlip-cmu.github.io/book/29/">29</a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M3: Monitoring and CD</a> |
-| Wed, Nov 20 | Safety | <a href="https://mlip-cmu.github.io/book/27/">27</a> |  |  |
-| Fri, Nov 22 | <img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Fairness Toolkits | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Nov 25 | Security and Privacy | <a href="https://mlip-cmu.github.io/book/28/">28</a> |  | I4: Explainability |
-| Wed, Nov 27 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Fri, Nov 29 | <img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Mon, Dec 2 | Interdisciplinary Teams / Summary / Review | <a href="https://mlip-cmu.github.io/book/00/"></a> |  |  |
-| Wed, Dec 4 | <img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 2 | <a href="https://mlip-cmu.github.io/book/00/"></a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M4: Fairness, Security and Feedback Loops</a> |
-| <a href="https://www.cmu.edu/hub/docs/final-exams.pdf">tbd</a> | Final Project Presentations | <a href="https://mlip-cmu.github.io/book/00/"></a> |  | <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">Final report</a> |</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Topic</th>
+<th><a href="https://mlip-cmu.github.io/book/">Book Chapter</a></th>
+<th>Reading</th>
+<th>Assignment due</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mon, Aug 26</td>
+<td>Introduction and Motivation</td>
+<td><a href="https://mlip-cmu.github.io/book/01/">1</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Aug 28</td>
+<td>From Models to AI-Enabled Systems</td>
+<td><a href="https://mlip-cmu.github.io/book/02/">2</a>,<a href="https://mlip-cmu.github.io/book/04/">4</a>,<a href="https://mlip-cmu.github.io/book/05/">5</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Aug 30</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Calling, securing, and creating APIs: Flask</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Sep 2</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Labor day, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 4, 5, 7, 8</td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Sep 4</td>
+<td>Gathering Requirements</td>
+<td><a href="https://mlip-cmu.github.io/book/06/">6</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Sep 6</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Stream processing: Apache Kafka</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Sep 9</td>
+<td>Planning for Mistakes</td>
+<td><a href="https://mlip-cmu.github.io/book/07/">7</a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I1_mlproduct.md">I1: ML Product</a></td>
+</tr>
+<tr>
+<td>Wed, Sep 11</td>
+<td>Model Quality</td>
+<td><a href="https://mlip-cmu.github.io/book/15/">15</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Sep 13</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Sep 16</td>
+<td>Fostering Interdisciplinary (Student) Teams</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I2_requirements.md">I2: Requirements</a></td>
+</tr>
+<tr>
+<td>Wed, Sep 18</td>
+<td>Behavioral Model Testing</td>
+<td><a href="https://mlip-cmu.github.io/book/15/">15</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Sep 20</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd (collaboration tools)</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Sep 23</td>
+<td>Toward Architecture and Design</td>
+<td><a href="https://mlip-cmu.github.io/book/08/">8</a>,<a href="https://mlip-cmu.github.io/book/09/">9</a>,<a href="https://mlip-cmu.github.io/book/11/">11</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Sep 25</td>
+<td>Deploying a Model</td>
+<td><a href="https://mlip-cmu.github.io/book/10/">10</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Sep 27</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Containers: Docker</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Sep 30</td>
+<td>Testing and Experimenting in Production</td>
+<td><a href="https://mlip-cmu.github.io/book/19/">19</a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M1: Modeling and First Deployment</a></td>
+</tr>
+<tr>
+<td>Wed, Oct 2</td>
+<td>Data Quality</td>
+<td><a href="https://mlip-cmu.github.io/book/16/">16</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Oct 4</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Model Testing: Zeno and AdaTest</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Oct 7</td>
+<td>Automating and Testing ML Pipelines</td>
+<td><a href="https://mlip-cmu.github.io/book/11/">11</a>,<a href="https://mlip-cmu.github.io/book/18/">18</a>,<a href="https://mlip-cmu.github.io/book/19/">19</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Oct 9</td>
+<td><img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 1</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Oct 11</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Continuous Integration: Jenkins</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Oct 14</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Oct 16</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Oct 18</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Oct 21</td>
+<td>Scaling the System</td>
+<td><a href="https://mlip-cmu.github.io/book/12/">12</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Oct 23</td>
+<td>Planning for Operations</td>
+<td><a href="https://mlip-cmu.github.io/book/13/">13</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Oct 25</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Pipeline automation: MLFlow</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Oct 28</td>
+<td>Versioning, Provenance, and Reproducability</td>
+<td><a href="https://mlip-cmu.github.io/book/24/">24</a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M2: Infrastructure Quality</a></td>
+</tr>
+<tr>
+<td>Wed, Oct 30</td>
+<td>Process &amp; Technical Debt</td>
+<td><a href="https://mlip-cmu.github.io/book/20/">20</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Nov 1</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Monitoring: Prometheus, Grafana</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Nov 4</td>
+<td>Intro to Ethics + Fairness</td>
+<td><a href="https://mlip-cmu.github.io/book/23/">23</a>,<a href="https://mlip-cmu.github.io/book/26/">26</a></td>
+<td></td>
+<td>I3: MLOps Tools</td>
+</tr>
+<tr>
+<td>Wed, Nov 6</td>
+<td>Measuring Fairness</td>
+<td><a href="https://mlip-cmu.github.io/book/26/">26</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Nov 8</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Container orchestration: Kubernetis</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Nov 11</td>
+<td>Building Fairer Systems</td>
+<td><a href="https://mlip-cmu.github.io/book/26/">26</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Nov 13</td>
+<td>Explainability</td>
+<td><a href="https://mlip-cmu.github.io/book/25/">25</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Nov 15</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Model Explainability Tools</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Nov 18</td>
+<td>Transparency &amp; Accountability</td>
+<td><a href="https://mlip-cmu.github.io/book/29/">29</a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M3: Monitoring and CD</a></td>
+</tr>
+<tr>
+<td>Wed, Nov 20</td>
+<td>Safety</td>
+<td><a href="https://mlip-cmu.github.io/book/27/">27</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Nov 22</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Fairness Toolkits</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Nov 25</td>
+<td>Security and Privacy</td>
+<td><a href="https://mlip-cmu.github.io/book/28/">28</a></td>
+<td></td>
+<td>I4: Explainability</td>
+</tr>
+<tr>
+<td>Wed, Nov 27</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Nov 29</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Dec 2</td>
+<td>Interdisciplinary Teams / Summary / Review</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Dec 4</td>
+<td><img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 2</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M4: Fairness, Security and Feedback Loops</a></td>
+</tr>
+<tr>
+<td><a href="https://www.cmu.edu/hub/docs/final-exams.pdf">tbd</a></td>
+<td>Final Project Presentations</td>
+<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">Final report</a></td>
+</tr>
+</tbody></table>
 <h2>Course Syllabus and Policies</h2>
-<p>The course uses Canvas and Gradescope for homework submission, grading, discussion, questions, announcements, and supplementary documents; slides will be posted here; Slack is used for communication around homeworks and projects; Github is used to coordinate group work. All public course material (assignments, slides, syllabus) can be found in the course’s <a href="https://github.com/mlip-cmu/s2024">GitHub repository</a>; announcements and all <em>private</em> material (e.g., grades, passwords) will be shared through Canvas.</p>
+<p>The course uses Canvas and Gradescope for homework submission, grading, discussion, questions, announcements, and supplementary documents; slides will be posted here; Slack is used for communication around homeworks and projects; Github is used to coordinate group work. All public course material (assignments, slides, syllabus) can be found in the course’s <a href="https://github.com/mlip-cmu/f2024">GitHub repository</a>; announcements and all <em>private</em> material (e.g., grades, passwords) will be shared through Canvas.</p>
 <p><strong>Prerequisites:</strong> The course does not have formal prerequisites, but we describe background knowledge that will help you be successful in the course. In a nutshell, we expect basic exposure to machine learning and basic programming skills, but do not require software engineering experience. </p>
 <p><em>Machine learning (some experience recommended):</em> We suggest that you have basic familiarity with the process of extracting features, building and evaluating models, and a basic understanding of how and when different kinds of learning techniques work. Familiarity with Python and Jupyter notebooks is helpful. Courses such as 10-301, 10-315, and 05-434 will prepare you well, but project experience or self-learning from books or online courses will likely be sufficient for our purposes. For example, we recommend the book <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019665684604436">Hands-On Machine Learning</a> to get practical experience in building and evaluating models prior to taking this course. We have set up a <em><a href="https://forms.gle/JcS61Uao7wHSFQen8">prerequisite knowledge check</a></em> as a Google Form, where we ask 10 questions on machine learning, which help you assess your background. This is set up as an anonymous and ungraded quiz, where you can compare your knowledge against what we believe is useful for you to be successful in this course (click on <em>“view score”</em> after submitting your answer). After submitting your answers, the system will give specific pointers to readings and exercises that may help you fill gaps in background knowledge. </p>
-<p><em>Programming (basic proficiency required):</em> The course has a substantial programming component, especially in the first assignment and the team project, so basic programming skills will be needed. If you take the course without programming experience, you will significantly struggle and it may cause conflicts within the group project. We expect that you meet the following criteria: (1) basic fluency in a programming language like Python, (2) ability to install and learn libraries in that language, (3) ability to ssh into a unix machine and perform basic command line operations, and (4) ability to install and learn new tools like Docker. We do not prescribe a programming language, but almost all student teams decide to work primarily in Python. We will provide some introductions and examples for essential tools like Git, Docker, Grafana, and Jenkins in labs, but we expect that you will be able to pick up new tools and libraries on your own. For example, we expect that you will be able, on your own, to learn basic use of a library like <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> to write a web service. Throughout the semester, expect to read lots of documentation and tutorials to learn various libraries and tools on your own. If you are worried whether your technical background is sufficient, we recommend that you look at (or even try) <a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I1_mlproduct.md">homework I1</a> before the semester.</p>
+<p><em>Programming (basic proficiency required):</em> The course has a substantial programming component, especially in the first assignment and the team project, so basic programming skills will be needed. If you take the course without programming experience, you will significantly struggle and it may cause conflicts within the group project. We expect that you meet the following criteria: (1) basic fluency in a programming language like Python, (2) ability to install and learn libraries in that language, (3) ability to ssh into a unix machine and perform basic command line operations, and (4) ability to install and learn new tools like Docker. We do not prescribe a programming language, but almost all student teams decide to work primarily in Python. We will provide some introductions and examples for essential tools like Git, Docker, Grafana, and Jenkins in labs, but we expect that you will be able to pick up new tools and libraries on your own. For example, we expect that you will be able, on your own, to learn basic use of a library like <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> to write a web service. Throughout the semester, expect to read lots of documentation and tutorials to learn various libraries and tools on your own. If you are worried whether your technical background is sufficient, we recommend that you look at (or even try) <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I1_mlproduct.md">homework I1</a> before the semester.</p>
 <p><em>Software engineering (no experience required):</em> Many students will have some software engineering experience beyond basic programming skills from software engineering courses, from internships, or from working in industry, for example experience with requirements engineering, software design, software testing, distributed systems, continuous deployment, or managing teams. No such experience is expected as a prerequisite; we will cover these topics in the course.</p>
 <p>Email the instructors if you would like to further talk to us about prerequisites.</p>
 <p><strong>In-person teaching and lecture recordings:</strong> The course will be taught in person and we consider in-class participation as an important part of the learning experience. We will not provide an online option. We will <em>not</em> make recordings of lectures or labs available.</p>
