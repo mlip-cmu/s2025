@@ -1,0 +1,60 @@
+name: publish-gh-pages
+
+on:
+  push: 
+    branch: main
+
+jobs:
+  gh-pages:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Prepare _site
+      run: |
+        echo generate main html page in _site/
+        mkdir _site
+        cd .tools/schedulegen
+        npm install --no-optional
+        cd ../..
+
+    - name: Generate main page
+      env:
+          GDOC_CREDENTIALS: ${{ secrets.GDOC_CREDENTIALS }}
+          SPREADSHEET_ID: ${{ secrets.CERTIFICATE_BASE64 }}
+      run: |
+        cp .assets/template.html _site/index.html
+        # sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) (\[/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf), \[/' < schedule.md |         sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) *|/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf)) |/'  > schedule_.md
+        echo GDOC_CREDENTIALS > credentials.json
+        node .tools/schedulegen/index.js > schedule.md
+        sed -i -e '/^\[Schedule\]/r schedule.md' README.md
+        npx marked -i README.md >> _site/index.html
+        cat .assets/template_end.html >> _site/index.html
+        cp *.svg _site/
+        cp *.png _site/
+        mkdir _site/assignments
+        cp assignments/*.html _site/assignments/
+        rm credentials.json
+
+    # - name: Generate slides
+    #   run: |
+    #     cd lectures
+    #     timeout 5m npm run generate
+    #     timeout 15m npm run pdf
+    #     cp -r _static/ ../_site/slides
+    #     cd ..
+
+    - name: Push to gh-pages
+      run: |
+        git clone --quiet --branch gh-pages --depth 1 https://github.com/${{ github.repository }}.git .gh-pages
+        rm -rf .gh-pages/*
+        mv _site/* .gh-pages
+        cd .gh-pages
+        git add .
+        touch .nojekyll
+        git add .nojekyll
+        git config --local user.email "ckaestne@nomail.cs.cmu.edu"
+        git config --local user.name "GitHub Action"
+        git commit --allow-empty -m "Update gh-pages for ${{ github.sha }}"
+        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages --force --follow-tags -v
