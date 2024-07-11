@@ -1,0 +1,15 @@
+{
+  "name": "schedulegen",
+  "version": "1.0.0",
+  "description": "Generates the class schedule from a Google Sheet spreadsheet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "google-auth-library": "^9.11.0",
+    "googleapis": "^140.0.1"
+  }
+}
