@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       
     - name: Prepare _site
       run: |
@@ -23,12 +23,12 @@ jobs:
     - name: Generate main page
       env:
           GDOC_CREDENTIALS: ${{ secrets.GDOC_CREDENTIALS }}
-          SPREADSHEET_ID: ${{ secrets.CERTIFICATE_BASE64 }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
       run: |
         cp .assets/template.html _site/index.html
         # sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) (\[/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf), \[/' < schedule.md |         sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) *|/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf)) |/'  > schedule_.md
         echo $GDOC_CREDENTIALS > credentials.json
-        node .tools/schedulegen/index.js > schedule.md
+        SPREADSHEET_ID="$SPREADSHEET_ID" node .tools/schedulegen/index.js > schedule.md
         sed -i -e '/^\[Schedule\]/r schedule.md' README.md
         npx marked -i README.md >> _site/index.html
         cat .assets/template_end.html >> _site/index.html
