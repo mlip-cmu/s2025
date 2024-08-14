@@ -56,8 +56,8 @@ jobs:
         git clone --quiet --branch gh-pages --depth 1 https://github.com/${{ github.repository }}.git .gh-pages
         rm -rf .gh-pages/*
         mv _site/* .gh-pages
-        ls .gh-pages/slides/node_modules
         cd .gh-pages
+        rm .gitignore -f
         git add .
         touch .nojekyll
         git add .nojekyll
