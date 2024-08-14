@@ -20,6 +20,18 @@ jobs:
         cd ../..
         npm install marked@13.0.2
 
+
+    - name: Generate slides
+      run: |
+        cd lectures
+        npm install --no-optional
+        timeout 5m npm run generate
+        timeout 15m npm run pdf
+        cp -r _static/ ../_site/slides
+        cd ..
+        ls _site/slides/node_modules
+
+
     - name: Generate main page
       env:
           GDOC_CREDENTIALS: ${{ secrets.GDOC_CREDENTIALS }}
@@ -38,20 +50,13 @@ jobs:
         cp assignments/*.html _site/assignments/
         rm credentials.json
 
-    - name: Generate slides
-      run: |
-        cd lectures
-        npm install
-        timeout 5m npm run generate
-        timeout 15m npm run pdf
-        cp -r _static/ ../_site/slides
-        cd ..
 
     - name: Push to gh-pages
       run: |
         git clone --quiet --branch gh-pages --depth 1 https://github.com/${{ github.repository }}.git .gh-pages
         rm -rf .gh-pages/*
         mv _site/* .gh-pages
+        ls .gh-pages/node_modules
         cd .gh-pages
         git add .
         touch .nojekyll
