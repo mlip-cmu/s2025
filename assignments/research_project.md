@@ -36,9 +36,9 @@ The presentation is due at the same time as those for the final team project. Th
 
 We set the following milestones to better scope the project together with the instructors:
 
-* Feb 15: Reach out to instructors for an initial discussion of possible project ideas
-* Feb 27: Send a brief description of the project (not more than 1 page) to the instructors. The description should include the research question, the intended research method, and references to at least 2 pieces of related work.
-* April 3: Send an initial draft of the paper to the instructors. It does not need to be complete, but should contain the entire structure, an initial complete draft of the introduction, and some initial content in other sections.
+* Sep 6: Reach out to instructors for an initial discussion of possible project ideas
+* Oct 7: Send a brief description of the project (not more than 1 page) to the instructors. The description should include the research question, the intended research method, and references to at least 2 pieces of related work.
+* Nov 13: Send an initial draft of the paper to the instructors. It does not need to be complete, but should contain the entire structure, an initial complete draft of the introduction, and some initial content in other sections.
 
 We are happy to discuss ideas or drafts at any time during the semester, not just at the milestones.
 
