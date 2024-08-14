@@ -38,13 +38,14 @@ jobs:
         cp assignments/*.html _site/assignments/
         rm credentials.json
 
-    # - name: Generate slides
-    #   run: |
-    #     cd lectures
-    #     timeout 5m npm run generate
-    #     timeout 15m npm run pdf
-    #     cp -r _static/ ../_site/slides
-    #     cd ..
+    - name: Generate slides
+      run: |
+        cd lectures
+        npm install
+        timeout 5m npm run generate
+        timeout 15m npm run pdf
+        cp -r _static/ ../_site/slides
+        cd ..
 
     - name: Push to gh-pages
       run: |
