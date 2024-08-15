@@ -1,5 +1,6 @@
 const { google } = require('googleapis');
 const sheets = google.sheets('v4');
+const fs = require('fs');
 
 (async function () {
 
@@ -7,6 +8,8 @@ const sheets = google.sheets('v4');
         keyFile: 'credentials.json',
         scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly'
     });
+
+    const generatedSlidesDir = "lectures/_static"
 
     const client = await auth.getClient();
     google.options({ auth: client });
@@ -20,6 +23,25 @@ const sheets = google.sheets('v4');
     const prefix = "| Date  | Topic | [Book Chapter](https://mlip-cmu.github.io/book/) | Reading | Assignment due |\n| -     | -     | -     | -       | -              |"
     console.log(prefix)
 
+
+    function findSlidesLink(id) {
+        if (id===undefined || id == "")
+            return undefined
+
+        const files = fs.readdirSync(generatedSlidesDir);
+        const prefix = id.toString().padStart(2, '0') + '_';
+        const slideDirectory = files.find(file => file.startsWith(prefix));
+        if (slideDirectory === undefined)
+            return undefined
+
+        const htmlFile = fs.readdirSync(generatedSlidesDir+"/"+slideDirectory).find(file => file.endsWith(".html"));
+        if (htmlFile === undefined)
+            return undefined
+        
+        return `${slideDirectory}/${htmlFile}`
+    }
+
+
     sheets.spreadsheets.values.get({
         spreadsheetId: spreadsheetId,
         range: 'A:Z',
@@ -32,7 +54,6 @@ const sheets = google.sheets('v4');
                 if (header === "Date") columnIds.date = index; 
                 else if (header === "Topic") columnIds.topic = index; 
                 else if (header === "Assignment due") columnIds.assignmentDue = index;
-                else if (header === "Slides link") columnIds.slidesLink = index;
                 else if (header === "Book chapters") columnIds.bookChapters = index;
                 else if (header === "Reading") columnIds.reading = index;
                 else if (header === "Assignment link") columnIds.assignmentLink = index;
@@ -47,7 +68,6 @@ const sheets = google.sheets('v4');
                     const id = row[columnIds.id];
                     let topic = row[columnIds.topic] || "";
                     let assignment = row[columnIds.assignmentDue] || "";
-                    const slidesLink = row[columnIds.slidesLink];
                     const chapters = row[columnIds.bookChapters] || "";
                     const readings = row[columnIds.reading] || "";
                     const assignmentLink = row[columnIds.assignmentLink] || "";
@@ -63,11 +83,15 @@ const sheets = google.sheets('v4');
                         return `[${chapter.trim()}](https://mlip-cmu.github.io/book/${chapter.trim().padStart(2, '0')}/)`;
                     }).join(',');
 
-                    if (slidesLink != undefined && slidesLink != "")
-                        topic = `[${topic}](${slidesLink})`
-
                     if (assignmentLink != undefined && assignmentLink != "")
                         assignment = `[${assignment}](${assignmentLink})`
+
+                    const slidesLink = findSlidesLink(id)
+                    if (slidesLink != undefined && slidesLink != "") {
+                        const mdLink = slidesLink.replace(".html", ".md")
+                        const pdfLink = slidesLink.replace(".html", ".pdf")
+                        topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/s2024/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+                    }
 
                     console.log(`| ${date} | ${badges}${topic} | ${chapterLinks} | ${readings} | ${assignment} |`)
 

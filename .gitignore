@@ -1,6 +1,5 @@
 other_lectures/test
 lectures/_static/
-node_modules
 _site/
 output/
 .DS_Store
