@@ -9,7 +9,6 @@ const fs = require('fs');
         scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly'
     });
 
-    const generatedSlidesDir = "lectures/_static"
 
     const client = await auth.getClient();
     google.options({ auth: client });
@@ -19,6 +18,8 @@ const fs = require('fs');
     const spreadsheetId = process.env.SPREADSHEET_ID;
     if (!spreadsheetId)
         throw new Error("SPREADSHEET_ID not set");
+    const generatedSlidesDir = process.env.STATIC_DIR || "lectures/_static"
+    const semesterRepo = process.env.SEMESTER || "f2024" 
 
     const prefix = "| Date  | Topic | [Book Chapter](https://mlip-cmu.github.io/book/) | Reading | Assignment due |\n| -     | -     | -     | -       | -              |"
     console.log(prefix)
@@ -90,7 +91,7 @@ const fs = require('fs');
                     if (slidesLink != undefined && slidesLink != "") {
                         const mdLink = slidesLink.replace(".html", ".md")
                         const pdfLink = slidesLink.replace(".html", ".pdf")
-                        topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/s2024/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+                        topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
                     }
 
                     console.log(`| ${date} | ${badges}${topic} | ${chapterLinks} | ${readings} | ${assignment} |`)
