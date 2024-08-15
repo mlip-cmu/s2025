@@ -1,0 +1,15 @@
+{
+  "name": "mkdetectmissingimg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "dependencies": {
+    "marked": "^4.0.10",
+    "yargs": "^17.3.1"
+  }
+}
