@@ -19,14 +19,15 @@ const fs = require('fs');
     if (!spreadsheetId)
         throw new Error("SPREADSHEET_ID not set");
     const generatedSlidesDir = process.env.STATIC_DIR || "lectures/_static"
-    const semesterRepo = process.env.SEMESTER || "f2024" 
+    const labDir = process.env.LAB_DIR || "labs"
+    const semesterRepo = process.env.SEMESTER || "f2024"
 
     const prefix = "| Date  | Topic | [Book Chapter](https://mlip-cmu.github.io/book/) | Reading | Assignment due |\n| -     | -     | -     | -       | -              |"
     console.log(prefix)
 
 
     function findSlidesLink(id) {
-        if (id===undefined || id == "")
+        if (id === undefined || id == "")
             return undefined
 
         const files = fs.readdirSync(generatedSlidesDir);
@@ -35,11 +36,21 @@ const fs = require('fs');
         if (slideDirectory === undefined)
             return undefined
 
-        const htmlFile = fs.readdirSync(generatedSlidesDir+"/"+slideDirectory).find(file => file.endsWith(".html"));
+        const htmlFile = fs.readdirSync(generatedSlidesDir + "/" + slideDirectory).find(file => file.endsWith(".html"));
         if (htmlFile === undefined)
             return undefined
-        
+
         return `${slideDirectory}/${htmlFile}`
+    }
+    function findLabLink(id) {
+        if (id === undefined || id == "")
+            return undefined
+
+        const files = fs.readdirSync(labDir);
+        if (id.startsWith("lab")) {
+            id = id.substring(3);
+        }
+        return files.find(file => file === "lab" + id + ".md");
     }
 
 
@@ -51,9 +62,9 @@ const fs = require('fs');
         const rows = res.data.values;
         if (rows.length) {
             const columnIds = { date: null, topic: null, assignmentDue: null, slidesLink: null, bookChapters: null, reading: null, assignmentLink: null, id: null };
-            rows[0].forEach((header, index) => { 
-                if (header === "Date") columnIds.date = index; 
-                else if (header === "Topic") columnIds.topic = index; 
+            rows[0].forEach((header, index) => {
+                if (header === "Date") columnIds.date = index;
+                else if (header === "Topic") columnIds.topic = index;
                 else if (header === "Assignment due") columnIds.assignmentDue = index;
                 else if (header === "Book chapters") columnIds.bookChapters = index;
                 else if (header === "Reading") columnIds.reading = index;
@@ -73,7 +84,7 @@ const fs = require('fs');
                     const readings = row[columnIds.reading] || "";
                     const assignmentLink = row[columnIds.assignmentLink] || "";
                     let badges = ""
-                    if (id.includes("rec"))
+                    if (id.includes("lab"))
                         badges += "![Lab](https://img.shields.io/badge/-lab-yellow.svg) "
                     if (id.includes("midterm"))
                         badges += "![Midterm](https://img.shields.io/badge/-midterm-blue.svg) "
@@ -87,11 +98,17 @@ const fs = require('fs');
                     if (assignmentLink != undefined && assignmentLink != "")
                         assignment = `[${assignment}](${assignmentLink})`
 
-                    const slidesLink = findSlidesLink(id)
-                    if (slidesLink != undefined && slidesLink != "") {
-                        const mdLink = slidesLink.replace(".html", ".md")
-                        const pdfLink = slidesLink.replace(".html", ".pdf")
-                        topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+                    if (id.startsWith("lab")) {
+                        const labLink = findLabLink(id)
+                        if (labLink != undefined && labLink != "")
+                            topic = `[${topic}](https://github.com/mlip-cmu/${semesterRepo}/blob/main/labs/${labLink})`
+                    } else {
+                        const slidesLink = findSlidesLink(id)
+                        if (slidesLink != undefined && slidesLink != "") {
+                            const mdLink = slidesLink.replace(".html", ".md")
+                            const pdfLink = slidesLink.replace(".html", ".pdf")
+                            topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+                        }
                     }
 
                     console.log(`| ${date} | ${badges}${topic} | ${chapterLinks} | ${readings} | ${assignment} |`)
