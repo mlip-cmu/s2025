@@ -560,9 +560,9 @@ Most [assignments](https://github.com/mlip-cmu/f2024/tree/main/assignments) avai
 
 Series of 4 small to medium-sized **individual assignments**:
 * Engage with practical challenges
-* Analyze risks, fairness
 * Reason about tradeoffs and justify your decisions
-* Mostly written reports, a little modeling, some coding
+* Integrate models and explanations into end-user products
+* Written reports, a little modeling, some coding
 
 Large **team project** with 4 milestones:
 - Build and deploy a prediction (movie recommendation) service
@@ -572,6 +572,24 @@ Large **team project** with 4 milestones:
 Usually due Monday night; see schedule
 
 </div>
+
+----
+## Research in this Course
+
+<div class="small">
+
+We are conducting academic research in this course. 
+
+This research will involve analyzing student work of assignment *after the end of the semester.* 
+
+You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers.
+
+You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar (nadian@andrew.cmu.edu); instructors will not know who opts out before assigning final grades. 
+
+See syllabus for details.
+
+</div>
+
 ----
 
 ## 17-745 PhD Research Project
