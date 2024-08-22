@@ -3,3 +3,4 @@ lectures/_static/
 _site/
 output/
 .DS_Store
+node_modules

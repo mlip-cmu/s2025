@@ -560,9 +560,9 @@ Most [assignments](https://github.com/mlip-cmu/f2024/tree/main/assignments) avai
 
 Series of 4 small to medium-sized **individual assignments**:
 * Engage with practical challenges
-* Analyze risks, fairness
 * Reason about tradeoffs and justify your decisions
-* Mostly written reports, a little modeling, some coding
+* Integrate models and explanations into end-user products
+* Written reports, a little modeling, some coding
 
 Large **team project** with 4 milestones:
 - Build and deploy a prediction (movie recommendation) service
@@ -572,6 +572,24 @@ Large **team project** with 4 milestones:
 Usually due Monday night; see schedule
 
 </div>
+
+----
+## Research in this Course
+
+<div class="small">
+
+We are conducting academic research in this course. 
+
+This research will involve analyzing student work of assignment *after the end of the semester.* 
+
+You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers.
+
+You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar (nadian@andrew.cmu.edu); instructors will not know who opts out before assigning final grades. 
+
+See syllabus for details.
+
+</div>
+
 ----
 
 ## 17-745 PhD Research Project
@@ -738,16 +756,6 @@ Warning: Be aware of hallucinations. Requires understanding to check answers. We
 ---
 # What makes software with ML challenging?
 
-
-----
-## ML Models Make Mistakes
-
-![ML image captioning mistakes](mistakes.jpg)
-<!-- .element: class="r-stretch" -->
-
-
-Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/
-
 ----
 ## Lack of Specifications
 
@@ -758,17 +766,51 @@ Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03
 */
 String transcribe(File audioFile);
 ```
+- Traditional SE: specify what to do & how to test
+- MLs are usually black boxes (maybe justified, for their complexity...)
+- Even if you put specs in e.g. LLM prompts, unclear if they will follow
 
 ----
 ## Data Focused and Scalable
 
+<!-- colstart -->
+
+- MLs get the "specs" from data; Larger the better
+- _Deductive reasoning_ (applying logic rules) to _Inductive Reasoning_ (generalizing from observation). 
+- 
+- Cause scalabiilty issues
+<!-- col -->
+
 ![The ML Flywheel](flywheel.png)
 <!-- .element: class="plain" -->
+
+<!-- colend -->
+
+
+----
+## ML Models Make Mistakes
+
+<!-- colstart -->
+- ...Often in unexpected ways
+- Hard to foresee and capture because no spec
+- What does it mean to be correct? Can only evaluate whether it works well enough (on average) on some test data!
+<!-- col -->
+
+![ML image captioning mistakes](mistakes.jpg)
+<!-- .element: class="r-stretch" -->
+
+<!-- colend -->
+
+
+
+Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/
+
+
 
 ----
 ## Interaction with the environment
 
-
+Our system must be able to tolerate some incorrect predictions, and be aware how it might influence the world...
 
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.svg)
 <!-- .element: class="plain stretch" -->
@@ -778,9 +820,9 @@ String transcribe(File audioFile);
 
 We routinely build:
 * Safe software with unreliable components
-* Cyberphysical systems
 * Non-ML big data systems, cloud systems
 * "Good enough" and "fit for purpose" not "correct"
+* Cyberphysical systems
 
 ML intensifies our challenges
 
