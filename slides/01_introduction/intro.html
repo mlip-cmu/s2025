@@ -655,15 +655,7 @@ Warning: Be aware of hallucinations. Requires understanding to check answers. We
 
 
 </script></section></section><section ><section data-markdown><script type="text/template"># What makes software with ML challenging?
-
-</script></section><section data-markdown><script type="text/template">## ML Models Make Mistakes
-
-![ML image captioning mistakes](mistakes.jpg)
-<!-- .element: class="r-stretch" -->
-
-
-<aside class="notes"><p>Source: <a href="https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/">https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/</a></p>
-</aside></script></section><section data-markdown><script type="text/template">## Lack of Specifications
+</script></section><section data-markdown><script type="text/template">## Lack of Specifications
 
 ```java
 /**
@@ -672,13 +664,43 @@ Warning: Be aware of hallucinations. Requires understanding to check answers. We
 */
 String transcribe(File audioFile);
 ```
+- Traditional SE: specify what to do & how to test
+- MLs are usually black boxes (maybe justified, for their complexity...)
+- Even if you put specs in e.g. LLM prompts, unclear if they will follow
 </script></section><section data-markdown><script type="text/template">## Data Focused and Scalable
+
+<!-- colstart -->
+
+- MLs get the "specs" from data; Larger the better
+- _Deductive reasoning_ (applying logic rules) to _Inductive Reasoning_ (generalizing from observation). 
+- 
+- Cause scalabiilty issues
+<!-- col -->
 
 ![The ML Flywheel](flywheel.png)
 <!-- .element: class="plain" -->
-</script></section><section data-markdown><script type="text/template">## Interaction with the environment
+
+<!-- colend -->
+
+</script></section><section data-markdown><script type="text/template">## ML Models Make Mistakes
+
+<!-- colstart -->
+- ...Often in unexpected ways
+- Hard to foresee and capture because no spec
+- What does it mean to be correct? Can only evaluate whether it works well enough (on average) on some test data!
+<!-- col -->
+
+![ML image captioning mistakes](mistakes.jpg)
+<!-- .element: class="r-stretch" -->
+
+<!-- colend -->
 
 
+
+<aside class="notes"><p>Source: <a href="https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/">https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/</a></p>
+</aside></script></section><section data-markdown><script type="text/template">## Interaction with the environment
+
+Our system must be able to tolerate some incorrect predictions, and be aware how it might influence the world...
 
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.svg)
 <!-- .element: class="plain stretch" -->
@@ -686,9 +708,9 @@ String transcribe(File audioFile);
 
 We routinely build:
 * Safe software with unreliable components
-* Cyberphysical systems
 * Non-ML big data systems, cloud systems
 * "Good enough" and "fit for purpose" not "correct"
+* Cyberphysical systems
 
 ML intensifies our challenges
 </script></section><section data-markdown><script type="text/template">## Complexity
@@ -714,8 +736,7 @@ Machine learning components are part of larger systems
   * Building systems requires both
   * Various qualities are relevant, beyond just accuracy
 
-Machine learning brings new challenges and intensifies old ones
-</script></section></div>
+Machine learning brings new challenges and intensifies old ones</script></section></div>
     </div>
 
     <script src="./../dist/reveal.js"></script>
