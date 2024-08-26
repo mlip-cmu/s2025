@@ -4,3 +4,4 @@ _site/
 output/
 .DS_Store
 node_modules
+lectures/__backup
