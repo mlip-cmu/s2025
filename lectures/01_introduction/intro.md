@@ -756,16 +756,6 @@ Warning: Be aware of hallucinations. Requires understanding to check answers. We
 ---
 # What makes software with ML challenging?
 
-
-----
-## ML Models Make Mistakes
-
-![ML image captioning mistakes](mistakes.jpg)
-<!-- .element: class="r-stretch" -->
-
-
-Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/
-
 ----
 ## Lack of Specifications
 
@@ -776,17 +766,51 @@ Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03
 */
 String transcribe(File audioFile);
 ```
+- Traditional SE: specify what to do & how to test
+- MLs are usually black boxes (maybe justified, for their complexity...)
+- Even if you put specs in e.g. LLM prompts, unclear if they will follow
 
 ----
 ## Data Focused and Scalable
 
+<!-- colstart -->
+
+- MLs get the "specs" from data; Larger the better
+- _Deductive reasoning_ (applying logic rules) to _Inductive Reasoning_ (generalizing from observation). 
+- 
+- Cause scalability issues
+<!-- col -->
+
 ![The ML Flywheel](flywheel.png)
 <!-- .element: class="plain" -->
+
+<!-- colend -->
+
+
+----
+## ML Models Make Mistakes
+
+<!-- colstart -->
+- ...Often in unexpected ways
+- Hard to foresee and capture because no spec
+- What does it mean to be correct? Can only evaluate whether it works well enough (on average) on some test data!
+<!-- col -->
+
+![ML image captioning mistakes](mistakes.jpg)
+<!-- .element: class="r-stretch" -->
+
+<!-- colend -->
+
+
+
+Note: Source: https://www.aiweirdness.com/do-neural-nets-dream-of-electric-18-03-02/
+
+
 
 ----
 ## Interaction with the environment
 
-
+Our system must be able to tolerate some incorrect predictions, and be aware how it might influence the world...
 
 ![Architecture diagram of music service; many components, not just ML](architecture-music.svg)
 <!-- .element: class="plain stretch" -->
@@ -796,9 +820,9 @@ String transcribe(File audioFile);
 
 We routinely build:
 * Safe software with unreliable components
-* Cyberphysical systems
 * Non-ML big data systems, cloud systems
 * "Good enough" and "fit for purpose" not "correct"
+* Cyberphysical systems
 
 ML intensifies our challenges
 
