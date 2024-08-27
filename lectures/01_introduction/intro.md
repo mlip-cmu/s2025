@@ -117,7 +117,7 @@ As a group, think about challenges that the team will likely focus when turning 
 ## ML in a Production System
 
 
-![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.svg)
+![Architecture diagram of music service; many components, not just ML](architecture-music.svg)
 <!-- .element: class="plain stretch" -->
 
 
@@ -788,7 +788,7 @@ String transcribe(File audioFile);
 
 
 
-![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.svg)
+![Architecture diagram of music service; many components, not just ML](architecture-music.svg)
 <!-- .element: class="plain stretch" -->
 
 ----
