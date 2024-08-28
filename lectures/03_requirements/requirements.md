@@ -1,5 +1,5 @@
 ---
-author: Christian Kaestner 
+author: Eunsuk Kang & Christian Kaestner 
 title: "MLiP: Gathering Requirements"
 semester: Fall 2024
 footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Sherry Wu, Carnegie Mellon University • Fall 2024"

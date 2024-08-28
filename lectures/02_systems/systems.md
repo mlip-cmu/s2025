@@ -25,6 +25,7 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
   * When not feeling well -- please stay home and get well, and email us for accommodation
   * When using generative AI to generate responses (or email/slack messages) -- please ask it to be brief and to the point!
 
+* Remember to post introduction to #social if you haven't yet
 
 ----
 
@@ -595,11 +596,11 @@ Easier and more granular to measure, but possibly only indirect relation to orga
 
 
 ----
-## Success Measures in the Transcription Scenario?
+## Success Measures in the Music Gen. Scenario?
 
 <!-- colstart -->
 
-![Transcription service screenshot](temi.png)<!-- .element: style="width:60%" -->
+![Suno screenshot](suno.png)<!-- .element: style="width:50%" -->
 
 Organizational goals? Leading indicators? System goals? User goals? Model goals?
 
