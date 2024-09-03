@@ -5,9 +5,9 @@ In this lab, you will gain hands-on experience with Apache Kafka, a distributed 
 To receive credit for this lab, show your work to the TA during recitation.
 
 ## Deliverables
-- [ ] Establish a secure SSH tunnel to the Kafka server. Explain to the TA about Kafka Topic and Offsets. How do they ensure message continuity if a consumer is disconnected?
+- [ ] Establish a secure SSH tunnel to the Kafka server. Explain to the TA the concepts of topic and offsets in Kafka and how this ensures message continuity if a consumer is disconnected.
 - [ ] Modify starter code to implement producer and consumer modes for a Kafka topic.
-- [ ] Use Kafka's CLI tools to manage and monitor Kafka topics and messages.
+- [ ] Demonstrate using Kafka's CLI tool *kcat* (or alternatives) to manage and monitor Kafka topics and messages.
 
 
 ## Getting started
@@ -31,7 +31,7 @@ Ref:
 [KafkaConsumer Documentation](https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html)
 
 ## Using Kafka’s CLI tools
-Kcat is a CLI (Command Line Interface). Previously known as kafkacat.  
+`kcat` is a CLI (Command Line Interface). Previously known as kafkacat.  
 Install with your package installer such as:
 - macOS: `brew install kcat`
 - Ubuntu: `apt-get install kcat`
@@ -51,6 +51,6 @@ For your group project you will be reading movies from the Kafka stream. Try fin
 - [Apache Kafka](https://kafka.apache.org/)
 - [Kafka for Beginners](https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html)
 - [What is Apache Kafka? - TIBCO](https://www.tibco.com/reference-center/what-is-apache-kafka)
-- [Kafka Introduction Video 1](https://www.youtube.com/watch?v=PzPXRmVHMxI)
+- [Kafka Introduction Video 1](https://www.youtube.com/watch?v=PzPXRmVHMxI) <- Recommended video for a quick 5-min introduction to Kafka
 - [Kafka Introduction Video 2](https://www.youtube.com/watch?v=JalUUBKdcA0)
 
