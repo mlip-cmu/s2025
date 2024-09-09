@@ -18,6 +18,12 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ![Overview of course content](../_assets/overview.svg)
 <!-- .element: class="plain stretch" -->
 
+----
+## Recall: The importance of assumptions
+
+<div class="tweet" data-src="https://twitter.com/heyBarsee/status/1833101889237291253"></div>
+
+
 
 ----
 ## Learning goals:
@@ -72,6 +78,11 @@ creating IE is hard, balancing IE) and 24 (Dealing with mistakes)
 ## What responsibility do designers have to anticipate problems?
 
 ![Critical headline about predictive policing](predictive-policing.png)
+
+----
+
+![NYTimes Magazine Coverstory about Thomas Midgley Jr.](midgley.png)
+<!-- .element: class="stretch" -->
 
 
 ----
@@ -896,12 +907,20 @@ FTA is still very valuable for risk reduction!
 
 
 
+----
+## Breakout: Fault Tree
 
 
 
 
 
+> REQ: The generated music featured on the front page should not contain lyrics denigrating minorities
 
+As a group, 
+- (a) draw a small fault tree involving at least 1 non-ML and one ML-related basic event
+- (b) introduce a mitigation and highlight it in the diagram
+
+Use pen&paper or any software. Post photo or screenshot to #lecture.
 
 
 
