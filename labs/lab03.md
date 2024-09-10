@@ -5,27 +5,28 @@ You will perform three tasks in this exercise.
 
 - [ ] Create and fix a merge conflict
 - [ ] Amend a commit
+- [ ] Raise a pull request (to the correct repo and branch!) and approve it
 
 It is strongly recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension. 
 
 ## Setup
-1. Fork the [PyTorch](https://github.com/pytorch/pytorch) repository to your GitHub account.
-2. Clone the forked repository to your local machine by running the following command in the terminal:
+1. Fork this [PyTorch](https://github.com/Rajeevveera24/pytorch) repository to your GitHub account.
+2. Clone **your** forked repository to your local machine by running the following commands in the terminal:
 ```
 git clone -n --depth=1 --filter=tree:0 <your repo url>
 cd pytorch
 git sparse-checkout set --no-cone torch/nn
 git checkout
 ```
-3. Open the repository in your IDE.
+3. Open the repository in an IDE.
 
 ## Exercise 1: Create and fix a merge conflict
 
 1. Create a new branch called `merge-conflict` from `main` branch.
-2. Open the `torch/nn/functional.py` file, navigate to the `interpolate` function (line 3856) and change the resizing mode from `nearest` to `bilinear`:
+2. Open the `torch/nn/functional.py` file, navigate to the `interpolate` function (line 4293) and change the resizing mode from `nearest` to `bilinear`:
 3. Commit the changes to the `merge-conflict` branch. Make sure you add a meaningful commit message.
 4. Switch back to `main` branch.
-5. Open the `torch/nn/functional.py` file, navigate to the `interpolate`(line 3856) function and change the resizing mode from `nearest` to `bicubic` and `align_corners` to `True`:
+5. Open the `torch/nn/functional.py` file, navigate to the `interpolate`(line 4293) function and change the resizing mode from `nearest` to `bicubic` and `align_corners` to `True`:
 6. Commit the changes to the `main` branch. Make sure you add a meaningful commit message.
 7. Merge the `merge-conflict` branch into the `main` branch.
 8. Resolve the merge conflict by keeping the resizing mode `bilinear` and `align_corners` `True`.
@@ -34,25 +35,23 @@ git checkout
 ## Exercise 2: Amend a commit
 
 1. Create a new branch called `amend-commit` from `main` branch.
-2. In the `torch/nn/functional.py` file, navigate to the `multi_margin_loss` function (line 3566) and change the margin to 1.5 and reduction mode to `sum'
+2. In the `torch/nn/functional.py` file, navigate to the `multi_margin_loss` function (line 4000) and change the margin to 1.5 and reduction mode to `sum'
 3. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
 4. Amend the commit by changing the margin to 2.0
 5. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
 
 ## Exercise 3: Create and approve a pull request
 
-**Note: Please ensure on GitHub, you create the pull request to the main branch of your forked repository. Under no circumstances should you create a pull request to the original PyTorch repository.**
+**Note: Please ensure on GitHub, you create the pull request to the main branch of YOUR forked repository. Under no circumstances should you create a pull request to the [original PyTorch]() repository or to [PyTorch](https://github.com/Rajeevveera24/pytorch).**
 <br><br>
 (make sure you choose *username*/pytorch instead of pytorch/pytorch)<br>
 <img src="https://github.com/eshetty/s2024/assets/107862033/c874f0a6-abae-478a-af83-0f62eaa8cd4d" alt="image" width="500" height="auto"><br>
 
 1. Create a new branch called `pull-request` from `main` branch.
-2. In the `torch/nn/functional.py` file, navigate to the `l1_loss` function (line 3308) and add code to check if the reduction mode is `sum` and raise an exception:
-3. Commit the changes to the `pull-request` branch. Make sure you add a meaningful commit message.
-4. Push the `pull-request` branch to the remote repository.
-5. Create a pull request to merge the `pull-request` branch into the `main` branch.
-6. Approve the pull request.
-7. Merge the `pull-request` branch into the `main` branch.
+2. Push the `pull-request` branch to the remote repository.
+3. Create a pull request to merge the `pull-request` branch into your `main` branch.
+4. Approve the pull request.
+5. Merge the `pull-request` branch into your `main` branch.
 
 
 
@@ -75,9 +74,8 @@ git checkout
 
 
 ## Resources
+- [Simple Git Command Visualizations](https://learngitbranching.js.org/)
 - [Git Handbook](https://guides.github.com/introduction/git-handbook/)
 - [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Git Documentation](https://git-scm.com/doc)
 - [Git Exercises](https://gitexercises.fracz.com/)
-
-
