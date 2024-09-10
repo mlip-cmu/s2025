@@ -30,7 +30,7 @@ git sparse-checkout set --no-cone torch/nn
 git checkout
 ```
 
-3. Open the repository in an IDE.
+2. Open the repository in an IDE.
 
 ## Exercise 1: Amend a commit
 
