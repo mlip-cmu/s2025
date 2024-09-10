@@ -9,7 +9,7 @@
 ## Deliverables:
 
 - [ ] Amend a commit
-  - Can you amend a commit without editing it ?
+  - Can you amend a commit without editing the commit message ?
   - Can you amend a commit after pushing it to the remote repository ?
 - [ ] Create and fix a merge conflict locally
 - [ ] Raise a pull request and approve it
@@ -21,8 +21,7 @@
 It is strongly recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension. 
 
 ## Setup
-1. **Clone** this PyTorch repository to your GitHub account - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)
-2. Clone **your** forked repository to your local machine by running the following commands in the terminal:
+1. **Clone** this PyTorch repository to your local machine - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch) - by running the following command in your terminal:
 
 ```
 git clone -n --depth=1 --filter=tree:0 https://github.com/Rajeevveera24/pytorch.git  # Feel free to use the SSH URL instead if you prefer
