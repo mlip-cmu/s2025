@@ -8,39 +8,23 @@
 
 ## Deliverables:
 
-- [ ] Amend a commit
-  - Can you amend a commit without editing the commit message ?
-  - Can you amend a commit after pushing it to the remote repository ?
-- [ ] Create and fix a merge conflict locally
-- [ ] Raise a pull request and approve it
-  - What happened when you tried to push to the repository from which you had cloned ?
-  - What is the difference between forking and cloning a repository ?
-  - Do you **have** to create a fork to push the code ?
-  - Do you **have** to create a fork to raise a pull request ?
+- [ ] Create and fix a merge conflict locally. Then, amend the merge commit to state that a merge conflict was resolved.
+- [ ] Raise a pull request with your new changes. Show the the url of the pull request to a TA.
+- [ ] Explain to a TA the difference between a cloned and forked repository, when you would use each, and why we use pull requests.
 
-It is strongly recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension. 
+It is recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
 
 ## Setup
-1. **Clone** this PyTorch repository to your local machine - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch) - by running the following command in your terminal:
+1. **Clone** this PyTorch repository to your local machine - [Rajeevveera24/PyTorch-copy](https://github.com/Rajeevveera24/pytorch-copy) - by running the following command in your terminal:
 
 ```
-git clone -n --depth=1 --filter=tree:0 https://github.com/Rajeevveera24/pytorch.git  # Feel free to use the SSH URL instead if you prefer
-cd pytorch
-git sparse-checkout set --no-cone torch/nn
-git checkout
+git clone https://github.com/Rajeevveera24/pytorch-copy.git  # Feel free to use the SSH URL instead if you prefer
+cd pytorch-copy
 ```
 
 2. Open the repository in an IDE.
 
-## Exercise 1: Amend a commit
-
-1. Create a new branch called `amend-commit` from `main` branch.
-2. In the `torch/nn/functional.py` file, navigate to the `multi_margin_loss` function (line 4000) and change the margin to 1.5 and reduction mode to `sum'
-3. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
-4. Amend the commit by changing the margin to 2.0
-5. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
-
-## Exercise 2: Create and fix a merge conflict
+## Exercise 1: Create and Fix a merge conflict. Then amend the merge commit.
 
 1. Create a new branch called `merge-conflict` from `main` branch.
 2. Open the `torch/nn/functional.py` file, navigate to the `interpolate` function (line 4293) and change the resizing mode from `nearest` to `bilinear`:
@@ -50,27 +34,19 @@ git checkout
 6. Commit the changes to the `main` branch. Make sure you add a meaningful commit message.
 7. Merge the `merge-conflict` branch into the `main` branch.
 8. Resolve the merge conflict by keeping the resizing mode `bilinear` and `align_corners` `True`.
-9. Commit the changes to the `main` branch. Make sure you add a meaningful commit message.
+9. Commit the changes to the `main` branch.
+10. Amend the merge commit to the following - "Merge from merge-conflict branch after resolving merge conflict".
 
-## Exercise 3: Create and approve a pull request
-
-**Note: Please ensure on GitHub, you create the pull request to the main branch of YOUR forked repository. Under no circumstances should you create a pull request to the [original PyTorch](https://github.com/pytorch/pytorch) repository (or to [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)).**
-
-<br>
-(make sure you choose *username*/pytorch instead of pytorch/pytorch)<br>
-<br>
-
-<img src="https://github.com/eshetty/s2024/assets/107862033/c874f0a6-abae-478a-af83-0f62eaa8cd4d" alt="image" width="500" height="auto"><br>
+## Exercise 2: Create a pull request to the original repository
 
 1. Create a new branch called `pull-request` from `main` branch.
 2. Push the `pull-request` branch to the remote repository.
-3. Did you encounter any issues while pushing the branch ? Try running the following command - `git remote -v` - to debug the issue (We expect you to understand the usage and output of this commmand)
-4. Now, fork the [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch) repository. (You had only cloned it earlier)
+3. Did you encounter any issues while pushing the branch? Try running the following command - `git remote -v` - to debug the issue (We expect you to understand the usage and output of this commmand)
+4. Now, fork the [Rajeevveera24/PyTorch-copy](https://github.com/Rajeevveera24/pytorch-copy) repository. (You had only cloned it earlier)
 5. Set the remote repository to your forked repository's URL (We expect you to find the correct command to do this)
 6. Try pushing the `pull-request` branch to the remote repository again. You should succeed this time.
-7. Create a pull request to merge the `pull-request` branch into **your** `main` branch.
-8. Approve the pull request.
-9. Merge the `pull-request` branch into your `main` branch.
+7. Create a pull request to merge the `pull-request` branch into `main` branch of [Rajeev-veara24/pytorch-copy](https://github.com/Rajeevveera24/pytorch-copy)
+8. Save the URL of the pull request to show to a TA (It should be similar to [https://github.com/Rajeevveera24/pytorch-copy/pull/1](https://github.com/Rajeevveera24/pytorch-copy/pull/1)).
 
 
 
