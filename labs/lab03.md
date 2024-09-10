@@ -1,20 +1,31 @@
 # Lab 3: Git
 
-## Deliverables:
-You will perform three tasks in this exercise. 
+## Prerequisites
+- Github account
+- Git installed on your local machine
+  - Please use github cli or git directly
 
-- [ ] Create and fix a merge conflict
+
+## Deliverables:
+
 - [ ] Amend a commit
-- [ ] Raise a pull request (to the correct repo and branch!) and approve it
+  - Can you amend a commit without editing it ?
+  - Can you amend a commit after pushing it to the remote repository ?
+- [ ] Create and fix a merge conflict locally
+- [ ] Raise a pull request and approve it
+  - What happened when you tried to push to the repository from which you had cloned ?
+  - What is the difference between forking and cloning a repository ?
+  - Do you **have** to create a fork to push the code ?
+  - Do you **have** to create a fork to raise a pull request ?
 
 It is strongly recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension. 
 
 ## Setup
-1. Fork this PyTorch repository to your GitHub account - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)
+1. **Clone** this PyTorch repository to your GitHub account - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)
 2. Clone **your** forked repository to your local machine by running the following commands in the terminal:
 
 ```
-git clone -n --depth=1 --filter=tree:0 <your repo url>
+git clone -n --depth=1 --filter=tree:0 https://github.com/Rajeevveera24/pytorch.git  # Feel free to use the SSH URL instead if you prefer
 cd pytorch
 git sparse-checkout set --no-cone torch/nn
 git checkout
@@ -22,7 +33,15 @@ git checkout
 
 3. Open the repository in an IDE.
 
-## Exercise 1: Create and fix a merge conflict
+## Exercise 1: Amend a commit
+
+1. Create a new branch called `amend-commit` from `main` branch.
+2. In the `torch/nn/functional.py` file, navigate to the `multi_margin_loss` function (line 4000) and change the margin to 1.5 and reduction mode to `sum'
+3. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
+4. Amend the commit by changing the margin to 2.0
+5. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
+
+## Exercise 2: Create and fix a merge conflict
 
 1. Create a new branch called `merge-conflict` from `main` branch.
 2. Open the `torch/nn/functional.py` file, navigate to the `interpolate` function (line 4293) and change the resizing mode from `nearest` to `bilinear`:
@@ -33,14 +52,6 @@ git checkout
 7. Merge the `merge-conflict` branch into the `main` branch.
 8. Resolve the merge conflict by keeping the resizing mode `bilinear` and `align_corners` `True`.
 9. Commit the changes to the `main` branch. Make sure you add a meaningful commit message.
-
-## Exercise 2: Amend a commit
-
-1. Create a new branch called `amend-commit` from `main` branch.
-2. In the `torch/nn/functional.py` file, navigate to the `multi_margin_loss` function (line 4000) and change the margin to 1.5 and reduction mode to `sum'
-3. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
-4. Amend the commit by changing the margin to 2.0
-5. Commit the changes to the `amend-commit` branch. Make sure you add a meaningful commit message.
 
 ## Exercise 3: Create and approve a pull request
 
@@ -54,9 +65,13 @@ git checkout
 
 1. Create a new branch called `pull-request` from `main` branch.
 2. Push the `pull-request` branch to the remote repository.
-3. Create a pull request to merge the `pull-request` branch into your `main` branch.
-4. Approve the pull request.
-5. Merge the `pull-request` branch into your `main` branch.
+3. Did you encounter any issues while pushing the branch ? Try running the following command - `git remote -v` - to debug the issue (We expect you to understand the usage and output of this commmand)
+4. Now, fork the [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch) repository. (You had only cloned it earlier)
+5. Set the remote repository to your forked repository's URL (We expect you to find the correct command to do this)
+6. Try pushing the `pull-request` branch to the remote repository again. You should succeed this time.
+7. Create a pull request to merge the `pull-request` branch into **your** `main` branch.
+8. Approve the pull request.
+9. Merge the `pull-request` branch into your `main` branch.
 
 
 
