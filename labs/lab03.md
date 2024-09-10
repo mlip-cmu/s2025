@@ -10,14 +10,16 @@ You will perform three tasks in this exercise.
 It is strongly recommended that you use a git extension for your IDE to complete this lab. If you are using Visual Studio Code, you can use the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension. 
 
 ## Setup
-1. Fork this [PyTorch](https://github.com/Rajeevveera24/pytorch) repository to your GitHub account.
+1. Fork this PyTorch repository to your GitHub account - [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)
 2. Clone **your** forked repository to your local machine by running the following commands in the terminal:
+
 ```
 git clone -n --depth=1 --filter=tree:0 <your repo url>
 cd pytorch
 git sparse-checkout set --no-cone torch/nn
 git checkout
 ```
+
 3. Open the repository in an IDE.
 
 ## Exercise 1: Create and fix a merge conflict
@@ -42,9 +44,12 @@ git checkout
 
 ## Exercise 3: Create and approve a pull request
 
-**Note: Please ensure on GitHub, you create the pull request to the main branch of YOUR forked repository. Under no circumstances should you create a pull request to the [original PyTorch]() repository or to [PyTorch](https://github.com/Rajeevveera24/pytorch).**
-<br><br>
+**Note: Please ensure on GitHub, you create the pull request to the main branch of YOUR forked repository. Under no circumstances should you create a pull request to the [original PyTorch](https://github.com/pytorch/pytorch) repository (or to [Rajeevveera24/PyTorch](https://github.com/Rajeevveera24/pytorch)).**
+
+<br>
 (make sure you choose *username*/pytorch instead of pytorch/pytorch)<br>
+<br>
+
 <img src="https://github.com/eshetty/s2024/assets/107862033/c874f0a6-abae-478a-af83-0f62eaa8cd4d" alt="image" width="500" height="auto"><br>
 
 1. Create a new branch called `pull-request` from `main` branch.
