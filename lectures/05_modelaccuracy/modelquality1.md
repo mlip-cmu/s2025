@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Claire Le Goues
+author: Sherry Wu and Christian Kaestner
 title: "MLiP: Model Correctness and Accuracy"
-semester: Spring 2024
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
+semester: Fall 2024
+footer: "Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Fall 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/03_accuracy.jpg" -->
