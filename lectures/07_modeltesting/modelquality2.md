@@ -368,7 +368,7 @@ Should be more use-case specific and from domain knowledge!
 
 <!-- references_ -->
 
-Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 
 
@@ -397,7 +397,7 @@ Further reading: Christian Kaestner. [Rediscovering Unit Testing: Testing Capabi
 
 <!-- references -->
 
-Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 
 
@@ -445,7 +445,7 @@ Figure from Geirhos, Robert, Patricia Rubisch, Claudio Michaelis, Matthias Bethg
 
 <!-- references -->
 
-Figure from: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+Figure from: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 
 ----
@@ -822,7 +822,7 @@ e.g. $g\_I(x)= \texttt{replace}(x, \text{" is ", " is not "})$ and $g\_O(x)=\neg
 
 <!-- references -->
 
-From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 ----
 ## Some Capabilities are Invariants
@@ -841,7 +841,7 @@ From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[
 
 <!-- references -->
 
-From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 ----
 ## Examples of Invariants
