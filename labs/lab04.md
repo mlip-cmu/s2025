@@ -1,5 +1,3 @@
-# cmu-mlip-model-testing-lab
-
 # Lab 4: Model Testing with Zeno and LLM
 
 In this lab, you will gain hands-on experience with Zeno and LLM-based test case generation.
