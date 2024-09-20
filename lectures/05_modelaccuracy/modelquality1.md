@@ -1057,7 +1057,7 @@ Models have information they should not have access to!!
 Note: The image includes metadata. Models have been found to rely heavily on that metadata, for example what kind of device was used to take the scan (mobile vs stationary) or where it was taken (rural vs big hospital).
 
 ----
-## 3.Label Leakage
+## 3. Label Leakage
 
 Label or close correlates included in inputs 
 
@@ -1102,33 +1102,43 @@ train, test, spamLabelTrain, spamLabelTest =
 predictAndReport(train = train, test = test)
 ```
 
-----
-## 4. Data Leakage: Overfitting on Random Data
 
-```python
-import numpy as np
-# generate random data
-n_samples, n_features, n_classes = 200, 10000, 2
-rng = np.random.RandomState(42)
-X = rng.standard_normal((n_samples, n_features))
-y = rng.choice(n_classes, n_samples)
 
-# leak test data through feature selection
-X_selected = SelectKBest(k=25).fit_transform(X, y)
-
-X_train, X_test, y_train, y_test = 
-    train_test_split(X_selected, y, random_state=42)
-gbc = GradientBoostingClassifier(random_state=1)
-gbc.fit(X_train, y_train)
-
-y_pred = gbc.predict(X_test)
-accuracy_score(y_test, y_pred)  
-# expected accuracy ~0.5; reported accuracy 0.76
-```
 
 
 ----
-## 4. Data Leakage -- Overfit on Benchmarks
+## 5. Data Leakage -- Overfitting in Continuous Experimentation 
+
+<!-- colstart -->
+
+<div class="small">
+
+* Test data should be used exactly once -- danger of overfitting with reuse
+* Use of test sets to compare (hyperparameter-tuned) models in dashboards ➤ danger of overfitting
+* Need fresh test data regularly
+* Statistical techniques to approximate the needed amount of test data and the needed rotation
+
+</div>
+
+<!-- col -->
+
+![MLFlow User Interface](mlflow-web-ui.png)
+<!-- .element: class="stretch" -->
+
+<!-- colend -->
+
+
+
+
+<!-- references -->
+
+Recommended reading: Renggli, Cedric, Bojan Karlaš, Bolin Ding, Feng Liu, Kevin Schawinski, Wentao Wu, and Ce Zhang. "[Continuous integration of machine learning models with ease.ml/ci: Towards a rigorous yet practical treatment.](https://arxiv.org/abs/1903.00278)" arXiv preprint arXiv:1903.00278 (2019).
+
+
+
+
+----
+## 5. Data Leakage -- Overfit on Benchmarks
 
 <!-- colstart -->
 
@@ -1148,33 +1158,10 @@ Note: If many researchers publish best results on the same benchmark, collective
 
 
 
-
 ----
-## 4. Overfitting in Continuous Experimentation 
+## 6. Independence of Data: e.g., Temporal
 
-![MLFlow User Interface](mlflow-web-ui.png)
-<!-- .element: class="stretch" -->
-
-----
-## 4. Overfitting in Continuous Experimentation 
-
-* Test data should be used exactly once -- danger of overfitting with reuse
-* Use of test sets to compare (hyperparameter-tuned) models in dashboards ➤ danger of overfitting
-* Need fresh test data regularly
-* Statistical techniques to approximate the needed amount of test data and the needed rotation
-
-<!-- references -->
-
-Recommended reading: Renggli, Cedric, Bojan Karlaš, Bolin Ding, Feng Liu, Kevin Schawinski, Wentao Wu, and Ce Zhang. "[Continuous integration of machine learning models with ease.ml/ci: Towards a rigorous yet practical treatment.](https://arxiv.org/abs/1903.00278)" arXiv preprint arXiv:1903.00278 (2019).
-
-
-
-
-
-
-
-----
-## 6. Independence of Data: e.g.， Temporal
+<div class="small">
 
 > Attempt to predict the stock price development for different companies based on twitter posts
 
@@ -1186,6 +1173,7 @@ Problems of random train--validation split?
 
 Note: The model will be evaluated on past stock prices knowing the future prices of the companies in the training set. Even if we split by companies, we could observe general future trends in the economy during training
 
+</div>
 
 ----
 ## 6. Independence of Data: e.g., Temporal
@@ -1293,33 +1281,6 @@ float computeDeductions(float agi, Expenses expenses);
 
 
 ----
-## Validation vs Verification
-
-![Validation vs Verification](validation.png)
-<!-- .element: class="plain" -->
-
-
-----
-## Validation Problem: Correct but Useless?
-
-* Correctly implemented to specification, but specifications are wrong
-* Building the wrong system, not what user needs
-* Ignoring assumptions about how the system is used
-
-
-Example: Compute deductions with last year's tax code
-
-**Other examples?**
-
-----
-## Wrong Specifications: Ariane 5
-
-<iframe width="800" height="450"  src="https://www.youtube.com/embed/PK_yguLapgA?start=84" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-Software was working as specified, within the specified parameters. Inputs exceeded specified parameters.
-
-----
 ## Strict Correctness Assumption
 
 * Specification determines which outputs are correct/wrong
@@ -1338,22 +1299,6 @@ float computeDeductions(float agi, Expenses expenses);
 
 Note: A single wrong tax prediction would be a bug. No tolerance of occasional wrong predictions, approximations, nondeterminism.
 
-
-
-----
-## Ideally formal specifications
-
-Formal verification possible, proving that implementation matches specification.
-
-```java
-/*@ public normal_behavior 
-  @ ensures (\forall int j; j >= 0 && j < a.length;  
-  @                             \result = a[j]); 
-  @*/ 
-public static /*@ pure @*/ int max(int[] a);
-```
-
-In practice, typically informal, textual and "incomplete" specifications, but still enabling analyzing inputs-output correspondence
 
 
 ----
@@ -1382,33 +1327,6 @@ void testAddition_1_2() {
 ```
 
 </div>
-
-----
-## Validation vs Verification
-
-![Validation vs Verification](validation.png)
-<!-- .element: class="plain" -->
-
-
-----
-## Requirements Validation
-
-*Are the goals right? Are the requirements sufficient? Did we miss assumptions?*
-
-Talk to stakeholders
-
-Build prototype, show to potential users
-
-Involve customer/affected people in design discussions (agile, participatory design)
-
-Ask experts whether requirements cover important concerns, check legal compliance
-
-----
-## Validation vs Verification
-
-![Validation vs Verification](validation.png)
-<!-- .element: class="plain" -->
-
 
 
 ----
