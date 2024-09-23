@@ -879,7 +879,102 @@ Much of the security, safety and robustness literature in ML focuses on invarian
 
 
 
-</script></section></section><section ><section data-markdown><script type="text/template"># Audits and Red Teaming
+
+
+
+
+
+
+
+
+
+</script></section></section><section ><section data-markdown><script type="text/template"># Property-based Testing
+
+</script></section><section data-markdown><script type="text/template">## How to Test Models for Generation Task?
+
+* So far most of model testing techniques we discuss expect a "ground-truth" output.
+* But what about "Generative AI", where no single ground-truth is available?
+  * E.g., an LLM-based quiz maker
+
+"Your goal is to create a well crafted set of four concise answers for a test for a specific question."
+</script></section><section data-markdown><script type="text/template">## Property-based Testing
+
+Instead of writing unit tests, we can test properties a function should satisfy.
+
+```python
+def test_gcd(): # greatest common divisor
+    assert 1 == gcd(15, 7)
+    assert 5 == gcd(15, 5)
+    assert 3 == gcd(-9, 15)
+```
+
+```python
+def test_gcd(n, m):
+    d = gcd(n, m)
+
+    assert d > 0  # 1) `d` is positive
+    assert n % d == 0  # 2) `d` divides `n`
+    assert m % d == 0  # 3) `d` divides `m`
+
+    # 4) no other number larger than `d` divides both `n` and `m`
+    for i in range(d + 1, min(n, m)):
+        assert (n % i) or (m % i)
+```
+</script></section><section data-markdown><script type="text/template">## Property-based Testing For Models
+
+
+"Your goal is to create a well crafted set of four concise answers for a test for a specific question."
+
+* There are only four answers 
+* Each generated answer should contain <15 words
+* All answers should be relevant to the question
+* All answers should be covered in the course material (provided as context)
+
+Some properties are easier to test with programs, but how to test "vaguer" properties?
+
+</script></section><section data-markdown><script type="text/template">## Testing Properties with LLMs
+
+
+How to test "vaguer" properties? Use LLM as a judge!
+
+* All answers should be relevant to the question
+  * "Is the answer relevant to the question? Answer yes or no." 
+
+
+<!-- references  -->
+Zheng, Lianmin, et al. "Judging llm-as-a-judge with mt-bench and chatbot arena." Advances in Neural Information Processing Systems 36 (2023): 46595-46623.
+
+</script></section><section data-markdown><script type="text/template">## Testing Properties with LLMs
+
+
+How to test "vaguer" properties? Use LLM as a judge!
+
+Need to make sure LLM judgments align with human judgments -- This is a common pitfall for practitioners.
+
+<!-- references  -->
+Yan, Eugene, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar. 2024. ‘Applied LLMs - What We’ve Learned From A Year of Building with LLMs’. Applied LLMs. 8 June 2024. https://applied-llms.org/.
+</script></section><section data-markdown><script type="text/template">## Breakout Discussion
+
+<div class="small">
+
+Write a few (n>=3) property-based tests for the following prompt:
+
+"Your task is to analyze project handouts. Summarize the handouts in a concise and clear manner, identifying key project goals, milestones, and risks. Output your findings as a short memo I can send to my team. The goal of the memo is to ensure my team stays aligned on the project’s objectives, timelines, and deliverables while also identifying potential bottlenecks or challenges that could impact progress. Make sure to include all relevant details in your summary and analysis."
+
+**As a group, discuss what property-based tests you would write and how you would execute them.**
+
+Post answer to `#lecture` tagging group members in Slack using template:
+> Property Test: ...<br />
+> Test method: ...<br />
+> Test prompt / program: ...<br />
+
+</div>
+
+
+<aside class="notes"><p>Can focus on specification (and concepts in the domain, such as
+leap days and month lengths) or can focus on implementation</p>
+<p>Will not randomly sample from distribution of all days</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template"># Audits and Red Teaming
 
 <!-- discussion -->
 
@@ -939,50 +1034,8 @@ int divide(int A, int B) {
 * Execute test suite after changes to detect regressions
     - Ideally automatically with continuous integration tools
 *
-* Maps well to curating test sets for important populations in ML
-</script></section><section data-markdown><script type="text/template">## Mutation Analysis
+* Maps well to curating test **sets** for important populations in ML
 
-* Start with program and passing test suite
-* Automatically insert small modifications ("mutants") in the source code
-    - `a+b` -> `a-b`
-    - `a<b` -> `a<=b`
-    - ...
-* Can program detect modifications ("kill the mutant")?
-* Better test suites detect more modifications ("mutation score")
-
-```java
-int divide(int A, int B) {
-  if (A==0)     // A!=0, A<0, B==0
-    return 0;   // 1, -1
-  if (B==0)     // B!=0, B==1
-    return -1;  // 0, -2
-  return A / B; // A*B, A+B
-} 
-assert(1, divide(1,1));
-assert(0, divide(0,1));
-assert(-1, divide(1,0));
-```
-</script></section><section data-markdown><script type="text/template">## Mutation Analysis
-
-* Some papers exist, but strategy unclear
-* Mutating model parameters? Mutating hyperparameters? Mutating inputs?
-* What's considered as killing a mutant, if we don't have specifications?
-*
-* Still unclear application...
-
-
-
-
-
-
-
-
-
-
-</script></section></section><section ><section data-markdown><script type="text/template"># Continuous Integration for Model Quality
-
-[![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
-<!-- .element: class="stretch" -->
 </script></section><section data-markdown><script type="text/template">## Continuous Integration
 
 ![](ci.png)
@@ -1003,34 +1056,6 @@ assert(-1, divide(1,0));
 * Optionally: Continuous deployment to production server
 
 </div>
-</script></section><section data-markdown><script type="text/template">## Dashboards for Model Evaluation Results
-
-[![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
-
-<!-- references  -->
-
-Jeremy Hermann and Mike Del Balso. [Meet Michelangelo: Uber’s Machine Learning Platform](https://eng.uber.com/michelangelo/). Blog, 2017
-</script></section><section data-markdown><script type="text/template">
-## Specialized CI Systems
-
-![Ease.ml/ci](easeml.png)
-
-<!-- references -->
-
-Renggli et. al, [Continuous Integration of Machine Learning Models with ease.ml/ci: Towards a Rigorous Yet Practical Treatment](http://www.sysml.cc/doc/2019/162.pdf), SysML 2019
-</script></section><section data-markdown><script type="text/template">## Dashboards for Comparing Models
-
-![MLflow UI](mlflow-web-ui.png)
-
-<!-- references -->
-
-Matei Zaharia. [Introducing MLflow: an Open Source Machine Learning Platform](https://databricks.com/blog/2018/06/05/introducing-mlflow-an-open-source-machine-learning-platform.html), 2018
-
-
-
-
-
-
 
 
 
