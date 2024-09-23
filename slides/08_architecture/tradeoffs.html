@@ -114,25 +114,6 @@ Software Engineering Theme: *Think before you code*
 Like requirements: Slower initially, but upfront investment can prevent problems later and save overall costs
 
 -> Focus on most important qualities early, but leave flexibility
-</script></section><section data-markdown><script type="text/template">## Quality Requirements Drive Architecture Design
-
-Driven by requirements, identify most important qualities
-
-Examples:
-* Development cost, operational cost, time to release
-* Scalability, availability, response time, throughput
-* Security, safety, usability, fairness
-* Ease of modifications and updates
-* ML: Accuracy, ability to collect data, training latency
-</script></section><section data-markdown><script type="text/template">## Architecture Design Involves Quality Trade-offs
-
-![Monolithic vs microservice](architectures.png)
-<!-- .element: class="stretch" -->
-
-**Q. What are quality trade-offs between the two?**
-
-<!-- references_ -->
-[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
 </script></section><section data-markdown><script type="text/template">
 ## Why Architecture? ([Kazman et al. 2012](https://www.oreilly.com/library/view/software-architecture-in/9780132942799/?ar))
 
@@ -154,19 +135,29 @@ Aids in software **evolution**: Reason about cost, design, and effect of changes
 
 </div>
 
+</script></section><section data-markdown><script type="text/template">## Quality Requirements Drive Architecture Design
 
+Driven by requirements, identify most important qualities
+
+Examples:
+* Development cost, operational cost, time to release
+* Scalability, availability, response time, throughput
+* Security, safety, usability, fairness
+* Ease of modifications and updates
+* ML: Accuracy, ability to collect data, training latency
+</script></section><section data-markdown><script type="text/template">## Architecture Design Involves Quality Trade-offs
+
+![Monolithic vs microservice](architectures.png)
+<!-- .element: class="stretch" -->
+
+**Q. What are quality trade-offs between the two?**
+
+<!-- references_ -->
+[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
 </script></section></section><section ><section data-markdown><script type="text/template">## Codifying Design Knowledge 
 
 ![Exploded parts diagram of a complex device](parts.png)
 <!-- .element: class="stretch" -->
-</script></section><section data-markdown><script type="text/template">## System Decomposition
-
-![Simple architecture diagram of transcription service](transcriptionarchitecture2.svg)
-<!-- .element: class="stretch plain" -->
-
-Identify components and their responsibilities
-
-Establishes interfaces and team boundaries
 </script></section><section data-markdown><script type="text/template">### Common Components in ML-based Systems
 
 * **Model inference service**: Uses model to make predictions for input data
@@ -219,6 +210,9 @@ Examples:
 * Smart keyboard: privacy focused, small model, federated learning on user device, limited telemetry
 
 </div>
+
+
+
 
 </script></section></section><section ><section data-markdown><script type="text/template"># Scoping Relevant Qualities of ML Components
 
