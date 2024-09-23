@@ -121,29 +121,6 @@ Like requirements: Slower initially, but upfront investment can prevent problems
 -> Focus on most important qualities early, but leave flexibility
 
 ----
-## Quality Requirements Drive Architecture Design
-
-Driven by requirements, identify most important qualities
-
-Examples:
-* Development cost, operational cost, time to release
-* Scalability, availability, response time, throughput
-* Security, safety, usability, fairness
-* Ease of modifications and updates
-* ML: Accuracy, ability to collect data, training latency
-
-----
-## Architecture Design Involves Quality Trade-offs
-
-![Monolithic vs microservice](architectures.png)
-<!-- .element: class="stretch" -->
-
-**Q. What are quality trade-offs between the two?**
-
-<!-- references_ -->
-[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
-
-----
 
 ## Why Architecture? ([Kazman et al. 2012](https://www.oreilly.com/library/view/software-architecture-in/9780132942799/?ar))
 
@@ -166,22 +143,34 @@ Aids in software **evolution**: Reason about cost, design, and effect of changes
 </div>
 
 
+----
+## Quality Requirements Drive Architecture Design
+
+Driven by requirements, identify most important qualities
+
+Examples:
+* Development cost, operational cost, time to release
+* Scalability, availability, response time, throughput
+* Security, safety, usability, fairness
+* Ease of modifications and updates
+* ML: Accuracy, ability to collect data, training latency
+
+----
+## Architecture Design Involves Quality Trade-offs
+
+![Monolithic vs microservice](architectures.png)
+<!-- .element: class="stretch" -->
+
+**Q. What are quality trade-offs between the two?**
+
+<!-- references_ -->
+[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
 
 ---
 ## Codifying Design Knowledge 
 
 ![Exploded parts diagram of a complex device](parts.png)
 <!-- .element: class="stretch" -->
-
-----
-## System Decomposition
-
-![Simple architecture diagram of transcription service](transcriptionarchitecture2.svg)
-<!-- .element: class="stretch plain" -->
-
-Identify components and their responsibilities
-
-Establishes interfaces and team boundaries
 
 ----
 ### Common Components in ML-based Systems
@@ -248,6 +237,9 @@ Examples:
 * Smart keyboard: privacy focused, small model, federated learning on user device, limited telemetry
 
 </div>
+
+
+
 
 
 ---
