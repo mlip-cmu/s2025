@@ -19,21 +19,125 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Christian Kaestner & Sherry Wu, Carnegie Mellon University • Fall 2024</div><section  data-markdown><script type="text/template">  
+      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024</div><section  data-markdown><script type="text/template">  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/07_mistakes.jpg" -->
 <div class="stretch"></div>
 
 ## Machine Learning in Production
 
 # Planning for Mistakes
-</script></section><section ><section data-markdown><script type="text/template">## Exploring Requirements...
+</script></section><section ><section data-markdown><script type="text/template"># From last time...</script></section><section data-markdown><script type="text/template">## Requirements elicitation techniques (1)
+
+* Background study: understand organization, read documents, try to use old system
+* Interview different stakeholders
+  * Ask open ended questions about problems, needs, possible solutions, preferences, concerns...
+  * Support with visuals, prototypes, ask about tradeoffs
+  * Use checklists to consider qualities (usability, privacy, latency, ...)
+
+
+**What would you ask in lane keeping software? In fall detection software? In college admissions software?**
+</script></section><section data-markdown><script type="text/template">## ML Prototyping: Wizard of Oz
+
+![Wizard of oz excerpt](wizard.gif)<!-- .element: style="width:800px" -->
+
+<aside class="notes"><p>In a wizard of oz experiment a human fills in for the ML model that is to be developed. For example a human might write the replies in the chatbot.</p>
+</aside></script></section><section data-markdown><script type="text/template">## Requirements elicitation techniques (2)
+
+* Surveys, groups sessions, workshops: Engage with multiple stakeholders, explore conflicts
+* Ethnographic studies: embed with users, passively observe or actively become part
+* Requirements taxonomies and checklists: Reusing domain knowledge
+* Personas: Shift perspective to explore needs of stakeholders not interviewed
+</script></section><section data-markdown><script type="text/template">## Negotiating Requirements
+
+Many requirements are conflicting/contradictory
+
+Different stakeholders want different things, have different priorities, preferences, and concerns
+
+Formal requirements and design methods such as [card sorting](https://en.wikipedia.org/wiki/Card_sorting), [affinity diagramming](https://en.wikipedia.org/wiki/Affinity_diagram), [importance-difficulty matrices](https://spin.atomicobject.com/2018/03/06/design-thinking-difficulty-importance-matrix/)
+
+Generally: sort through requirements, identify alternatives and conflicts, resolve with priorities and decisions -> single option, compromise, or configuration
+
+
+</script></section><section data-markdown><script type="text/template">## Stakeholder Conflict Examples
+
+*User wishes vs developer preferences:* free updates vs low complexity
+
+*Customer wishes vs affected third parties:* privacy preferences vs disclosure
+
+*Product owner priorities vs regulators:* maximizing revenue vs privacy protections
+
+**Conflicts in lane keeping software? In fall detection software? In college admissions software?**
+
+
+**Who makes the decisions?**
+</script></section><section data-markdown><script type="text/template">## Requirements documentation
+
+
+![paperwork](../_chapterimg/06_requirements.jpg)
+<!-- .element: class="stretch" -->
+</script></section><section data-markdown><script type="text/template">## Requirements documentation
+
+Write down requirements 
+* what the software *shall* do, what it *shall* not do, what qualities it *shall* have, 
+* document decisions and rationale for conflict resolution
+
+Requirements as input to design and quality assurance
+
+Formal requirements documents often seen as bureaucratic, lightweight options in notes, wikis, issues common 
+
+<b>Systems with higher risk -> consider more formal documentation</b>
+</script></section><section data-markdown><script type="text/template">## Requirements evaluation (validation!)
+
+![Validation vs verification](validation.svg)
+<!-- .element: class="plain stretch" -->
+
+</script></section><section data-markdown><script type="text/template">## Requirements evaluation
+
+Manual inspection (like code review)
+
+Show requirements to stakeholders, ask for misunderstandings, gaps
+
+Show prototype to stakeholders
+
+Checklists to cover important qualities
+
+
+Critically inspect assumptions for completeness and realism
+
+<b>Look for unrealistic ML-related assumptions (no false positives, unbiased representative data)</b>
+
+</script></section><section data-markdown><script type="text/template">## How much requirements eng. and when?
+
+![Waterfall process picture](waterfall.svg)<!-- .element: class="plain" style="width:1100px" -->
+</script></section><section data-markdown><script type="text/template">## How much requirements eng. and when?
+
+Requirements important in risky systems 
+
+Requirements as basis of a contract (outsourcing, assigning blame)
+
+Rarely ever fully completely upfront and stable, <b>anticipate change</b>
+* Stakeholders see problems in prototypes, change their minds
+* Especially ML requires lots of exploration to establish feasibility
+
+<b>Low-risk problems often use lightweight, agile approaches</b>
+
+(We'll return to this later)
+</script></section><section data-markdown><script type="text/template"># Summary
+
+Requirements state the needs of the stakeholders and are expressed
+  over the phenomena in the world
+
+Software/ML models have limited influence over the world
+
+Environmental assumptions play just as an important role in
+establishing requirements
+
+Identify stakeholders, interview them, resolve conflicts
+
+</script></section></section><section ><section data-markdown><script type="text/template">## Exploring Requirements...
 
 ![Overview of course content](../_assets/overview.svg)
 <!-- .element: class="plain stretch" -->
-</script></section><section data-markdown><script type="text/template">## Recall: The importance of assumptions
-
-<div class="tweet" data-src="https://twitter.com/heyBarsee/status/1833101889237291253"></div>
-
 
 </script></section><section data-markdown><script type="text/template">## Learning goals:
 
@@ -71,9 +175,6 @@ creating IE is hard, balancing IE) and 24 (Dealing with mistakes)
 </script></section><section data-markdown><script type="text/template">## What responsibility do designers have to anticipate problems?
 
 ![Critical headline about predictive policing](predictive-policing.png)
-</script></section><section data-markdown><script type="text/template">
-![NYTimes Magazine Coverstory about Thomas Midgley Jr.](midgley.png)
-<!-- .element: class="stretch" -->
 
 </script></section><section data-markdown><script type="text/template">## Sources of Wrong Predictions?
 
@@ -749,19 +850,13 @@ FTA is still very valuable for risk reduction!
   * A good starting basis for designing mitigations
 
 
-</script></section><section data-markdown><script type="text/template">## Breakout: Fault Tree
 
 
 
 
 
-> REQ: The generated music featured on the front page should not contain lyrics denigrating minorities
 
-As a group, 
-- (a) draw a small fault tree involving at least 1 non-ML and one ML-related basic event
-- (b) introduce a mitigation and highlight it in the diagram
 
-Use pen&paper or any software. Post photo or screenshot to #lecture.
 
 
 

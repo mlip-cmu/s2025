@@ -25,12 +25,11 @@
 
         <section id="main_content">
 
-<h1>Machine Learning in Production (17-445/17-645/17-745)</h1>
-<h3>Fall 2024</h3>
-<p><em>CMU course that covers how to build, deploy, assure, and maintain software products with machine-learned models. Includes the entire lifecycle from a prototype ML model to an entire system deployed in production. Covers also <strong>responsible AI</strong> (including safety, security, fairness, explainability) and <strong>MLOps</strong>. In the spring, the course is crosslisted both as <strong>Machine Learning in Production</strong> and <strong>AI Engineering</strong>. For earlier offerings see websites for <a href="https://ckaestne.github.io/seai/F2019">Fall 2019</a>, <a href="https://ckaestne.github.io/seai/S2020">Summer 2020</a>, <a href="https://ckaestne.github.io/seai/F2020/">Fall 2020</a>, <a href="https://ckaestne.github.io/seai/S2021/">Spring 2021</a>  <a href="https://ckaestne.github.io/seai/S2022/">Spring 2022</a>,  <a href="https://ckaestne.github.io/seai/F2022/">Fall 2022</a>, <a href="https://github.com/mlip-cmu/s2023">Spring 2023</a>, and <a href="https://github.com/mlip-cmu/s2024">Spring 2024</a>. This Fall 2024 offering is designed for students with some data science experience (e.g., has taken a machine learning course, has used sklearn) and basic programming skills (e.g., basic Python programming with libraries, can navigate a Unix shell), but will not expect a software engineering background (i.e., experience with testing, requirements, architecture, process, or teams is not required). Going forward we expect to offer this course at least every spring semester and possibly some fall semesters (not summer semesters).</em></p>
-<p><strong>Waitlist update: For Fall 2024, we expect all waitlists too clear within the first week of the semester. In the spring semester, we can usually not accommodate everybody interested.</strong></p>
+<h1>Machine Learning in Production (17-445/17-645/17-745) / AI Engineering (11-695)</h1>
+<h3>Spring 2024</h3>
+<p><em>CMU course that covers how to build, deploy, assure, and maintain software products with machine-learned models. Includes the entire lifecycle from a prototype ML model to an entire system deployed in production. Covers also <strong>responsible AI</strong> (safety, security, fairness, explainability) and <strong>MLOps</strong>. The course is crosslisted both as <strong>Machine Learning in Production</strong> and <strong>AI Engineering</strong>. For earlier offerings see websites for <a href="https://ckaestne.github.io/seai/F2019">Fall 2019</a>, <a href="https://ckaestne.github.io/seai/S2020">Summer 2020</a>, <a href="https://ckaestne.github.io/seai/F2020/">Fall 2020</a>, <a href="https://ckaestne.github.io/seai/S2021/">Spring 2021</a>  <a href="https://ckaestne.github.io/seai/S2022/">Spring 2022</a>,  <a href="https://ckaestne.github.io/seai/F2022/">Fall 2022</a>, and <a href="https://github.com/mlip-cmu/s2023">Spring 2023</a>. This Spring 2024 offering is designed for students with some data science experience (e.g., has taken a machine learning course, has used sklearn) and basic programming skills (e.g., basic Python programming with libraries, can navigate a Unix shell), but will not expect a software engineering background (i.e., experience with testing, requirements, architecture, process, or teams is not required). Going forward we expect to offer this course at least every spring semester and possibly some fall semesters (not summer semesters).</em></p>
 <hr>
-<p>For researchers, educators, or others interested in this topic, we share all course material, including slides and assignments, under a creative commons license on GitHub (<a href="https://github.com/mlip-cmu">https://github.com/mlip-cmu</a>) and have also published a <a href="https://mlip-cmu.github.io/book/">textbook</a> with chapters corresponding to almost every lecture. A while ago we also wrote  an article describing the rationale and the initial design of this course: <a href="https://arxiv.org/abs/2001.06691">Teaching Software Engineering for AI-Enabled Systems</a>. Video recordings of the Summer 2020 offering are online on the <a href="https://ckaestne.github.io/seai/S2020/#course-content">course page</a>, though they are a bit outdated by now. We would be happy to see this course or a similar version taught at other universities. See also an <a href="https://github.com/ckaestne/seaibib">annotated bibliography</a> on research in this field.</p>
+<p>For researchers, educators, or others interested in this topic, we share all course material, including slides and assignments, under a creative commons license on GitHub (<a href="https://github.com/mlip-cmu">https://github.com/mlip-cmu</a>) and have also published a <a href="https://ckaestne.medium.com/machine-learning-in-production-book-overview-63be62393581">textbook</a> with chapters corresponding to almost every lecture. A while ago we also wrote  an article describing the rationale and the initial design of this course: <a href="https://arxiv.org/abs/2001.06691">Teaching Software Engineering for AI-Enabled Systems</a>. Video recordings of the Summer 2020 offering are online on the <a href="https://ckaestne.github.io/seai/S2020/#course-content">course page</a>, though they are a bit outdated by now. We would be happy to see this course or a similar version taught at other universities. See also an <a href="https://github.com/ckaestne/seaibib">annotated bibliography</a> on research in this field.</p>
 <h2>Course Description</h2>
 <p>This is a course for those who want to build <strong>software products</strong> with <strong>machine learning</strong>, not just models and demos. We assume that you can train a model or build prompts to make predictions, but what does it take to turn the model into a product and actually deploy it, have confidence in its quality, and successfully operate and maintain it at scale? </p>
 <p>The course is designed to establish a working relationship between <strong>software engineers</strong> and <strong>data scientists</strong>: both contribute to building ML-enabled systems but have different expertise and focuses. To work together they need a mutual understanding of their roles, tasks, concerns, and goals and build a working relationship. This course is aimed at <strong>software engineers</strong> who want to build robust and responsible products meeting the specific challenges of working with ML components and at <strong>data scientists</strong> who want to understand the requirements of the model for production use and want to facilitate getting a prototype model into production; it facilitates communication and collaboration between both roles. The course is a good fit for student looking at a career as an <strong>ML engineer</strong>. <em>The course focuses on all the steps needed to turn a model into a production system in a responsible and reliable manner.</em></p>
@@ -59,357 +58,305 @@
 </ul>
 <p>In addition, students will gain familiarity with production-quality infrastructure tools, including stream processing with Apache Kafka, test automation with Jenkins, monitoring with Prometheus and Grafana, and deployment with Docker and various MLOps tools.</p>
 <h2>Logistics and People</h2>
-<p>17-445/17-645/17-745, 12 Units</p>
-<p>The course is the same under all course numbers, with the exception of the PhD-level 17-745 which replaces two homework assignments with a mandatory <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/research_project.md">research project</a>.</p>
+<p>17-445/17-645/17-745/11-695, 12 Units</p>
+<p>The course is the same under all course numbers, with the exception of the PhD-level 17-745 which replaces two homework assignments with a mandatory <a href="https://github.com/mlip-cmu/s2023/blob/main/assignments/research_project.md">research project</a>.</p>
 <p>Open to all undergraduate and graduate students meeting the prerequisites.</p>
-<h3>Fall 2024</h3>
-<p>Lectures Monday/Wednesday 3:30-4:50pm, in person, WEH 7500</p>
-<p>Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A22 (C) and  GHC 4102 (D) and 2-3:20 in PH 226C (E) and GHC 4215 (F).</p>
-<p>Instructors: <a href="https://www.cs.cmu.edu/~sherryw/">Sherry Tongshuang Wu</a> and <a href="https://www.cs.cmu.edu/~ckaestne/">Christian Kaestner</a></p>
+<h3>Spring 2024</h3>
+<p>Lectures Monday/Wednesday 2-3:20pm, in person, PH 100</p>
+<p>Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A22 (C) and WEH 5310 (D) and 2-3:20 in PH 226C (E) and GHC 4215 (F).</p>
+<p>Instructors: <a href="https://clairelegoues.com">Claire Le Goues</a> and <a href="https://www.cs.cmu.edu/~ckaestne/">Christian Kaestner</a></p>
 <p>TAs: tbd</p>
 <h3>Coordination</h3>
 <p>We are happy to answer questions by email and over Slack, meet in person, and will jump on a quick Zoom call if you ask us. We also always arrive 5 to 10 min early to class and stay longer for discussions and questions. If you have questions about assignments and logistics, we prefer that you ask them publicly on Slack.</p>
 <h2>Course content</h2>
-<p>The general course content has been fairly stable over the last few years, though specific topics and tools are constantly updated with new research and tooling. Our list of learning goals under <a href="https://github.com/mlip-cmu/f2024/blob/main/learning_goals.md">Learning Goals</a> describes what we aim to cover. Below is a table of a preliminary schedule. This is subject to change and will be updated as the semester progresses, especially to help focus on requested topics or support learning.</p>
-<p>[Schedule]</p>
+<p>The general course content has been fairly stable over the last few years, though specific topics and tools are constantly updated with new research and tooling. Our list of learning goals under <a href="https://github.com/mlip-cmu/s2023/blob/main/learning_goals.md">Learning Goals</a> describes what we aim to cover. Below is a table of a preliminary schedule. This is subject to change and will be updated as the semester progresses, especially to help focus on requested topics or support learning.</p>
+<p><a href="https://github.com/mlip-cmu/s2023/blob/main/schedule.md">Schedule</a>
+(Preliminary schedule, subject to change)</p>
 <table>
 <thead>
 <tr>
 <th>Date</th>
 <th>Topic</th>
-<th><a href="https://mlip-cmu.github.io/book/">Book Chapter</a></th>
 <th>Reading</th>
 <th>Assignment due</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Mon, Aug 26</td>
-<td><a href="slides/01_introduction/intro.html">Introduction and Motivation </a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/01_introduction/intro.md">md</a>, <a href="slides/01_introduction/intro.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/01/">1</a></td>
+<td>Wed, Jan 17</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/01_introduction/intro.html">Introduction and Motivation</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/01_introduction/intro.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/01_introduction/intro.pdf">pdf</a>, <a href="https://ckaestne.medium.com/introduction-to-machine-learning-in-production-eef7427426f1">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Aug 28</td>
-<td><a href="slides/02_systems/systems.html">From Models to AI-Enabled Systems</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/02_systems/systems.md">md</a>, <a href="slides/02_systems/systems.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/02/">2</a>,<a href="https://mlip-cmu.github.io/book/04/">4</a>,<a href="https://mlip-cmu.github.io/book/05/">5</a></td>
+<td>Fri, Jan 19</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab01.md">Calling, securing, and creating APIs</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon, Jan 22</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/02_systems/systems.html">From Models to AI-Enabled Systems</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/02_systems/systems.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/02_systems/systems.pdf">pdf</a>, <a href="https://ckaestne.medium.com/machine-learning-in-production-from-models-to-systems-e1422ec7cd65">book chapter 1</a>, <a href="https://ckaestne.medium.com/when-to-use-machine-learning-83fe9be1b8e1">chapter 2</a>, <a href="https://ckaestne.medium.com/setting-and-measuring-goals-for-machine-learning-projects-c887bc6ab9d0">chapter 3</a>)</td>
 <td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 4, 5, 7, 8</td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Aug 30</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/f2024/blob/main/labs/lab01.md">Calling, securing, and creating APIs: Flask</a></td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Mon, Sep 2</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Labor day, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Wed, Sep 4</td>
-<td><a href="slides/03_requirements/requirements.html">Gathering Requirements </a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/03_requirements/requirements.md">md</a>, <a href="slides/03_requirements/requirements.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/06/">6</a></td>
+<td>Wed, Jan 24</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/03_requirements/requirements.html">Gathering and Untangling Requirements</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/03_requirements/requirements.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/03_requirements/requirements.pdf">pdf</a>, <a href="https://ckaestne.medium.com/gathering-requirements-for-ml-enabled-systems-4f0a7a23730f">book chapter</a>)</td>
 <td><a href="https://scholar.google.com/scholar?cluster=1090758480873197042">The World and the Machine</a></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Sep 6</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/f2024/blob/main/labs/lab02.md">Stream processing: Apache Kafka</a></td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Jan 26</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab02.md">Stream processing: Apache Kafka</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Sep 9</td>
-<td><a href="slides/04_mistakes/mistakes.html">Planning for Mistakes</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/04_mistakes/mistakes.md">md</a>, <a href="slides/04_mistakes/mistakes.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/07/">7</a></td>
+<td>Mon, Jan 29</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/04_mistakes/mistakes.html">Planning for Mistakes</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/04_mistakes/mistakes.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/04_mistakes/mistakes.pdf">pdf</a>, <a href="https://ckaestne.medium.com/planning-for-machine-learning-mistakes-2574f4fcf529">book chapter</a>)</td>
 <td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 6, 8, 24</td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I1_mlproduct.md">I1: ML Product</a></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I1_mlproduct.md">I1: ML Product</a></td>
 </tr>
 <tr>
-<td>Wed, Sep 11</td>
-<td><a href="slides/05_modelaccuracy/modelquality1.html">Model Quality</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/05_modelaccuracy/modelquality1.md">md</a>, <a href="slides/05_modelaccuracy/modelquality1.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/15/">15</a></td>
+<td>Wed, Jan 31</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/05_modelaccuracy/modelquality1.html">Model Quality</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/05_modelaccuracy/modelquality1.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/05_modelaccuracy/modelquality1.pdf">pdf</a>, <a href="https://ckaestne.medium.com/model-quality-defining-correctness-and-fit-a8361b857df">book chapter 1</a>, <a href="https://ckaestne.medium.com/model-quality-measuring-prediction-accuracy-38826216ebcb">chapter 2</a>)</td>
 <td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 19</td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Sep 13</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/f2024/blob/main/labs/lab03.md">Collaboration with git</a></td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Feb 02</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab03.md">Git</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Sep 16</td>
-<td><a href="slides/06_teamwork/teams.html">Fostering Interdisciplinary (Student) Teams</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/06_teamwork/teams.md">md</a>, <a href="slides/06_teamwork/teams.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Mon, Feb 05</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/06_teamwork/teams.html">Fostering Interdisciplinary (Student) Teams</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/06_teamwork/teams.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/06_teamwork/teams.pdf">pdf</a>)</td>
 <td><a href="https://third-bit.com/2018/05/11/meetings/">Meetings</a></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I2_requirements.md">I2: Requirements</a></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I2_requirements.md">I2: Requirements</a></td>
 </tr>
 <tr>
-<td>Wed, Sep 18</td>
-<td><a href="slides/07_modeltesting/modelquality2.html">Behavioral Model Testing</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/07_modeltesting/modelquality2.md">md</a>, <a href="slides/07_modeltesting/modelquality2.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/15/">15</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Fri, Sep 20</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/f2024/blob/main/labs/lab04.md">Model testing</a></td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
-<td></td>
+<td>Wed, Feb 07</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/07_modeltesting/modelquality2.html">Behavioral Model Testing</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/07_modeltesting/modelquality2.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/07_modeltesting/modelquality2.pdf">pdf</a>, <a href="https://ckaestne.medium.com/model-quality-slicing-capabilities-invariants-and-other-testing-strategies-27e456027bd">book chapter</a>)</td>
+<td><a href="https://aclanthology.org/2020.acl-main.442.pdf">Beyond Accuracy: Behavioral Testing of NLP Models with CheckList</a></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Sep 23</td>
-<td><a href="slides/08_architecture/tradeoffs.html">Toward Architecture and Design </a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/08_architecture/tradeoffs.md">md</a>, <a href="slides/08_architecture/tradeoffs.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/08/">8</a>,<a href="https://mlip-cmu.github.io/book/09/">9</a>,<a href="https://mlip-cmu.github.io/book/11/">11</a></td>
+<td>Fri, Feb 09</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab04.md">Model Testing with Zeno</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Sep 25</td>
-<td><a href="slides/09_deploying_a_model/deployment.html">Deploying a Model</a> (<a href="https://github.com/mlip-cmu/f2024/blob/main/lectures/09_deploying_a_model/deployment.md">md</a>, <a href="slides/09_deploying_a_model/deployment.pdf">pdf</a>)</td>
-<td><a href="https://mlip-cmu.github.io/book/10/">10</a></td>
+<td>Mon, Feb 12</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/08_architecture/tradeoffs.html">Toward Architecture and Design</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/08_architecture/tradeoffs.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/08_architecture/tradeoffs.pdf">pdf</a>, <a href="https://ckaestne.medium.com/architectural-components-in-ml-enabled-systems-78cf76b29a92">book chapter 1</a>, <a href="https://ckaestne.medium.com/thinking-like-a-software-architect-121ea6919871">chapter 2</a>, <a href="https://ckaestne.medium.com/quality-drivers-in-architectures-for-ml-enabled-systems-836f21c44334">chapter 3</a>)</td>
+<td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 18 and <a href="https://hackernoon.com/choosing-the-right-machine-learning-algorithm-68126944ce1f">Choosing the Right Machine Learning Algorithm</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Feb 14</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/09_deploying_a_model/deployment.html">Deploying a Model</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/09_deploying_a_model/deployment.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/09_deploying_a_model/deployment.pdf">pdf</a>, <a href="https://ckaestne.medium.com/deploying-a-model-f0b7ffefd06a">book chapter</a>)</td>
 <td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 13 and <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/1feg4j8/alma991019735160604436">Machine Learning Design Patterns</a>, Pat. 16</td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Sep 27</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Containers: Docker</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Feb 16</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab05.md">Containers: Docker</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Sep 30</td>
-<td>Testing and Experimenting in Production</td>
-<td><a href="https://mlip-cmu.github.io/book/19/">19</a></td>
-<td></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M1: Modeling and First Deployment</a></td>
+<td>Mon, Feb 19</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/10_qainproduction/qainproduction.html">Testing in Production</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/10_qainproduction/qainproduction.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/10_qainproduction/qainproduction.pdf">pdf</a>, <a href="https://ckaestne.medium.com/quality-assurance-in-production-for-ml-enabled-systems-4d1b3442316f">book chapter</a>)</td>
+<td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">Building Intelligent Systems</a>, Ch. 14, 15</td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md">M1: Modeling and First Deployment</a></td>
 </tr>
 <tr>
-<td>Wed, Oct 2</td>
-<td>Data Quality</td>
-<td><a href="https://mlip-cmu.github.io/book/16/">16</a></td>
+<td>Wed, Feb 21</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/11_dataquality/dataquality.html">Data Quality</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/11_dataquality/dataquality.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/11_dataquality/dataquality.pdf">pdf</a>, <a href="https://ckaestne.medium.com/data-quality-for-building-production-ml-systems-2e0cc7e6113f">book chapter</a>)</td>
 <td><a href="https://dl.acm.org/doi/abs/10.1145/3411764.3445518">Data Cascades in High-Stakes AI</a></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Oct 4</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Continuous Integration: Jenkins</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Feb 23</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab06.md">Continuous Integration: Jenkins</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Oct 7</td>
-<td>Automating and Testing ML Pipelines</td>
-<td><a href="https://mlip-cmu.github.io/book/11/">11</a>,<a href="https://mlip-cmu.github.io/book/18/">18</a>,<a href="https://mlip-cmu.github.io/book/19/">19</a></td>
+<td>Mon, Feb 26</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/12_pipelinequality/pipelinequality.html">Automating and Testing ML Pipelines</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/12_pipelinequality/pipelinequality.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/12_pipelinequality/pipelinequality.pdf">pdf</a>, <a href="https://ckaestne.medium.com/quality-assurance-basics-6ce1eca9921">book chapter 1</a>, <a href="https://ckaestne.medium.com/quality-assurance-for-machine-learning-pipelines-d495b8e5ad6a">chapter 2</a>, <a href="https://ckaestne.medium.com/integration-and-system-testing-bc4db6650d1">chapter 3</a>)</td>
 <td><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46555.pdf">The ML Test Score</a></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Oct 9</td>
-<td><img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 1</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Wed, Feb 28</td>
+<td><img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> <a href="https://github.com/mlip-cmu/s2024/tree/main/exams">Midterm</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Oct 11</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Mar 01</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> No lab, happy spring break</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Oct 14</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Fall break, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Mon, Mar 04</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Oct 16</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Fall break, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Wed, Mar 06</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Oct 18</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Fall break, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Mar 08</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring break, no classes</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Oct 21</td>
-<td>Scaling the System</td>
-<td><a href="https://mlip-cmu.github.io/book/12/">12</a></td>
+<td>Mon, Mar 11</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/13_dataatscale/dataatscale.html">Scaling Data Storage and Data Processing</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/13_dataatscale/dataatscale.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/13_dataatscale/dataatscale.pdf">pdf</a>, <a href="https://ckaestne.medium.com/scaling-ml-enabled-systems-b5c6b1527bc">book chapter</a>)</td>
+<td><a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019577936304436">Big Data: Principles and best practices of scalable realtime data systems</a>, Ch. 1</td>
+<td></td>
+</tr>
+<tr>
+<td>Wed, Mar 13</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/14_operations/operations.html">Planning for Operations</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/14_operations/operations.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/14_operations/operations.pdf">pdf</a>, <a href="https://ckaestne.medium.com/planning-for-operations-of-ml-enabled-systems-a3d18e07ef7c">book chapter</a>)</td>
+<td><a href="https://arxiv.org/abs/2209.09125">Operationalizing Machine Learning</a> or <a href="https://anchor.fm/mlops/episodes/The-Ops-in-MLOps---Process-and-People--Shalabh-Chaudry--MLOps-Podcast-146-e1va8u0">The Ops in MLOps</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Mar 15</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab07.md">Pipeline automation: MLFlow</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Oct 23</td>
-<td>Planning for Operations</td>
-<td><a href="https://mlip-cmu.github.io/book/13/">13</a></td>
+<td>Mon, Mar 18</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/15_provenance/provenance.html">Versioning, Provenance, and Reproducability</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/15_provenance/provenance.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/15_provenance/provenance.pdf">pdf</a>, <a href="https://ckaestne.medium.com/versioning-provenance-and-reproducibility-in-production-machine-learning-355c48665005">book chapter</a>)</td>
+<td><a href="http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf">Hidden Technical Debt in Machine Learning Systems</a></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md">M2: Infrastructure Quality</a></td>
+</tr>
+<tr>
+<td>Wed, Mar 20</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/16_process/process.html">Process &amp; Technical Debt</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/16_process/process.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/16_process/process.pdf">pdf</a>, <a href="https://ckaestne.medium.com/data-science-and-software-engineering-process-models-ea997ea53711">book chapter 1</a>, <a href="https://ckaestne.medium.com/technical-debt-in-machine-learning-systems-62035b82b6de">chapter 2</a>)</td>
+<td><a href="https://arxiv.org/pdf/2007.14130">Adoption and Effects of Software Engineering Best Practices</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri, Mar 22</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> <a href="https://github.com/mlip-cmu/s2024/blob/main/labs/lab08.md">Monitoring: Prometheus, Grafana</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Oct 25</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Monitoring: Prometheus, Grafana</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Mon, Mar 25</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/17_intro_ethics_fairness/intro-ethics-fairness.html">Intro to Ethics + Fairness</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/17_intro_ethics_fairness/intro-ethics-fairness.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/17_intro_ethics_fairness/intro-ethics-fairness.pdf">pdf</a>, <a href="https://ckaestne.medium.com/responsible-ai-engineering-c97e44e6c57a">book chapter 1</a>, <a href="https://ckaestne.medium.com/fairness-in-machine-learning-and-ml-enabled-products-8ee05ed8ffc4">chapter 2</a>)</td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I3_mlops_tools.md">I3: MLOps Tools and Open-Source ML Applications</a>: <a href="https://medium.com/@yifengw2/9a038c83d125">AgentKit</a>, <a href="https://medium.com/@awilton_53426/bias-in-machine-learning-exploring-the-ibm-ai-fairness-360-toolkit-23c1ef3dbf14">AI Fairness 360</a>, <a href="https://medium.com/@nompraka/a-modern-data-engineering-workflow-to-support-ml-using-airbyte-8e8bf9ac1854">Airbyte</a>, <a href="https://medium.com/@mingweig99/streamlining-etl-workflows-for-machine-learning-with-apache-airflow-kafka-and-google-bigquery-1436081c5943">Airflow + BigQuery</a>, <a href="https://medium.com/@bryanjit/creating-a-data-pipeline-with-airflow-and-slack-alerts-a-complete-guide-837d5e9508c6">Airflow + Slack Notification</a>, <a href="https://medium.com/@haowenw/streamlining-viewer-feedback-management-in-movie-streaming-services-with-airtable-c920a823912c">airtable</a>, <a href="https://medium.com/@shaurya2001singh/akkio-a-no-code-end-to-end-automl-platform-d50c4b716c00">Akkio</a>, <a href="https://angusmf1.github.io/Apache_Avro/">Apache Avro</a>, <a href="https://medium.com/@saumyagangrade8/revolutionizing-movie-streaming-data-with-apache-druid-4d5bebbd6479">Apache Druid</a>, <a href="https://medium.com/@tirthvip/apache-nifi-779e74878511">Apache Nifi</a>, <a href="https://cmu-sichengx.github.io/mlip-i3-apache-parquet/">Apache Parquet</a>, <a href="https://medium.com/@shreyam2/leveraging-real-time-data-streams-for-enhanced-movie-recommendations-an-integration-of-apache-2a7740991689">Apache Pinot and Superset</a>, <a href="https://yuanjing-wei.github.io/">Argilla</a>, <a href="https://medium.com/@juanh_97833/audiveris-open-source-optical-music-recognition-d24370152e07">Audiveris</a>, <a href="https://medium.com/@hanyuethu/aws-step-functions-and-lambda-better-machine-learning-product-pipeline-supported-7daae432715b">AWS Step Functions and Lambda</a>, <a href="https://medium.com/@nikitaagarwala16/bentoml-helping-deploy-ml-models-in-production-d3a11ea9acb4">BentoML</a>, <a href="https://medium.com/@rikkih/better-stack-for-monitoring-ml-metrics-and-performance-36801ae1fb81">BetterStack</a>, <a href="https://medium.com/@ssingha2/bigml-machine-learning-made-beautifully-simple-for-everyone-016e3d312f0d">BigML</a>, <a href="https://medium.com/@jameszhao1103/google-bigquery-power-data-driven-innovation-with-cloud-data-d284de8475c8">BigQuery</a>, <a href="https://medium.com/@ivignal/building-and-testing-a-python-ml-project-with-buddy-fa9c6ded75e6?source=friends_link&sk=8842e4ba8be6a677cd3939985a459662">Buddy</a>, <a href="https://medium.com/@jialej/musicgen-a-generative-music-tool-for-everyone-b8f680625247">carrot2</a>, <a href="https://medium.com/@vishyanand10/a-blog-post-on-cascade-streamlining-mlops-for-small-teams-and-individuals-969eda83b40d">Cascade</a>, <a href="https://medium.com/@ankitgu3/celestial-body-detection-d276f971593c">Celestial Bodies Detection</a>, <a href="https://medium.com/@ajdeshmu/cellprofiler-analyst-an-overview-of-the-classifier-tool-ea773a02a8ad">CellProfiler Analyst</a>, <a href="https://medium.com/@malinish/chassis-an-automatic-ml-containerizing-tool-2bff9abb8ad4">Chassis</a>, <a href="https://descriptive-lime-49d.notion.site/Chat-UI-Deployment-Guide-84044df826e44d28be59eab46e295105">Chat UI</a>, <a href="https://medium.com/@rveerara/data-versioning-and-pipeline-automation-the-clearml-way-6b0cb91b3e8f">Clear ML</a>, <a href="https://medium.com/@trisha9sarkar/exploring-codalab-a-versatile-platform-for-reproducible-research-and-beyond-601cf09acc22">CodaLab</a>, <a href="https://medium.com/@charlie.sun387/langchain-cohere-embeddings-for-movie-recommendation-d127defa193e">Cohere Embeddings + langchain</a>, <a href="https://medium.com/@shash.nk97/a-b-testing-and-canary-releases-exploring-configcat-for-an-ml-enabled-system-9cd1a698d49a">ConfigCat</a>, <a href="https://medium.com/@yichenxin00/apply-copilot-in-machine-learning-production-4ff18e57cd49">copilot</a>, <a href="https://medium.com/@yiwenz5/yogai-your-ai-yoga-companion-9781f13ad94b">cris-maillo/yogAI</a>, <a href="https://medium.com/@petermey/integrating-datadog-monitoring-with-aws-rds-214f7b8acf56">DataDog + AWS RDS</a>, <a href="https://medium.com/@muyangxu/simplifying-big-data-processing-with-google-dataproc-and-pyspark-5a325aa35051">Dataproc + PySpark</a>, <a href="https://medium.com/@yanluo_57621/use-of-dbt-in-mlops-74441c3b1b34">dbt</a>, <a href="https://medium.com/@rohan.modi.1028/revolutionizing-movie-streaming-with-deep-lake-a-deep-dive-c25974f4aef1">Deep Lake</a>, <a href="https://medium.com/@ShreyC/deepchecks-unveiled-ensuring-model-excellence-from-prototype-to-production-7c1d4f3d0dd9">Deepchecks</a>, <a href="https://medium.com/@raina.shaji/exploring-production-ml-systems-with-determined-ai-8e7dfa0b41a6">Determined AI</a>, <a href="https://medium.com/@mkassel/doccano-33726aeb3aa4">Doccano</a>, <a href="https://medium.com/@adai_9636/dolt-a-version-controlled-sql-database-tool-2ea49d73a0b8">Dolt</a>, <a href="https://medium.com/@ruotingx/elevating-movie-recommendation-systems-with-duckdb-and-pandas-a-guide-to-smarter-data-workflows-2675f7ff9958">DuckDB+Pandas</a>, <a href="https://medium.com/@arushigu/taming-your-machine-learning-data-lifecycle-with-dvc-studio-2e7165687129">DVC Studio</a>, <a href="https://jennglebell.notion.site/Dynatrace-Illuminating-the-Complexities-of-Movie-Streaming-Platforms-6cfb5f168d2b4ae9965e12d75df73bf9?pvs=25">Dynatrace</a>, <a href="https://medium.com/@njoseph2/electricity-maps-an-open-source-tool-for-real-time-energy-insights-6011c3cfae36">electricitymaps</a>, <a href="https://medium.com/@geerishj/navigating-data-quality-with-evidently-ai-a46aaac437fc">Evidently AI</a>, <a href="https://medium.com/@aarya.makwana1211/faceswap-unveiling-the-magic-behind-open-source-deepfake-technology-8084e6bf01e0">Faceswap</a>, <a href="https://medium.com/@muzhewu/navigating-the-sociotechnical-maze-with-fairlearn-1028f6502d50">Fairlearn</a>, <a href="https://medium.com/@valerievic17528/intro-to-featuretools-streamlining-feature-engineering-725b9e03566b">Featuretools</a>, <a href="https://medium.com/@kramanet/building-conversational-bots-with-flowiseai-11becbcee35f">FlowiseAI</a>, <a href="https://medium.com/@sophiaywhuang/leveraging-fluent-bit-in-large-scale-machine-learning-model-pipeline-33a873210d69">FluentBit</a>, <a href="https://medium.com/@aravindsmysore/streamlining-mlops-harnessing-fluentd-for-efficient-data-logging-in-production-ml-systems-9bc29b8f4a68">Fluentd</a>, <a href="https://medium.com/@tirthjain/flyte-dd02e7cb4ee5">Flyte</a>, <a href="https://medium.com/@vredla/load-testing-of-ml-applications-with-gatling-f8bdfafcc5b2">Gatling</a>, <a href="https://adamknapp31.github.io/">GitLab Experiments</a>, <a href="https://medium.com/@liubhosier/exploring-gokart-an-enhanced-luigi-wrapper-and-its-comparison-with-airflow-bf39e4a7d7e0">Gokart</a>, <a href="https://medium.com/@svaddi_53087/explainable-ai-in-vertex-ai-enhancing-transparency-in-machine-learning-6c45d6377bda">Google Cloud Vertex AI</a>, <a href="https://medium.com/@ag15710109031/llmops-tool-haystack-by-deepset-aeaf06e39ab6">Haystack</a>, <a href="https://medium.com/@ayushmas/monitoring-cron-jobs-using-healthchecks-io-to-monitor-the-automatic-training-of-an-ml-model-ee3288ff3fed">Healthchecks</a>, <a href="https://medium.com/@jiaxin.shi.kelly/introducing-hopsworks-feature-store-revolutionizing-data-management-in-machine-learning-cb271debca74">Hopsworks Feature Store</a>, <a href="https://medium.com/@qianchenchen419/efficient-data-handling-for-movie-recommendations-an-introduction-to-hugging-face-datasets-c99d3db374b8">Huggingface datasets</a>, <a href="https://ssling0817.github.io/ssling.github.io/">Image Inpainting via Generative Multi-column Convolutional Neural Networks</a>, <a href="https://medium.com/@sauravy/elevating-ml-deployment-leveraging-jenkins-coverage-plugin-for-comprehensive-testing-c6041732a252">Jenkins Coverage Plugin</a>, <a href="https://medium.com/@jaydevjangiti/jenkins-ci-cd-via-github-7e475e897574">Jenkins</a>, <a href="https://medium.com/@liangsn2001/jupyter-notebook-in-production-b7b97d65cd22">Jupyter Notebook</a>, <a href="https://medium.com/@dhwanisanmukhani/keepsake-taming-the-chaos-of-machine-learning-experiments-8e81c4194f7f">keepsake</a>, <a href="https://medium.com/@racheluo0110/exploring-labelme-an-open-source-image-annotation-tool-212e4d4246cb">labelme</a>, <a href="https://medium.com/@jiajil/beginners-view-in-movie-streaming-with-langchain-035eee7a8361">Langchain</a>, <a href="https://medium.com/@pmarin_82101/lego-art-remix-bridging-machine-learning-and-creative-expression-fa1f216b9ed2">LEGO Art Remix</a>, <a href="https://medium.com/@pmarin_82101/lego-art-remix-bridging-machine-learning-and-creative-expression-fa1f216b9ed2">lego-art-remix</a>, <a href="https://medium.com/@prprevite/analyzing-listenbrainz-an-open-source-music-tracking-platform-64826f590eb1">ListenBrainz</a>, <a href="https://medium.com/@tianxie9912/llamaindex-pioneering-the-future-of-ai-in-movie-streaming-f78311a94982">LlamaIndex</a>, <a href="https://medium.com/@smahapat_82213/streamlining-ml-workflows-with-luigi-a-case-study-in-movie-recommendation-4391874427e5">Luigi</a>, <a href="https://medium.com/@reachyashigupta/maps-me-through-the-lens-of-ml-engineering-1dff90b3b2a3">mapsme/omim</a>, <a href="https://medium.com/@anshk/markovml-streamlining-the-mlops-journey-with-data-centric-solutions-620f973aaa44">MarkovML</a>, <a href="https://medium.com/@michellemenachery/medical-concept-annotation-tool-medcat-bridging-the-gap-in-medical-data-analysis-8f3659ef41b5">MedCAT</a>, <a href="https://medium.com/@tingyuew0213/streamlining-data-pipelines-with-meltano-movie-recommendation-c56db9631d08">Meltano</a>, <a href="https://medium.com/@chenhand/milvus-used-in-machine-learning-pipelines-bc955acd6583">Milvus</a>, <a href="https://medium.com/@ajaymittur/mlbox-automating-machine-learning-in-python-f6779371ae21">MLBox</a>, <a href="https://medium.com/@jroll/244aef5ee743">MLTE</a>, <a href="https://medium.com/@ksjain/enhancing-movie-streaming-recommendations-with-modelbit-2c8772825f9e">modelbit</a>, <a href="https://medium.com/@amoghgyaneshwar/introduction-to-modzy-a-gateway-to-operational-ai-94f5529d9043">modzy</a>, <a href="https://medium.com/@anishagu/bf5d123b8b3b">NVIDIA Triton Inference Server</a>, <a href="https://medium.com/@nihaljog/ocrmypdf-make-your-scanned-pdfs-searchable-ab654f93b2d6">OCRMyPDF</a>, <a href="https://medium.com/@btufts_99377/all-about-bringing-old-photos-back-to-life-906c569f6fd3">Old-Photos-Back-To-Life</a>, <a href="https://medium.com/@jackyu0815/ml-powered-openfoodfacts-app-to-know-all-about-your-grocery-a03aabc76e7f">Open Food Facts</a>, <a href="https://medium.com/@cpenny_6808/exploring-the-design-of-openbb-an-investment-research-platform-192e4476110b?source=friends_link&sk=2af0e1fc6076730fccdb4ffcdaad09a9">OpenBB</a>, <a href="https://medium.com/@yujiag/navigating-the-tools-of-production-ml-systems-a-guide-to-openprompt-94df4204aac0">OpenPrompt</a>, <a href="https://medium.com/@riyapras/openrefine-streamlining-data-wrangling-for-machine-learning-systems-7a8e31aa0640">OpenRefine (Data cleaning)</a>, <a href="https://medium.com/@adnanyunus98/paradigm-a-framework-to-automate-your-machine-learning-pipelines-with-kubernetes-11a45e1b588d">Paradigm</a>, <a href="https://medium.com/@bhoo.work/parsr-step-by-step-tutorial-for-parsing-pdfs-and-explaining-the-project-architecture-9609f7a97502">Parsr</a>, <a href="https://medium.com/@alex0990370/from-automation-to-ai-exploring-how-pulumi-elevates-ml-system-development-3d37444906aa">Pulumi</a>, <a href="https://medium.com/@dhurishamika/qdrant-vector-databases-for-movie-recommendation-d10cbff3e0c7">Qdrant</a>, <a href="https://medium.com/@aaaustin/qupath-revolutionizing-pathology-with-machine-learning-and-a-neat-case-study-in-software-9e5585fdc286">QuPath</a>, <a href="https://medium.com/@bfriedel/simple-model-development-with-qwak-220809be88e4">Qwak</a>, <a href="https://medium.com/@jiuyuanx/building-an-aws-based-recommendation-system-a-complete-pipeline-3b0aecd05f54">RDS+sagemaker+Airflow</a>, <a href="https://medium.com/@bwhiteha/analyzing-reddit-stance-classifier-b6c13951f0ee">reddit-stance-classifier</a>, <a href="https://medium.com/@isandrew.t.y.wong/rate-limit-proxy-server-by-redis-aff574d56b64">Redis</a>, <a href="https://medium.com/@chiyuanf/a-gentle-guide-to-replicate-55eccee1dcd3">Replicate</a>, <a href="https://medium.com/@anish-kulkarni/hyperparameter-tuning-in-production-9969b4a60463">scikit-optimize</a>, <a href="https://medium.com/@haipeiz/streamlining-data-collection-with-scrapy-redis-bcb20c93a13a">scrapy-redis</a>, <a href="https://medium.com/@wanyul/screenshot-to-code-pioneering-the-frontiers-of-automated-web-development-f53ae6f7e525">Screenshot to Code</a>, <a href="https://medium.com/@jbbernardin/seek-ml-mobile-app-for-wildlife-identification-70cc386d2100">Seek</a>, <a href="https://medium.com/@rithiks/an-open-source-alternative-to-datadog-and-new-relic-91bf95425128">SigNoz</a>, <a href="https://medium.com/@nikhilkand/skaffold-and-minikube-960c5f7aeea8">Skaffold + Minikube</a>, <a href="https://medium.com/@jus030245/snowpark-is-it-just-snowflakes-version-of-spark-c9231a7e88b5">snowpark</a>, <a href="https://medium.com/@0simonshin/social-media-profile-analysis-tool-social-analyzer-d487ec020fb4">social analyzer</a>, <a href="https://medium.com/@bainmchalecmu/using-soda-core-with-postgresdb-b359d6910234">Soda Core</a>, <a href="https://medium.com/@kbhuwani/solarwinds-loggly-942cb83572fa">SolarWinds Loggly</a>, <a href="https://medium.com/@alvinlew_97098/enhance-your-code-quality-a-walkthrough-of-setting-up-sonarqube-0782cd6d4e26">sonarqube</a>, <a href="https://medium.com/@dhales/stock-market-analysis-with-stock-market-ai-gui-b38f59880700">Stock-Market-AI-GUI</a>, <a href="https://medium.com/@junxing_72369/streamlit-mlflow-and-large-language-models-revolutionizing-the-development-of-movie-908c2358d880">streamlit+mlflow+LLM</a>, <a href="https://medium.com/@mmadhav/streamlining-movie-data-pipelines-with-streamsets-data-collector-0dccd8fd3262">StreamSets Data Collector</a>, <a href="https://medium.com/@calviny_40378/trying-out-style2paints-an-ai-powered-lineart-coloring-tool-for-digital-artwork-3c8474d74644">Style2Paints</a>, <a href="https://medium.com/@saadhiks/enhancing-movie-recommendations-with-tensorflow-data-validation-a-closer-look-at-outlier-detection-50f03cd74356">TensorFlow Data Validation</a>, <a href="https://souperb.medium.com/movie-nights-unveiling-the-magic-of-nvidia-tensorrt-in-production-systems-ff5ac3069bc5">TensorRT</a>, <a href="https://medium.com/@mchavali_9230/unlocking-audience-insights-textblob-sentiment-analysis-in-movie-streaming-7ff382cf9cc6">Textblob</a>, <a href="https://medium.com/@hhhhhhhxx8/transformer-debugger-a-game-changer-for-analyzing-ai-models-bc1c7dacedf6">TransformerDebugger</a>, <a href="https://github.com/pseudoinverse/MLIP/blob/main/blog.md">Twitter Stock Recommendation</a>, <a href="https://medium.com/@hrtummal/exploring-the-ultimate-vocal-remover-an-insight-into-ai-enabled-audio-separation-1f2c72a2d5f0">ultimatevocalremovergui</a>, <a href="https://medium.com/@gjosborn/provide-structure-to-your-unstructured-data-560eae05d0c4">unstructured.io</a>, <a href="https://medium.com/@chentianye.xu/empower-your-machine-learning-projects-deploy-your-model-effortlessly-with-vercel-599bae136b80">Vercel</a>, <a href="https://medium.com/@antang06211/vocable-aac-when-head-movements-speak-louder-than-words-54aa1e5f6242">Vocable AAC for iOS</a>, <a href="https://medium.com/@shannan_43268/enhancing-anime-art-on-the-go-a-deep-dive-into-waifu2x-for-ios-88b76b95fb99">waifu2x</a>, <a href="https://medium.com/@purva.gulati03/decoding-ai-decisions-elevating-transparency-and-fairness-with-googles-what-if-tool-63a39e296cf6">What-If Tool</a>, <a href="https://medium.com/@piyushtalreja_/detecting-data-quality-issues-a-practical-guide-with-whylabs-868958c9f218">WhyLabs</a>, <a href="https://medium.com/@mvdeshpande00/unraveling-the-black-box-exploring-xai-to-demystify-the-ml-pipeline-fe941090f38e">xai</a>, <a href="https://medium.com/@dibyanshupatnaik_18334/unlocking-the-power-of-automatic-data-profiling-with-ydata-profiling-e30acf372f33">ydata-profiling</a>, <a href="https://medium.com/@ishanmamadapur/zeno-an-intuitive-framework-for-interacting-with-machine-learning-pipelines-bc892c4c18d2">Zeno</a>, <a href="https://medium.com/@zianp/getting-started-with-apache-zeppelin-a-hands-on-guide-with-a-simple-toy-example-17706403557f">Zeppelin Notebook + Scala Spark</a></td>
+</tr>
+<tr>
+<td>Wed, Mar 27</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/18_fairness_measures/model_fairness.html">Measuring Fairness</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/18_fairness_measures/model_fairness.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/18_fairness_measures/model_fairness.pdf">pdf</a>, <a href="https://ckaestne.medium.com/fairness-in-machine-learning-and-ml-enabled-products-8ee05ed8ffc4">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Oct 28</td>
-<td>Versioning, Provenance, and Reproducability</td>
-<td><a href="https://mlip-cmu.github.io/book/24/">24</a></td>
-<td></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M2: Infrastructure Quality</a></td>
-</tr>
-<tr>
-<td>Wed, Oct 30</td>
-<td>Process &amp; Technical Debt</td>
-<td><a href="https://mlip-cmu.github.io/book/20/">20</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Fri, Nov 1</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Pipeline automation: MLFlow</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Mon, Nov 4</td>
-<td>Intro to Ethics + Fairness</td>
-<td><a href="https://mlip-cmu.github.io/book/23/">23</a>,<a href="https://mlip-cmu.github.io/book/26/">26</a></td>
-<td></td>
-<td>I3: MLOps Tools</td>
-</tr>
-<tr>
-<td>Wed, Nov 6</td>
-<td>Measuring Fairness</td>
-<td><a href="https://mlip-cmu.github.io/book/26/">26</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Fri, Nov 8</td>
+<td>Fri, Mar 29</td>
 <td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Container orchestration: Kubernetis</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Nov 11</td>
-<td>Building Fairer Systems</td>
-<td><a href="https://mlip-cmu.github.io/book/26/">26</a></td>
+<td>Mon, Apr 01</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/19_system_fairness/system_fairness.html">Building Fairer Systems</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/19_system_fairness/system_fairness.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/19_system_fairness/system_fairness.pdf">pdf</a>, <a href="https://ckaestne.medium.com/fairness-in-machine-learning-and-ml-enabled-products-8ee05ed8ffc4">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Nov 13</td>
-<td>Explainability</td>
-<td><a href="https://mlip-cmu.github.io/book/25/">25</a></td>
+<td>Wed, Apr 03</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/20_explainability/explainability.html">Explainability &amp; Interpretability</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/20_explainability/explainability.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/20_explainability/explainability.pdf">pdf</a>, <a href="https://ckaestne.medium.com/interpretability-and-explainability-a80131467856">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Nov 15</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Model Explainability Tools</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Apr 05</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Explainability Tools</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Nov 18</td>
-<td>Transparency &amp; Accountability</td>
-<td><a href="https://mlip-cmu.github.io/book/29/">29</a></td>
+<td>Mon, Apr 08</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/21_transparency/transparency.html">Transparency &amp; Accountability</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/21_transparency/transparency.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/21_transparency/transparency.pdf">pdf</a>, <a href="https://ckaestne.medium.com/transparency-and-accountability-in-ml-enabled-systems-f8ed0b6fd183">book chapter</a>)</td>
 <td></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M3: Monitoring and CD</a></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md">M3: Monitoring and CD</a></td>
 </tr>
 <tr>
-<td>Wed, Nov 20</td>
-<td>Safety</td>
-<td><a href="https://mlip-cmu.github.io/book/27/">27</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Fri, Nov 22</td>
-<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> tbd</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Wed, Apr 10</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/22_safety/safety.html">Safety</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/22_safety/safety.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/22_safety/safety.pdf">pdf</a>, <a href="https://ckaestne.medium.com/safety-in-ml-enabled-systems-b5a5901933ac">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Nov 25</td>
-<td>Security and Privacy</td>
-<td><a href="https://mlip-cmu.github.io/book/28/">28</a></td>
-<td></td>
-<td>I4: Explainability</td>
-</tr>
-<tr>
-<td>Wed, Nov 27</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Fri, Apr 12</td>
+<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Spring Carnival, no classes</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Fri, Nov 29</td>
-<td><img src="https://img.shields.io/badge/-break-red.svg" alt="Break"> Thanksgiving break, no classes</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Mon, Apr 15</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/23_security/security.html">Security and Privacy</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/23_security/security.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/23_security/security.pdf">pdf</a>, <a href="https://ckaestne.medium.com/security-and-privacy-in-ml-enabled-systems-1855f561b894">book chapter</a>)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Mon, Dec 2</td>
-<td>Interdisciplinary Teams / Summary / Review</td>
-<td><a href="https://mlip-cmu.github.io/book/21/">21</a></td>
+<td>Wed, Apr 17</td>
+<td>More safety, security, privacy</td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I4_explainability.md">I4: Explainability</a></td>
+</tr>
+<tr>
+<td>Fri, Apr 19</td>
+<td><img src="https://img.shields.io/badge/-lab-yellow.svg" alt="Lab"> Fairness Toolkits</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Wed, Dec 4</td>
-<td><img src="https://img.shields.io/badge/-midterm-blue.svg" alt="Midterm"> Midterm 2</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
+<td>Mon, Apr 22</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/24_teams/teams.html">Fostering Interdisciplinary Teams</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/24_teams/teams.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/24_teams/teams.pdf">pdf</a>, <a href="https://ckaestne.medium.com/building-machine-learning-products-with-interdisciplinary-teams-a1fdfbf49e81">book chapter</a>)</td>
 <td></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">M4: Fairness, Security and Feedback Loops</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="https://www.cmu.edu/hub/docs/final-exams.pdf">tbd</a></td>
+<td>Wed, Apr 24</td>
+<td><a href="https://mlip-cmu.github.io/s2024/slides/25_summary/all.html">Summary and Review</a> (<a href="https://github.com/mlip-cmu/s2024/blob/main/lectures/25_summary/all.md">md</a>, <a href="https://mlip-cmu.github.io/s2024/slides/25_summary/all.pdf">pdf</a>)</td>
+<td></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md">M4: Fairness, Security and Feedback Loops</a></td>
+</tr>
+<tr>
+<td><a href="https://www.cmu.edu/hub/docs/final-exams.pdf">Thu, May 2</a> (9:30am)</td>
 <td>Final Project Presentations</td>
-<td><a href="https://mlip-cmu.github.io/book/00/"></a></td>
 <td></td>
-<td><a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/project.md">Final report</a></td>
+<td><a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/project.md">Final report</a></td>
 </tr>
 </tbody></table>
 <h2>Course Syllabus and Policies</h2>
-<p>The course uses Canvas and Gradescope for homework submission, grading, discussion, questions, announcements, and supplementary documents; slides will be posted here; Slack is used for communication around homeworks and projects; Github is used to coordinate group work. All public course material (assignments, slides, syllabus) can be found in the course’s <a href="https://github.com/mlip-cmu/f2024">GitHub repository</a>; announcements and all <em>private</em> material (e.g., grades, passwords) will be shared through Canvas.</p>
+<p>The course uses Canvas and Gradescope for homework submission, grading, discussion, questions, announcements, and supplementary documents; slides will be posted here; Slack is used for communication around homeworks and projects; Github is used to coordinate group work. All public course material (assignments, slides, syllabus) can be found in the course’s <a href="https://github.com/mlip-cmu/s2024">GitHub repository</a>; announcements and all <em>private</em> material (e.g., grades, passwords) will be shared through Canvas.</p>
 <p><strong>Prerequisites:</strong> The course does not have formal prerequisites, but we describe background knowledge that will help you be successful in the course. In a nutshell, we expect basic exposure to machine learning and basic programming skills, but do not require software engineering experience. </p>
-<p><em>Machine learning (some experience recommended):</em> We suggest that you have basic familiarity with the process of extracting features, building and evaluating models, and a basic understanding of how and when different kinds of learning techniques work. Familiarity with Python and Jupyter notebooks is helpful. Courses such as 10-301, 10-315, and 05-434 will prepare you well, but project experience or self-learning from books or online courses will likely be sufficient for our purposes. For example, if you have no prior experience, we recommend the book <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019665684604436">Hands-On Machine Learning</a> to get practical experience in building and evaluating models prior to taking this course. We have set up a <em><a href="https://forms.gle/JcS61Uao7wHSFQen8">prerequisite knowledge check</a></em> as a Google Form, where we ask 10 questions on machine learning, which help you assess your background – this is set up as an anonymous and ungraded quiz, where you can compare your knowledge against what we believe is useful for you to be successful in this course (click on <em>“view score”</em> after submitting your answer). After submitting your answers, the system will give specific pointers to readings and exercises that may help you fill gaps in background knowledge. </p>
-<p><em>Programming (basic proficiency required):</em> The course has a substantial programming component, especially in the first assignment and the team project, so basic programming skills will be needed. If you take the course without programming experience, you will significantly struggle and it may cause conflicts within the group project. We expect that you meet the following criteria: (1) basic fluency in a programming language like Python, (2) ability to install and learn libraries in that language, (3) ability to ssh into a Unix machine and perform basic command line operations, and (4) ability to install and learn new tools like Docker. We do not prescribe a programming language, but almost all student teams decide to work primarily in Python. We will provide some introductions and examples for essential tools like Git, Docker, Grafana, and Jenkins in labs, but we expect that you will be able to pick up new tools and libraries on your own. For example, we expect that you will be able, on your own, to learn basic use of a library like <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> to write a web service. Throughout the semester, expect to read lots of documentation and tutorials to learn various libraries and tools on your own. If you are worried whether your technical background is sufficient, we recommend that you look at (or even try) <a href="https://github.com/mlip-cmu/f2024/blob/main/assignments/I1_mlproduct.md">homework I1</a> before the semester.</p>
+<p><em>Machine learning (some experience recommended):</em> We suggest that you have basic familiarity with the process of extracting features, building and evaluating models, and a basic understanding of how and when different kinds of learning techniques work. Familiarity with Python and Jupyter notebooks is helpful. Courses such as 10-301, 10-315, and 05-434 will prepare you well, but project experience or self-learning from books or online courses will likely be sufficient for our purposes. For example, we recommend the book <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019665684604436">Hands-On Machine Learning</a> to get practical experience in building and evaluating models prior to taking this course. We have set up a <em><a href="https://forms.gle/JcS61Uao7wHSFQen8">prerequisite knowledge check</a></em> as a Google Form, where we ask 10 questions on machine learning, which help you assess your background. This is set up as an anonymous and ungraded quiz, where you can compare your knowledge against what we believe is useful for you to be successful in this course (click on <em>“view score”</em> after submitting your answer). After submitting your answers, the system will give specific pointers to readings and exercises that may help you fill gaps in background knowledge. </p>
+<p><em>Programming (basic proficiency required):</em> The course has a substantial programming component, especially in the first assignment and the team project, so basic programming skills will be needed. If you take the course without programming experience, you will significantly struggle and it may cause conflicts within the group project. We expect that you meet the following criteria: (1) basic fluency in a programming language like Python, (2) ability to install and learn libraries in that language, (3) ability to ssh into a unix machine and perform basic command line operations, and (4) ability to install and learn new tools like Docker. We do not prescribe a programming language, but almost all student teams decide to work primarily in Python. We will provide some introductions and examples for essential tools like Git, Docker, Grafana, and Jenkins in labs, but we expect that you will be able to pick up new tools and libraries on your own. For example, we expect that you will be able, on your own, to learn basic use of a library like <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> to write a web service. Throughout the semester, expect to read lots of documentation and tutorials to learn various libraries and tools on your own. If you are worried whether your technical background is sufficient, we recommend that you look at (or even try) <a href="https://github.com/mlip-cmu/s2024/blob/main/assignments/I1_mlproduct.md">homework I1</a> before the semester.</p>
 <p><em>Software engineering (no experience required):</em> Many students will have some software engineering experience beyond basic programming skills from software engineering courses, from internships, or from working in industry, for example experience with requirements engineering, software design, software testing, distributed systems, continuous deployment, or managing teams. No such experience is expected as a prerequisite; we will cover these topics in the course.</p>
 <p>Email the instructors if you would like to further talk to us about prerequisites.</p>
 <p><strong>In-person teaching and lecture recordings:</strong> The course will be taught in person and we consider in-class participation as an important part of the learning experience. We will not provide an online option. We will <em>not</em> make recordings of lectures or labs available.</p>
 <p>We regularly use Slack for in-class activities. Please make sure that you have access to Slack on a laptop, tablet, or mobile phone during class.</p>
 <p>If you cannot attend class due to a medical issue, family emergency, interview, or other unforeseeable reason, please contact us about possible accommodations. We try to be as flexible as we can, but will handle these cases individually.</p>
-<p><strong>Exams:</strong> The course has two midterms and a final project presentation, but no final exam. We will use the registrar-assigned final exam timeslot (to be announced about halfway through the semester <a href="https://www.cmu.edu/hub/docs/final-exams.pdf">here</a>) for the final project presentation. The midterms are during the normal class period as per schedule. The second midterm is not comprehensive and only covers material after the first midterm. Examples of past midterms can be found in the <a href="https://github.com/mlip-cmu/f2024/tree/main/exams">course repository</a>.</p>
-<p><strong>Grading:</strong> Evaluation will be based on the following distribution: 35% individual assignments, 30% group project, 15% midterms, 10% participation, 5% labs, 5% reading quizzes. No final exam.</p>
+<p><strong>Grading:</strong> Evaluation will be based on the following distribution: 35% individual assignments, 30% group project, 10% midterm, 10% participation, 5% labs, 10% reading quizzes. No final exam.</p>
 <p>We strive to provide clear specifications and clear point breakdowns for all homework to set clear expectations and take the guessing out of homework. We often give you choices to self-direct your learning, deciding what to work on and how to address a problem (e.g., we never prescribe a programming language and often give choices to answer a subset of possible questions). Clear specifications and point breakdowns allow you to intentionally decide to skip parts of assignments with clear upfront consequences. All parts will be graded pass/fail, no partial credit. For opportunities to redo work, see <em>resubmissions</em> below. For grading participation and quizzes see below. Some assignments have a small amount of bonus points. </p>
 <p>Since we give flexibility to resubmit assignments, we set grade boundaries fairly high. We expect the following grade boundaries:</p>
 <table>
@@ -460,42 +407,40 @@
 <li>75%: Participates actively at least once in over half of the lectures</li>
 <li>50%: Participates actively at least once in one quarter of the lectures</li>
 <li>20%: Participates actively at least once in at least 3 lectures.</li>
-<li>0%: Participation in less than 3 lectures.</li>
+<li>0%: No participation in the entire semester.</li>
 </ul>
-<p><strong>Labs:</strong> Labs typically introduce tools and have a task with one or more clear deliverables. Lab assignments are designed to take about 1h of work and can be completed before or during the lab session. Each deliverable is graded pass/fail at any time during that week&#39;s lab session by showing your work to the TA. Typically showing your work involves showing source code, demoing executions, and (verbally) answering a few questions. The TA may ask a few questions about your implementation to probe that you understand your work.</p>
-<p>We intend labs to be very low stakes – this is your first practical engagement with the material and mistakes are a normal part of the learning process. Deliverables are graded pass/fail on whether they meet the stated expectations for the deliverables. If your solution does not meet the expectations you can continue working on it during the lab session until it does. Outside of explicit accommodations (e.g., medical issues) or using tokens (see below), we do not accept lab solutions after the end of the lab session.</p>
+<p><strong>Labs:</strong> Labs typically introduce tools and have a task with one or more clear deliverables. Lab assignments are designed to take about 1h of work and can be completed before or during the lab session. The deliverable is graded on a pass/fail basis at any time during that week&#39;s lab session by showing your work to the TA. Typically showing your work involves showing source code, demoing executions, and (verbally) answering a few questions. The TA may ask a few questions about your implementation to probe that you understand your work.</p>
+<p>We intend labs to be very low stakes – this is your first practical engagement with the material and mistakes are a normal part of the learning process. Deliverables are graded pass/fail on whether they meet the stated expectations for the deliverables. If your solution does not meet the expectations you can continue working on it during the lab session until it does.</p>
 <p>We encourage collaboration on labs: You can work together with other students both before the lab session and during the lab session. While we do not recommend it, you may look at other students’ solutions and reference solutions and even copy them. However, you will have to present and explain your solution to the TA on your own.</p>
-<p><strong>Textbook, reading assignments, and reading quizzes:</strong> We will be using Goeff Hulten&#39;s <em>&quot;Building Intelligent Systems: A Guide to Machine Learning Engineering&quot;</em> (ISBN: 1484234316) throughout much of the course. The library provides an <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">electronic copy</a>. In addition, we will provide various additional readings, including blog posts and academic papers, throughout the semester.</p>
-<p>We also wrote our own textbook &quot;<a href="https://mlip-cmu.github.io/book/">Machine Learning in Production</a>&quot; that aligns closely with the lecture content. The book will be published by MIT Press and is additionally available under a creative commons license online. We will not assign chapters from our own textbook, but we always point to the corresponding chapter for each lecture, which we suggest as supplementary reading.</p>
-<p>We will assign readings for most classes and post a corresponding quiz on Canvas that is due before class. Each quiz contains an open-ended question that relates to the reading. Reading quizzes are intended to be low-stakes assessments and are graded pass/fail for a good-faith effort to engage with the question. </p>
-<p><strong>Teamwork:</strong> Teamwork is an essential part of this course. The course contains a multi-milestone group project to be done in teams of 3-5 students. Teams will be assigned by the instructor. A TA will serve as a mentor for each team. We will help teams throughout the semester and cover some specific content on teamwork as part of the course. Peer rating will be performed for team assignments with regard to <em>team citizenship</em> (i.e., being active and cooperative members), following a procedure adapted from <a href="https://www.cs.tufts.edu/~nr/cs257/archive/teaching/barbara-oakley/JSCL-collaboration.pdf">this article</a>, which we will further explain in an early lecture. Use <a href="https://ckaestne.github.io/seai/F2024/assignments/peergrading.html">this form</a> to preview the expected adjustments for peer ratings. The team&#39;s mentor will also debrief with the team after every milestone and discuss possible strategies to improve teamwork. </p>
+<p><strong>Textbook, reading assignments, and reading quizzes:</strong> We will be using Goeff Hulten&#39;s &quot;<em>Building Intelligent Systems: A Guide to Machine Learning Engineering</em>&quot; (ISBN: 1484234316) throughout much of the course. The library provides an <a href="https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436">electronic copy</a>. In addition, we will provide various additional readings, including blog posts and academic papers, throughout the semester.</p>
+<p>We also wrote our own textbook &quot;<a href="https://ckaestne.medium.com/machine-learning-in-production-book-overview-63be62393581">Machine Learning in Production</a>&quot; that mirrors the lectures closely. The book is available freely online. We will not assign chapters from our own textbook, but we always point to the corresponding chapter for each lecture, which we suggest as supplementary reading.</p>
+<p>We will assign readings for most classes and post a corresponding quiz on Canvas that is due before class. Each quiz contains an open ended question that relates to the reading. Reading quizzes are graded pass/fail for a good-faith effort to engage with the question. </p>
+<p><strong>Teamwork:</strong> Teamwork is an essential part of this course. The course contains a multi-milestone group project to be done in teams of 3-5 students. Teams will be assigned by the instructor. A TA will be assigned as a mentor to each team. We will help teams throughout the semester and cover some specific content on teamwork as part of the course. Peer rating will be performed for team assignments with regard to <em>team citizenship</em> (i.e., being active and cooperative members), following a procedure adapted from <a href="https://www.cs.tufts.edu/~nr/cs257/archive/teaching/barbara-oakley/JSCL-collaboration.pdf">this article</a>, which we will further explain in an early lecture. Use <a href="https://ckaestne.github.io/seai/F2022/assignments/peergrading.html">this site</a> to preview the expected adjustments for peer ratings. The team&#39;s mentor will also debrief with the team after every milestone and discuss possible strategies to improve teamwork. </p>
 <p><strong>Late work policy and resubmissions:</strong> We understand that students will always have competing deadlines, unusual events, interviews for job searches, and other activities that compete with coursework. We therefore build flexibility and a safety net directly into the rubric. If you need additional accommodations, please contact us.</p>
-<p>In addition, we expect that the past/fail grading scheme without partial credit, may lead to harsh point deductions for missing small parts of the requirements, so we provide a mechanism to resubmit work with a short reflection to regain lost points.</p>
+<p>In addition, we expect that the past/fail grading scheme without partial credit, may lead to harsh point deductions for missing small parts of the requirements, so we provide a mechanism to resubmit work to regain lost points.</p>
 <p>Every student receives <em>8 individual tokens</em> that they can spend throughout the semester in the following ways:</p>
 <ul>
-<li>For each token, a student can submit a homework assignment 1 day late (with 2 tokens a student can submit two homeworks one day late each or a single homework up to two days late).</li>
-<li>For <em>three</em> tokens, a student can improve or redo an individual homework assignment and resubmit together with a short reflection. The earlier submission is discarded and the regraded assignment counts toward the final grade. Resubmissions can be made at any time in the semester up to the final project presentation (see schedule). – Note that this technically allows a student to blow the original deadline (no submission necessary, receiving 0 points initially) and then resubmit the homework arbitrarily late for three tokens.</li>
-<li>For one token, a student can submit a reading quiz late (any time before the final presentation) or resubmit a graded reading quiz.</li>
-<li>For one token, a student can complete a lab late or redo a lab (any time before the final presentation) by showing the work to a TA during office hours.</li>
-<li>Remaining individual tokens at the end of the semester are counted as one participation day each.</li>
+<li>For each token a student can submit a homework assignment 1 day late (with 2 tokens a student can submit two homeworks one day late each or a single homework up to two days late).</li>
+<li>For <em>three</em> tokens a student can improve or redo an individual homework assignment and resubmit. The earlier submission is discarded and the regraded assignment counts toward the final grade. Resubmissions can be made at any time in the semester up to the final project presentation (see schedule). – Note that this technically allows to blow the original deadline (receiving 0 points initially) and then resubmit the homework arbitrarily late for three tokens.</li>
+<li>For one token a student can submit a reading quiz late (any time before the final presentation) or resubmit a graded reading quiz.</li>
+<li>For one token a student can complete a lab late or redo a lab (any time before the final presentation) by showing the work to a TA during office hours.</li>
+<li>Remaining tokens at the end of the semester are counted as one participation day each.</li>
 </ul>
-<p>If a student runs out of tokens, late individual assignments receive a penalty of 15% per started day. Late team formation survey and teamwork peer assessment surveys do not receive any points.</p>
-<p>Every team independently receives <em>8 team tokens</em> that they can spend for extensions of any milestone deadline (1 token per day per milestone, except final presentation deadline) or to resubmit any milestone with a reflection (3 tokens each, resubmitted any time before the final presentation). If a team runs out of tokens, late submissions in group assignments receive a penalty of 15% per started day.</p>
-<p>Individual tokens and team tokens are entirely separate; it is not possible to use individual tokens for teamwork or vice versa. The team should make collective decisions about how to use team tokens.</p>
-<p>In general, late submissions and resubmissions can be done at any point in the semester before the final presentations. Late submissions that are 1-3 days late can be made directly to Gradescope; for everything else see instructions and forms on Canvas.</p>
-<p>Exceptions to this policy will be made at the discretion of the instructor in important circumstances, almost always involving a family or medical emergency and an email from your advisor — you can ask your academic advisor or the Dean of Student Affairs requesting the exception on your behalf. Where issues affect teamwork, please communicate proactively with your team.</p>
+<p>If a student runs out of tokens, late individual assignments receive a penalty of 15% per started day.</p>
+<p>Every team independently receives <em>8 team tokens</em> that they can spend for extensions of any milestone deadline (1 token per day per milestone, except final presentation deadline) or to resubmit any milestone (3 tokens each, resubmitted any time before the final presentation). If a team runs out of tokens, late submissions in group assignments will receive feedback but no credit.</p>
+<p>In general, late submissions and resubmissions can be done at any point in the semester before the final presentations. If you submit any work more than 3 days late, we will assign 0 points initially and you have to use the provided <em>resubmission form</em> in Canvas rather than submitting to Gradescope. </p>
+<p>Exceptions to this policy will be made at the discretion of the instructor in important circumstances, almost always involving a family or medical emergency and an email from your advisor — you can ask your academic advisor or the Dean of Student Affairs requesting the exception on your behalf. Please communicate also with your team about potential timing issues.</p>
 <p><strong>Communication:</strong> We make important announcements on Slack; we recommend to enable Slack notifications. We answer email and monitor Slack, which may all be used for clarifying homework assignments and other interactions. We strongly recommend to ask questions publicly on Slack if others might have similar questions. Email or slack us if you would like to make an appointment.</p>
-<p><strong>Auditing:</strong> Due to the high demand for this course, we do <em>not</em> allow auditing. If you like to self-study, all course materials are online. We welcome interested students and visitors to sit in for lectures as long as the room capacity allows it. </p>
+<p><strong>Auditing:</strong> Due to the high demand for this course, we do <em>not</em> allow auditing. If you like to self-study, all course materials are online. We welcome interested audiences to sit in for lectures as long as the room capacity allows it. </p>
 <p><strong>Time management:</strong> This is a 12-unit course, and it is our intention to manage it so that you spend close to 12 hours a week on the course, on average. In general, 3 hours/week will be spent in class, about 1 hour for the labs, 1-2 hours on readings and reading quizzes, and 6-7 hours on assignments. Notice that much homework is done in groups, so please account for the overhead and decreased time flexibility that comes with groupwork. Please give the course staff feedback if the time the course is taking for you differs significantly from our intention.</p>
 <p><strong>Writing:</strong> Describing tradeoffs among decisions and communication with stakeholders from other backgrounds are key aspects of this class. Many homework assignments have a component that requires discussing issues in written form or reflecting about experiences. To practice writing skills, the Global Communications Center (GCC) offers one-on-one help for students, along with workshops. The instructors are also happy to provide additional guidance if requested.</p>
 <p><strong>Use of content generation AI tools and external sources:</strong> Given the nature of this course, we are open to using AI tools for completing work. We place no restrictions on the use of content generation tools, such as ChatGPT, Bard, Co-Pilot, or Stable Diffusion. You may also reuse code from external sources, such as StackOverflow or tutorials. In any case, you will be solely responsible for the correctness of the solution. Note that content generation tools often create plausible-looking but incorrect answers, which will not receive credit. You are also responsible for complying with any applicable licenses. If you use content generation tools, we encourage you to share your experience with the course staff or the entire class.</p>
-<p><strong>Academic honesty and collaboration:</strong> The usual policies apply, especially the <a href="https://www.cmu.edu/policies/student-and-student-life/academic-integrity.html">University Policy on Academic Integrity</a>. Many parts of the work will be done in groups. We expect that group members collaborate with one another, but that groups work independently from other groups, not exchanging results with other groups. Within groups, we expect that you are honest about your contribution to the group&#39;s work. This implies not taking credit for others&#39; work and not covering for team members that have not contributed to the team. This also applies to in-class discussions, where indicating working with others who did not participate in the discussion is considered an academic honesty violation. Otherwise, our expectations regarding academic honestly and collaboration for group and pair work are the same as for individual work, substituting elevated to the level of &quot;group.&quot;</p>
+<p><strong>Academic honesty and collaboration:</strong> The usual policies apply, especially the University Policy on Academic Integrity. Many parts of the work will be done in groups. We expect that group members collaborate with one another, but that groups work independently from other groups, not exchanging results with other groups. Within groups, we expect that you are honest about your contribution to the group&#39;s work. This implies not taking credit for others&#39; work and not covering for team members that have not contributed to the team. This also applies to in-class discussions, where indicating working with others who did not participate in the discussion is considered an academic honesty violation. Otherwise, our expectations regarding academic honestly and collaboration for group and pair work are the same as for individual work, substituting elevated to the level of &quot;group.&quot;</p>
 <p>Beyond that, the key guiding principle of academic honesty in this course is: <em>&quot;You may not copy any part of a solution to a problem that was written by another student (in this or prior iterations of the class), or was developed together with another student, or was delegated to another person. You may not look at another student&#39;s solution, even if you have completed your own, nor may you knowingly give your solution to another student or leave your solution where another student can see it.</em>&quot; Note that this implies that you cannot publicly post your solutions on GitHub (e.g., as part of a portfolio during job applications). While the use of AI content generation tools is okay (see above) using the work from other students is not. Discussing challenges and solution strategies with others at a high level is okay, sharing code or text is not.</p>
 <p>You may collaborate with other students on labs, but not on reading quizzes, homeworks, and exams.</p>
 <p>We also expect and respect honesty when communicating with the course staff.</p>
 <p>Any violation of this policy is cheating. The minimum penalty for cheating will be a zero grade for the whole assignment. Cheating incidents will also be reported through University channels, with possible additional disciplinary action (see the University Policy on Academic Integrity). There is no statute of limitations for violations of the collaboration policy; penalties may be assessed (and referred to the university disciplinary board) after you have completed the course, and some requirements of the collaboration policy (such as restrictions on you posting your solutions) extend beyond your completion of the course.</p>
 <p>If you have any question about how this policy applies in a particular situation, ask the instructors for clarification.</p>
-<p><strong>Research in this Course:</strong> We are conducting academic research in this course. This research will involve analyzing student work of assignment. You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar (<a href="mailto:nadian@andrew.cmu.edu">nadian@andrew.cmu.edu</a>). Participants will not receive any compensation or extra credit. The data collected as part of this research will not include student grades. All analyses of data from participants’ coursework will be conducted after the course is over and final grades are submitted -- instructors will not know who chooses not to participate before final grades are submitted. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers. If you have questions pertaining to your rights as a research participant, or to report concerns to this study, please contact Nadia Nahar (<a href="mailto:nadian@andrew.cmu.edu">nadian@andrew.cmu.edu</a>) or the Office of Research Integrity and Compliance at Carnegie Mellon University (<a href="mailto:irb-review@andrew.cmu.edu">irb-review@andrew.cmu.edu</a>; phone: 412-268-4721).</p>
 <p><strong>Accommodations for students with disabilities:</strong> If you have a disability and have an accommodations letter from the Disability Resources office, we encourage you to discuss your accommodations and needs with us as early in the semester as possible. We will work with you to ensure that accommodations are provided as appropriate. If you suspect that you may have a disability and would benefit from accommodations but are not yet registered with the Office of Disability Resources, we encourage you to contact them at <a href="mailto:access@andrew.cmu.edu">access@andrew.cmu.edu</a>.</p>
 <p><strong>Respect for diversity:</strong> It is our intent that students from all diverse backgrounds and perspectives be well served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that students bring to this class be viewed as a resource, strength and benefit. It is my intent to present materials and activities that are respectful of diversity: gender, sexuality, disability, age, socioeconomic status, ethnicity, race, and culture. Especially in lectures on fairness we will also cover diversity discussions, typically through a lens of the contemporary discourse in the US. Your suggestions are encouraged and appreciated. Please let us know ways to improve the effectiveness of the course for you personally or for other students or student groups. </p>
 <p><strong>A note on self care.</strong> Please take care of yourself. Do your best to maintain a healthy lifestyle this semester by eating well, exercising, avoiding drugs and alcohol, getting enough sleep and taking some time to relax. This will help you achieve your goals and cope with stress. All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.

@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Fall 2024</div><section ><section data-markdown><script type="text/template">
+      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024</div><section ><section data-markdown><script type="text/template">
 <!-- .element: class="titleslide"  data-background="../_chapterimg/03_accuracy.jpg" -->
 <div class="stretch"></div>
 
@@ -169,22 +169,28 @@ Be aware of ambiguity across communities (see also: performance in arts, job per
 
 (The Data Scientists Toolbox)
 
-</script></section><section data-markdown><script type="text/template">## Concept check: Accuracy, Confusion Matrix, Precision, Recall, F1, False Positive/ False Negative, AUC, Baseline?
 
-<!-- discussion -->
+
 </script></section><section data-markdown><script type="text/template">## Confusion/Error Matrix
 
 <div class="small">
 
 <!-- colstart -->
 
-Accuracy: What's the percentage that the model correctly predicted whether a patient has cancer or not? 
+| | **Actually Grade 5 Cancer** | **Actually Grade 3 Cancer** | **Actually Benign** |
+| :--- | --- | --- | --- |
+|**Model predicts Grade 5 Cancer** | **10** | 6 | 2 |
+|**Model predicts Grade 3 Cancer** | 3 | **24**  | 10 |
+|**Model predicts Benign** | 5 | 22 | **82** |
+
+
+<!-- col -->
 
 
 $\textit{accuracy} = \frac{\textit{correct predictions}}{\textit{all predictions}}$
 
-<div class="small">
-
+Example's accuracy 
+        = $\frac{10+24+82}{10+6+2+3+24+10+5+22+82} = .707$
 
 ```scala
 def accuracy(model, xs, ys):
@@ -196,23 +202,6 @@ def accuracy(model, xs, ys):
       countCorrect += 1
   return countCorrect / count
 ```
-
-</div>
-
-<!-- col -->
-<div class="small">
-
-| | **Actually Grade 5 Cancer** | **Actually Grade 3 Cancer** | **Actually Benign** |
-| :--- | --- | --- | --- |
-|**Model predicts Grade 5 Cancer** | **10** | 6 | 2 |
-|**Model predicts Grade 3 Cancer** | 3 | **24**  | 10 |
-|**Model predicts Benign** | 5 | 22 | **82** |
-
-
-</div>
-
-Example's accuracy 
-        = $\frac{10+24+82}{10+6+2+3+24+10+5+22+82} = .707$
 
 <!-- colend -->
 
@@ -237,10 +226,8 @@ Compare two models (same or different implementation/learning technology) for th
 
 Always compare to a base rate!
 
-
 Reduction in error = 
 $\frac{(1 - accuracy\_\text{baseline}) - (1 - accuracy\_f)}{1 - accuracy\_\text{baseline}}$
-
 
 * from 99.9% to 99.99% accuracy = 90% reduction in error
 * from 50% to 75% accuracy = 50% reduction in error
@@ -251,24 +238,7 @@ Suitable baselines for cancer prognosis? For audit risk prediction?
 <!-- discussion -->
 
 <aside class="notes"><p>Many forms of baseline possible, many obvious: Random, all true, all false, repeat last observation, simple heuristics, simpler model</p>
-</aside></script></section><section data-markdown><script type="text/template">## Consider Different Forms of Baselines
-<div class="small">
-
-- Lower bound – result of a baseline solution (less complex or trivial system the
-performance of which is supposed to be easily surpassed)  
-  - Random-choice baseline
-  - Most-frequent-value baseline
-  - Simple heuristic
-
-- Upper bound – oracle experiment result, human judgements, etc.
-  - Oracle: an imaginary entity that makes the best possible decisions, given practical
-limitations.
-
-</div>
-
-![Baselines](baselines.jpg)
-
-</script></section><section data-markdown><script type="text/template">## Most-frequent-value Baseline for Imbalanced Classes
+</aside></script></section><section data-markdown><script type="text/template">## Consider the Baseline Probability
 
 Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/Cancer/USCS/DataViz.html))
 
@@ -276,14 +246,10 @@ Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/
 
 **Random predictor**
 
-<div class="small">
-
 | | **Cancer** | **No c.** |
 | --- | --- | --- |
 |**Cancer pred.** | 3 | 4998 |
 |**No cancer pred.** | 2 | 4997 |
-
-</div>
 
 .5 accuracy
 
@@ -291,14 +257,11 @@ Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/
 
 **Never cancer predictor**
 
-<div class="small">
 
 | | **Cancer** | **No c.** |
 | --- | --- | --- |
 |**Cancer pred.** | 0 | 0 |
 |**No cancer pred.** | 5 | 9995 |
-
-</div> 
 
 .999 accuracy
 
@@ -312,11 +275,9 @@ See also [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics
 
 
 
-</script></section><section data-markdown><script type="text/template">## Besides Accuracy: Precision, Recall, F1
+</script></section><section data-markdown><script type="text/template">## Measures
 
-<!-- colstart -->
-
-<div class="smaller">
+<div class="small">
 
 Measuring success of correct classifications (or missing results):
 * Recall = TP/(TP+FN) 
@@ -324,7 +285,7 @@ Measuring success of correct classifications (or missing results):
 * False negative rate = FN/(TP+FN) = 1 - recall 
     * aka miss rate; *lower is better*
 
-
+*** 
 Measuring rate of false classifications (or noise):
 * Precision = TP/(TP+FP)
     * aka positive predictive value; *higher is better*
@@ -332,49 +293,32 @@ Measuring rate of false classifications (or noise):
     * aka fall-out; *lower is better*
 <!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
 
-
+***
 
 Combined measure (harmonic mean):
 F1 score = $2 \frac{recall*precision}{recall+precision}$
 
 </div>
-
-<!-- col -->
-
+</script></section><section data-markdown><script type="text/template">
 [![Recall/Precision visualization](recallprecision.png)](https://en.wikipedia.org/wiki/Precision_and_recall#/media/File:Precisionrecall.svg)
 <!-- .element: class="stretch" -->
- 
-<!-- colend -->
 
 <!-- references_ -->
 
 (CC BY-SA 4.0 by [Walber](https://en.wikipedia.org/wiki/Precision_and_recall#/media/File:Precisionrecall.svg))
+</script></section><section data-markdown><script type="text/template">## False positives and false negatives equally bad? 
 
-
-
-
-</script></section><section data-markdown><script type="text/template">## False pos. and false neg. equally bad? 
-
-Accuracy does not take into account the differences in the
-misclassification costs for each class. Misclassifying a patient with a
-serious disease as having a benign condition is more costly.
-
-<div class="small">
-
+* Recognizing cancer 
 * Suggesting products to buy on e-commerce site
 * Identifying human trafficking at the border
 * Predicting high demand for ride sharing services
 * Predicting recidivism chance
 * Approving loan applications
 
-</div>
-
 No answer vs wrong answer?
 
 *(This requires understanding the larger system!)*
 </script></section><section data-markdown><script type="text/template">## Extreme Classifiers
-
-<div class="small">
 
 * Identifies every instance as negative (e.g., no cancer):
     - 0% recall (finds none of the cancer cases)
@@ -386,17 +330,13 @@ No answer vs wrong answer?
     - 0% false negative rate (does not miss any cancer cases)
     - low precision (also reports cancer for all noncancer cases)
     - 100% false positive rate (all noncancer cases reported as warnings)
- 
-</div>
-</script></section><section data-markdown><script type="text/template">## Consider the Baseline Probability
+ </script></section><section data-markdown><script type="text/template">## Consider the Baseline Probability
 
 Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/Cancer/USCS/DataViz.html))
 
-
 <!-- colstart -->
-**Random predictor**
 
-<div class="small">
+**Random predictor**
 
 | | **Cancer** | **No c.** |
 | --- | --- | --- |
@@ -405,13 +345,10 @@ Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/
 
 .5 accuracy, .6 recall, 0.001 precision
 
-</div>
-
 <!-- col -->
 
 **Never cancer predictor**
 
-<div class="small">
 
 | | **Cancer** | **No c.** |
 | --- | --- | --- |
@@ -419,9 +356,10 @@ Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/
 |**No cancer pred.** | 5 | 9995 |
 
 .999 accuracy, 0 recall, .999 precision
-</div>
+
 
 <!-- colend -->
+
 </script></section><section data-markdown><script type="text/template">## Area Under the Curve
 
 Turning numeric prediction into classification with threshold ("operating point")
@@ -547,7 +485,7 @@ For design strategy, see [Goal-Question-Metric approach](https://en.wikipedia.or
 
 <div class="smallish">
 
-* Always be precise about what we want to capture!
+* Always be precise about metrics
     - "measure accuracy" -> "evaluate accuracy with MAPE"
     - "evaluate test quality" -> "measure branch coverage with Jacoco"
     - "measure execution time" -> "average and 90%-quantile response time for REST-API x under normal load"
@@ -663,10 +601,6 @@ AI research team tried to train image recognition to identify tanks hidden in fo
 </aside></script></section><section data-markdown><script type="text/template">## Overfitting in Cancer Prognosis?
 
 <!-- discussion -->
-</script></section><section data-markdown><script type="text/template">## Concept check: Overfit, Underfit, Train/Validation/Test Split, parameter, hyperparameter?
-
-<!-- discussion -->
-
 
 </script></section><section data-markdown><script type="text/template">## Separate Training and Validation Data
 
@@ -822,32 +756,19 @@ def f(outlook, temperature, humidity, windy) =
 
 <!-- discussion -->
 
-</script></section><section data-markdown><script type="text/template">## 0. Using Misleading Quality Measures
-
-* using accuracy, when false positives are more harmful than false negatives
-* comparing area under the curve, rather than relevant thresholds
-* averaging over all populations, ignoring different results for subpopulations or different risks for certain predictions
-* accuracy results on old static test data, when production data has shifted
-* results on tiny validation sets
-* reporting results without baseline
-* ...
-</script></section><section data-markdown><script type="text/template">## 1. Data not Representative
+</script></section><section data-markdown><script type="text/template">## Test Data not Representative
 
 Often neither training nor test data representative of production data 
 
 ![MNIST Fashion Dataset Examples](MNIST-fashion.png)
 <!-- .element: class="stretch" -->
 
-</script></section><section data-markdown><script type="text/template">## 1. Data not Representative
+</script></section><section data-markdown><script type="text/template">## Test Data not Representative
 
 ![](radiology-distribution.png)
 <!-- .element: class="plain" -->
 
-</script></section><section data-markdown><script type="text/template">## 2. Shortcut Learning
-
-<div class="small">
-
-"Spurious Correlations": Variables are associated but not causally related, due to coincidence or the presence of a certain third, unseen factor.
+</script></section><section data-markdown><script type="text/template">## Shortcut Learning 
 
 ![Shortcut learning illustration from paper below](shortcutlearning.png)
 <!-- .element: class="plain stretch" -->
@@ -863,10 +784,7 @@ strategy: The network has learned to associate object location with a category. 
 stars were always shown in the top right or bottom left of an image; moons in the top left or bottom
 right. This pattern is still present in samples from the i.i.d. test set (middle row) but not in o.o.d. test
 images (bottom row), exposing the shortcut.</p>
-</div></aside></script></section><section data-markdown><script type="text/template">## Shortcut Learning 
-
-Caused by non-representative data, to some extent.
-
+</aside></script></section><section data-markdown><script type="text/template">## Shortcut Learning 
 
 ![ML image captioning mistakes](mistakes.jpg)
 <!-- .element: class="stretch" -->
@@ -879,27 +797,23 @@ Caused by non-representative data, to some extent.
 
 <!-- discussion -->
 
-</script></section><section data-markdown><script type="text/template">## Generalization Beyond Training Data: 
-## What is "Distribution" for Foundation Models?
-
-<!-- discussion -->
 
 </script></section><section data-markdown><script type="text/template">## Representative Test Data in Practice?
 
-Target distribution may **not be known** in early stages of the project
+Target distribution may not be known in early stages of the project
 
-Target distribution may **shift over time** (``distribution drift'')
+Target distribution may shift over time
 
-Evaluate the quality and representativeness of your test data (How?)
+Evaluate the quality and representativeness of your test data
 
-Production data is good test data, **but unlabeled...**
+Production data is good test data
 
 *
  
 *Monitoring and continuous data collection important!* More later
 
 </script></section><section data-markdown><script type="text/template">
-## 3. Label Leakage
+## Label Leakage
 
 <!-- colstart -->
 ![Tank in Forest](tank.jpg)
@@ -911,18 +825,12 @@ Production data is good test data, **but unlabeled...**
 AI research team tried to train image recognition to identify tanks hidden in forests, trained on images of tanks in forests and images of same or similar forests without tanks. The model could clearly separate the learned pictures, but would perform poorly on other pictures.</p>
 <p>Turns out the pictures with tanks were taken on a sunny day whereas the other pictures were taken on a cloudy day. The model picked up on the brightness of the picture rather than the presence of a tank, which worked great for the training set, but did not generalize.</p>
 <p>Pictures: <a href="https://pixabay.com/photos/lost-places-panzer-wreck-metal-3907364/">https://pixabay.com/photos/lost-places-panzer-wreck-metal-3907364/</a>, <a href="https://pixabay.com/photos/forest-dark-woods-trail-path-1031022/">https://pixabay.com/photos/forest-dark-woods-trail-path-1031022/</a></p>
-</aside></script></section><section data-markdown><script type="text/template">## 3. Label Leakage
-
-<!-- colstart -->
+</aside></script></section><section data-markdown><script type="text/template">## Label Leakage
 
 ![Radiology scan with metadata](radiology-scan.jpg)
 
-<!-- col -->
-Models have information they should not have access to!!
-
-<!-- colend -->
 <aside class="notes"><p>The image includes metadata. Models have been found to rely heavily on that metadata, for example what kind of device was used to take the scan (mobile vs stationary) or where it was taken (rural vs big hospital).</p>
-</aside></script></section><section data-markdown><script type="text/template">## 3. Label Leakage
+</aside></script></section><section data-markdown><script type="text/template">## Label Leakage
 
 Label or close correlates included in inputs 
 
@@ -939,7 +847,7 @@ Be cautious of "too good to be true" results
 
 
 
-</script></section><section data-markdown><script type="text/template">## 4. Data Leakage: Learning from Test Data
+</script></section><section data-markdown><script type="text/template">## Data Leakage: Learning from Test Data
 
 Test data *leaks* into training data
 
@@ -950,7 +858,8 @@ Test data *leaks* into training data
 * tuning on validation data (e.g., crossvalidation) without separate testing data
  
 Results in overfitting and misleading accuracy measures
-</script></section><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">## Data Leakage during Data Preprocessing
+
 ```python
 wordsVectorizer = CountVectorizer().fit(text)
 wordsVector = wordsVectorizer.transform(text)
@@ -962,32 +871,49 @@ train, test, spamLabelTrain, spamLabelTest =
                    train_test_split(X, y, test_size = 0.5)
 predictAndReport(train = train, test = test)
 ```
+</script></section><section data-markdown><script type="text/template">## Data Leakage: Overfitting on Random Data
+
+```python
+import numpy as np
+# generate random data
+n_samples, n_features, n_classes = 200, 10000, 2
+rng = np.random.RandomState(42)
+X = rng.standard_normal((n_samples, n_features))
+y = rng.choice(n_classes, n_samples)
+
+# leak test data through feature selection
+X_selected = SelectKBest(k=25).fit_transform(X, y)
+
+X_train, X_test, y_train, y_test = 
+    train_test_split(X_selected, y, random_state=42)
+gbc = GradientBoostingClassifier(random_state=1)
+gbc.fit(X_train, y_train)
+
+y_pred = gbc.predict(X_test)
+accuracy_score(y_test, y_pred)  
+# expected accuracy ~0.5; reported accuracy 0.76
+```
+
+</script></section><section data-markdown><script type="text/template">## Overfitting on Benchmarks
 
 
+[![Overfitting Benchmarks](overfitting-benchmarks.png)](overfitting-benchmarks.png)
+<!-- .element: class="stretch plain" -->
 
+<!-- references_ -->
+(Figure by Andrea Passerini)
 
-</script></section><section data-markdown><script type="text/template">## 5. Data Leakage -- Overfitting in Continuous Experimentation 
+<aside class="notes"><p>If many researchers publish best results on the same benchmark, collectively they perform &quot;hyperparameter optimization&quot; on the test set</p>
+</aside></script></section><section data-markdown><script type="text/template">## Overfitting in Continuous Experimentation 
 
-<!-- colstart -->
-
-<div class="small">
+![MLFlow User Interface](mlflow-web-ui.png)
+<!-- .element: class="stretch" -->
+</script></section><section data-markdown><script type="text/template">## Overfitting in Continuous Experimentation 
 
 * Test data should be used exactly once -- danger of overfitting with reuse
 * Use of test sets to compare (hyperparameter-tuned) models in dashboards ➤ danger of overfitting
 * Need fresh test data regularly
 * Statistical techniques to approximate the needed amount of test data and the needed rotation
-
-</div>
-
-<!-- col -->
-
-![MLFlow User Interface](mlflow-web-ui.png)
-<!-- .element: class="stretch" -->
-
-<!-- colend -->
-
-
-
 
 <!-- references -->
 
@@ -995,26 +921,17 @@ Recommended reading: Renggli, Cedric, Bojan Karlaš, Bolin Ding, Feng Liu, Kevin
 
 
 
-</script></section><section data-markdown><script type="text/template">## 5. Data Leakage -- Overfit on Benchmarks
+</script></section><section data-markdown><script type="text/template">## Using Misleading Quality Measures
 
-<!-- colstart -->
+* using accuracy, when false positives are more harmful than false negatives
+* comparing area under the curve, rather than relevant thresholds
+* averaging over all populations, ignoring different results for subpopulations or different risks for certain predictions
+* accuracy results on old static test data, when production data has shifted
+* results on tiny validation sets
+* reporting results without baseline
+* ...
 
-[![Overfitting Benchmarks](overfitting-benchmarks.png)](overfitting-benchmarks.png)
-<!-- .element: class="stretch plain" -->
-
-<!-- col -->
-
-If many researchers publish best results on the same benchmark, collectively they perform "hyperparameter optimization" on the test set
-
-<!-- colend -->
-
-<!-- references_ -->
-(Figure by Andrea Passerini)
-
-<aside class="notes"><p>If many researchers publish best results on the same benchmark, collectively they perform &quot;hyperparameter optimization&quot; on the test set</p>
-</aside></script></section><section data-markdown><script type="text/template">## 6. Independence of Data: e.g., Temporal
-
-<div class="small">
+</script></section><section data-markdown><script type="text/template">## Independence of Data: Temporal
 
 > Attempt to predict the stock price development for different companies based on twitter posts
 
@@ -1025,7 +942,7 @@ Problems of random train--validation split?
 <!-- discussion -->
 
 <aside class="notes"><p>The model will be evaluated on past stock prices knowing the future prices of the companies in the training set. Even if we split by companies, we could observe general future trends in the economy during training</p>
-</div></aside></script></section><section data-markdown><script type="text/template">## 6. Independence of Data: e.g., Temporal
+</aside></script></section><section data-markdown><script type="text/template">## Independence of Data: Temporal
 
 ![Temporal dependence](temporaldependence.svg)
 <!-- .element: class="stretch plain" -->
@@ -1099,6 +1016,27 @@ float computeDeductions(float agi, Expenses expenses);
 (†=not every bug is economical to fix, may accept some known bugs)
 </div>
 
+</script></section><section data-markdown><script type="text/template">## Validation vs Verification
+
+![Validation vs Verification](validation.png)
+<!-- .element: class="plain" -->
+
+</script></section><section data-markdown><script type="text/template">## Validation Problem: Correct but Useless?
+
+* Correctly implemented to specification, but specifications are wrong
+* Building the wrong system, not what user needs
+* Ignoring assumptions about how the system is used
+
+
+Example: Compute deductions with last year's tax code
+
+**Other examples?**
+</script></section><section data-markdown><script type="text/template">## Wrong Specifications: Ariane 5
+
+<iframe width="800" height="450"  src="https://www.youtube.com/embed/PK_yguLapgA?start=84" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Software was working as specified, within the specified parameters. Inputs exceeded specified parameters.
 </script></section><section data-markdown><script type="text/template">## Strict Correctness Assumption
 
 * Specification determines which outputs are correct/wrong
@@ -1116,7 +1054,21 @@ float computeDeductions(float agi, Expenses expenses);
 ```
 
 <aside class="notes"><p>A single wrong tax prediction would be a bug. No tolerance of occasional wrong predictions, approximations, nondeterminism.</p>
-</aside></script></section><section data-markdown><script type="text/template">## Common practice: Testing
+</aside></script></section><section data-markdown><script type="text/template">## Ideally formal specifications
+
+Formal verification possible, proving that implementation matches specification.
+
+```java
+/*@ public normal_behavior 
+  @ ensures (\forall int j; j >= 0 && j < a.length;  
+  @                             \result = a[j]); 
+  @*/ 
+public static /*@ pure @*/ int max(int[] a);
+```
+
+In practice, typically informal, textual and "incomplete" specifications, but still enabling analyzing inputs-output correspondence
+
+</script></section><section data-markdown><script type="text/template">## Common practice: Testing
 
 <div class="smallish">
 
@@ -1141,6 +1093,27 @@ void testAddition_1_2() {
 ```
 
 </div>
+</script></section><section data-markdown><script type="text/template">## Validation vs Verification
+
+![Validation vs Verification](validation.png)
+<!-- .element: class="plain" -->
+
+</script></section><section data-markdown><script type="text/template">## Requirements Validation
+
+*Are the goals right? Are the requirements sufficient? Did we miss assumptions?*
+
+Talk to stakeholders
+
+Build prototype, show to potential users
+
+Involve customer/affected people in design discussions (agile, participatory design)
+
+Ask experts whether requirements cover important concerns, check legal compliance
+</script></section><section data-markdown><script type="text/template">## Validation vs Verification
+
+![Validation vs Verification](validation.png)
+<!-- .element: class="plain" -->
+
 
 </script></section><section data-markdown><script type="text/template">## How to evaluate prediction tasks?
 

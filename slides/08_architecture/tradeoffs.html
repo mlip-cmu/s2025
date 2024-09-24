@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><div id="footer">17-645 Machine Learning in Production • Chenyang Yang, Christian Kaestner, and Sherry Wu • Fall 2024</div><section  data-markdown><script type="text/template">  
+      <div class="slides"><div id="footer">17-645 Machine Learning in Production • Christian Kaestner, Claire Le Goues, Carnegie Mellon University • Spring 2024</div><section  data-markdown><script type="text/template">  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/08_architecture.jpg" -->
 <div class="stretch"></div>
 
@@ -62,6 +62,20 @@ Recommended reading: Siebert, Julien, Lisa Joeckel, Jens Heidrich, Koji Nakamich
 </script></section></section><section ><section data-markdown><script type="text/template"># Recall: ML is a Component in a System in an Environment
 
 ![Temi Screenshot](temi.png)
+</script></section><section data-markdown><script type="text/template"><!-- colstart -->
+![Simple architecture diagram of transcription service](transcriptionarchitecture2.svg)
+<!-- .element: class="plain" -->
+
+<!-- col -->
+
+* **ML components** for transcription model, pipeline to train the model, monitoring infrastructure...
+* **Non-ML components** for data storage, user interface, payment processing, ...
+* User requirements and assumptions
+* 
+* System quality vs model quality
+* System requirements vs model requirements
+ 
+<!-- colend -->
 
 </script></section><section data-markdown><script type="text/template">## Recall: Systems Thinking
 
@@ -87,6 +101,12 @@ We know what to build, but how? How to we meet the quality goals?
   development, focusing on key product qualities
 
 Architectural decisions are hard to change later
+
+</script></section><section data-markdown><script type="text/template">## Software Architecture
+
+> The software architecture of a program or computing system is the **structure or structures** of the system, which comprise **software elements**, the ***externally visible properties*** of those elements, and the relationships among them.
+> -- [Kazman et al. 2012](https://www.oreilly.com/library/view/software-architecture-in/9780132942799/?ar)
+
 </script></section><section data-markdown><script type="text/template">## Architecture Decisions: Examples
 
 * What are the major components in the system? What does each
@@ -114,6 +134,25 @@ Software Engineering Theme: *Think before you code*
 Like requirements: Slower initially, but upfront investment can prevent problems later and save overall costs
 
 -> Focus on most important qualities early, but leave flexibility
+</script></section><section data-markdown><script type="text/template">## Quality Requirements Drive Architecture Design
+
+Driven by requirements, identify most important qualities
+
+Examples:
+* Development cost, operational cost, time to release
+* Scalability, availability, response time, throughput
+* Security, safety, usability, fairness
+* Ease of modifications and updates
+* ML: Accuracy, ability to collect data, training latency
+</script></section><section data-markdown><script type="text/template">## Architecture Design Involves Quality Trade-offs
+
+![Monolithic vs microservice](architectures.png)
+<!-- .element: class="stretch" -->
+
+**Q. What are quality trade-offs between the two?**
+
+<!-- references_ -->
+[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
 </script></section><section data-markdown><script type="text/template">
 ## Why Architecture? ([Kazman et al. 2012](https://www.oreilly.com/library/view/software-architecture-in/9780132942799/?ar))
 
@@ -134,30 +173,88 @@ Supports **predicting** cost, quality, and schedule: Typically by predicting inf
 Aids in software **evolution**: Reason about cost, design, and effect of changes
 
 </div>
+</script></section><section data-markdown><script type="text/template">
+## Case Study: Twitter
 
-</script></section><section data-markdown><script type="text/template">## Quality Requirements Drive Architecture Design
+![twitter](twitter.png)<!-- .element: style="width:800px" -->
 
-Driven by requirements, identify most important qualities
+<aside class="notes"><p>Source and additional reading: Raffi. <a href="https://blog.twitter.com/engineering/en_us/a/2013/new-tweets-per-second-record-and-how.html">New Tweets per second record, and how!</a> Twitter Blog, 2013</p>
+</aside></script></section><section data-markdown><script type="text/template">
+## Twitter - Caching Architecture
 
-Examples:
-* Development cost, operational cost, time to release
-* Scalability, availability, response time, throughput
-* Security, safety, usability, fairness
-* Ease of modifications and updates
-* ML: Accuracy, ability to collect data, training latency
-</script></section><section data-markdown><script type="text/template">## Architecture Design Involves Quality Trade-offs
-
-![Monolithic vs microservice](architectures.png)
+![twitter](twitter-caching.png)
 <!-- .element: class="stretch" -->
 
-**Q. What are quality trade-offs between the two?**
+<aside class="notes"><ul>
+<li>Running one of the world’s largest Ruby on Rails installations</li>
+<li>200 engineers</li>
+<li>Monolithic: managing raw database, memcache, rendering the site, and * presenting the public APIs in one codebase</li>
+<li>Increasingly difficult to understand system; organizationally challenging to manage and parallelize engineering teams</li>
+<li>Reached the limit of throughput on our storage systems (MySQL); read and write hot spots throughout our databases</li>
+<li>Throwing machines at the problem; low throughput per machine (CPU + RAM limit, network not saturated)</li>
+<li>Optimization corner: trading off code readability vs performance</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+## Twitter's Redesign Goals
 
-<!-- references_ -->
-[Image source](https://medium.com/javanlabs/micro-services-versus-monolithic-architecture-what-are-they-e17ddc8d3910)
+<div class="smallish">
+
+* **Performance**
+    * Improve median latency; lower outliers 
+    * Reduce number of machines 10x
++ **Reliability**
+    * Isolate failures
++ **Maintainability**
+    * *"We wanted cleaner boundaries with “related” logic being in one place"*: 
+encapsulation and modularity at the systems level (vs class/package level)
+* **Modifiability**
+    * Quicker release of new features: *"run small and empowered engineering teams that could make local decisions and ship user-facing changes, independent of other teams"*
+
+</div>
+
+<!-- references -->
+
+Raffi. [New Tweets per second record, and how!](https://blog.twitter.com/engineering/en_us/a/2013/new-tweets-per-second-record-and-how.html) Twitter Blog, 2013
+</script></section><section data-markdown><script type="text/template">## Twitter: Redesign Decisions
+
+<!-- colstart -->
+
+* Ruby on Rails -> JVM/Scala 
+* Monolith -> Microservices
+* RPC framework with monitoring, connection pooling, failover strategies, loadbalancing, ... built in
+* New storage solution, temporal clustering, "roughly sortable ids"
+* Data driven decision making
+
+<!-- col -->
+
+![Gizzard](gizzard.png)
+<!-- .element: class="stretch" -->
+
+<!-- colend --></script></section><section data-markdown><script type="text/template">
+## Twitter Case Study: Key Insights
+
+Architectural decisions affect entire systems, not only individual modules
+
+Abstract, different abstractions for different scenarios
+
+Reason about quality attributes early
+
+Make architectural decisions explicit
+
+Question: **Did the original architect make poor decisions?**
+
 </script></section></section><section ><section data-markdown><script type="text/template">## Codifying Design Knowledge 
 
 ![Exploded parts diagram of a complex device](parts.png)
 <!-- .element: class="stretch" -->
+</script></section><section data-markdown><script type="text/template">## System Decomposition
+
+![Simple architecture diagram of transcription service](transcriptionarchitecture2.svg)
+<!-- .element: class="stretch plain" -->
+
+Identify components and their responsibilities
+
+Establishes interfaces and team boundaries
 </script></section><section data-markdown><script type="text/template">### Common Components in ML-based Systems
 
 * **Model inference service**: Uses model to make predictions for input data
@@ -211,12 +308,120 @@ Examples:
 
 </div>
 
+</script></section><section data-markdown><script type="text/template">## Common System Structures
+
+Designers and architects accumulate tacit and codified knowledge based on their own experience and best practices.
+
+In designing a new system, it is best to start with experience and a design vocabulary, focusing directly on the specific qualities relevant to the tradeoffs.
+
+At the highest level of organizing components, there are common structures shared by many systems, also known as _architectural styles_.
+</script></section><section data-markdown><script type="text/template">## Monolithic system
+
+![twitter](twitter.png)<!-- .element: style="width:800px" -->
+
+(pre-redesign)
+</script></section><section data-markdown><script type="text/template">## Client-Server Architecture 
+
+![client-server](client-server-model.svg)<!-- .element: style="width:700px" -->
+
+<div class="small">
+
+* A server provides functionality to multiple clients, typically over a network connection. 
+* Resources shared for many users, while clients are fairly simple. 
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">## Multi-tier architecture
+
+![typical 3-tier architecture](3tier.svg)<!-- .element: style="width:800px" -->
+
+Higher tiers send requests to lower tiers, but not vice versa. 
+
+Common for business and web applications.
+
+<aside class="notes"><p>can be conceptually extended with components related to machine learning (as we will show in chapter Deploying a Model).</p>
+</aside></script></section><section data-markdown><script type="text/template">## SOA and microservices
+
+![audiobook app composed of microservices](microservice.svg)<!-- .element: style="width:600px" -->
+
+Multiple self-contained services/processes that communicate via RPC.  
+
+<aside class="notes"><p>allows independent deployment, versioning, and scaling of services and flexible routing of requests at the network level. Many modern, scalable web-based systems use this design, as we will discuss in chapter Scaling the System.  Also independent development.</p>
+</aside></script></section><section data-markdown><script type="text/template">## Event-based architecture
+
+![Delivery robot](deliveryrobot.jpg)
+<!-- .element: class="plain stretch" -->
+
+Individual system components listen to messages broadcasted by other components, typically through some message bus.
+
+<aside class="notes"><p>Since the component publishing a message does not need to know who consumes it, this architecture strongly decouples components in a system and makes it easy to add new components. We will see this architecture style when discussing stream processing systems in chapter Scaling the System.</p>
+</aside></script></section><section data-markdown><script type="text/template">## Data-flow architectures
 
 
+![Delivery robot](pipeline.svg)
+<div class="small">
 
-</script></section></section><section ><section data-markdown><script type="text/template"># Scoping Relevant Qualities of ML Components
+_Dataflow program composed of shell commands._
+
+</div>
+
+The system is organized around data, often in a sequential pipeline. 
+
+<aside class="notes"><p>This design allows flexible changes of components and flexible composition of pipelines from different subsets of components. Unix shell commands can be composed through pipes to perform more complex tasks and machine-learning pipelines often follow this design of multiple transformations to a dataset arranged in a sequence or directed acyclic graph. Machine-learning pipelines tend to follow this data-flow style, as do batch processing systems for very large datasets.</p>
+</aside></script></section><section data-markdown><script type="text/template">## Design Patterns
+
+<!-- colstart -->
+![Design Patterns](pattern-language.jpeg)<!-- .element: style="width:350px" class="stretch" -->
+
+<!-- col -->
+
+Design patterns name and describe common solutions to known design problems, and known advantages and pitfalls. 
+
+Historically popular in OO; now applied broadly across system design, both architecturally and at a lower level (i.e., interactions among subsystems). 
+
+<!-- colend --></script></section><section data-markdown><script type="text/template">## Observer or publish-subscribe
+
+![Observer pattern](observer.png)<!-- .element: style="width:800px" -->
+
+<div class="smallish">
+Intent: Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+</div>
+
+<aside class="notes"><p>Motivation: [This would include an illustrative example of a user interface that needs to update multiple visual representations of data whenever input data changes, such as multiple diagrams in a spreadsheet.] 
+Solution: [This would include a description of the technical structure with an observer interface implemented by observers and an observable object managing a list of observers and calling them on state changes.]
+Benefits, costs, tradeoffs: Decoupling of the observed object and observers; support of broadcast communication. Implementation overhead; observed objects unaware of consequences and costs of broadcast objects. [Typically this would be explained in more detail with examples.]</p>
+</aside></script></section><section data-markdown><script type="text/template">## Architectural pattern: Heartbeat tactic
+
+
+![Heartbeat tactic](heartbeat.png)<!-- .element: style="width:800px" -->
+
+Intent: Detect when a component is unavailable to trigger mitigations or repair
+
+<aside class="notes"><p>Motivation: Detect with low latency when a component or server becomes unavailable to automatically restart it or redirect traffic.
+Solution: The observed component sends heartbeat messages to another component monitoring the system in regular predictable intervals. When the monitoring component does not receive the message it assumes the observed component is unavailable and initiates corrective actions.
+Options: The heartbeat message can carry data to be processed. Standard data messages can stand in for heartbeat messages so that extra messages are only sent when no regular data messages are sent for a period.
+Benefits, costs, tradeoffs: Component operation can be observed. Only unidirectional messaging is needed. The observed component defines heartbeat frequency and thus detection latency and network overhead. Higher detection latency can be achieved at the cost of higher network traffic with more frequent messages; higher confidence in detection can be achieved at the cost of lower latency by waiting for multiple missing messages. 
+Alternatives: Ping/echo tactic where the monitoring component requests responses.
+Source: <a href="https://www.se.rit.edu/~swen-440/slides/instructor-specific/Kuehl/Lecture%2019%20Design%20Tactics.pdf">https://www.se.rit.edu/~swen-440/slides/instructor-specific/Kuehl/Lecture%2019%20Design%20Tactics.pdf</a></p>
+</aside></script></section><section data-markdown><script type="text/template">### Machine learning pattern for reproducibility: Feature Store
+
+![Feature store pattern](feature-store.png)<!-- .element: style="width:600px" -->
+
+Intent: Reuse features across projects by decoupling feature creation from model development and serving
+
+<aside class="notes"><p>Source: <a href="https://changyaochen.github.io/ML-design-pattern-1/">https://changyaochen.github.io/ML-design-pattern-1/</a>
+Motivation: The same feature engineering code is needed during model training and model serving; inconsistencies are dangerous. In addition, some features may be expensive to compute but useful in multiple projects. Also, data scientists often need the same or similar features across multiple projects, but often lack a systematic mechanism for reuse.
+Solution: Separate feature engineering code and reuse it both in the training pipeline and the model inference infrastructure. Catalog features with metadata to make them discoverable. Cache computed features used in multiple projects. Typically implemented in open-source infrastructure projects.
+Benefits: Reusable features across projects; avoiding redundant feature computations; preventing training-serving skew; central versioning of features; separation of concerns.
+Costs: Nontrivial infrastructure; extra engineering overhead in data science projects.
+This concept is discussed in more depth in chapter Deploying a Model.</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template"># Scoping Relevant Qualities of ML Components
 
 From System Quality Requirements to Component Quality Specifications
+
+</script></section><section data-markdown><script type="text/template">## AI = DL?
+
+![not-dl](not-dl.jpg)
 </script></section><section data-markdown><script type="text/template">## Design Decision: ML Model Selection
 
 How do I decide which ML algorithm to use for my project?
@@ -319,39 +524,105 @@ Among the qualities of interest, which one(s) do we care the most
 about?
 * And which ML algorithm is most suitable for achieving those qualities?
 * (Similar to requirements conflicts)
+</script></section></section><section ><section data-markdown><script type="text/template"># Common ML Algorithms and their Qualities
+</script></section><section data-markdown><script type="text/template">## Linear Regression
 
-</script></section><section data-markdown><script type="text/template">## Trade-offs: Cost vs Accuracy
+![linear-regression](linear-regression.png)
 
+* Tasks: Regression
+* Qualities: __Advantages__: ??  __Drawbacks__: ??
+
+<aside class="notes"><ul>
+<li>Easy to interpret, low training cost, small model size</li>
+<li>Can&#39;t capture non-linear relationships well</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">## Decision Trees
 <!-- colstart -->
 
-![Netflix prize leaderboard](netflix-leaderboard.png)
-<!-- .element: class="stretch" -->
+![Decision tree](decisiontreeexample.png)
+<!-- .element: class="plain stretch" -->
 
 <!-- col -->
 
-_"We evaluated some of the new methods offline but the additional
-accuracy gains that we measured did not seem to justify the
-engineering effort needed to bring them into a production
-environment.”_
+  
+* Tasks: Classification & regression
+* Qualities: __Advantages__: ??  __Drawbacks__: ??
 
 <!-- colend -->
+<aside class="notes"><p>Building:</p>
+<ul>
+<li>Identify all possible decisions</li>
+<li>Select the decision that best splits the dataset into distinct
+outcomes (typically via entropy or similar measure)</li>
+<li>Repeatedly further split subsets, until stopping criteria reached</li>
+<li>random forests do the same but with multiple trees, prediction of multiple trees</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+### Neural Networks + Deep Learning
 
-<!-- references_ -->
+<div class="small">
 
-Amatriain & Basilico. [Netflix Recommendations: Beyond the 5 stars](https://netflixtechblog.com/netflix-recommendations-beyond-the-5-stars-part-1-55838468f429),
-Netflix Technology Blog (2012)
-</script></section><section data-markdown><script type="text/template">## Trade-offs: Accuracy vs Interpretability
+Simulating biological neural networks of neurons (nodes) and synapses (connections).
+Basic building blocks: Artificial neurons, in layers. 
 
-![Illustrated interpretability accuracy tradeoff](tradeoffs.png)
+Deep learning: more layers, different numbers of neurons. Different kinds of connections. 
+
+**Advantages ?? Drawbacks??**
+
+![Xkcd commit 2173](xkcd2173.png)<!-- .element: class="plain" style="width:300px" -->
+
+<!-- references -->
+[XKCD 2173](https://xkcd.com/2173/), cc-by-nc 2.5 Randall Munroe
+
+See Chapter 10 in Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019) or any other book on deep learning
+
+
+</div>
+
+<aside class="notes"><p>Artificial neural networks are inspired by how biological neural networks work (&quot;groups of chemically connected or functionally associated neurons&quot; with synapses forming connections)</p>
+<ul>
+<li>High accuracy; can capture a wide range of problems (linear &amp; non-linear)</li>
+<li>Difficult to interpret; high training costs (time &amp; amount of
+data required, hyperparameter tuning)</li>
+</ul>
+<p>From &quot;Texture of the Nervous System of Man and the Vertebrates&quot; by Santiago Ramón y Cajal, via <a href="https://en.wikipedia.org/wiki/Neural_circuit#/media/File:Cajal_actx_inter.jpg">https://en.wikipedia.org/wiki/Neural_circuit#/media/File:Cajal_actx_inter.jpg</a></p>
+</aside></script></section><section data-markdown><script type="text/template">## Example Scenario
+
+*MNIST Fashion dataset of 70k 28x28 grayscale pixel images, 10 output classes*
+
+![MNIST Fashion](fashion_mnist.png)
 <!-- .element: class="stretch" -->
+</script></section><section data-markdown><script type="text/template">## Example Scenario
 
-**Q. Examples where one is more important than the other?**
+* MNIST Fashion dataset of 70k 28x28 grayscale pixel images, 10 output classes
+* 28x28 = 784 inputs in input layers (each 0..255)
+* Example model with 3 layers, 300, 100, and 10 neurons
 
-<!-- references_ -->
+```python
+model = keras.models.Sequential([
+  keras.layers.Flatten(input_shape=[28, 28]),
+  keras.layers.Dense(300, activation="relu"),
+  keras.layers.Dense(100, activation="relu"),
+  keras.layers.Dense(10, activation="softmax")
+])
+```
 
-Bloom & Brink. [Overcoming the Barriers to Production-Ready Machine Learning
-Workflows](https://conferences.oreilly.com/strata/strata2014/public/schedule/detail/32314), Presentation at O'Reilly Strata Conference (2014).
+**How many parameters does this model have?**
+</script></section><section data-markdown><script type="text/template">## Example Scenario
 
+```python
+model = keras.models.Sequential([
+  keras.layers.Flatten(input_shape=[28, 28]),
+  # 784*300+300 = 235500 parameter
+  keras.layers.Dense(300, activation="relu"), 
+  # 300*100+100 = 30100 parameters
+  keras.layers.Dense(100, activation="relu"),
+  # 100*10+10 = 1010 parameters
+  keras.layers.Dense(10, activation="softmax")
+])
+```
+
+Total of 266,610 parameters in this small example! (Assuming float types, that's 1 MB)
 </script></section><section data-markdown><script type="text/template">## Network Size
 
 <div class="smallish">
@@ -411,6 +682,49 @@ Strubell, Emma, Ananya Ganesh, and Andrew McCallum. "[Energy and Policy Consider
 
 <!-- references -->
 Strubell, Emma, Ananya Ganesh, and Andrew McCallum. "[Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/pdf/1906.02243.pdf)." In Proc. ACL, pp. 3645-3650. 2019.
+
+
+</script></section><section data-markdown><script type="text/template">## Trade-offs: Cost vs Accuracy
+
+<!-- colstart -->
+
+![Netflix prize leaderboard](netflix-leaderboard.png)
+<!-- .element: class="stretch" -->
+
+<!-- col -->
+
+_"We evaluated some of the new methods offline but the additional
+accuracy gains that we measured did not seem to justify the
+engineering effort needed to bring them into a production
+environment.”_
+
+<!-- colend -->
+
+<!-- references_ -->
+
+Amatriain & Basilico. [Netflix Recommendations: Beyond the 5 stars](https://netflixtechblog.com/netflix-recommendations-beyond-the-5-stars-part-1-55838468f429),
+Netflix Technology Blog (2012)
+</script></section><section data-markdown><script type="text/template">## Trade-offs: Accuracy vs Interpretability
+
+![Illustrated interpretability accuracy tradeoff](tradeoffs.png)
+<!-- .element: class="stretch" -->
+
+**Q. Examples where one is more important than the other?**
+
+<!-- references_ -->
+
+Bloom & Brink. [Overcoming the Barriers to Production-Ready Machine Learning
+Workflows](https://conferences.oreilly.com/strata/strata2014/public/schedule/detail/32314), Presentation at O'Reilly Strata Conference (2014).
+</script></section><section data-markdown><script type="text/template">## Breakout: Qualities & ML Algorithms
+
+Consider two scenarios:
+1. Credit card fraud detection
+2. Pedestrian detection in sidewalk robot
+
+As a group, post to `#lecture` tagging all group members:
+>  * Qualities of interests: ??
+>  * Constraints: ??
+>  * ML algorithm(s) to use: ??
 
 
 

@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Fall 2024</div><section  data-markdown><script type="text/template">
+      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024</div><section  data-markdown><script type="text/template">
 <!-- .element: class="titleslide"  data-background="../_chapterimg/03_modeltesting.jpg" -->
 <div class="stretch"></div>
 
@@ -31,7 +31,10 @@
 <p class="small" style="margin-top:0 !important">(Slicing, Capabilities, Invariants, Simulation, ...)</p>
 
 <!-- image: https://pixabay.com/photos/microscope-slide-research-close-up-275984/ -->
+</script></section><section  data-markdown><script type="text/template">## Administrativa
 
+* VMs, team mentors...
+* A word on pull requests...
 </script></section><section ><section data-markdown><script type="text/template">## More model-level QA...
 
 
@@ -47,14 +50,14 @@
 </script></section></section><section ><section data-markdown><script type="text/template"># Model Quality
 
 
-**First Part:** Measuring Prediction Accuracy (Done)
+**First Part:** Measuring Prediction Accuracy
 * the data scientist's perspective
 
-**Second Part:** What is Correctness Anyway? (Today)
+**Second Part:** What is Correctness Anyway?
 * the role and lack of specifications, validation vs verification
 
-**Third Part:** Learning from Software Testing (Today)
-* unit testing, test case curation, invariants, simulation
+**Third Part:** Learning from Software Testing 🠔
+* unit testing, test case curation, invariants, simulation (next lecture)
 
 **Later:** Testing in Production
 * monitoring, A/B testing, canary releases (in 2 weeks)
@@ -101,6 +104,29 @@ Post answer to `#lecture` tagging group members in Slack using template:
 > Test quantity: ...<br />
 
 </div>
+</script></section><section data-markdown><script type="text/template">## Defining Software Testing
+
+* Program *p* with specification *s*
+* Test consists of
+    - Controlled environment
+    - Test call, test inputs
+    - Expected behavior/output (oracle)
+
+```java
+assertEquals(4, add(2, 2));
+assertEquals(??, factorPrime(15485863));
+```
+
+Testing is complete but unsound: 
+Cannot guarantee the absence of bugs
+
+</script></section><section data-markdown><script type="text/template">## How to Create Test Cases?
+
+```scala
+def nextDate(year: Int, month: Int, day: Int) = ...
+```
+
+<!-- discussion -->
 
 
 <aside class="notes"><p>Can focus on specification (and concepts in the domain, such as
@@ -170,6 +196,9 @@ def busTicketPrice(age: Int,
 </script></section><section data-markdown><script type="text/template">## Selecting Validation Data for Model Quality?
 
 
+<!-- discussion -->
+
+</script></section><section data-markdown><script type="text/template">## Validation Data Representative?
 
 * Validation data should reflect usage data
 * Be aware of data drift (face recognition during pandemic, new patterns in credit card fraud detection)
@@ -179,7 +208,7 @@ def busTicketPrice(age: Int,
 
 
 
-</script></section><section data-markdown><script type="text/template">## Not All Inputs are Equal: Frequent Cases
+</script></section><section data-markdown><script type="text/template">## Not All Inputs are Equal
 
 ![Google Home](googlehome.jpg)
 <!-- .element: class="stretch" -->
@@ -187,7 +216,11 @@ def busTicketPrice(age: Int,
 "Call mom"
 "What's the weather tomorrow?"
 "Add asafetida to my shopping list"
-</script></section><section data-markdown><script type="text/template">## Not All Inputs are Equal: Edge Cases
+</script></section><section data-markdown><script type="text/template">## Not All Inputs are Equal
+
+> There Is a Racial Divide in Speech-Recognition Systems, Researchers Say:
+> Technology from Amazon, Apple, Google, IBM and Microsoft misidentified 35 percent of words from people who were black. White people fared much better. -- [NYTimes March 2020](https://www.nytimes.com/2020/03/23/technology/speech-recognition-bias-apple-amazon-google.html)
+</script></section><section data-markdown><script type="text/template">## Not All Inputs are Equal
 
 ![Corner cases in autonomous driving perception](av-weird-cases.jpg)
 <!-- .element: class="stretch plain" -->
@@ -197,29 +230,25 @@ def busTicketPrice(age: Int,
 
 * A system to detect when somebody is at the door that never works for people under 5ft (1.52m)
 * A spam filter that deletes alerts from banks
-* Technology from Amazon, Apple, Google, IBM and Microsoft misidentified 35 percent of words from people who were black. White people fared much better. -- [NYTimes March 2020](https://www.nytimes.com/2020/03/23/technology/speech-recognition-bias-apple-amazon-google.html)
 
-</script></section><section data-markdown><script type="text/template">## How do you identify Important Inputs?
 
-(We already hinted so...)
-<!-- discussion -->
+**Consider separate evaluations for important subpopulations; monitor mistakes in production**
+
+
 </script></section><section data-markdown><script type="text/template">## Identify Important Inputs
 
-Curate **Validation Data for Specific Problems and Subpopulations**:
-
-<div class="smallish">
-
-* Important inputs ("call mom") -- expect very high accuracy 
-  * closest equivalent to **unit tests**
-* Different subpopulations (e.g., accents) -- expect comparable accuracy
-* Challenging cases or stretch goals -- accept lower accuracy
-
-</div>
+Curate Validation Data for Specific Problems and Subpopulations:
+* *Regression testing:* Validation dataset for important inputs ("call mom") -- expect very high accuracy -- closest equivalent to **unit tests**
+* *Uniformness/fairness testing:* Separate validation dataset for different subpopulations (e.g., accents) -- expect comparable accuracy
+* *Setting goals:* Validation datasets for challenging cases or stretch goals -- accept lower accuracy
 
 Derive from requirements, experts, user feedback, expected problems etc. Think *specification-based testing*.
 
+</script></section><section data-markdown><script type="text/template">## Important Input Groups for Cancer Prognosis?
 
-</script></section><section data-markdown><script type="text/template">## Access to Important Inputs: Partitioning
+<!-- discussion -->
+
+</script></section><section data-markdown><script type="text/template">## Input Partitioning
 
 * Guide testing by identifying groups and analyzing accuracy of subgroups
   * Often for fairness: gender, country, age groups, ...
@@ -233,28 +262,29 @@ Derive from requirements, experts, user feedback, expected problems etc. Think *
 Good reading: Barash, Guy, Eitan Farchi, Ilan Jayaraman, Orna Raz, Rachel Tzoref-Brill, and Marcel Zalmanovici. "Bridging the gap between ML solutions and their business requirements using feature interactions." In Proc. Symposium on the Foundations of Software Engineering, pp. 1048-1058. 2019.
 </script></section><section data-markdown><script type="text/template">## Input Partitioning Example
 
-Slice and hypothesis on model's cat recognition behavior
-
-
 <div class="small">
 
-![Input partitioning example](inputpartitioning_cat.jpg)
+<!-- colstart -->
+![Input partitioning example](inputpartitioning2.png)
+
+Input divided by movie age. Notice low accuracy, but also low support (i.e., little validation data), for old movies.
+<!-- col -->
+![Input partitioning example](inputpartitioning.png)
+
+Input divided by genre, rating, and length. Accuracy differs, but also amount of test data used ("support") differs, highlighting low confidence areas.
+<!-- colend -->
+
 
 </div>
 
 <!-- references -->
 
-Source: Johnson, Nari, et al. "Where Does My Model Underperform? A Human Evaluation of Slice Discovery Algorithms." In HCOMP 2023
-</script></section><section data-markdown><script type="text/template">## Input Partitioning Example
+Source: Barash, Guy, et al. "Bridging the gap between ML solutions and their business requirements using feature interactions." In Proc. FSE, 2019.
+</script></section><section data-markdown><script type="text/template">## Input Partitioning Discussion
 
+**How to slice evaluation data for cancer prognosis?**
 
-Multiple slices on image recognition, and model comparison
-![Input partitioning example](inputpartitioning_zeno.png)
-
-
-<!-- references -->
-
-Source: Cabrera, Alex, et al. "Zeno: An Interactive Framework for Behavioral Evaluation of Machine Learning." In CHI 2023
+<!-- discussion -->
 
 </script></section><section data-markdown><script type="text/template">## Example: Model Impr. at Apple (Overton)
 
@@ -266,7 +296,7 @@ Source: Cabrera, Alex, et al. "Zeno: An Interactive Framework for Behavioral Eva
 
 Ré, Christopher, Feng Niu, Pallavi Gudipati, and Charles Srisuwananukorn. "[Overton: A Data System for Monitoring and Improving Machine-Learned Products](https://arxiv.org/abs/1909.05372)." arXiv preprint arXiv:1909.05372 (2019).
 
-</script></section><section data-markdown><script type="text/template">## Example: Model Impr. at Apple (Overton)
+</script></section><section data-markdown><script type="text/template">## Example: Model Improvement at Apple (Overton)
 
 * Focus engineers on creating training and validation data, not on model search (AutoML)
 * Flexible infrastructure to slice telemetry data to identify underperforming subpopulations -> focus on creating better training data (better, more labels, in semi-supervised learning setting)
@@ -275,12 +305,6 @@ Ré, Christopher, Feng Niu, Pallavi Gudipati, and Charles Srisuwananukorn. "[Ove
 <!-- references -->
 
 Ré, Christopher, Feng Niu, Pallavi Gudipati, and Charles Srisuwananukorn. "[Overton: A Data System for Monitoring and Improving Machine-Learned Products](https://arxiv.org/abs/1909.05372)." arXiv preprint arXiv:1909.05372 (2019).
-
-</script></section><section data-markdown><script type="text/template">## Input Partitioning Discussion
-
-**How to slice evaluation data for cancer prognosis?**
-
-<!-- discussion -->
 
 
 
@@ -301,37 +325,110 @@ Further reading: Christian Kaestner. [Rediscovering Unit Testing: Testing Capabi
 <!-- figure: https://pixabay.com/photos/checklist-goals-box-notebook-pen-2589418/ -->
 </script></section><section data-markdown><script type="text/template">## Testing Capabilities
 
-Core idea: Define "capabilities" that the model should grasp in order to do a test well, and create targeted test cases for those capabilities.
-![Examples of Capabilities from Checklist Paper](capabilities2.png)
-Where do capabilities come from?
-
-<!-- references -->
-
-Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
-
-</script></section><section data-markdown><script type="text/template">## Capabilities and where they come from
-
 <div class="smallish">
 
-<!-- colstart -->
+Are there "concepts" or "capabilities" the model should learn?
 
-In the paper we listed a bunch of standard, "shared" capabilities across NLP tasks -- e.g. whatever model it is, it should be able to handle negation, synonyms, etc., just that the model should react in different ways.
+Example capabilities of sentiment analysis:
+* Handle *negation*
+* Robustness to *typos*
+* Ignore synonyms and abbreviations
+* Person and location names are irrelevant
+* Ignore gender
+* ...
 
-Should be more use-case specific and from domain knowledge!
-
-<!-- col -->
-
-![list of capabilities](capability_list.png)
-
-<!-- colend -->
+For each capability create specific test set (multiple examples) 
 
 </div>
 
+<!-- references -->
+
+Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+
+</script></section><section data-markdown><script type="text/template">## Testing Capabilities
+
+![Examples of Capabilities from Checklist Paper](capabilities1.png)
+
+
+<!-- references -->
+
+From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+
+</script></section><section data-markdown><script type="text/template">## Testing Capabilities
+
+![Examples of Capabilities from Checklist Paper](capabilities2.png)
+
+
+<!-- references -->
+
+From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+</script></section><section data-markdown><script type="text/template">## Examples of Capabilities
+
+**What could be capabilities of the cancer classifier?**
+
+![radiology](radiology.jpg)
+</script></section><section data-markdown><script type="text/template">## Capabilities vs Specifications vs Slicing
+
+<!-- discussion -->
+</script></section><section data-markdown><script type="text/template">## Capabilities vs Specifications vs Slicing
+
+Capabilities are partial specifications of expected behavior (not expected to always hold)
+
+Some capabilities correspond to slices of existing test data, for others we may need to create new data
+</script></section><section data-markdown><script type="text/template">## Recall: Is it fair to expect generalization beyond training distribution?
+
+
+![](radiology-distribution.png)
+<!-- .element: class="plain stretch" -->
+
+*Shall a cancer detector generalize to other hospitals? Shall image captioning generalize to describing pictures of star formations?*
+
+<aside class="notes"><p>We wouldn&#39;t test a first year elementary school student on high-school math. This would be &quot;out of the training distribution&quot;</p>
+</aside></script></section><section data-markdown><script type="text/template">## Recall: Shortcut Learning
+
+![Shortcut learning illustration from paper below](shortcutlearning.png)
+<!-- .element: class="plain stretch" -->
+
 <!-- references_ -->
+Figure from: Geirhos, Robert, et al. "[Shortcut learning in deep neural networks](https://arxiv.org/abs/2004.07780)." Nature Machine Intelligence 2, no. 11 (2020): 665-673.
+</script></section><section data-markdown><script type="text/template">## More Shortcut Learning :)
 
-Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+![Cows with different backgrounds](shortcutlearning-cows.png)
+
+<!-- references -->
+Figure from Beery, Sara, Grant Van Horn, and Pietro Perona. “Recognition in terra incognita.” In Proceedings of the European Conference on Computer Vision (ECCV), pp. 456–473. 2018.
+</script></section><section data-markdown><script type="text/template">## Generalization beyond Training Distribution?
+
+<div class="smallish">
+
+* Typically training and validation data from same distribution (i.i.d. assumption!)
+* Many models can achieve similar accuracy
+* Models that learn "right" abstractions possibly indistinguishable from models that use shortcuts
+  - see tank detection example
+  - Can we guide the model towards "right" abstractions?
+* Some models generalize better to other distributions not used in training
+  - e.g., cancer images from other hospitals, from other populations
+  - Drift and attacks, ...
+
+</div>
+
+<!-- references -->
+
+See discussion in D'Amour, Alexander, et al. "[Underspecification presents challenges for credibility in modern machine learning](https://arxiv.org/abs/2011.03395)." arXiv preprint arXiv:2011.03395 (2020).
+</script></section><section data-markdown><script type="text/template">## Hypothesis: Testing Capabilities may help with Generalization
+
+* Capabilities are "partial specifications", given beyond training data
+* Encode domain knowledge of the problem
+  * Capabilities are inherently domain specific
+  * Curate capability-specific test data for a problem
+* Testing for capabilities helps to distinguish models that use intended abstractions
+* May help find models that generalize better
 
 
+
+<!-- references -->
+
+See discussion in D'Amour, Alexander, Katherine Heller, Dan Moldovan, Ben Adlam, Babak Alipanahi, Alex Beutel, Christina Chen et al. "[Underspecification presents challenges for credibility in modern machine learning](https://arxiv.org/abs/2011.03395)." arXiv preprint arXiv:2011.03395 (2020).
 </script></section><section data-markdown><script type="text/template">
 ## Strategies for identifying capabilities
 
@@ -344,29 +441,13 @@ Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond
 <!-- references -->
 
 Further reading: Christian Kaestner. [Rediscovering Unit Testing: Testing Capabilities of ML Models](https://towardsdatascience.com/rediscovering-unit-testing-testing-capabilities-of-ml-models-b008c778ca81). Toward Data Science, 2021.
-</script></section><section data-markdown><script type="text/template">## Testing Capabilities
-
-<div class="small">
-
-![CheckList interface](checklist_interface.png)
-
-</div>
-
-<!-- references -->
-
-Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 
 </script></section><section data-markdown><script type="text/template">## Examples of Capabilities
 
-**What could be capabilities of the cancer classifier?**
+**What could be capabilities of image captioning system?**
 
-![radiology](radiology.jpg)
-</script></section><section data-markdown><script type="text/template">## Capabilities vs Specifications vs Slicing
-
-Capabilities are partial specifications of expected behavior (not expected to always hold)
-
-Some capabilities correspond to slices of existing test data, for others we may need to **create new data**
+![Image captioning task](imgcaptioning.png)
 
 
 </script></section><section data-markdown><script type="text/template">## Generating Test Data for Capabilities
@@ -386,22 +467,24 @@ Figure from Geirhos, Robert, Patricia Rubisch, Claudio Michaelis, Matthias Bethg
 
 **Idea 2: Mutating existing inputs**
 
-* Testing *synonyms* in sentiment analysis by replacing words with synonyms, keeping label
-* Testing *robust against noise and distraction* add `and false is not true` or random URLs to text
+Testing *synonyms* in sentiment analysis by replacing words with synonyms, keeping label
+
+Testing *robust against noise and distraction* add `and false is not true` or random URLs to text
 
 ![Examples of Capabilities from Checklist Paper](capabilities1.png)
 
 
 <!-- references -->
 
-Figure from: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
+Figure from: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 </script></section><section data-markdown><script type="text/template">## Generating Test Data for Capabilities
 
 **Idea 3: Crowd-sourcing test creation**
 
-* Testing *sarcasm* in sentiment analysis: Ask humans to minimally change text to flip sentiment with sarcasm
-* Testing *background* in object detection: Ask humans to take pictures of specific objects with unusual backgrounds
+Testing *sarcasm* in sentiment analysis: Ask humans to minimally change text to flip sentiment with sarcasm
+
+Testing *background* in object detection: Ask humans to take pictures of specific objects with unusual backgrounds
 
 ![Example of modifications to text](sarcasm.png)
 
@@ -421,21 +504,9 @@ Testing *negation* in sentiment analysis by finding sentences containing 'not'
 <!-- references_ -->
 
 Ré, Christopher, Feng Niu, Pallavi Gudipati, and Charles Srisuwananukorn. "[Overton: A Data System for Monitoring and Improving Machine-Learned Products](https://arxiv.org/abs/1909.05372)." arXiv preprint arXiv:1909.05372 (2019).
-</script></section><section data-markdown><script type="text/template">## Generating Test Data for Capabilities
-
-**Idea 5: Directly synthesize data using LLMs**
-
-This can give you "pseudo" labeled data for tasks/capabilities largest models are known to have. Known as "distillation"
 
 
-![Generate test data from prompt](image.png)
-<!-- .element: class="stretch" -->
-
-
-<!-- references_ -->
-
-Yu, Yue, Yuchen Zhuang, Jieyu Zhang, Yu Meng, Alexander J. Ratner, Ranjay Krishna, Jiaming Shen, and Chao Zhang. "Large language model as attributed training data generator: A tale of diversity and bias." Advances in Neural Information Processing Systems 36 (2024).
-</script></section><section data-markdown><script type="text/template">## Generating Test Data for Capabilities
+</script></section><section data-markdown><script type="text/template">## Examples of Capabilities
 
 **How to generate test data for capabilities of the cancer classifier?**
 
@@ -447,70 +518,19 @@ Yu, Yue, Yuchen Zhuang, Jieyu Zhang, Yu Meng, Alexander J. Ratner, Ranjay Krishn
 * Strategies for curating test data can also help select training data
 * Generate capability-specific training data to guide training (data augmentation)
 
-![Example of modifications to text](sarcasm.png)
-
-
 <!-- references -->
 
 Further reading on using domain knowledge during training: Von Rueden, Laura, Sebastian Mayer, Jochen Garcke, Christian Bauckhage, and Jannis Schuecker. "Informed machine learning–towards a taxonomy of explicit integration of knowledge into machine learning." Learning 18 (2019): 19-20.
-</script></section><section data-markdown><script type="text/template">## Why Augmentation: Generalization beyond Training Distribution?
 
-<div class="small">
+ 
+</script></section><section data-markdown><script type="text/template">## Preliminary Summary: Specification-Based Testing Techniques as Inspiration
 
-<!-- colstart -->
+* Boundary value analysis
+* Partition testing & equivalence classes
+* Combinatorial testing
+* Decision tables
 
-* Typically training and validation data from same distribution (i.i.d. assumption!)
-* Many models can achieve similar accuracy
-* Models that learn "right" abstractions possibly indistinguishable from models that use shortcuts
-* Some models generalize better to other distributions not used in training
-  - e.g., cancer images from other hospitals, from other populations
-  - Drift and attacks, ...
-
-
-<!-- col -->
-
-
-![](radiology-distribution.png)
-<!-- .element: class="plain stretch" -->
-
-<!-- colend -->
-
-</div>
-
-<!-- references -->
-
-See discussion in D'Amour, Alexander, et al. "[Underspecification presents challenges for credibility in modern machine learning](https://arxiv.org/abs/2011.03395)." arXiv preprint arXiv:2011.03395 (2020).
-</script></section><section data-markdown><script type="text/template">## Hypothesis: Capabilities may help 
-
-<div class="small">
-
-
-<!-- colstart -->
-
-* Capabilities are "partial specifications", given beyond training data
-* Encode domain knowledge of the problem
-  * Capabilities are inherently domain specific
-  * Curate capability-specific test data for a problem
-* Testing for capabilities helps to distinguish models that use intended abstractions
-* May help find models that generalize better
-
-<!-- col -->
-
-![](contrastset.png)
-<!-- .element: class="plain stretch" -->
-
-<!-- colend -->
-
-</div>
-
-<!-- references -->
-
-Matt Gardner et al. "[Evaluating Models’ Local Decision Boundaries via Contrast Sets](https://arxiv.org/pdf/2004.02709)." arXiv 2020.
-
-<!-- references -->
-
-See discussion in D'Amour, Alexander, Katherine Heller, Dan Moldovan, Ben Adlam, Babak Alipanahi, Alex Beutel, Christina Chen et al. "[Underspecification presents challenges for credibility in modern machine learning](https://arxiv.org/abs/2011.03395)." arXiv preprint arXiv:2011.03395 (2020).
-
+Use to identify datasets for **subpopulations** and **capabilities**, not individual tests.
 </script></section><section data-markdown><script type="text/template">## On Terminology
 
 * Test data curation is emerging as a very recent concept for testing ML components
@@ -543,7 +563,27 @@ See discussion in D'Amour, Alexander, Katherine Heller, Dan Moldovan, Ben Adlam,
 ![Random dice throw](random.jpg)
 
 <!-- https://pixabay.com/photos/dice-game-random-gambling-1963036/ -->
+</script></section><section data-markdown><script type="text/template">## Random Test Input Generation is Easy
 
+
+```java
+@Test
+void testNextDate() {
+  nextDate(488867101, 1448338253, -997372169)
+  nextDate(2105943235, 1952752454, 302127018)
+  nextDate(1710531330, -127789508, 1325394033)
+  nextDate(-1512900479, -439066240, 889256112)
+  nextDate(1853057333, 1794684858, 1709074700)
+  nextDate(-1421091610, 151976321, 1490975862)
+  nextDate(-2002947810, 680830113, -1482415172)
+  nextDate(-1907427993, 1003016151, -2120265967)
+}
+```
+
+**But is it useful?**
+</script></section><section data-markdown><script type="text/template">## Cancer in Random Image?
+
+![](white-noise.jpg)
 </script></section><section data-markdown><script type="text/template">## Randomly Generating "Realistic" Inputs is Possible
 
 
@@ -573,6 +613,7 @@ void testCancerPrediction() {
 }
 ```
 
+* **Realistic inputs?**
 * **But how do we get labels?**
 
 </script></section><section data-markdown><script type="text/template">## The Oracle Problem
@@ -584,9 +625,22 @@ assertEquals(??, factorPrime(15485863));
 ```
 
 <!-- discussion -->
+
+</script></section><section data-markdown><script type="text/template">## Test Case Generation & The Oracle Problem
+
+<div class="smallish">
+
+* Manually construct input-output pairs (does not scale, cannot automate)
+* Comparison against gold standard (e.g., alternative implementation, executable specification)
+* Checking of global properties only -- crashes, buffer overflows, code injections
+* Manually written assertions -- partial specifications checked at runtime
+
+</div>
+
+![Solving the Oracle Problem with Gold Standard or Assertions](oracle.svg)
+
 </script></section><section data-markdown><script type="text/template">## Manually constructing outputs
 
-<div class="small">
 
 ```java
 @Test
@@ -606,14 +660,10 @@ void testCancerPrediction() {
 }
 ```
 
-</div>
-
 *(tedious, labor intensive; possibly crowd sourced)*
 </script></section><section data-markdown><script type="text/template">## Compare against reference implementation
 
 **assuming we have a correct implementation**
-
-<div class="small">
 
 ```java
 @Test
@@ -630,7 +680,6 @@ void testCancerPrediction() {
   assert cancerModel.predict(loadImage("random1.jpg")) == ???;
 }
 ```
-</div>
 
 *(usually no reference implementation for ML problems)*
 
@@ -638,29 +687,28 @@ void testCancerPrediction() {
 
 **Ensure, no computation crashes**
 
-<div class="small">
-
 ```java
 @Test
 void testNextDate() {
   nextDate(2010, 8, 20)
   nextDate(2024, 7, 15)
+  nextDate(2010, 2, 30)
 }
 ```
+
+
 ```java
 @Test
 void testCancerPrediction() {
   cancerModel.predict(generateRandomImage())
   cancerModel.predict(generateRandomImage())
+  cancerModel.predict(generateRandomImage())
 }
 ```
-</div>
 
 *(we usually do fear crashing bugs in ML models)*
-
 </script></section><section data-markdown><script type="text/template">## Invariants as partial specification
 
-<div class="small">
 
 ```java
 class Stack {
@@ -691,10 +739,62 @@ void testStackRandom() {
 }
 ```
 
-</div>
-</script></section><section data-markdown><script type="text/template">## Invariants in Machine Learned Models?
+</script></section><section data-markdown><script type="text/template">## Automated Testing / Test Case Generation / Fuzzing
 
-<!-- discussion -->
+* Many techniques to generate test cases
+* Dumb fuzzing: generate random inputs
+* Smart fuzzing (e.g., symbolic execution, coverage guided fuzzing): generate inputs to maximally cover the implementation
+* Program analysis to understand the shape of inputs, learning from existing tests
+* Minimizing redundant tests
+* Abstracting/simulating/mocking the environment
+*
+* Typically looking for crashing bugs or assertion violations
+
+</script></section><section data-markdown><script type="text/template">
+## Test Generation (Symbolic Execution)
+
+<!-- colstart -->
+Code:
+```java
+void foo(a, b, c) {
+    int x=0, y=0, z=0;
+    if (a) x=-2;
+    if (b<5) {
+        if (!a && c) y=1;
+        z=2;
+    }
+    assert(x+y+z!=3)
+}
+```
+
+<!-- col -->
+
+Paths:
+* $a\wedge (b<5)$: x=-2, y=0, z=2
+* $a\wedge\neg (b<5)$: x=-2, y=0, z=0
+* $\neg a\wedge (\neg a\wedge c)$: x=0, z=1, z=2
+* $\neg a\wedge (b<5)\wedge\neg (\neg a\wedge c)$: x=0, z=0, z=2
+* $\neg a\wedge (b<5)\wedge\neg (\neg a\wedge c)$: x=0, z=0, z=2
+* $\neg a\wedge\neg (b<5)$: x=0, z=0, z=0
+
+
+<!-- colend -->
+
+
+<aside class="notes"><p>example source: <a href="http://web.cs.iastate.edu/~weile/cs641/9.SymbolicExecution.pdf">http://web.cs.iastate.edu/~weile/cs641/9.SymbolicExecution.pdf</a></p>
+</aside></script></section><section data-markdown><script type="text/template">## Generating (Unlabled) Inputs for ML Problems
+
+<div class="smallish">
+
+* Completely random data generation (uniform sampling from each feature's domain)
+* Using knowledge about feature distributions (sample from each feature's distribution)
+* Knowledge about dependencies among features and whole population distribution (e.g., model with probabilistic programming language)
+* Mutate from existing inputs (e.g., small random modifications to select features)
+* Generate "fake data" with Generative Adversarial Networks
+* *Production data*
+
+</div>
+
 </script></section><section data-markdown><script type="text/template">## Invariants in Machine Learned Models (Metamorphic Testing)
 
 Exploit relationships between inputs
@@ -703,55 +803,29 @@ Exploit relationships between inputs
 * If inputs differ in **Y** output should be flipped
 * If inputs differ only in feature **F**, prediction for input with higher F should be higher
 * ...
+</script></section><section data-markdown><script type="text/template">## Invariants in Machine Learned Models?
 
-</script></section><section data-markdown><script type="text/template">## Metamorphic Testing, more formally
-
-Formal description of relationships among inputs and outputs (*Metamorphic Relations*)
-
-In general, for a model $f$ and inputs $x$ define two functions to transform inputs and outputs $g\_I$ and $g\_O$ such that:
-
-$\forall x. f(g\_I(x)) = g\_O(f(x))$
-
-<!-- vspace -->
-
-e.g. $g\_I(x)= \texttt{replace}(x, \text{" is ", " is not "})$ and $g\_O(x)=\neg x$
-
+<!-- discussion -->
 </script></section><section data-markdown><script type="text/template">## Some Capabilities are Invariants
 
 **Some capability tests can be expressed as invariants and automatically encoded as transformations to existing test data**
 
-<div class="smallish">
 
 * Negation should flip sentiment analysis result
 * Typos should not affect sentiment analysis result
 * Changes to locations or names should not affect sentiment analysis results
+
 ![Examples of NLP capability tests](capabilities1.png)
 
-</div>
 
 <!-- references -->
 
-From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
-</script></section><section data-markdown><script type="text/template">## Some Capabilities are Invariants
-
-<div class="smallish">
+From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://homes.cs.washington.edu/~wtshuang/static/papers/2020-acl-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 
 
-* For those that output should change: in ML we calculate the prediction probability
-  * Add negation to positive sentences should decrease the probability of model predicting it to be a positive sentence
-
-</div>
-
-
-![Examples of NLP capability tests](capabilities_dir.png)
-
-
-<!-- references -->
-
-From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[Beyond Accuracy: Behavioral Testing of NLP Models with CheckList](https://www.cs.cmu.edu/~sherryw/assets/pubs/2020-checklist.pdf)." In Proceedings ACL, p. 4902–4912. (2020).
 </script></section><section data-markdown><script type="text/template">## Examples of Invariants
 
-<div class="small">
+<div class="smallish">
 
 
 * Credit rating should not depend on gender:
@@ -765,13 +839,20 @@ From: Ribeiro, Marco Tulio, Tongshuang Wu, Carlos Guestrin, and Sameer Singh. "[
 * Low credit scores should never get a loan (sufficient conditions for classification, "anchors"):
     - $\forall x. x.\text{score} < 649 \Rightarrow \neg f(x)$
 
+Identifying invariants requires domain knowledge of the problem!
+
 </div>
+</script></section><section data-markdown><script type="text/template">## Metamorphic Testing
 
+Formal description of relationships among inputs and outputs (*Metamorphic Relations*)
 
+In general, for a model $f$ and inputs $x$ define two functions to transform inputs and outputs $g\_I$ and $g\_O$ such that:
 
-* Identifying invariants requires domain knowledge of the problem!
-* Powerful, if we have this we have automatic test in production
+$\forall x. f(g\_I(x)) = g\_O(f(x))$
 
+<!-- vspace -->
+
+e.g. $g\_I(x)= \texttt{replace}(x, \text{" is ", " is not "})$ and $g\_O(x)=\neg x$
 
 
 </script></section><section data-markdown><script type="text/template">## On Testing with Invariants/Assertions
@@ -787,7 +868,13 @@ Further reading:
 * Segura, Sergio, Gordon Fraser, Ana B. Sanchez, and Antonio Ruiz-Cortés. "[A survey on metamorphic testing](https://core.ac.uk/download/pdf/74235918.pdf)." IEEE Transactions on software engineering 42, no. 9 (2016): 805-824.
 * Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "[Anchors: High-precision model-agnostic explanations](https://sameersingh.org/files/papers/anchors-aaai18.pdf)." In Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
 
-</script></section><section data-markdown><script type="text/template">## Approaches for Checking Invariants
+</script></section><section data-markdown><script type="text/template">## Invariant Checking aligns with Requirements Validation
+
+![Machine Learning Validation vs Verification](mlvalidation.png)
+<!-- .element: class="plain" -->
+
+
+</script></section><section data-markdown><script type="text/template">## Approaches for Checking in Variants
 
 * Generating test data (random, distributions) usually easy
 * Transformations of existing test data
@@ -800,21 +887,15 @@ Further reading:
 Further readings: 
 Singh, Gagandeep, Timon Gehr, Markus Püschel, and Martin Vechev. "[An abstract domain for certifying neural networks](https://dl.acm.org/doi/pdf/10.1145/3290354)." Proceedings of the ACM on Programming Languages 3, no. POPL (2019): 1-30.
 
+</script></section><section data-markdown><script type="text/template">## Using Invariant Violations
 
+* Are invariants strict?
+  * Single violation in random inputs usually not meaningful
+  * In capability testing, average accuracy in realistic data needed
+  * Maybe strict requirements for fairness or robustness?
+* Do invariant violations matter if the input data is not representative?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- discussion -->
 
 </script></section></section><section ><section data-markdown><script type="text/template"># Simulation-Based Testing
 
@@ -879,119 +960,21 @@ Much of the security, safety and robustness literature in ML focuses on invarian
 
 
 
-
-
-
-
-
-
-
-
-
-</script></section></section><section ><section data-markdown><script type="text/template"># Property-based Testing
-
-</script></section><section data-markdown><script type="text/template">## How to Test Models for Generation Task?
-
-* So far most of model testing techniques we discuss expect a "ground-truth" output.
-* But what about "Generative AI", where no single ground-truth is available?
-  * E.g., an LLM-based quiz maker
-
-"Your goal is to create a well crafted set of four concise answers for a test for a specific question."
-</script></section><section data-markdown><script type="text/template">## Property-based Testing
-
-Instead of writing unit tests, we can test properties a function should satisfy.
-
-```python
-def test_gcd(): # greatest common divisor
-    assert 1 == gcd(15, 7)
-    assert 5 == gcd(15, 5)
-    assert 3 == gcd(-9, 15)
-```
-
-```python
-def test_gcd(n, m):
-    d = gcd(n, m)
-
-    assert d > 0  # 1) `d` is positive
-    assert n % d == 0  # 2) `d` divides `n`
-    assert m % d == 0  # 3) `d` divides `m`
-
-    # 4) no other number larger than `d` divides both `n` and `m`
-    for i in range(d + 1, min(n, m)):
-        assert (n % i) or (m % i)
-```
-</script></section><section data-markdown><script type="text/template">## Property-based Testing For Models
-
-
-"Your goal is to create a well crafted set of four concise answers for a test for a specific question."
-
-* There are only four answers 
-* Each generated answer should contain <15 words
-* All answers should be relevant to the question
-* All answers should be covered in the course material (provided as context)
-
-Some properties are easier to test with programs, but how to test "vaguer" properties?
-
-</script></section><section data-markdown><script type="text/template">## Testing Properties with LLMs
-
-
-How to test "vaguer" properties? Use LLM as a judge!
-
-* All answers should be relevant to the question
-  * "Is the answer relevant to the question? Answer yes or no." 
-
-
-Need to make sure LLM judgments align with human judgments -- This is a common pitfall for practitioners.
-
-<!-- references  -->
-Zheng, Lianmin, et al. "Judging llm-as-a-judge with mt-bench and chatbot arena." Advances in Neural Information Processing Systems 36 (2023): 46595-46623.
-
-<!-- references  -->
-Yan, Eugene, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar. 2024. ‘Applied LLMs - What We’ve Learned From A Year of Building with LLMs’. Applied LLMs. 8 June 2024. https://applied-llms.org/.
-
-</script></section><section data-markdown><script type="text/template">## Breakout Discussion
-
-<div class="small">
-
-Write a few (n>=3) property-based tests for the following prompt:
-
-"Your task is to analyze project handouts. Summarize the handouts in a concise and clear manner, identifying key project goals, milestones, and risks. Output your findings as a short memo I can send to my team. The goal of the memo is to ensure my team stays aligned on the project’s objectives, timelines, and deliverables while also identifying potential bottlenecks or challenges that could impact progress. Make sure to include all relevant details in your summary and analysis."
-
-**As a group, discuss what property-based tests you would write and how you would execute them.**
-
-Post answer to `#lecture` tagging group members in Slack using template:
-> Property Test: ...<br />
-> Test method: ...<br />
-> Test prompt / program: ...<br />
-
-</div>
-
-
-<aside class="notes"><p>Can focus on specification (and concepts in the domain, such as
-leap days and month lengths) or can focus on implementation</p>
-<p>Will not randomly sample from distribution of all days</p>
-</aside></script></section></section><section ><section data-markdown><script type="text/template"># Audits and Red Teaming
+</script></section></section><section  data-markdown><script type="text/template"># Audits and Red Teaming
 
 <!-- discussion -->
 
-Example: [Adversarial Nibbler](redteam_nibbler.png)</script></section><section data-markdown><script type="text/template"># Audits and Red Teaming
-
-<!-- colstart -->
-
-Example: [Adversarial Nibbler](https://www.dataperf.org/adversarial-nibbler), Google's crowdsourcing effort (framed as a "data-centric AI competition") to collect ptompyd that are likely to cause a generative text-to-image model to fail in an unsafe manner.
-
-<!-- col -->
-![Adversarial Nibbler](redteam_nibbler.png)
-<!-- .element: class="stretchright" -->
-
-<!-- colend -->
 
 
 
-</script></section></section><section ><section data-markdown><script type="text/template"># Other Testing Concepts
+</script></section><section ><section data-markdown><script type="text/template"># Other Testing Concepts
 
 </script></section><section data-markdown><script type="text/template">
 ## Test Coverage
+
+![](coverage.png)
+
+</script></section><section data-markdown><script type="text/template">## Example: Structural testing
 
 ```java
 int divide(int A, int B) {
@@ -1030,8 +1013,50 @@ int divide(int A, int B) {
 * Execute test suite after changes to detect regressions
     - Ideally automatically with continuous integration tools
 *
-* Maps well to curating test **sets** for important populations in ML
+* Maps well to curating test sets for important populations in ML
+</script></section><section data-markdown><script type="text/template">## Mutation Analysis
 
+* Start with program and passing test suite
+* Automatically insert small modifications ("mutants") in the source code
+    - `a+b` -> `a-b`
+    - `a<b` -> `a<=b`
+    - ...
+* Can program detect modifications ("kill the mutant")?
+* Better test suites detect more modifications ("mutation score")
+
+```java
+int divide(int A, int B) {
+  if (A==0)     // A!=0, A<0, B==0
+    return 0;   // 1, -1
+  if (B==0)     // B!=0, B==1
+    return -1;  // 0, -2
+  return A / B; // A*B, A+B
+} 
+assert(1, divide(1,1));
+assert(0, divide(0,1));
+assert(-1, divide(1,0));
+```
+</script></section><section data-markdown><script type="text/template">## Mutation Analysis
+
+* Some papers exist, but strategy unclear
+* Mutating model parameters? Mutating hyperparameters? Mutating inputs?
+* What's considered as killing a mutant, if we don't have specifications?
+*
+* Still unclear application...
+
+
+
+
+
+
+
+
+
+
+</script></section></section><section ><section data-markdown><script type="text/template"># Continuous Integration for Model Quality
+
+[![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
+<!-- .element: class="stretch" -->
 </script></section><section data-markdown><script type="text/template">## Continuous Integration
 
 ![](ci.png)
@@ -1052,6 +1077,34 @@ int divide(int A, int B) {
 * Optionally: Continuous deployment to production server
 
 </div>
+</script></section><section data-markdown><script type="text/template">## Dashboards for Model Evaluation Results
+
+[![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
+
+<!-- references  -->
+
+Jeremy Hermann and Mike Del Balso. [Meet Michelangelo: Uber’s Machine Learning Platform](https://eng.uber.com/michelangelo/). Blog, 2017
+</script></section><section data-markdown><script type="text/template">
+## Specialized CI Systems
+
+![Ease.ml/ci](easeml.png)
+
+<!-- references -->
+
+Renggli et. al, [Continuous Integration of Machine Learning Models with ease.ml/ci: Towards a Rigorous Yet Practical Treatment](http://www.sysml.cc/doc/2019/162.pdf), SysML 2019
+</script></section><section data-markdown><script type="text/template">## Dashboards for Comparing Models
+
+![MLflow UI](mlflow-web-ui.png)
+
+<!-- references -->
+
+Matei Zaharia. [Introducing MLflow: an Open Source Machine Learning Platform](https://databricks.com/blog/2018/06/05/introducing-mlflow-an-open-source-machine-learning-platform.html), 2018
+
+
+
+
+
+
 
 
 
