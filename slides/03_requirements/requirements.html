@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Claire Le Goues & Christian Kaestner, Carnegie Mellon University • Spring 2024</div><section  data-markdown><script type="text/template">  
+      <div class="slides"><div id="footer">Machine Learning in Production/AI Engineering • Christian Kaestner & Sherry Wu, Carnegie Mellon University • Fall 2024</div><section  data-markdown><script type="text/template">  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/06_requirements.jpg" -->
 <div class="stretch"></div>
 
@@ -205,11 +205,12 @@ Requirements & Design: **Think before coding**
 <!-- colend -->
 
 </div>
-</script></section><section data-markdown><script type="text/template">## Machine vs World
+</script></section><section data-markdown><script type="text/template">## The World vs The Machine 
+## (Environment vs Software)
 
 ![machine-world](worldvsmachine.svg)
 <!-- .element: class="stretch plain" -->
-</script></section><section data-markdown><script type="text/template">## Machine vs World
+</script></section><section data-markdown><script type="text/template">## The World vs The Machine 
 
 ![machine-world](worldvsmachine.svg)
 <!-- .element: class="stretch plain" -->
@@ -218,7 +219,7 @@ Requirements & Design: **Think before coding**
 world
 * A requirement describes a desired state of the world (i.e.,
 environment)
-* Machine (software) is designed to sense and manipulate the environment into
+* Software is designed to sense and manipulate the environment into
   this desired state using input & output devices
 </script></section><section data-markdown><script type="text/template">## Machine vs World: Fall Detection
 
@@ -256,8 +257,8 @@ lane.</p>
 </div></script></section><section data-markdown><script type="text/template">## Requirement vs Specification
 
 * System Requirement (REQ): What the system must ensure, in terms of desired
-  effects on the environment 
-* Software Specification (SPEC): What software must implement, expressed over
+  effects on the *environment* 
+* Software Specification (SPEC): What *software* must implement, expressed over
 the shared phenomena
 * Assumptions (ASM): What’s assumed about the behavior/properties of the environment; bridges the gap between REQ and SPEC
 
@@ -405,9 +406,9 @@ Wrong or violated specification (SPEC)?
 
 </script></section><section data-markdown><script type="text/template">## Process for Establishing Requirements
 
-1. Identify environmental entities and machine (software/ML) components
+1. Identify environmental entities and software/ML components
 2. State a desired requirement (REQ) over the environment
-3. Identify the interface between the environment & machine
+3. Identify the interface between the environment & software
 4. Identify the environmental assumptions (ASM)
 5. Develop specifications (SPEC) that are sufficient to establish REQ
 6. Check whether ASM ∧ SPEC ⊧ REQ
