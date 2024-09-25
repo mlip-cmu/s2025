@@ -483,30 +483,6 @@ Peng, Zi, Jinqiu Yang, Tse-Hsun Chen, and Lei Ma. "A first look at the integrati
 
 Hazelwood, Kim, Sarah Bird, David Brooks, Soumith Chintala, Utku Diril, Dmytro Dzhulgakov, Mohamed Fawzy et al. "Applied machine learning at facebook: A datacenter infrastructure perspective." In Int'l Symp. High Performance Computer Architecture. IEEE, 2018.
 
-----
-## Capacity Planning (Facebook Example)
-
-<div class="small">
-
-| Services | Relative Capacity | Compute | Memory |
-|--|--|--|--|
-| News Feed | 100x | Dual-Socket CPU | High |
-| Facer (face recognition) | 10x | Single-Socket CPU | Low |
-| Lumos (image understanding) | 10x | Single-Socket CPU | Low |
-| Search | 10x | Dual-Socket CPU | High |
-| Lang. Translation | 1x | Dual-Socket CPU | High |
-| Sigma (anomaly and spam detection) | 1x | Dual-Socket CPU | High |
-
-* Trillions of inferences per day, in real time
-* Preference for cheap single-CPU machines whether possible
-* Different latency requirements, some "nice to have" predictions
-* Some models run on mobile device to improve latency and reduce communication cost
-
-</div>
-
-<!-- references -->
-
-Hazelwood, et al. "Applied machine learning at facebook: A datacenter infrastructure perspective." In Int'l Symp. High Performance Computer Architecture. IEEE, 2018.
 
 
 ----
@@ -521,57 +497,6 @@ Can mistakes be isolated?
    - Telemetry to isolate errors to component?
 
 Logging and log analysis for what qualities?
-
-
-
----
-# Preview: Telemetry Design
-
-----
-## Telemetry Design
-
-How to evaluate system performance and mistakes in production?
-
-![](googletranslate.png)
-<!-- .element: class="stretch" -->
-
-Notes: Discuss strategies to determine accuracy in production. What kind of telemetry needs to be collected?
-
-----
-## The Right and Right Amount of Telemetry
-
-<div class="smallish">
-
-Purpose:
-   - Monitor operation
-   - Monitor mistakes (e.g., accuracy)
-   - Improve models over time (e.g., detect new features)
-
-Challenges:
-   - too much data, no/not enough data
-   - hard to measure, poor proxy measures
-   - rare events
-   - cost
-   - privacy
-
-**Interacts with deployment decisions**
-
-</div>
-
-----
-## Telemetry Tradeoffs
-
-What data to collect? How much? When?
-
-Estimate data volume and possible bottlenecks in system.
-
-![](googletranslate.png)
-<!-- .element: class="stretch" -->
-
-Notes: Discuss alternatives and their tradeoffs. Draw models as suitable.
-
-Some data for context:
-Full-screen png screenshot on Pixel 2 phone (1080x1920) is about 2mb (2 megapixel); Google glasses had a 5 megapixel camera and a 640x360 pixel screen, 16gb of storage, 2gb of RAM. Cellar cost are about $10/GB.
 
 
 
