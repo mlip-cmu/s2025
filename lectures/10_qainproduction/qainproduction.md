@@ -14,6 +14,13 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 ---
+## Logistics
+
+* Project M1 dues TODAY
+* Midterm exam next week (10/9), regular time and place for lectures, see `#announcements` for details
+* Schedule debriefing meetings with your TA mentor, before next Tuesday
+
+---
 
 <div class="tweet" data-src="https://twitter.com/changelog/status/1137359428632621060"></div>
 
