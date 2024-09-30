@@ -61,7 +61,7 @@ Labs Friday 9:30-10:50am in PH 226C (A) and  WEH 4709 (B) and 11-12:20pm in PH A
 
 Instructors: [Sherry Tongshuang Wu](https://www.cs.cmu.edu/~sherryw/) and [Christian Kaestner](https://www.cs.cmu.edu/~ckaestne/)
 
-TAs: tbd
+TAs: Chenyang Yang, Pedro Mendes, Purva Gulati, Rajeev Veeraraghavan, Xueying Jia
 
 ### Coordination
 

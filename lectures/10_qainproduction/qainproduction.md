@@ -18,6 +18,7 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 * Project M1 dues TODAY
 * Midterm exam next week (10/9), regular time and place for lectures, see `#announcements` for details
+    - Lab for next week (10/11) is cancelled
 * Schedule debriefing meetings with your TA mentor, before next Tuesday
 
 ---
