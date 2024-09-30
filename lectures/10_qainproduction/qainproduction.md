@@ -17,9 +17,12 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ## Logistics
 
 * Project M1 dues TODAY
-* Midterm exam next week (10/9), regular time and place for lectures, see `#announcements` for details
-    - Lab for next week (10/11) is cancelled
 * Schedule debriefing meetings with your TA mentor, before next Tuesday
+* Midterm exam next week (10/9), regular time and place for lectures, see `#announcements` for details
+    - Questions based on shared scenario, apply concepts
+    - All lectures and readings in scope, focus on concepts with opportunity to practice (e.g., recitations, homeworks, in-class exercises)
+    - Closed book, but 6 sheets of notes (sorry, no ChatGPT)
+    - Lab for next week (10/11) is cancelled
 
 ---
 
@@ -712,11 +715,89 @@ who here knows about the t test?  It's one of the standard tests for this kind o
 
 <!-- colend -->
 
+
+
+
+----
+# t-test
+
+We will ask for statistical test in M3 -- Many softwares implement it!
+
+```r
+> t.test(x, y, conf.level=0.9)
+
+        Welch Two Sample t-test
+
+t = 1.9988, df = 95.801, p-value = 0.04846
+alternative hypothesis: true difference in means is 
+not equal to 0 
+90 percent confidence interval:
+ 0.3464147 3.7520619 
+sample estimates:
+mean of x mean of y 
+ 51.42307  49.37383 
+
+> # paired t-test:
+> t.test(x-y, conf.level=0.9)
+```
+
+
 ----
 ## Decision tree of tests
 
+Many many other factors, e.g., dependent vs. independent measures
+
 ![Decision tree of tests](decisiontreeoftests.png)
 <!-- .element: class="plain" style="width: 600pt"--> 
+
+<!-- references_ -->
+(CC 4.0 [D Wells](https://commons.wikimedia.org/wiki/File:Standard_Normal_Distribution.png))
+
+----
+## How many samples needed?
+<!-- colstart -->
+**Too few?**
+
+Noise and random results!
+
+<!-- col -->
+**Too many?**
+
+Risk of spreading bad designs!
+
+<!-- colend -->
+
+
+
+Notes: 50/50? New model vs. old model 
+about 1:10 to here 
+inherently risky, so you don't want too many  in experiment
+
+----
+## Some factors that affect your sample size
+
+Different effect size, same deviations
+* Effect size: the magnitude of the difference between groups
+
+<!-- colstart -->
+![](twodist.png)
+<!-- col -->
+![](twodisteffect.png)
+<!-- colend -->
+
+----
+## Some factors that affect your sample size
+
+Same effect size, different deviations
+* Less noise --> Easier to recognize
+
+<!-- colstart -->
+![](twodist.png)
+<!-- col -->
+![](twodistnoise.png)
+<!-- colend -->
+
+
 
 ----
 ## Concurrent A/B testing
