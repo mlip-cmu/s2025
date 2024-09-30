@@ -179,7 +179,7 @@ Beyond that, the key guiding principle of academic honesty in this course is: *"
 You may collaborate with other students on labs, but not on reading quizzes, homeworks, and exams.
 
 We also expect and respect honesty when communicating with the course staff.
-
+ 
 Any violation of this policy is cheating. The minimum penalty for cheating will be a zero grade for the whole assignment. Cheating incidents will also be reported through University channels, with possible additional disciplinary action (see the University Policy on Academic Integrity). There is no statute of limitations for violations of the collaboration policy; penalties may be assessed (and referred to the university disciplinary board) after you have completed the course, and some requirements of the collaboration policy (such as restrictions on you posting your solutions) extend beyond your completion of the course.
 
 If you have any question about how this policy applies in a particular situation, ask the instructors for clarification.
