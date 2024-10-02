@@ -47,11 +47,11 @@ Recommended reading:
 
 ## Learning Goals
 
+* Consider data quality as part of a system; design an organization that values data quality
 * Distinguish precision and accuracy; understanding the better models vs more data tradeoffs
 * Use schema languages to enforce data schemas
 * Design and implement automated quality assurance steps that check data schema conformance and distributions 
 * Devise infrastructure for detecting data drift and schema violations
-* Consider data quality as part of a system; design an organization that values data quality
 
 
 ---
@@ -1413,15 +1413,16 @@ So essentially,
 ---
 # Summary
 
+* Data quality is a system-level concern
+  * Data quality at the interface between components
+  * Documentation and monitoring often poor
+  * Involves organizational structures, incentives, ethics, ...
 * Data from many sources, often inaccurate, imprecise, inconsistent, incomplete, ... -- many different forms of data quality problems 
 * Many mechanisms for enforcing consistency and cleaning 
   * Data schema ensures format consistency
   * Data quality rules ensure invariants across data points
 * Concept and data drift are key challenges -- monitor
-* Data quality is a system-level concern
-  * Data quality at the interface between components
-  * Documentation and monitoring often poor
-  * Involves organizational structures, incentives, ethics, ...
+
 
 ----
 ## Further Readings
