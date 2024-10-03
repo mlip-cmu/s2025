@@ -14,7 +14,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 Since we recommend you to use team server, your teammate may already finish this step on your team server. **$${\color{red}Please \space do \space not \space install \space Java \space and \space Jenkins \space again \space if \space your \space teammate \space have \space already \space done \space it.}$$**
 Since Jenkins has many installation options, please communicate with your teammate to settle down a way you prefer. This lab recommends install Jenkins as a system service using JVM but the final choice is yours. </br> What's more, please strictly keep your credentials of Jenkins secret from anyone outside your group. Our team server has public IP and malicious attacker can cause significant harm to your VM by breaching Jenkins.
 
-To check if Java or Jenkins are installed in our VM, you can run in the terminal `java --version` and `jenkins --version`. 
+To check if Java or Jenkins are installed in your team server, you can run in the terminal `java --version` and `jenkins --version`. 
 You can also install these on your computer to test this lab.
 
 
