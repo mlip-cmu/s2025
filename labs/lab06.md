@@ -11,7 +11,13 @@ To receive credit for this lab, show your work to the TA during recitation.
 - [ ] Complete the `test_data_split` function in `test_utility.py` to test data split step.
 
 ## Environment Set Up
-Since we recommend you to use team server, your teammate may already finish this step on your team server. **Please do not install Java and Jenkins again if your teammate have already done it.** Since Jenkins has many installation options, please communicate with your teammate to settle down a way you prefer. This lab recommends install Jenkins as a system service using JVM but the final choice is yours. </br> What's more, please strictly keep your credentials of Jenkins secret from anyone outside your group. Our team server has public IP and malicious attacker can cause significant harm to your VM by breaching Jenkins.
+Since we recommend you to use team server, your teammate may already finish this step on your team server. **$${\color{red}Please \space do \space not \space install \space Java \space and \space Jenkins \space again \space if \space your \space teammate \space have \space already \space done \space it.}$$**
+Since Jenkins has many installation options, please communicate with your teammate to settle down a way you prefer. This lab recommends install Jenkins as a system service using JVM but the final choice is yours. </br> What's more, please strictly keep your credentials of Jenkins secret from anyone outside your group. Our team server has public IP and malicious attacker can cause significant harm to your VM by breaching Jenkins.
+
+To check if Java or Jenkins are installed in our VM, you can run in the terminal `java --version` and `jenkins --version`. 
+You can also install these on your computer to test this lab.
+
+
 ### Java Installation
 - Go to [Jenkins Installation Page](https://www.jenkins.io/doc/book/installing/), select the Operating System you currently use. For your team server, please select [linux](https://www.jenkins.io/doc/book/installing/linux/).
 - Under section [Installation of Java](https://www.jenkins.io/doc/book/installing/linux/#installation-of-java), install java using command: `sudo apt install fontconfig openjdk-17-jre`.
