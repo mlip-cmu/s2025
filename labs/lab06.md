@@ -6,7 +6,7 @@ The testing tool we use is [pytest](https://docs.pytest.org/en/7.1.x/index.html)
 To receive credit for this lab, show your work to the TA during recitation.
 
 ## Deliverables
-- [ ] Show correct configuration of a Jenkins pipeline on **forked [Lab6 Github Repo](https://github.com/JayYu0116/MLIP_Lab6/)**. The build process must automatically fetch Jenkinsfile and run pipeline according to it.
+- [ ] Show correct configuration of a Jenkins pipeline on **forked [Lab6 Github Repo](https://github.com/pedrogbmendes/MLIP_Lab6/)**. The build process must automatically fetch Jenkinsfile and run pipeline according to it.
 - [ ] Complete the `jenkinsfile` to make the Jenkins pipeline test the repo during each build. Explain your understanding of what the given Jenkinsfile does.
 - [ ] Complete the `test_data_split` function in `test.py` to test data split step.
 
@@ -43,7 +43,7 @@ sudo apt-get install jenkins
 - For `venv` users, run `python -m venv mlip` to create a virtual environment. Then run `source mlip/bin/activate` to activate your virtual environment. Finally, use `pip install` to install all required package.
 
 ### Fork & Clone the Git Repository
-- Fork [repository for lab 5](https://github.com/JayYu0116/MLIP_Lab6) repository and clone it to your local machine. **It is important that you must fork the repo and clone the forked repo.**
+- Fork [repository for lab 5](https://github.com/pedrogbmendes/MLIP_Lab6) repository and clone it to your local machine. **It is important that you must fork the repo and clone the forked repo.**
 
 ## Setting Up a Jenkins Pipeline
 - Enter Jenkins dashboard: 127.0.0.1:8080 using your web browser.
