@@ -49,7 +49,7 @@ sudo apt-get install jenkins
 - For `venv` users, run `python -m venv mlip` to create a virtual environment. Then run `source mlip/bin/activate` to activate your virtual environment. Finally, use `pip install` to install all required package.
 
 ### Fork & Clone the Git Repository
-- Fork [repository for lab 5](https://github.com/pedrogbmendes/MLIP_Lab6) repository and clone it to your local machine. **It is important that you must fork the repo and clone the forked repo.**
+- Fork [repository for lab 6](https://github.com/pedrogbmendes/MLIP_Lab6) repository and clone it to your local machine. **It is important that you must fork the repo and clone the forked repo.**
 
 ## Setting Up a Jenkins Pipeline
 - Enter Jenkins dashboard: 127.0.0.1:8080 using your web browser.
