@@ -8,7 +8,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 ## Deliverables
 - [ ] Show correct configuration of a Jenkins pipeline on **forked [Lab6 Github Repo](https://github.com/pedrogbmendes/MLIP_Lab6/)**. The build process must automatically fetch Jenkinsfile and run pipeline according to it.
 - [ ] Complete the `jenkinsfile` to make the Jenkins pipeline test the repo during each build. Explain your understanding of what the given Jenkinsfile does.
-- [ ] Complete the `test_data_split` function in `test.py` to test data split step.
+- [ ] Complete the `test_data_split` function in `test_utility.py` to test data split step.
 
 ## Environment Set Up
 Since we recommend you to use team server, your teammate may already finish this step on your team server. **Please do not install Java and Jenkins again if your teammate have already done it.** Since Jenkins has many installation options, please communicate with your teammate to settle down a way you prefer. This lab recommends install Jenkins as a system service using JVM but the final choice is yours. </br> What's more, please strictly keep your credentials of Jenkins secret from anyone outside your group. Our team server has public IP and malicious attacker can cause significant harm to your VM by breaching Jenkins.
