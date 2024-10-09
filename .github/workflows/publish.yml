@@ -29,7 +29,6 @@ jobs:
         timeout 15m npm run pdf
         cp -r _static/ ../_site/slides
         cd ..
-        ls _site/slides/node_modules
 
 
     - name: Generate main page
