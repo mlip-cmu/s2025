@@ -17,7 +17,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 - Navigate to this Github folder
 - Install required dependencies
     - `pip install -r requirements.txt`
-- Establish an SSH tunnel to the Kafka broker if not already connected (Refer to Lab2 canvas assignment page for more information)
+- Establish an SSH tunnel to the Kafka broker if not already connected
     - `ssh -o ServerAliveInterval=60 -L 9092:localhost:9092 tunnel@128.2.204.215 -NTf`
 
 ## Background
@@ -39,11 +39,11 @@ To receive credit for this lab, show your work to the TA during recitation.
 4. Use the Prometheus dashboard's Graph section to explore metrics. Click on the metrics explorer (earth icon) and search for `request_count_total` to visualize total requests with their status.
 5. Feel free to explore various metrics available in metrics explorer in the table/graph format.
 
-![prometheus](https://github.com/tanya-5/mlip-monitoring-lab/assets/40654673/fba3a56a-3f25-4ea6-8f49-f88cebdefbbb)
+![prometheus](https://raw.githubusercontent.com/XueyingJia/mlip-monitoring-lab/refs/heads/main/prometheus.png)
 
 ## Configure Grafana Dashboard for Visualization
 ### Add Data Source in Grafana
-1. Access Grafana at http://localhost:3000 and login (default username: admin, password: admin). If this is not the first time you use Grafana, you possibly have changed the password before. You could reset the password in docker by running command: 'grafana-cli admin reset-admin-password newpassword'.
+1. Access Grafana at http://localhost:3000 and login (default username: admin, password: admin). 
 2. Add Prometheus as a data source by navigating to Connections > Data sources > Add source > Prometheus.
 3. In the Connection section, set the Prometheus server URL to http://prometheus:9090 (NOT http://localhost:9090).
 4. Save and test the data source to confirm connectivity.
@@ -57,14 +57,14 @@ To receive credit for this lab, show your work to the TA during recitation.
    1. Add `request_count_total` as metric, filter label `http_status` and equate to `200`. Make sure that visualization selected is time series. 
    2. You can see the query generated at the bottom. Alternatively, you can write the query using `code` option.
    3. Click on run queries and select Apply. You will see the panel added to dashboard. Click save after every panel.
-   ![grafana-1](https://github.com/tanya-5/mlip-monitoring-lab/assets/40654673/b7e16578-aacf-429e-b0da-57938e392010)
+   ![grafana-1](https://raw.githubusercontent.com/XueyingJia/mlip-monitoring-lab/refs/heads/main/grafana1.png)
    
 5. Panel 2: Total Recommendation Requests Over Time - Total of rate of requests over time (5 min)
    1. Click on add> visualization. In the queries below, add `request_count_total` as metric. 
    2. Add operations> range functions > rate  with range 5m
    3. Add one more operations> aggregations > sum. 
    4. Visualization should be time series. Run query and Apply. 
-   ![grafana-2](https://github.com/tanya-5/mlip-monitoring-lab/assets/40654673/375f1f62-20d7-45d4-a479-dc862c824ae8)
+   ![grafana-2](https://raw.githubusercontent.com/XueyingJia/mlip-monitoring-lab/refs/heads/main/grafana2.png)
 
 6. Panel 3: Node CPU usage - Track CPU time consumed in 'system' mode by the node
    1. HINT: Track rate of `node_cpu_seconds_total`
@@ -78,6 +78,13 @@ To receive credit for this lab, show your work to the TA during recitation.
 Customize your panels with titles and labels, and adjust the visualizations for better clarity and insight. 
 Experiment with the Grafana interface to make your dashboard more intuitive. Refer this for [dashboard](https://grafana.com/grafana/dashboards/) configurations.
 
+## FAQ:
+1. Q: How to establish an SSH tunnel to the Kafka broker? \
+   A: Refer to Lab2 canvas assignment page for more information
+2. Q: I cannot log in Grafana using default password. \
+   A: If this is not the first time you use Grafana, you possibly have changed the password before. You could reset the password in docker by running command: 'grafana-cli admin reset-admin-password newpassword'.
+3. Q: I cannot pass 'save and test' while connecting Prometheus server. \
+   A: Make sure you are using the correct URL for Prometheus server. It should be http://prometheus:9090, NOT http://localhost:9090.
 
 ## Additional resources
 - [Prometheus Overview](https://prometheus.io/docs/introduction/overview/)
