@@ -13,6 +13,14 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 # Planning for Operations
 
+---
+## Administrativa
+
+Homework I3 released
+
+Blog post about an MLOps tool or ML application
+
+First come first serve
 
 ---
 ## Operations
