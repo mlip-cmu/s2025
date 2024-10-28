@@ -717,12 +717,6 @@ https://modelrecord.com/
 
 
 ----
-
-![Example of dataflows between 4 sources and 3 models in credit card application scenario](creditcard-provenance.svg)
-<!-- .element: class="plain stretch" -->
-
-
-----
 ## In Real Systems: Tracking Provenance Across Multiple Models
 
 
