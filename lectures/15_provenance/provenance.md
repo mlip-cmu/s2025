@@ -480,6 +480,16 @@ Possibly signing with cryptographic methods
 
 ## Tracking Data Lineage
 
+![Amazon DataZone on data lineage visualization](amazon_lineage.png)
+<!-- .element: class="plain" style="width: 900px" -->
+
+<!-- references -->
+https://aws.amazon.com/blogs/big-data/amazon-datazone-introduces-openlineage-compatible-data-lineage-visualization-in-preview/
+
+----
+
+## Tracking Data Lineage
+
 Document all data sources
 
 Identify all model dependencies and flows
