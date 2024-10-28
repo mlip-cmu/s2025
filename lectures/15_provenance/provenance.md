@@ -276,6 +276,18 @@ Matei Zaharia. [Introducing MLflow: an Open Source Machine Learning Platform](ht
 
 
 ----
+## Compatibility in Versioning
+
+![Model predictability](model_compatibility.jpg)
+<!-- .element: class="plain" style="width: 600px" -->
+
+
+<!-- references -->
+
+Bansal, Gagan, et al. "Updates in human-ai teams: Understanding and addressing the performance/compatibility tradeoff." AAAI 2019
+
+
+----
 ## Example: DVC (Data Version Control)
 
 ```sh
@@ -609,19 +621,6 @@ Make interesting observations on what you can and cannot train models on (blue i
 <!-- references -->
 
 Longpre  et al. "[A large-scale audit of dataset licensing and attribution in AI.](https://www.nature.com/articles/s42256-024-00878-8)" Nature Machine Intelligence 2024
-
-----
-## Feature Provenance
-
-How are features extracted from raw data?
-  - during training
-  - during inference
-
-Has feature extraction changed since the model was trained?
-
-Recommendation: Modularize and version feature extraction code
-
-**Example?**
 
 ----
 ## Feature Provenance
