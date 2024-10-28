@@ -241,7 +241,17 @@ Many tools: MLflow, ModelDB, Neptune, TensorBoard, Weights & Biases, Comet.ml, .
 
 <aside class="notes"><p>Image from
 Matei Zaharia. <a href="https://databricks.com/blog/2018/06/05/introducing-mlflow-an-open-source-machine-learning-platform.html">Introducing MLflow: an Open Source Machine Learning Platform</a>, 2018</p>
-</aside></script></section><section data-markdown><script type="text/template">## Example: DVC (Data Version Control)
+</aside></script></section><section data-markdown><script type="text/template">## Compatibility in Versioning
+
+![Model predictability](model_compatibility.jpg)
+<!-- .element: class="plain" style="width: 600px" -->
+
+
+<!-- references -->
+
+Bansal, Gagan, et al. "Updates in human-ai teams: Understanding and addressing the performance/compatibility tradeoff." AAAI 2019
+
+</script></section><section data-markdown><script type="text/template">## Example: DVC (Data Version Control)
 
 ```sh
 dvc add images
@@ -540,17 +550,6 @@ Make interesting observations on what you can and cannot train models on (blue i
 <!-- references -->
 
 Longpre  et al. "[A large-scale audit of dataset licensing and attribution in AI.](https://www.nature.com/articles/s42256-024-00878-8)" Nature Machine Intelligence 2024
-</script></section><section data-markdown><script type="text/template">## Feature Provenance
-
-How are features extracted from raw data?
-  - during training
-  - during inference
-
-Has feature extraction changed since the model was trained?
-
-Recommendation: Modularize and version feature extraction code
-
-**Example?**
 </script></section><section data-markdown><script type="text/template">## Feature Provenance
 
 How are features extracted from raw data?
