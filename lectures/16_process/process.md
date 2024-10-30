@@ -61,7 +61,7 @@ Suggested Readings:
 
 ---
 
-# Software Engineering Process
+# What is Process?
 
 
 <!-- ---- -->
@@ -671,6 +671,11 @@ Ideally, track debt and plan for paying it down later
 
 <!-- references -->
 Source: Martin Fowler 2009, https://martinfowler.com/bliki/TechnicalDebtQuadrant.html
+
+----
+
+![Technical debt quadrant with ML examples](techdebt-quadrants-ml.svg)
+<!-- .element: class="plain stretch" -->
 
 ----
 ## Technical Debt: Examples
