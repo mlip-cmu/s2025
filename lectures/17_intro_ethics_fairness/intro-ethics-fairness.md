@@ -51,8 +51,12 @@ Matthews. "Algorithmic Accountability: A Primer", Data & Society
 * Understand the sources of bias in ML
 
 ---
-# Many interrelated issues:
+# Why Fairness?
 
+----
+## Many interrelated issues:
+
+<div class="small">
 * Ethics
 * Fairness
 * Justice
@@ -62,6 +66,7 @@ Matthews. "Algorithmic Accountability: A Primer", Data & Society
 * Security
 * Transparency
 * Accountability
+</div>
 
 *Each is a deep and nuanced research topic. We focus on survey of some key issues.*
 
@@ -329,22 +334,6 @@ Technical infrastructure concepts
 
 > Fairness discourse asks questions about how to treat people and whether treating different groups of people differently is ethical. If two groups of people are systematically treated differently, this is often considered unfair.
 
-----
-## Caveat: Something can be fair but still unethical!
-
-![Thanos snap](snap.jpg)
-
-----
-## Common framing: Equality vs Equity vs Justice
-
-![Contrasting equality, equity, and justice](eej2.jpeg)
-<!-- .element: class="stretch" -->
-
-----
-## Equality vs Equity vs Justice
-
-![Contrasting equality, equity, and justice](eej_game.jpeg)
-<!-- .element: class="stretch" -->
 
 
 ----
@@ -386,6 +375,24 @@ https://en.wikipedia.org/wiki/Protected_group
 
 
 ----
+## Common framing: Equality vs Equity vs Justice
+
+![Contrasting equality, equity, and justice](eej2.jpeg)
+<!-- .element: class="stretch" -->
+
+----
+## Equality vs Equity vs Justice
+
+![Contrasting equality, equity, and justice](eej_game.jpeg)
+<!-- .element: class="stretch" -->
+
+
+----
+## Caveat: Something can be fair but still unethical (Thanos)!
+
+![Thanos snap](snap.jpg)
+
+----
 ## Not all discrimination is harmful
 
 ![](gender-bias.png)
@@ -393,6 +400,14 @@ https://en.wikipedia.org/wiki/Protected_group
 
 * Loan lending: Gender discrimination is illegal.
 * Medical related: Gender-specificity may be desirable (women generally pay less for life insurance than men, since they tend to live longer.)
+
+
+----
+## Not all discrimination is harmful
+
+![](gender-bias.png)
+<!-- .element: class="stretch" -->
+
 * Discrimination is a __domain-specific__ concept 
   - ML models discriminate based on input data by construction. 
   - There are real differences between two groups, it might not be fair to ignore them
@@ -525,8 +540,8 @@ human-like biases_, Caliskan et al., Science (2017).
 
 * Historial bias
 * Tainted examples
-* Skewed sample
 * Limited features
+* Skewed sample
 * Sample size disparity
 * Proxies
 
@@ -616,17 +631,6 @@ were uncomfortable with the idea of the company “manipulating” search result
 
 Example: Hiring decision dataset -- labels assigned by (possibly biased) experts or derived from past (possibly biased) hiring decisions 
 
-----
-## Skewed Sample
-
-*Bias in how and what data is collected*
-
-![](crime-map.jpg)
-<!-- .element: class="stretch" -->
-
-Crime prediction: Where to analyze crime? What is considered crime? Actually a random/representative sample?
-
-Raw data is an oxymoron
 
 ----
 ## Limited Features
@@ -643,6 +647,21 @@ Raw data is an oxymoron
 Note:
 Decisions may be based on features that are predictive and accurate for a large part of the target distribution, but not so for some other parts of the distribution. 
 For example, a system ranking applications for graduate school admissions may heavily rely on letters of recommendation and be well calibrated for applicants who can request letters from mentors familiar with the culture and jargon of such letters in the US, but may work poorly for international applicants from countries where such letters are not common or where such letters express support with different jargon. To reduce bias, we should be carefully reviewing all features and analyze whether they may be less predictive for certain subpopulations.
+
+
+
+----
+## Skewed Sample
+
+*Bias in how and what data is collected*
+
+![](crime-map.jpg)
+<!-- .element: class="stretch" -->
+
+Crime prediction: Where to analyze crime? What is considered crime? Actually a random/representative sample?
+
+Raw data is an oxymoron
+
 
 ----
 ## Sample Size Disparity
