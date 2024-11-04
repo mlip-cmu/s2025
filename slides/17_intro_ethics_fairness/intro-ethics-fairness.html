@@ -56,8 +56,10 @@ Matthews. "Algorithmic Accountability: A Primer", Data & Society
 * Diagnose potential ethical issues in a given system
 * Understand the types of harm that can be caused by ML
 * Understand the sources of bias in ML
-</script></section></section><section ><section data-markdown><script type="text/template"># Many interrelated issues:
+</script></section></section><section ><section data-markdown><script type="text/template"># Why Fairness?
+</script></section><section data-markdown><script type="text/template">## Many interrelated issues:
 
+<div class="small">
 * Ethics
 * Fairness
 * Justice
@@ -67,6 +69,7 @@ Matthews. "Algorithmic Accountability: A Primer", Data & Society
 * Security
 * Transparency
 * Accountability
+</div>
 
 *Each is a deep and nuanced research topic. We focus on survey of some key issues.*
 
@@ -294,17 +297,7 @@ Technical infrastructure concepts
 </script></section><section data-markdown><script type="text/template">## What is fair?
 
 > Fairness discourse asks questions about how to treat people and whether treating different groups of people differently is ethical. If two groups of people are systematically treated differently, this is often considered unfair.
-</script></section><section data-markdown><script type="text/template">## Caveat: Something can be fair but still unethical!
 
-![Thanos snap](snap.jpg)
-</script></section><section data-markdown><script type="text/template">## Common framing: Equality vs Equity vs Justice
-
-![Contrasting equality, equity, and justice](eej2.jpeg)
-<!-- .element: class="stretch" -->
-</script></section><section data-markdown><script type="text/template">## Equality vs Equity vs Justice
-
-![Contrasting equality, equity, and justice](eej_game.jpeg)
-<!-- .element: class="stretch" -->
 
 </script></section><section data-markdown><script type="text/template">## Regulated domains (US)
 
@@ -340,6 +333,18 @@ Barocas, Solon and Moritz Hardt. "[Fairness in machine learning](https://mrtz.or
 
 https://en.wikipedia.org/wiki/Protected_group
 
+</script></section><section data-markdown><script type="text/template">## Common framing: Equality vs Equity vs Justice
+
+![Contrasting equality, equity, and justice](eej2.jpeg)
+<!-- .element: class="stretch" -->
+</script></section><section data-markdown><script type="text/template">## Equality vs Equity vs Justice
+
+![Contrasting equality, equity, and justice](eej_game.jpeg)
+<!-- .element: class="stretch" -->
+
+</script></section><section data-markdown><script type="text/template">## Caveat: Something can be fair but still unethical (Thanos)!
+
+![Thanos snap](snap.jpg)
 </script></section><section data-markdown><script type="text/template">## Not all discrimination is harmful
 
 ![](gender-bias.png)
@@ -347,6 +352,12 @@ https://en.wikipedia.org/wiki/Protected_group
 
 * Loan lending: Gender discrimination is illegal.
 * Medical related: Gender-specificity may be desirable (women generally pay less for life insurance than men, since they tend to live longer.)
+
+</script></section><section data-markdown><script type="text/template">## Not all discrimination is harmful
+
+![](gender-bias.png)
+<!-- .element: class="stretch" -->
+
 * Discrimination is a __domain-specific__ concept 
   - ML models discriminate based on input data by construction. 
   - There are real differences between two groups, it might not be fair to ignore them
@@ -459,8 +470,8 @@ human-like biases_, Caliskan et al., Science (2017).
 
 * Historial bias
 * Tainted examples
-* Skewed sample
 * Limited features
+* Skewed sample
 * Sample size disparity
 * Proxies
 
@@ -535,16 +546,7 @@ were uncomfortable with the idea of the company “manipulating” search result
 <!-- .element: class="stretch" -->
 
 Example: Hiring decision dataset -- labels assigned by (possibly biased) experts or derived from past (possibly biased) hiring decisions 
-</script></section><section data-markdown><script type="text/template">## Skewed Sample
 
-*Bias in how and what data is collected*
-
-![](crime-map.jpg)
-<!-- .element: class="stretch" -->
-
-Crime prediction: Where to analyze crime? What is considered crime? Actually a random/representative sample?
-
-Raw data is an oxymoron
 </script></section><section data-markdown><script type="text/template">## Limited Features
 
 *Features that are less informative/reliable for certain subpopulations*
@@ -558,7 +560,18 @@ Raw data is an oxymoron
 
 <aside class="notes"><p>Decisions may be based on features that are predictive and accurate for a large part of the target distribution, but not so for some other parts of the distribution. 
 For example, a system ranking applications for graduate school admissions may heavily rely on letters of recommendation and be well calibrated for applicants who can request letters from mentors familiar with the culture and jargon of such letters in the US, but may work poorly for international applicants from countries where such letters are not common or where such letters express support with different jargon. To reduce bias, we should be carefully reviewing all features and analyze whether they may be less predictive for certain subpopulations.</p>
-</aside></script></section><section data-markdown><script type="text/template">## Sample Size Disparity
+</aside></script></section><section data-markdown><script type="text/template">## Skewed Sample
+
+*Bias in how and what data is collected*
+
+![](crime-map.jpg)
+<!-- .element: class="stretch" -->
+
+Crime prediction: Where to analyze crime? What is considered crime? Actually a random/representative sample?
+
+Raw data is an oxymoron
+
+</script></section><section data-markdown><script type="text/template">## Sample Size Disparity
 
 *Limited training data for some subpopulations*
 
