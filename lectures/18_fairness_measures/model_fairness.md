@@ -466,7 +466,7 @@ In groups, post to `#lecture` tagging members:
 * Anti-classification (fairness through blindness)
 * Group fairness (independence)
 * *Equalized odds (separation)*
-* ...and numerous others and variations!
+* ...and numerous others and variations! 
 
 ----
 ## Equalized odds
