@@ -51,7 +51,7 @@ Recommended:
 # Fairness: Measurements
 
 How do we measure fairness of an ML model?
-
+ 
 ----
 ### Fairness is still an actively studied & disputed concept!
 
