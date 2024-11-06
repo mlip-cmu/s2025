@@ -77,7 +77,7 @@ const fs = require('fs');
             rows.map((row) => {
                 if (row[0] !== 'Date' && row[0] != '' && row[0] != undefined) {
                     const date = row[columnIds.date] || "";
-                    const id = row[columnIds.id];
+                    const id = row[columnIds.id] || "";
                     let topic = row[columnIds.topic] || "";
                     let assignment = row[columnIds.assignmentDue] || "";
                     const chapters = row[columnIds.bookChapters] || "";
