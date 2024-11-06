@@ -104,6 +104,7 @@ kubectl apply -f loadbalancer-service.yaml
   minikube service flask-load-balancer-service
   ```
 - This command will provide a URL, typically in the format `http://127.0.0.1:<some-port>`, which you can use to test the load balancer.
+- Send multiple requests and see how each request is being served by a different instance. Show this to the TA. 
 
 3. **Launch MiniKube Dashboard**:
 - Open the MiniKube dashboard to monitor the status of Pods, deployments, and services:
