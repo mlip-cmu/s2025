@@ -1,8 +1,8 @@
 ---
-author: Christian Kaestner and Claire Le Goues
+author: Christian Kaestner and Sherry Wu
 title: "MLiP: Data Quality"
 semester: Fall 2024
-footer: "Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Spring 2024"
+footer: "Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Fall 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---
 <!-- .element: class="titleslide"  data-background="../_chapterimg/12_dataquality.jpg" -->
