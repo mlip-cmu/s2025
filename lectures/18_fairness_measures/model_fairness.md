@@ -460,7 +460,6 @@ In groups, post to `#lecture` tagging members:
 
 > $P[Y' = 1 | A = a]  = P[Y' = 1 | A = b]$
 
-
 ---
 # Equalized odds
 
