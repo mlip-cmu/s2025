@@ -48,7 +48,7 @@ Recommended:
 * Outline interventions to improve fairness at the model level
 
 ---
-# Fairness: Definitions
+# Fairness: Measurements
 
 How do we measure fairness of an ML model?
 
@@ -61,7 +61,7 @@ How do we measure fairness of an ML model?
 Source: Mortiz Hardt, https://fairmlclass.github.io/
 
 ----
-## Fairness: Definitions
+## Fairness: Measurements
 
 * Anti-classification (fairness through blindness)
 * Group fairness (independence)
@@ -151,7 +151,7 @@ We therefore focus on the simple cases for the purposes of the material in this 
 
 
 ---
-## Fairness: Definitions
+# Fairness: Measurements
 
 * *Anti-classification (fairness through blindness)*
 * Group fairness (independence)
@@ -294,7 +294,7 @@ prob cancer male vs female
 and (2) protected attributes add no predictive power 
 
 ---
-# Fairness: Definitions
+# Fairness: Measurements
 
 * Anti-classification (fairness through blindness)
 * *Group fairness (independence)*
