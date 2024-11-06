@@ -18,7 +18,7 @@ In this lab, you'll set up and deploy multiple instances of a Flask backend on K
 
 ## Getting Started
 1. **Start Docker**: Ensure Docker is running on your machine.
-2. **Fork Repo**: For this [repo](https://github.com/purvag03/mlip-kubernetes-lab/tree/main)
+2. **Fork Repo**: Fork this [repo](https://github.com/purvag03/mlip-kubernetes-lab/tree/main)
 3. **Install MiniKube**: Follow instructions [here](https://minikube.sigs.k8s.io/docs/start/).
 4. **Start MiniKube**: Start MiniKube on your local setup. Run `minikube start`.
 5. **Verify MiniKube**: Confirm that MiniKube is running by listing all pods:
