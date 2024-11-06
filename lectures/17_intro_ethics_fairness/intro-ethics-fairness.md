@@ -1,8 +1,8 @@
 ---
 author: Eunsuk Kang & Christian Kaestner & Sherry Wu
 title: "MLiP: Intro to Ethics and Fairness"
-semester: Spring 2024
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Sherry Wu, Carnegie Mellon University • Spring 2024"
+semester: Fall 2024
+footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Sherry Wu, Carnegie Mellon University • Fall 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/15_responsible.jpg" -->
