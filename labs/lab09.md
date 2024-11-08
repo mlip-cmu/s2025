@@ -124,6 +124,40 @@ kubectl apply -f loadbalancer-service.yaml
 - **TODO**: Replace `<some-port>` with the port provided by `minikube service`.
 - This test sends 100 requests (`-n 100`) with 10 concurrent connections (`-c 10`).
 
+  
+Apache Benchmark (ab) is not natively supported on Windows, but you can use alternative approaches to achieve similar load testing functionality. Here are two options for Windows users:
+
+** Option 1**: Use WSL (Windows Subsystem for Linux)
+Install WSL: Follow Microsoft’s guide to install WSL if you haven't set it up yet.
+Install Apache Benchmark:
+Open a WSL terminal (Ubuntu, for example) and run:
+```
+sudo apt update
+sudo apt install apache2-utils
+```
+Run Apache Benchmark in WSL:
+Once installed, you can run the ab command in the WSL terminal:
+```
+ab -n 100 -c 10 "http://127.0.0.1:<some-port>/?user_id=Alice"
+```
+**Option 2**: Use an Alternative Load Testing Tool (e.g., curl or Postman Collection Runner)
+Using curl
+You can use curl in a loop to simulate multiple requests. This isn’t as powerful as Apache Benchmark but can be useful for simple testing.
+# Run in PowerShell
+  ```
+for ($i=0; $i -lt 100; $i++) {
+    curl "http://127.0.0.1:<some-port>/?user_id=Alice"
+}
+  ```
+Using Postman Collection Runner
+Set Up Request in Postman:
+
+Create a new GET request in Postman with the URL http://127.0.0.1:<some-port>/?user_id=Alice.
+Use Collection Runner:
+
+Save the request in a collection.
+Open the Collection Runner, set the iteration count (e.g., 100), and run the collection.
+
 2. **Perform High-Load AB Test (Optional)**:
 - Increase the request count and concurrency level to simulate high traffic:
   ```
