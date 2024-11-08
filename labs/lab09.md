@@ -144,7 +144,7 @@ ab -n 100 -c 10 "http://127.0.0.1:<some-port>/?user_id=Alice"
 **Option 2**: Use an Alternative Load Testing Tool (e.g., curl or Postman Collection Runner)
 Using curl
 You can use curl in a loop to simulate multiple requests. This isn’t as powerful as Apache Benchmark but can be useful for simple testing.
-# Run in PowerShell
+### Run in PowerShell
   ```
 for ($i=0; $i -lt 100; $i++) {
     curl "http://127.0.0.1:<some-port>/?user_id=Alice"
