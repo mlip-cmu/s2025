@@ -125,9 +125,10 @@ kubectl apply -f loadbalancer-service.yaml
 - This test sends 100 requests (`-n 100`) with 10 concurrent connections (`-c 10`).
 
   
-Apache Benchmark (ab) is not natively supported on Windows, but you can use alternative approaches to achieve similar load testing functionality. Here are two options for Windows users:
+**Apache Benchmark (ab) is not natively supported on Windows, but you can use alternative approaches to achieve similar load testing functionality. 
+Here are two options for Windows users:**
 
-** Option 1**: Use WSL (Windows Subsystem for Linux)
+**Option 1**: Use WSL (Windows Subsystem for Linux)
 Install WSL: Follow Microsoft’s guide to install WSL if you haven't set it up yet.
 Install Apache Benchmark:
 Open a WSL terminal (Ubuntu, for example) and run:
