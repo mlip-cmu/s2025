@@ -14,59 +14,76 @@ Learning goals:
 
 ## Research in this Course
 
-*We are conducting academic research on explainability policies and evidence. This research will involve analyzing student work of this assignment. You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar ([nadian@andrew.cmu.edu](mailto:nadian@andrew.cmu.edu)). Participants will not receive any compensation or extra credit. The data collected as part of this research will not include student grades. All analyses of data from participants’ coursework will be conducted after the course is over and final grades are submitted -- instructors will not know who chooses not to participate before final grades are submitted. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers. If you have questions pertaining to your rights as a research participant, or to report concerns to this study, please contact Nadia Nahar ([nadian@andrew.cmu.edu](mailto:nadian@andrew.cmu.edu)) or the Office of Research Integrity and Compliance at Carnegie Mellon University ([irb-review@andrew.cmu.edu](mailto:irb-review@andrew.cmu.edu); phone: 412-268-4721).*
+*We are conducting academic research on explainability policies and evidence. This research will involve analyzing student work of this assignment. You will not be asked to do anything above and beyond the normal learning activities and assignments that are part of this course. You are free not to participate in this research, and your participation will have no influence on your grade for this course or your academic career at CMU. If you do not wish to participate, please send an email to Nadia Nahar ([nadian@andrew.cmu.edu](mailto:nadian@andrew.cmu.edu)). Participants will not receive any compensation or extra credit. The data collected as part of this research will not include student grades. All analyses of data from participants’ coursework will be conducted after the course is over and final grades are submitted -- instructors do not know who choses not to participate before final grades are submitted. All data will be analyzed in de-identified form and presented in the aggregate, without any personal identifiers. The de-identified homework solutions (without grades) will be shared with research collaborators at Yale university for further analysis. If you have questions pertaining to your rights as a research participant, or to report concerns to this study, please contact Nadia Nahar ([nadian@andrew.cmu.edu](mailto:nadian@andrew.cmu.edu)) or the Office of Research Integrity and Compliance at Carnegie Mellon University ([irb-review@andrew.cmu.edu](mailto:irb-review@andrew.cmu.edu); phone: [412-268-4721](tel:4122684721)).*
 
-# The Use Case: Blindness Detection
+# The Use Case: Diabetic Retinopathy Screening
 
-The use case is to detect [diabetic retinopathy](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/diabetic-retinopathy) to stop blindness before it's too late with a special purpose ML-powered medical device. [AEYE Health](https://www.aeyehealth.com) is a comparable commercial offering.
+The use case is to detect [diabetic retinopathy](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/diabetic-retinopathy) early with a special purpose ML-powered medical device. Diabetic retinopathy is a condition that can result in vision loss if left untreated. [AEYE Health](https://www.aeyehealth.com) is a comparable commercial offering.
 
 Consider you are building a smartphone app, replacing current large commercial devices. The app will be used by trained users (nurses, volunteers) to perform screenings to detect potential problems simply by having patients look into the smart phone's camera through a specialized lens attachment (a small 3-d printed holder for a lens).
 
-Deploying such medical diagnostics as a smart phone app and low-cost hardware extension has the potential to drastically reduce screening costs and make screenings much more available, especially in underresourced regions of the world. Instead of having to walk to a clinic with specialized equipment, trained users could perform screenings at mobile clinics or in patients homes. The app would provide information about a potential risk and encourage the patients to get in contact with medical professionals for more accurate testing and potential treatment.
+Deploying such medical diagnostics as a smart phone app and low-cost hardware extension has the potential to drastically reduce screening costs and make screenings much more available, especially in underresourced regions of the world. Instead of having to travel to a clinic with specialized equipment, trained users could perform screenings at mobile clinics or in patients homes. The app would provide information about a potential risk and encourage the patients to get in contact with medical professionals for more accurate testing and potential treatment.
 
 In this assignment, you will focus not only on the model, but also consider its integration into a smartphone app and its use for screening by trained users in underresourced regions (e.g., remote areas, high-poverty areas).
+
+## The Policy
+
+While government regulation is still evolving, the company that creates the smartphone app has set an internal responsible AI policy to hold itself to high standards of responsible engineering. The policy is mandatory for all projects using machine learning (similar to what many other big companies in the tech and medical space have done). The following 8 points are the relevant parts of the policy:
+
+**INTENDED USE** 
+
+1. Describe the automated system’s intended use and the role of the automation (model). [*Guidance: Include its purpose, setting of use, and intended user(s). Include information about how the automated system may be used in combination with other information.*] 
+2. Provide evidence that the automation (model) functions accurately, consistently, and effectively in the intended use case. [*Guidance: Evidence could take the form of accuracy testing disclosures, data from real-life tests of the tool, or independent review.*]
+
+**HOW IT WORKS** 
+
+3. Describe how the automation (model) works generally. Provide evidence that the documentation is effective for the policy purpose. [*Guidance: Where possible identify general mechanisms or factors that most strongly influence the automation.*]
+
+4. Provide a mechanism to describe how the automation (model) worked with regard to an instance of use to all intended users and subjects affected by the automated system in a form that is accessible to them. Descriptions must include (1) that automation was used, (2) a short explanation of how the automation works, (3) what additional actors are involved in decisions, (4) what significant personal data was used for the decision, (5) what decisions were reached in a specific case. Provide evidence that the documentation is effective for the policy purpose. [*Guidance: Provide individual explanations using appropriate mechanisms, such as graphs, text-based explanations, counterfactuals, or SHAP plots.*]
+
+**CONCERNS**
+
+5. Describe limitations and misuse potential of the automated system beyond its intended purpose and any provided mitigations. [*Guidance: Identify concrete problems and assess their risks.*]
+
+6. Describe the data used by the automated system. Justify the use of personal identifiable information.
+
+7. Describe how to report misuse or harm from the automated system.
+
+**LANGUAGE REQUIREMENTS**
+
+8. Provide all documentation in language appropriate for the intended audience. All documentation for untrained users must use nontechnical language at an *eighth grade reading level*.
 
 
 
 ## Tasks
 
-Create a GitHub repository with optional starter code for your work with the provided GitHub classroom link on Canvas. Use this starter code with data and model for [diabetic retinopathy detection](https://github.com/cmu-seai/diabetic-retinopathy). You do not actually need to build the smartphone app or deal with hardware, but you should think about explanations that could be plausibly provided either within the app (displaying instructions or results) or as additional external documentation (e.g., product website, handbooks, tutorials).
+In this assignment, you will work with a provided model for a potential medical application ([diabetic retinopathy detection with a smartphone app](https://github.com/cmu-seai/diabetic-retinopathy)), create explanations, and demonstrate compliance with policy requirements. You will provide explanations for the assigned stakeholder and purpose, which you can find in the assignment text on Canvas (different students may be assigned different stakeholders/purposes, please do not compare before completing the assignment; they are all comparable in workload and difficulty and have exactly the same grading criteria). Create a GitHub repository with optional starter code for your work with the provided GitHub classroom link on Canvas. While we only provide the model and training/test data, assume that the model is embedded in a real-world software product as described in the repository. 
 
-You will provide explanations (or transparency) for one of the following stakeholders:
+The task is to generate two forms of transparency mechanisms or explanations, discuss policy compliance, and reflect on the experience:
 
-* **Patients:** Consider what information you would provide to patients (a) before and (b) after the procedure. The information will be electronically displayed on the smart phone and can also be emailed to the patient or printed for the patient.
-* **Trained users (nurses, volunteers) who perform the screening:** Consider what information you would provide to those performing the screening through (a) a handbook/manual and (b) information shown on the smartphone display after a the screening for a patient.
-* **Physicians who follow up on diagnoses:** Consider what information you would provide to those seeing patients who received a diagnosis of having diabetic retinopathy from the device, with (a) a of how the screening was performed and (b) the diagnosis for the patient.
-* **Healthcare providers (hospitals, social work nonprofits):** Consider what information you would provide to those making purchasing/adoption decisions for the this medical device, including (a) general information about the product and (b) examples of how screening results will be displayed.
-* **Product managers:** Consider what information you would provide to the product manager who makes the decision about when the product is ready to be released, showing (a) that the product overall works well and (b) examples that the product works for individual patients.
+**Global explanations / transparency about the model or data:** Consider what the assigned stakeholder might want to know about the product, the model, or the data (transparency). Create a PDF file  `explanation_global.pdf`  (e.g., from a HTML page or Word document) that includes information about the data or model in a form that the company producing the product may disclose for transparency. This might include information about the data, about accuracy, about important features, or about fairness. 
 
-Ensure that your explanations meet the policy requirements assigned to you on Canvas (different students may receive different policies, please do not compare before completing the assignment; they are all comparable in workload and difficulty and have exactly the same grading criteria). 
+**Individual explanations for predictions:** Identify what the assigned stakeholders would want to know about individual predictions. Write code that produces explanations or fragments of explanations for a specific prediction, possibly automatically producing HTML pages from a template. Create a PDF file  `explanation_local.pdf`  (from generated HTML pages or created in any other way) that shows the explanations for *two* patients (example inputs) -- that is concatenate the explanations for two selected patients in the same PDF. While the approach should be repeatable for other patients, the creation of the PDF does not need to be fully automated and can involve manual steps.
 
-*Assume the policy was created for internal use by the company that creates the smartphone app to hold itself to high standards of responsible engineering -- management has affirmed it and it is mandatory for all projects using machine learning.*
+**Policy compliance:** Discuss whether your solution complies with the provided policy (note that compliance is not necessary to receive full credit for this assignment). Where possible provide evidence for compliance -- what you consider as evidence is for you to decide. If you think that your solution does not comply, explain why and either (a) outline what additional work you could do to comply or (b) explain why compliance is not possible. 
 
-We recommend to proceed in the following order:
+**Reflection:** In two separate section reflect on your experience:
 
-1. **Stakeholder and policy understanding:** Think about the needs of the specific stakeholder and read the policy. Identify what the company wants to achieve with the internal policy. This should guide the following steps.
-2. **Create explanations.** Create explanations for the stakeholder. Whenever explanations are specific to a  patient rather than about the model or product generally, show two examples of the explanation for two patients of your choice (i.e., two instances from the provided training or test data). Commit code you use to create explanations to your GitHub repository (e.g., python scripts or notebook). Provide your explanations in PDF files `explanation_a.pdf` and `explanation_b.pdf`  in the root directory of your repository, corresponding to the *(a)* and *(b)* requirement of your stakeholder above. We recommend that you create HTML files with the explanations or copy relevant images into text documents and then convert them to PDFs. For patient-specific implementation include both examples in the same pdf file.
-
-3. **Policy compliance:** In your Gradescope submission, discuss whether your solution complies with the provided policy (note that compliance is not necessary to receive full credit for this assignment). Where possible provide evidence for compliance -- what you consider as evidence is for you to decide. If you think that your solution does not comply, explain why and either (a) outline what additional work you could do to comply or (b) explain why compliance is not possible. 
-
-4. **Reflection:** In two separate section in your Gradescope submission reflect on your experience:
-  1. *Challenges:* What was challenging in interpreting, complying, or providing evidence for the policy, if any?
-  2. *Policy benefit:* Would you expect that the enforcement of the policy for this application will have a positive impact for your stakeholder (or for anybody else)?
+1. *Challenges:* What was challenging about this assignment?
+2. *Policy benefit:* Would you expect that company policy will have a positive impact, and how and for whom?
 
 
 
 
 ### Hints and guidance
 
-This assignment is intentionally open ended. We interpret explainability broadly, including technical post-hoc explanations like SHAP, local and global explanations, nontechnical textual descriptions and traditional transparency mechanisms, such as audits and model and data disclosures. We have no specific requirements about approaches or techniques to include; make a judgment about what you think is useful for the stakeholder and policy purpose.
+This assignment is intentionally open ended. We interpret explainability broadly, including technical post-hoc explanations like SHAP, local and global explanations, nontechnical textual descriptions and traditional transparency mechanisms, such as audits and model and data disclosures. We have no specific requirements about approaches or techniques to include; make a judgment about what you think is needed for the policy and what is useful for the stakeholder and policy purpose.
 
-You can explore many different explainability and transparency techniques, including the ones discussed in class and in the lab and ones you find on your own. The technique shown in the lab was intended as an illustration, it may not be appropriate for your explanations here. We recommend to rely on existing explainability tooling for nontrivial analyses rather than to develop your own. Many existing tools can generate plots that you can integrate into your explanations, but textual explanations are also perfectly acceptable. We do not care about the visual quality of the explanations, but we care about whether the explanations are meaningful to the stakeholder and the policy.
+You can explore many different explainability and transparency techniques, including the ones discussed in class and in the lab and ones you find on your own. We recommend to rely on existing explainability tooling for nontrivial analyses rather than to develop your own. Many existing tools can generate plots that you can integrate into the websites you generate, but textual explanations are also perfectly acceptable. We do not care about the visual quality of the generated PDFs.
 
-There is no single right explanation and we expect to see a very wide range of very different solutions. We are looking for a plausible solution where you argue why this solution is suitable, not any specific tool or design. We accept incomplete and inadequate solutions as long as the compliance discussion identifies the shortcomings and discusses how they could be overcome if you had more time or resources.
+There is no single right explanation and we expect to see a very wide range of very different solutions. We are looking for a plausible solution where you argue why this solution is suitable, not any specific tool or design. We accept inadequate solutions as long as the compliance discussion identifies the shortcomings and discusses how they could be overcome if you had more time or resources.
 
-It will not always be obvious whether a solution complies with the policy or whether some evidence is convincing. This is an open problem in policy design. Discussing compliance and limitations is the learning goal, not getting it right. We will have an in-class discussion about these challenges after the assignment. Importantly, we encourage you to strive for compliance and require a discussion, but we will not deduct points for noncompliance or poor evidence.
+It may not be possible to always comply with the policy and it may not even be obvious whether a solution complies with the policy or whether some evidence is convincing. Discussing compliance and limitations is the learning goal, not actual compliance. We will have an in-class discussion about these challenges after the assignment. Importantly, we encourage you to strive for compliance and require a discussion, but we will not deduct points for noncompliance or poor evidence if you clearly identify the problem or ambiguity in your compliance discussion.
 
 
 
@@ -76,14 +93,16 @@ It will not always be obvious whether a solution complies with the policy or whe
 
 ## Deliverable
 
-Submit your code, the generated PDFs files `explanation_a.pdf` and `explanation_b.pdf` to your GitHub repository.
+Submit all code you used to your GitHub repository. Commit the PDF files `explanation_global.pdf` and `explanation_local.pdf` to *the root directory* of your GitHub repository. Do not include your own name or Andrew ID in those two PDFs, if possible.
 
-Submit a report as a single PDF file to Gradescope that covers the following topics in clearly labeled sections (ideally each section starts on a new page):
+Submit a report as a single PDF file to Gradescope that covers the following topics in clearly labeled sections:
 
-1. **GitHub link:** Start the document with a link to your last commit on GitHub in the format https://github.com/cmu-seai/[repo]/commit/[commitid]. Make sure that the link includes the long ID of the last commit.
-2. **Explanations** (2 pages max): Briefly describe what kind of explanations you included in your explanations for *(a)* and *(b)* for your stakeholder, and why. Justify why those explanations are suitable for your stakeholder and policy.
-5. **Policy compliance** (open ended): Discuss whether your explanations as illustrated in your PDF files comply with the provided policy. Write this as if you were submitting a short report to a compliance/legal team in your company to convince them that your product complies and can be released.
-6. **Reflection** (2 page max): Include textual answers to the two reflection prompts (challenges, policy benefits) above in two clearly separated subsections. 
+1. **GitHub link:** Start the document with a link to your last commit on GitHub in the format https://github.com/mlip-cmu/[repo]/commit/[commitid]. Make sure that the link includes the long ID of the last commit.
+2. **Explanations and compliance** (0.5 page per policy requirement max): For each of the 8 policy requirements write:
+   * **Explanation:** Briefly describe what kind of explanations you created to address the policy requirement. Refer to specific techniques or tools if you used any. Provide links to relevant code where applicable. Point out where we can find this explanation in `explanation_global.pdf` or `explanation_local.pdf` if it is not obvious. Note, the same explanation may satisfy multiple policy requirements and you can point to prior sections rather than repeating content.
+   * **Compliance:** Discuss whether your solution complies with the policy requirement. If possible, provide evidence to demonstrate compliance. Write this as if you were submitting a short report to a compliance/legal team in your company to convince them that your product complies and can be released. If you cannot comply or are unsure, discuss additional steps needed for compliance or explain why compliance may not be possible.
+   
+3. **Reflection** (2 page max): Include textual answers to the two reflection prompts (challenges, policy benefits) above in two clearly separated subsections. Good reflections are grounded in concrete observations or specific experiences and should avoid generic statements that could apply to most solutions.
 
 
 Page limits are recommendations and not strictly enforced. You can exceed the page limit if there is a good reason. We prefer precise and concise answers over long and rambling ones.
@@ -92,12 +111,19 @@ Page limits are recommendations and not strictly enforced. You can exceed the pa
 
 The assignment is worth 100 points. For full credit, we expect:
 
-* [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. A list of at least 10 stakeholders is provided. All stakeholders are relevant to the product.
-* [ ] 20 points: A description of the *explanations* is provided; a justification for the chosen explanation is included.
-* [ ] 10 points: A PDF file `explanation_a.pdf` is included in the root directory of the linked repository that contains the description for the stakeholder covering requirement (a). The PDF corresponds to the description in the report.
-* [ ] 10 points: A PDF file `explanation_b.pdf` is included in the root directory of the linked repository that contains the description for the stakeholder covering requirement (b). The PDF corresponds to the description in the report.
-* [ ] 10 points: For explanations that relate to individual patients, two examples are included in the PDF files.
-* [ ] 10 points: Code to generate explanations (figures etc) is included in the repository. It aligns with the description.
-* [ ] 20 points: A discussion of policy compliance that makes a good faith attempt at providing evidence to demonstrate compliance or discusses additional steps needed for compliance or why compliance may not be possible.
-* [ ] 10 points: A good-faith attempt at reflecting in two clearly identifiable subsections about (a) the challenges of interpreting, complying, or providing evidence for the policy and (b) the benefits of the enforcement of the policy.
+* [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. The files are named as specified in that repository.
+* [ ] 15 points: A PDF file `explanation_global.pdf is included in the root directory of the linked repository that contains the global explanations for the assigned stakeholder. The PDF corresponds to the description in the report.
+* [ ] 15 points: A PDF file `explanation_local.pdf` is included in the root directory of the linked repository that contains the individual/local explanations for the assigned stakeholder for *two* patients. The PDF corresponds to the description in the report.
+* [ ] 10 points: Where explanations (e.g., figures) were created with code, the code is included in the repository. It aligns with the description.
+* [ ] 40 points (5 points each): For each of the following policy requirements (a) the answer describes how the requirement was addressed technically, (b) the provided PDF files illustrate the solution, (c) the answer makes a good faith attempt at providing evidence to demonstrate compliance, or discusses additional steps needed for compliance, or explains why compliance may not be possible. 
+   1. Describes the intended use and the role of the automation
+   2. Provides evidence that the automation (model) functions accurately, consistently, and effectively in the intended use case
+   3. Describes how the automation (model) works generally and provides evidence that the documentation is effective for the policy purpose. 
+   5. Individual explanations that explain that automation was used, what significant personal data was used for the decision, and what decisions were reached in the specific case 
+   6. Describes limitations and misuse potential of the automated system beyond its intended purpose and any provided mitigations.
+   7. Describes the data used by the automated system. Justifies the use of personal identifiable information.
+   8. Describes how to report misuse or harm from the automated system.
+   9. Provides all documentation in language appropriate for the intended audience. All documentation for untrained users must use nontechnical language at an eighth grade reading level.
+   
+* [ ] 10 points: A good-faith attempt at reflecting in two clearly identifiable subsections about (a) the challenges of the assignment and (b) the benefits, if any, of the policy. The reflection refers to specifics and is grounded in own concrete experiences rather than describing just generic general observations.
 
