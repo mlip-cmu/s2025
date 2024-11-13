@@ -111,19 +111,19 @@ Page limits are recommendations and not strictly enforced. You can exceed the pa
 
 The assignment is worth 100 points. For full credit, we expect:
 
-* [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. The files are named as specified in that repository.
+* [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. 
 * [ ] 15 points: A PDF file `explanation_global.pdf` is included in the root directory of the linked repository that contains the global explanations for the assigned stakeholder. The PDF corresponds to the description in the report.
 * [ ] 15 points: A PDF file `explanation_local.pdf` is included in the root directory of the linked repository that contains the individual/local explanations for the assigned stakeholder for *two* patients. The PDF corresponds to the description in the report.
 * [ ] 10 points: Where explanations (e.g., figures) were created with code, the code is included in the repository. It aligns with the description.
-* [ ] 40 points (5 points each): For each of the following policy requirements (a) the answer describes how the requirement was addressed technically, (b) the provided PDF files illustrate the solution, (c) the answer makes a good faith attempt at providing evidence to demonstrate compliance, or discusses additional steps needed for compliance, or explains why compliance may not be possible. 
+* [ ] 40 points (5 points each): For each of the following policy requirements (a) the answer describes how the requirement was addressed technically, (b) the provided PDF files illustrate the solution, and (c) the answer makes a good faith attempt at providing evidence to demonstrate compliance, or discusses additional steps needed for compliance, or explains why compliance may not be possible. 
    1. Describes the intended use and the role of the automation
    2. Provides evidence that the automation (model) functions accurately, consistently, and effectively in the intended use case
    3. Describes how the automation (model) works generally and provides evidence that the documentation is effective for the policy purpose. 
-   5. Individual explanations that explain that automation was used, what significant personal data was used for the decision, and what decisions were reached in the specific case 
-   6. Describes limitations and misuse potential of the automated system beyond its intended purpose and any provided mitigations.
-   7. Describes the data used by the automated system. Justifies the use of personal identifiable information.
-   8. Describes how to report misuse or harm from the automated system.
-   9. Provides all documentation in language appropriate for the intended audience. All documentation for untrained users must use nontechnical language at an eighth grade reading level.
+   4. Individual explanations that explain that automation was used, what significant personal data was used for the decision, and what decisions were reached in the specific case 
+   5. Describes limitations and misuse potential of the automated system beyond its intended purpose and any provided mitigations.
+   6. Describes the data used by the automated system. Justifies the use of personal identifiable information.
+   7. Describes how to report misuse or harm from the automated system.
+   8. Provides all documentation in language appropriate for the intended audience. All documentation for untrained users must use nontechnical language at an eighth grade reading level.
    
 * [ ] 10 points: A good-faith attempt at reflecting in two clearly identifiable subsections about (a) the challenges of the assignment and (b) the benefits, if any, of the policy. The reflection refers to specifics and is grounded in own concrete experiences rather than describing just generic general observations.
 
