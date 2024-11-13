@@ -112,7 +112,7 @@ Page limits are recommendations and not strictly enforced. You can exceed the pa
 The assignment is worth 100 points. For full credit, we expect:
 
 * [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. The files are named as specified in that repository.
-* [ ] 15 points: A PDF file `explanation_global.pdf is included in the root directory of the linked repository that contains the global explanations for the assigned stakeholder. The PDF corresponds to the description in the report.
+* [ ] 15 points: A PDF file `explanation_global.pdf` is included in the root directory of the linked repository that contains the global explanations for the assigned stakeholder. The PDF corresponds to the description in the report.
 * [ ] 15 points: A PDF file `explanation_local.pdf` is included in the root directory of the linked repository that contains the individual/local explanations for the assigned stakeholder for *two* patients. The PDF corresponds to the description in the report.
 * [ ] 10 points: Where explanations (e.g., figures) were created with code, the code is included in the repository. It aligns with the description.
 * [ ] 40 points (5 points each): For each of the following policy requirements (a) the answer describes how the requirement was addressed technically, (b) the provided PDF files illustrate the solution, (c) the answer makes a good faith attempt at providing evidence to demonstrate compliance, or discusses additional steps needed for compliance, or explains why compliance may not be possible. 
