@@ -998,7 +998,7 @@ Levels of explanations:
 
 
 ----
-## Prototypes and Criticisms
+## Data Explanation #1: Prototypes and Criticisms
 
 * *Prototype* is a data instance that is representative of all the data
 * *Criticism* is a data instance  not well represented by the prototypes
@@ -1063,7 +1063,7 @@ Identify globally or per class
 
 
 ----
-## Influential Instance
+## Data Explanation #2: Influential Instance
 
 **Data debugging:** *What data most influenced the training?*
 

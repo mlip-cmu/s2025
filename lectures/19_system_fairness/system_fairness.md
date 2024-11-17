@@ -844,54 +844,6 @@ into Critical, Clinical Decision-Making Processes](https://dl.acm.org/doi/pdf/10
 
 
 
-
-
-
----
-# Monitoring
-
-
-----
-## Monitoring & Auditing
-
-* Operationalize fairness measure in production with telemetry
-* Continuously monitor for:
-<!-- .element: class="fragment" -->
-  - Mismatch between training data, test data, and instances encountered in deployment
-  - Data shifts: May suggest needs to adjust fairness metric/thresholds
-  - User reports & complaints: Log and audit system decisions
-    perceived to be unfair by users
-* Invite diverse stakeholders to audit system for biases
-<!-- .element: class="fragment" -->
-
-----
-## Monitoring & Auditing
-
-![](model_drift.jpg)
-<!-- .element: class="stretch" -->
-
-* Continuosly monitor the fairness metric (e.g., error rates for
-different sub-populations)
-* Re-train model with recent data or adjust classification thresholds
-  if needed
-
-
-----
-## Preparing for Problems
-
-Prepare an *incidence response plan* for fairness issues
-* What can be shut down/reverted on short notice?
-* Who does what?
-* Who talks to the press? To affected parties? What do they need to know?
-
-Provide users with a path to *appeal decisions*
-* Provide feedback mechanism to complain about unfairness
-* Human review? Human override?
-
-
-
-
-
 ---
 # Process Integration
 
@@ -1011,33 +963,6 @@ Not everybody will be a fairness expert, but ensure base-level awareness on when
 
 
 
----
-# Best Practices
-
-----
-## Best Practices
-
-**Best practices are emerging and evolving**
-
-Start early, be proactive
-
-Scrutinize data collection and labeling
-
-Invest in requirements engineering and design
-
-Invest in education
-
-Assign clear responsibilities, demonstrate leadership buy-in
-
-----
-## Many Tutorials, Checklists, Recommendations
-
-Tutorials (fairness notions, sources of bias, process recom.): 
-* [Fairness in Machine Learning](https://vimeo.com/248490141), [Fairness-Aware Machine Learning in Practice](https://sites.google.com/view/fairness-tutorial)
-* [Challenges of Incorporating Algorithmic Fairness into Industry Practice](https://www.microsoft.com/en-us/research/video/fat-2019-translation-tutorial-challenges-of-incorporating-algorithmic-fairness-into-industry-practice/)
-
-Checklist:
-* Microsoft’s [AI Fairness Checklist](https://www.microsoft.com/en-us/research/project/ai-fairness-checklist/): concrete questions, concrete steps throughout all stages, including deployment and monitoring
 
 
 
@@ -1131,6 +1056,72 @@ We will likely not anticipate all feedback loops...
 -> Monitoring!
 
 
+
+---
+# Best Practices
+
+
+----
+## Monitoring & Auditing
+
+* Operationalize fairness measure in production with telemetry
+* Continuously monitor for:
+<!-- .element: class="fragment" -->
+  - Mismatch between training data, test data, and instances encountered in deployment
+  - Data shifts: May suggest needs to adjust fairness metric/thresholds
+  - User reports & complaints: Log and audit system decisions
+    perceived to be unfair by users
+* Invite diverse stakeholders to audit system for biases
+<!-- .element: class="fragment" -->
+
+----
+## Monitoring & Auditing
+
+![](model_drift.jpg)
+<!-- .element: class="stretch" -->
+
+* Continuosly monitor the fairness metric (e.g., error rates for
+different sub-populations)
+* Re-train model with recent data or adjust classification thresholds
+  if needed
+
+
+----
+## Preparing for Problems
+
+Prepare an *incidence response plan* for fairness issues
+* What can be shut down/reverted on short notice?
+* Who does what?
+* Who talks to the press? To affected parties? What do they need to know?
+
+Provide users with a path to *appeal decisions*
+* Provide feedback mechanism to complain about unfairness
+* Human review? Human override?
+
+----
+## Best Practices
+
+**Best practices are emerging and evolving**
+
+Start early, be proactive
+
+Scrutinize data collection and labeling
+
+Invest in requirements engineering and design
+
+Invest in education
+
+Assign clear responsibilities, demonstrate leadership buy-in
+
+----
+## Many Tutorials, Checklists, Recommendations
+
+Tutorials (fairness notions, sources of bias, process recom.): 
+* [Fairness in Machine Learning](https://vimeo.com/248490141), [Fairness-Aware Machine Learning in Practice](https://sites.google.com/view/fairness-tutorial)
+* [Challenges of Incorporating Algorithmic Fairness into Industry Practice](https://www.microsoft.com/en-us/research/video/fat-2019-translation-tutorial-challenges-of-incorporating-algorithmic-fairness-into-industry-practice/)
+
+Checklist:
+* Microsoft’s [AI Fairness Checklist](https://www.microsoft.com/en-us/research/project/ai-fairness-checklist/): concrete questions, concrete steps throughout all stages, including deployment and monitoring
 
 
 ---
