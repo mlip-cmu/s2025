@@ -865,9 +865,14 @@ Source:
 Christoph Molnar. "[Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)." 2019
 </script></section><section data-markdown><script type="text/template">## Example: Prototypes and Criticisms?
 
-![Example](prototypes_without.png)<!-- .element: style="width:900px" -->
+![Example](prototypes_without.png)
+<!-- .element: class="stretch" -->
 
 
+
+<!-- references_ -->
+Source: 
+Christoph Molnar. "[Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)." 2019
 </script></section><section data-markdown><script type="text/template">## Example: Prototypes and Criticisms
 
 ![Example](prototypes.png)
@@ -928,13 +933,10 @@ Approach:
 <aside class="notes"><p>Instead of understanding a single model, comparing multiple models trained on different data</p>
 </aside></script></section><section data-markdown><script type="text/template">## Influential Instances Discussion
 
-Retraining for every data point is simple but expensive
-
-For some class of models, influence of data points can be computed without retraining (e.g., logistic regression), see book for details
-
-Hard to generalize to taking out multiple instances together
- 
-Useful model-agnostic debugging tool for models and data
+* Retraining for every data point is simple but expensive
+* For some class of models, influence of data points can be computed without retraining (e.g., logistic regression), see book for details
+* Hard to generalize to taking out multiple instances together (need to take out groups of data together)
+* Useful model-agnostic debugging tool for models and data
 
 
 <!-- references -->
@@ -993,10 +995,30 @@ Left Image: CC BY-SA 4.0, Adrian Rosebrock
 
 
 
+</script></section><section ><section data-markdown><script type="text/template"># Bonus: Explanations for Generative Models
+</script></section><section data-markdown><script type="text/template">## Attribution reuses existing methods
 
+![LLM Attribution](llm_expl_attribution.jpg)
+<!-- .element: class="stretch plain" -->
 
+<!-- references_ -->
+[LLM Attributor: Attribute LLM's Generated Text to Training Data](https://github.com/poloclub/LLM-Attributor)
+</script></section><section data-markdown><script type="text/template">## We can do Natural Language Explanation
 
-</script></section><section ><section data-markdown><script type="text/template"># "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead."
+![Natural Language Explanation](nl_expl.jpg)
+
+<!-- references_ -->
+Zellers, Rowan, et al. "From recognition to cognition: Visual commonsense reasoning." CVPR 2019
+</script></section><section data-markdown><script type="text/template">## Prompt vs. Explanation
+
+![Compare few-shot with explanations](llm_expl_nl.jpg)
+<!-- .element: class="stretch plain" -->
+
+</script></section><section data-markdown><script type="text/template">## Prompt vs. Explanation
+
+![Compare CoT with explanations](llm_expl_example.jpg)
+<!-- .element: class="stretch plain" -->
+</script></section></section><section ><section data-markdown><script type="text/template"># "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead."
 
 </script></section><section data-markdown><script type="text/template">## Accuracy vs Explainability Conflict?
 
