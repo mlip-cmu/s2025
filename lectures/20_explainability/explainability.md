@@ -1013,9 +1013,14 @@ Christoph Molnar. "[Interpretable Machine Learning](https://christophm.github.io
 ----
 ## Example: Prototypes and Criticisms?
 
-![Example](prototypes_without.png)<!-- .element: style="width:900px" -->
+![Example](prototypes_without.png)
+<!-- .element: class="stretch" -->
 
 
+
+<!-- references_ -->
+Source: 
+Christoph Molnar. "[Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)." 2019
 
 ----
 ## Example: Prototypes and Criticisms
@@ -1092,13 +1097,10 @@ Note: Instead of understanding a single model, comparing multiple models trained
 ----
 ## Influential Instances Discussion
 
-Retraining for every data point is simple but expensive
-
-For some class of models, influence of data points can be computed without retraining (e.g., logistic regression), see book for details
-
-Hard to generalize to taking out multiple instances together
- 
-Useful model-agnostic debugging tool for models and data
+* Retraining for every data point is simple but expensive
+* For some class of models, influence of data points can be computed without retraining (e.g., logistic regression), see book for details
+* Hard to generalize to taking out multiple instances together (need to take out groups of data together)
+* Useful model-agnostic debugging tool for models and data
 
 
 <!-- references -->
@@ -1164,8 +1166,38 @@ Left Image: CC BY-SA 4.0, Adrian Rosebrock
 
 
 
+---
+# Bonus: Explanations for Generative Models
+
+----
+## Attribution reuses existing methods
+
+![LLM Attribution](llm_expl_attribution.jpg)
+<!-- .element: class="stretch plain" -->
+
+<!-- references_ -->
+[LLM Attributor: Attribute LLM's Generated Text to Training Data](https://github.com/poloclub/LLM-Attributor)
+
+----
+## We can do Natural Language Explanation
+
+![Natural Language Explanation](nl_expl.jpg)
+
+<!-- references_ -->
+Zellers, Rowan, et al. "From recognition to cognition: Visual commonsense reasoning." CVPR 2019
+
+----
+## Prompt vs. Explanation
+
+![Compare few-shot with explanations](llm_expl_nl.jpg)
+<!-- .element: class="stretch plain" -->
 
 
+----
+## Prompt vs. Explanation
+
+![Compare CoT with explanations](llm_expl_example.jpg)
+<!-- .element: class="stretch plain" -->
 
 ---
 # "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead."

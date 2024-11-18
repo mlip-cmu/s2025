@@ -147,14 +147,19 @@ Eslami, Motahhare, et al. [I always assumed that I wasn't really that close to [
 
 
 ----
-## Human-AI Interaction
+## Expl. for Human-AI Interaction
 
 <!-- colstart -->
 ![Positive example](https://pair.withgoogle.com/assets/ET3_aim-for.png)<!-- .element: style="width:300px" -->
 <!-- col -->
 ![Negative example](https://pair.withgoogle.com/assets/ET3_avoid.png)<!-- .element: style="width:300px" -->
 <!-- col -->
+
+
+<div class="smallish">
 Give the user details about why a prediction was made in a high stakes scenario. Here, the user is exercising after an injury and needs confidence in the app’s recommendation.
+</div>
+
 <!-- colend -->
 <!-- references -->
 Source:
@@ -171,8 +176,10 @@ Source:
 <!-- col -->
 
 
+<div class="smallish">
 
 Tell the user when a lack of data might mean they’ll need to use their own judgment. Don’t be afraid to admit when a lack of data could affect the quality of the AI recommendations.
+</div>
 
 <!-- colend -->
 
@@ -181,6 +188,21 @@ Source:
 [People + AI Guidebook](https://pair.withgoogle.com/research/), Google
 
 
+----
+## Express Explanation Intuitively
+
+![TalkToModel](talk_to_model_example.jpg)
+<!-- .element: class="plain stretch" -->
+
+<!-- references_ -->
+Lakkaraju et al., [Rethinking Explainability as a Dialogue: A Practitioner’s Perspective](https://pair.withgoogle.com/research/), 2022
+
+
+----
+## Express Explanation Intuitively
+
+![TalkToModel](talk_to_model.jpg)
+<!-- .element: class="plain stretch" -->
 
 
 ----
