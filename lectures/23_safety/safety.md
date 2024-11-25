@@ -732,11 +732,12 @@ Rudin, Cynthia. "Stop explaining black box machine learning models for high stak
 
 ----
 
-<div class="tweet" data-src="https://twitter.com/emilymbender/status/1640920936600997889"></div>
+<div class="tweet" data-src="https://twitter.com/random_walker/status/1641077455178833920"></div>
+
 
 ----
 
-<div class="tweet" data-src="https://twitter.com/random_walker/status/1641077455178833920"></div>
+<div class="tweet" data-src="https://twitter.com/emilymbender/status/1640920936600997889"></div>
 
 
 
