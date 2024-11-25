@@ -1,8 +1,8 @@
 ---
-author: Claire Le Goues & Christian Kaestner
+author: Sherry Wu, Eunsuk Kang, Claire Le Goues & Christian Kaestner
 title: "MLiP: Safety"
-semester: Spring 2024
-footer: "Machine Learning in Production/AI Engineering • Christian Kaestner & Claire Le Goues, Carnegie Mellon University • Spring 2024"
+semester: Fall 2024
+footer: "Machine Learning in Production/AI Engineering • Sherry Wu & Christian Kaestner, Carnegie Mellon University • Fall 2024"
 license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 ---  
 <!-- .element: class="titleslide"  data-background="../_chapterimg/22_safety.jpg" -->
@@ -16,6 +16,14 @@ license: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 
 <!-- img: https://pixabay.com/photos/circus-the-fire-breathing-fire-4318438/ -->
+
+---
+# Administrativa
+
+* Second midterm during Dec 4 lecture
+  * Same style/format as first midterm (scenario driven; focus on isses you had opportunities to practice; same notes policy)
+  * Not cummulative: Only covering materials after first midterm (lectures, readings, assignments, ...)
+* Last milestone M4 deadline extension to Friday Dec 6
 
 ---
 ## Mitigating more mistakes...
