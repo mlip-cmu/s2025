@@ -102,6 +102,15 @@ Local explanations
 
 <!-- colend -->
 
+
+----
+## What makes a good explanation?
+
+## Were your explanations any good?
+
+<!-- discussion -->
+
+
 ----
 ## How would your explanations have differed?
 
@@ -160,6 +169,8 @@ Local explanations
 ----
 ## What does it take to create understandable explanations for end users?
 
+**What are the challenges?**
+
 <!-- colstart -->
 
 Global explanations
@@ -196,6 +207,11 @@ Local explanations
 
 </div>
 
+
+----
+## How relevant are explanations in the Diabetic Retinopathy scenario?
+
+<!-- discussion -->
 
 ----
 ## Are we taking explanations seriously?
