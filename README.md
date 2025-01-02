@@ -48,7 +48,7 @@ In addition, students will gain familiarity with production-quality infrastructu
 
 17-445/17-645/17-745, 12 Units
 
-The course is the same under all course numbers, with the exception of the PhD-level 17-745 number, which replaces two homework assignments with a mandatory [research project](https://github.com/mlip-cmu/s2025/blob/main/assignments/research_project.md).
+The course is the same under all course numbers, except for the PhD-level 17-745 number, which replaces two homework assignments with a mandatory [research project](https://github.com/mlip-cmu/s2025/blob/main/assignments/research_project.md).
 
 Open to all undergraduate and graduate students meeting the prerequisites.
 
