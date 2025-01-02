@@ -37,9 +37,9 @@ jobs:
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
       run: |
         cp .assets/template.html _site/index.html
-        # sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) (\[/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf), \[/' < schedule.md |         sed 's/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\([^\(]*\)\.html) *|/\](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2024\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2024\/slides\/\1.pdf)) |/'  > schedule_.md
+        # sed 's/\](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\([^\(]*\)\.html) (\[/\](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2025\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\1.pdf), \[/' < schedule.md |         sed 's/\](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\([^\(]*\)\.html) *|/\](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\1.html) ([md](https:\/\/github.com\/mlip-cmu\/s2025\/blob\/main\/lectures\/\1.md), [pdf](https:\/\/mlip-cmu.github.io\/s2025\/slides\/\1.pdf)) |/'  > schedule_.md
         echo $GDOC_CREDENTIALS > credentials.json
-        SPREADSHEET_ID="$SPREADSHEET_ID" SEMESTER=f2024 node .tools/schedulegen/index.js > schedule.md
+        SPREADSHEET_ID="$SPREADSHEET_ID" SEMESTER=s2025 node .tools/schedulegen/index.js > schedule.md
         sed -i -e '/^\[Schedule\]/r schedule.md' README.md
         npx marked -i README.md >> _site/index.html
         cat .assets/template_end.html >> _site/index.html
