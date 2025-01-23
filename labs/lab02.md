@@ -13,6 +13,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 ## Getting started
 - Clone the starter code from this [Git repository](https://github.com/XueyingJia/mlip-kafka-lab).
 - The repository includes a python notebook for Kafka producer and consumer model.
+- NOTE: If you have trouble with the kafka-python package, uninstall it and pip install kafka-python-ng instead.
 
 ## Connecting to Kafka server
 1. Use SSH to create a tunnel to the Kafka server (find remote_server, user, and password on the Canvas entry for this lab):  
