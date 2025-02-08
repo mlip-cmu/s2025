@@ -73,6 +73,15 @@ const fs = require('fs');
             });
 
 
+            const gslides = [
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link"
+            ]
 
             rows.map((row) => {
                 if (row[0] !== 'Date' && row[0] != '' && row[0] != undefined) {
@@ -103,12 +112,20 @@ const fs = require('fs');
                         if (labLink != undefined && labLink != "")
                             topic = `[${topic}](https://github.com/mlip-cmu/${semesterRepo}/blob/main/labs/${labLink})`
                     } else {
-                        const slidesLink = findSlidesLink(id)
-                        if (slidesLink != undefined && slidesLink != "") {
-                            const mdLink = slidesLink.replace(".html", ".md")
-                            const pdfLink = slidesLink.replace(".html", ".pdf")
-                            topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+                        // const slidesLink = findSlidesLink(id)
+                        // if (slidesLink != undefined && slidesLink != "") {
+                            // const mdLink = slidesLink.replace(".html", ".md")
+                            // const pdfLink = slidesLink.replace(".html", ".pdf")
+                            // If index is in gslides
+                        if (index < gslides.length) {
+                            topic = `[${topic}](${gslides[index]})`
                         }
+                        else {
+                            topic = `${topic}`
+                        }
+                            // topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
+
+                        // }
                     }
 
                     console.log(`| ${date} | ${badges}${topic} | ${chapterLinks} | ${readings} | ${assignment} |`)
