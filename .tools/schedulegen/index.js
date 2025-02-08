@@ -75,12 +75,12 @@ const fs = require('fs');
 
             const gslides = [
                 "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link"
+                "https://docs.google.com/presentation/d/1OAK3FuWuBng8dmgyE9VYkXm-yq72F35fF89OEpxPi8Q/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1l3R9O6F9JkbsJsaH2GrelqMTKM1IGOO5FFLAdOCpT8o/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1e3OTUsCNU0wc8Ln0FVKYbfuLmRFxDNrAQj6M_kOHRlI/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1x6lddGD-hGVUaN0m3I4EWYzdrxue8CuiN1lKHAUN3eA/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/10Be6psctUgjyFNXwcdCAnbRoO7_kzvkIxS-VazHLjOc/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1NGU9NvdVRSMQIYRijITbHMBq31S8VVGNrEvljouUoPc/edit?usp=share_link"
             ]
 
             rows.map((row, index) => {
