@@ -83,7 +83,7 @@ const fs = require('fs');
                 "https://docs.google.com/presentation/d/1ejvxrdLPHU-lp_xMwz4v35AjPHrt8KZtcr8-LsjIgOM/edit?usp=share_link"
             ]
 
-            rows.map((row) => {
+            rows.map((row, index) => {
                 if (row[0] !== 'Date' && row[0] != '' && row[0] != undefined) {
                     const date = row[columnIds.date] || "";
                     const id = row[columnIds.id] || "";
