@@ -8,20 +8,23 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 ## Deliverables
 - [ ] Successfully start a local Zeno server on the dataset provided, with metrics and model predictions
-- [ ] Create 5 slices in the Zeno interface, derive meaningful insights and showcase them to the TA. 
+- [ ] Create 5 slices in the Zeno interface, derive meaningful insights and showcase them to the TA
 - [ ] Write down 3 additional slices you want to create and successfully generate 10 examples for one selected slice
 
 Hints: For the slices you create, you should be able to justify why you want to create them and demonstrate what you have observed for the created slices.
 
 ## Getting started
-- Clone the starter code from this [Git repository](https://github.com/malusamayo/cmu-mlip-model-testing-lab).
+- Clone the starter code from this [Git repository](https://github.com/cmu-seai/cmu-mlip-model-testing-lab).
 - The repository includes a python notebook which contains the starter code.
 
 ## Installation instructions
 - python 3.10 version is needed for the zeno packages to run correctly
-- pip install zenoml datasets transformers tqdm
+- You can run the command `python -m venv mlip-lab4` in the terminal to create a new virtual environment (optional)
+- pip install zenoml datasets transformers tqdm torch
+- Restart the ipynb kernel after running all installation commands
 
 ## Code related details
 - Finish all 7 steps mentioned in the python notebook
 - If you have trouble downloading the datasets and/or running model inference, use `tweets.csv` shared in the folder
+- If you have trouble starting a local Zeno server, copy the code in `zenohub.py` to the notebook and follow the steps
 - If you have trouble using the GPTs provided, use plain ChatGPT for test case generation

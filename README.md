@@ -61,7 +61,7 @@ Labs Friday 9:30-10:50am in PH 226C (A) and SH 236 (B) and 11-12:20pm in PH A22 
 
 Instructors: [Claire Le Goues](https://www.cs.cmu.edu/~clegoues) and [Austin Henley](https://austinhenley.com/)
 
-TAs: 
+TAs: Zhijie Xu, Rajeev Veeraraghavan, Arushi Gupta, Shaurya Singh, Swastik Samaddar Chowdhury, Ritvika Sonawane, Amy Wu
 
 ### Coordination
 
