@@ -81,9 +81,9 @@ const fs = require('fs');
                 "https://docs.google.com/presentation/d/1x6lddGD-hGVUaN0m3I4EWYzdrxue8CuiN1lKHAUN3eA/edit?usp=share_link",
                 "https://docs.google.com/presentation/d/10Be6psctUgjyFNXwcdCAnbRoO7_kzvkIxS-VazHLjOc/edit?usp=share_link",
                 "https://docs.google.com/presentation/d/1NGU9NvdVRSMQIYRijITbHMBq31S8VVGNrEvljouUoPc/edit?usp=share_link"
-            ]
-
-            rows.map((row, index) => {
+            ];
+            let index = 0;
+            rows.map((row) => {
                 if (row[0] !== 'Date' && row[0] != '' && row[0] != undefined) {
                     const date = row[columnIds.date] || "";
                     const id = row[columnIds.id] || "";
@@ -123,6 +123,7 @@ const fs = require('fs');
                         else {
                             topic = `${topic}`
                         }
+                        index++;
                             // topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
 
                         // }
