@@ -80,7 +80,8 @@ const fs = require('fs');
                 "https://docs.google.com/presentation/d/1e3OTUsCNU0wc8Ln0FVKYbfuLmRFxDNrAQj6M_kOHRlI/edit?usp=share_link",
                 "https://docs.google.com/presentation/d/1x6lddGD-hGVUaN0m3I4EWYzdrxue8CuiN1lKHAUN3eA/edit?usp=share_link",
                 "https://docs.google.com/presentation/d/10Be6psctUgjyFNXwcdCAnbRoO7_kzvkIxS-VazHLjOc/edit?usp=share_link",
-                "https://docs.google.com/presentation/d/1NGU9NvdVRSMQIYRijITbHMBq31S8VVGNrEvljouUoPc/edit?usp=share_link"
+                "https://docs.google.com/presentation/d/1NGU9NvdVRSMQIYRijITbHMBq31S8VVGNrEvljouUoPc/edit?usp=share_link",
+                "https://docs.google.com/presentation/d/1bKpxNjj4vMw18ehZhUXeFweiFVcFugfUceHC2Ul-8yo/edit?usp=share_link"
             ];
             let index = 0;
             rows.map((row) => {
