@@ -1,6 +1,6 @@
 # Machine Learning in Production (17-445/17-645/17-745) / AI Engineering (11-695)
 
-### Spring 2025
+### Spring 2025 
 
 <em>CMU course that covers how to build, deploy, assure, and maintain software products with machine-learned models. Includes the entire lifecycle from a prototype ML model to an entire system deployed in production. Covers also **responsible AI** (including safety, security, fairness, explainability) and **MLOps**. For earlier offerings see websites for [Fall 2019](https://ckaestne.github.io/seai/F2019), [Summer 2020](https://ckaestne.github.io/seai/S2020), [Fall 2020](https://ckaestne.github.io/seai/F2020/), [Spring 2021](https://ckaestne.github.io/seai/S2021/)  [Spring 2022](https://ckaestne.github.io/seai/S2022/), [Fall 2022](https://ckaestne.github.io/seai/F2022/), [Spring 2023](https://github.com/mlip-cmu/s2023), [Spring 2024](https://github.com/mlip-cmu/s2024), and [Fall 2024](https://github.com/mlip-cmu/f2024). This Spring 2025 offering is designed for students with some data science experience (e.g., has taken a machine learning course, has used sklearn) and basic programming skills (e.g., basic Python programming with libraries, can navigate a Unix shell), but will not expect a software engineering background (i.e., experience with testing, requirements, architecture, process, or teams is not required). Going forward we expect to offer this course at least every spring semester and possibly some fall semesters (not summer semesters).</em>
 
