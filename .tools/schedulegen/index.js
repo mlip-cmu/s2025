@@ -87,7 +87,8 @@ const fs = require('fs');
                 "https://docs.google.com/presentation/d/1atgZUMUM-KfbofJ3J3f7X67oV6xl2PlDqy1hHXeypHk/edit?usp=sharing",
                 "https://docs.google.com/presentation/d/1hSMGmxgGhjDsXE6qByQUwggKgk_hBAWg0DiIqeV8D3k/edit?usp=sharing",
                 "https://docs.google.com/presentation/d/1myluYkJ9DJQRW5Kaf5jHQaFwbPafQ8ZcNFXmYWLONNU/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1wCCsDRZCAfFiE3KV6LvwE2A29OmNrKznp3DMKKc8NP0/edit?usp=sharing"
+                "https://docs.google.com/presentation/d/1wCCsDRZCAfFiE3KV6LvwE2A29OmNrKznp3DMKKc8NP0/edit?usp=sharing",
+                "https://docs.google.com/presentation/d/1OBlWdHWi6eJQyxeshEkiObqpp7Ma0vqrQ2i33Opy0yU/edit?usp=sharing"
             ];
             let index = 0;
             rows.map((row) => {
