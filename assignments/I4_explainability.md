@@ -57,22 +57,39 @@ While government regulation is still evolving, the company that creates the smar
 
 ## Tasks
 
-In this assignment, you will work with a provided model for a potential medical application ([diabetic retinopathy detection with a smartphone app](https://github.com/cmu-seai/diabetic-retinopathy)), create explanations, and demonstrate compliance with policy requirements. You will provide explanations for the assigned stakeholder and purpose, which you can find in the assignment text on Canvas (different students may be assigned different stakeholders/purposes, please do not compare before completing the assignment; they are all comparable in workload and difficulty and have exactly the same grading criteria). Create a GitHub repository with optional starter code for your work with the provided GitHub classroom link on Canvas. While we only provide the model and training/test data, assume that the model is embedded in a real-world software product as described in the repository. 
+In this assignment, you will work with a provided model for a potential medical application ([diabetic retinopathy detection with a smartphone app](https://github.com/cmu-seai/diabetic-retinopathy)), create explanations, and demonstrate compliance with policy requirements. You will provide explanations for patients and nurses. You will reflect on your solution with the help of a Chatbot as instructed on Canvas (different students may be assigned different reflection strategies, please do not compare before completing the assignment; they are all comparable in workload and difficulty and have exactly the same grading criteria). Create a GitHub repository with optional starter code for your work with the provided GitHub classroom link on Canvas. While we only provide the model and training/test data, assume that the model is embedded in a real-world software product as described in the repository. 
 
 The task is to generate two forms of transparency mechanisms or explanations, discuss policy compliance, and reflect on the experience:
 
-**Global explanations / transparency about the model or data:** Consider what the assigned stakeholder might want to know about the product, the model, or the data (transparency). Create a PDF file  `explanation_global.pdf`  (e.g., from a HTML page or Word document) that includes information about the data or model in a form that the company producing the product may disclose for transparency. This might include information about the data, about accuracy, about important features, or about fairness. 
+**Global explanations for the device handbook (for nurses, volunteers):** Consider what a *nurse* or volunteer who is screening patients might want to know about the product, the model, or the data (transparency). Create a PDF file  `explanation_global.pdf`  (e.g., from a HTML page or Word document) that includes information about the data or model in a form that the company producing the product *may disclose for transparency on its website or a handbook*. This might include information about the data, about accuracy, about important features, or about fairness. 
 
-**Individual explanations for predictions:** Identify what the assigned stakeholders would want to know about individual predictions. Write code that produces explanations or fragments of explanations for a specific prediction, possibly automatically producing HTML pages from a template. Create a PDF file  `explanation_local.pdf`  (from generated HTML pages or created in any other way) that shows the explanations for *two* patients (example inputs) -- that is concatenate the explanations for two selected patients in the same PDF. While the approach should be repeatable for other patients, the creation of the PDF does not need to be fully automated and can involve manual steps.
+**Individual explanations for patient handouts:** Identify what a *patient* would want to know about individual predictions. Create explanations that you could give to a patient *as a handout after the screening*. Write code that produces explanations or fragments of explanations for a specific input for a patient, possibly automatically producing HTML pages from a template. Create a PDF file  `explanation_local.pdf`  (generated with code or created in any other way) that shows the explanations for *two* patients (example inputs) -- that is concatenate the explanations for two selected patients in the same PDF. While the approach should be repeatable for other patients, the creation of the PDF does not need to be fully automated and can involve manual steps.
 
-**Policy compliance:** Discuss whether your solution complies with the provided policy (note that compliance is not necessary to receive full credit for this assignment). Where possible provide evidence for compliance -- what you consider as evidence is for you to decide. If you think that your solution does not comply, explain why and either (a) outline what additional work you could do to comply or (b) explain why compliance is not possible. 
+**LLM-supported problem/solution analysis:** Use the instructions on Canvas to assess your approach with the help of a chatbot at any point in the project, whether early to reflect on the design or later to check your solution or both. Include the transcripts of your interactions with the chatbot in a PDF file `chatbot.pdf` (e.g., print from browser, concatenate multiple sessions if you try repeatedly).
 
-**Reflection:** In two separate section reflect on your experience:
+**Policy compliance:** In your submission to Gradescope, discuss whether your solution complies with the provided policy. Where possible provide evidence for compliance -- what you consider as evidence is for you to decide. Note that compliance is not necessary to receive full credit for this assignment. If you think that your solution does not comply, explain why and either (a) outline what additional work you could do to comply or (b) explain why compliance is not possible. 
 
-1. *Challenges:* What was challenging about this assignment?
-2. *Policy benefit:* Would you expect that company policy will have a positive impact, and how and for whom?
+**Reflection:** In a separate "Reflection" section of your Gradescope submission answer the following questions (questions 3-9 do not require explanations, but you are welcome to provide more context):
 
+1. What prior experiences did you have that helped you approach this assignment? Or what experience do you wish you have? [1-2 paragraphs]
 
+2. Did your interaction with the chatbot change your explanations or what you thought about explanation? Why or why not? [1-2 paragraphs]
+
+3. Have you taken a college-level course on writing? [yes/no]
+
+4. On a scale of 1 to 5 (5 most difficult), how difficult was it to provide an explanation in plain language? [1-5]
+
+5. On a scale of 1 to 5 (5 most difficult), how difficult was it to provide the global explanation for nurses? [1-5]
+
+6. On a scale of 1 to 5 (5 most difficult), how difficult was it to provide the local explanations for patients? [1-5]
+
+7. On a scale of 1 to 5 (5 most difficult), how difficult was it to understand the policy? [1-5]
+
+8. On a scale of 1 to 5 (5 most difficult), how difficult was it to comply with the policy? [1-5]
+
+9. On a scale of 1 to 5 (5 most useful), how useful was this assignment to your learning about ML explainability? [1-5]
+
+   
 
 
 ### Hints and guidance
@@ -82,6 +99,8 @@ This assignment is intentionally open ended. We interpret explainability broadly
 You can explore many different explainability and transparency techniques, including the ones discussed in class and in the lab and ones you find on your own. We recommend to rely on existing explainability tooling for nontrivial analyses rather than to develop your own. Many existing tools can generate plots that you can integrate into the websites you generate, but textual explanations are also perfectly acceptable. We do not care about the visual quality of the generated PDFs.
 
 There is no single right explanation and we expect to see a very wide range of very different solutions. We are looking for a plausible solution where you argue why this solution is suitable, not any specific tool or design. We accept inadequate solutions as long as the compliance discussion identifies the shortcomings and discusses how they could be overcome if you had more time or resources.
+
+The chatbots may or may not be helpful in creating or refining your solution. We have no expectations on how you use the chatbot or that you implement all or any insights or suggestions emerging from the chatbot interactions.
 
 It may not be possible to always comply with the policy and it may not even be obvious whether a solution complies with the policy or whether some evidence is convincing. Discussing compliance and limitations is the learning goal, not actual compliance. We will have an in-class discussion about these challenges after the assignment. Importantly, we encourage you to strive for compliance and require a discussion, but we will not deduct points for noncompliance or poor evidence if you clearly identify the problem or ambiguity in your compliance discussion.
 
@@ -93,7 +112,7 @@ It may not be possible to always comply with the policy and it may not even be o
 
 ## Deliverable
 
-Submit all code you used to your GitHub repository. Commit the PDF files `explanation_global.pdf` and `explanation_local.pdf` to *the root directory* of your GitHub repository. Do not include your own name or Andrew ID in those two PDFs, if possible.
+Submit all code you used to your GitHub repository. Commit the PDF files `explanation_global.pdf`,  `explanation_local.pdf`, and `chatbot.pdf` to *the root directory* of your GitHub repository. Do not include your own name or Andrew ID in those three PDFs, if possible.
 
 Submit a report as a single PDF file to Gradescope that covers the following topics in clearly labeled sections:
 
@@ -102,7 +121,7 @@ Submit a report as a single PDF file to Gradescope that covers the following top
    * **Explanation:** Briefly describe what kind of explanations you created to address the policy requirement. Refer to specific techniques or tools if you used any. Provide links to relevant code where applicable. Point out where we can find this explanation in `explanation_global.pdf` or `explanation_local.pdf` if it is not obvious. Note, the same explanation may satisfy multiple policy requirements and you can point to prior sections rather than repeating content.
    * **Compliance:** Discuss whether your solution complies with the policy requirement. If possible, provide evidence to demonstrate compliance. Write this as if you were submitting a short report to a compliance/legal team in your company to convince them that your product complies and can be released. If you cannot comply or are unsure, discuss additional steps needed for compliance or explain why compliance may not be possible.
    
-3. **Reflection** (2 page max): Include textual answers to the two reflection prompts (challenges, policy benefits) above in two clearly separated subsections. Good reflections are grounded in concrete observations or specific experiences and should avoid generic statements that could apply to most solutions.
+3. **Reflection** (2 page max): Include answers to the questions above (two text answers, ratings on the rest) in a clearly separated subsection. Good reflections are grounded in concrete observations or specific experiences and should avoid generic statements that could apply to most solutions.
 
 
 Page limits are recommendations and not strictly enforced. You can exceed the page limit if there is a good reason. We prefer precise and concise answers over long and rambling ones.
@@ -114,6 +133,7 @@ The assignment is worth 100 points. For full credit, we expect:
 * [ ] 10 points: The document includes a link to a specific commit in your GitHub repository created with GitHub classroom. 
 * [ ] 15 points: A PDF file `explanation_global.pdf` is included in the root directory of the linked repository that contains the global explanations for the assigned stakeholder. The PDF corresponds to the description in the report.
 * [ ] 15 points: A PDF file `explanation_local.pdf` is included in the root directory of the linked repository that contains the individual/local explanations for the assigned stakeholder for *two* patients. The PDF corresponds to the description in the report.
+* [ ] 5 points: A PDF file `chatbot.pdf` is included in the root directory of the linked repository that contains at least one chat transcript with a chatbot relating to the instructions on Canvas.
 * [ ] 10 points: Where explanations (e.g., figures) were created with code, the code is included in the repository. It aligns with the description.
 * [ ] 40 points (5 points each): For each of the following policy requirements (a) the answer describes how the requirement was addressed technically, (b) the provided PDF files illustrate the solution, and (c) the answer makes a good faith attempt at providing evidence to demonstrate compliance, or discusses additional steps needed for compliance, or explains why compliance may not be possible. 
    1. Describes the intended use and the role of the automation
@@ -125,5 +145,5 @@ The assignment is worth 100 points. For full credit, we expect:
    7. Describes how to report misuse or harm from the automated system.
    8. Provides all documentation in language appropriate for the intended audience. All documentation for untrained users must use nontechnical language at an eighth grade reading level.
    
-* [ ] 10 points: A good-faith attempt at reflecting in two clearly identifiable subsections about (a) the challenges of the assignment and (b) the benefits, if any, of the policy. The reflection refers to specifics and is grounded in own concrete experiences rather than describing just generic general observations.
+* [ ] 5 points: A good-faith attempt at answering the 9 reflection questions.
 
