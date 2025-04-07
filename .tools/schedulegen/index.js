@@ -125,9 +125,6 @@ const fs = require('fs');
                         if (labLink != undefined && labLink != "")
                             topic = `[${topic}](https://github.com/mlip-cmu/${semesterRepo}/blob/main/labs/${labLink})`
                     } 
-                    else if (id.includes("uest")) {
-
-                    }
                     else {
 
                         // const slidesLink = findSlidesLink(id)
