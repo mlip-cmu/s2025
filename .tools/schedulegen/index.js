@@ -132,6 +132,8 @@ const fs = require('fs');
                             // const mdLink = slidesLink.replace(".html", ".md")
                             // const pdfLink = slidesLink.replace(".html", ".pdf")
                             // If index is in gslides
+                        console.log("Debugging:")
+                        console.log(topic)
                         if (badges == "" && !topic.includes("uest")) {
                             if (index < gslides.length) {
                                 topic = `[${topic}](${gslides[index]})`
