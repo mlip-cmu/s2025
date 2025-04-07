@@ -124,7 +124,9 @@ const fs = require('fs');
                         const labLink = findLabLink(id)
                         if (labLink != undefined && labLink != "")
                             topic = `[${topic}](https://github.com/mlip-cmu/${semesterRepo}/blob/main/labs/${labLink})`
-                    } 
+                    }
+                    else if (id.includes("guest")) {
+                    }
                     else {
 
                         // const slidesLink = findSlidesLink(id)
@@ -134,7 +136,7 @@ const fs = require('fs');
                             // If index is in gslides
                         console.log("Debugging:")
                         console.log(topic)
-                        if (badges == "" && !topic.includes("uest")) {
+                        if (badges == "") {
                             if (index < gslides.length) {
                                 topic = `[${topic}](${gslides[index]})`
                             }
