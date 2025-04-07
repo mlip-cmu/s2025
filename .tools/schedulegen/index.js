@@ -139,7 +139,9 @@ const fs = require('fs');
                             else {
                                 topic = `${topic}`
                             }
-                            index++;
+                            if (!topic.includes("uest")) {
+                                index++;
+                            }
                         }
                             // topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
 
