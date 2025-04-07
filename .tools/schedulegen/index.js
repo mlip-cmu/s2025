@@ -132,16 +132,14 @@ const fs = require('fs');
                             // const mdLink = slidesLink.replace(".html", ".md")
                             // const pdfLink = slidesLink.replace(".html", ".pdf")
                             // If index is in gslides
-                        if (badges == "") {
+                        if (badges == "" && !topic.includes("uest")) {
                             if (index < gslides.length) {
                                 topic = `[${topic}](${gslides[index]})`
                             }
                             else {
                                 topic = `${topic}`
                             }
-                            if (!topic.includes("uest")) {
-                                index++;
-                            }
+                            index++;
                         }
                             // topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
 
