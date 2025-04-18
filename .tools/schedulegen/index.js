@@ -94,8 +94,9 @@ const fs = require('fs');
                 "https://docs.google.com/presentation/d/1NYsfR0mL4q1QO78T9IiothLTv4QbUfFnc-RzVqPYktg/edit?usp=sharing",
                 "https://docs.google.com/presentation/d/1zei6QRXTYcdU3Au4aimxMRAQCBpPlVDoUglbKrsOkKU/edit?usp=sharing",
                 "https://docs.google.com/presentation/d/1o76e6p5Fy5pnLE_zJY5x-f31UGJrH0HNpGK2mBwBCDE/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1TguK8lQkklfIUSeqkl96sr-wOVVMiFbnHZuKxJTl7jo/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1cLLhUDa0plrSjUptiYEA13FBdb7UxxS6e2Fmo3UbQs4/edit?usp=sharing",
+                "https://docs.google.com/presentation/d/1TguK8lQkklfIUSeqkl96sr-wOVVMiFbnHZuKxJTl7jo/edit?usp=sharing", // transparency
+                "https://docs.google.com/presentation/d/1cLLhUDa0plrSjUptiYEA13FBdb7UxxS6e2Fmo3UbQs4/edit?usp=sharing", // safety
+                "https://docs.google.com/presentation/d/1DXxoyhqrJZHvXTIthvfs9w2Lfph82XD5YX_A1eHZSc8/edit?usp=sharing", // security
                 "https://docs.google.com/presentation/d/1DXxoyhqrJZHvXTIthvfs9w2Lfph82XD5YX_A1eHZSc8/edit?usp=sharing"
             ];
             let index = 0;
@@ -131,12 +132,6 @@ const fs = require('fs');
                     else if (id.includes("guest")) {
                     }
                     else {
-
-                        // const slidesLink = findSlidesLink(id)
-                        // if (slidesLink != undefined && slidesLink != "") {
-                            // const mdLink = slidesLink.replace(".html", ".md")
-                            // const pdfLink = slidesLink.replace(".html", ".pdf")
-                            // If index is in gslides
                         if (badges == "") {
                             if (index < gslides.length) {
                                 topic = `[${topic}](${gslides[index]})`
@@ -146,9 +141,6 @@ const fs = require('fs');
                             }
                             index++;
                         }
-                            // topic = `[${topic}](slides/${slidesLink}) ([md](https://github.com/mlip-cmu/${semesterRepo}/blob/main/lectures/${mdLink}), [pdf](slides/${pdfLink}))`
-
-                        // }
                     }
 
                     console.log(`| ${date} | ${badges}${topic} | ${chapterLinks} | ${readings} | ${assignment} |`)
