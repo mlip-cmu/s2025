@@ -279,15 +279,16 @@ We may have introduced some bias in the data, introduced mechanisms for specific
 
 First, conduct a project postmortem: reflect on the entire group project and discuss which decisions were hard and why, which decisions you would change in retrospect, and what you would do differently if you were building this for an actual company (probably with more time but also with higher stakes). Also reflect on your experience of working as a team.
 
-Second, create a 8 min presentation to the class presenting the project and your experiences. All team members should have an active role in the presentation. The presentation should cover at minimum (1) some key design decisions and (2) some reflection, but generally you are free to chose how you focus your presentation. 
+Second, create a 5-8 min video presentation to the class presenting the project and your experiences. All team members should have an active role in the presentation. The presentation should cover at minimum (1) some key design decisions and (2) some reflection, but generally you are free to chose how you focus your presentation. 
 
 **Technical details:** Good reflections are grounded in concrete experience and the specifics of the project. They avoid mere superficial statements and truisms. We are looking for honest reflections that are open about potential issues; we grade only the quality of the reflection, not the quality of the technical decisions or teamwork described in the reflection.
 
 For the presentation, we recommend that you prepare slides and practice timing. The target audience for this talk is other teams in this class: Share what you did and what you learned or found interesting or challenging. Note that all teams worked on the same project, so you can assume familiarity with the task and do not need to introduce basics. Generally, discussions of interesting or unusual technical choices and reflection are more interesting than a standard description of the project.
 
-**Deliverables:** Upload your slides to GitHub and submit the reflection to Gradescope with a link and two sections:
+**Deliverables:** Upload your slides to GitHub, upload your video somewhere anyone in the class can access (e.g., an unlisted YouTube video) and submit the reflection to Gradescope with a link and two sections:
 
 * *Link to Slides in Github Repository*
+* *Link to video presentation*
 * *Reflection on the recommendation service* (2 page max): Reflect on the recommendation service you built. The following questions may guide your reflection: What parts were the most challenging? Which aspects are still unstable and would require additional investment if you had to deploy the recommendation service at scale in production? How would you address these issues if you had more time and more resources? If you had to start over, what would you do differently?
 * *Reflection on teamwork* (1 page max): Reflect on your team's teamwork throughout this project. The following questions may guide your reflection: What went well or less well in the team assignments? What were some of the main challenges you faced in teamwork? If you had to do this over, what would you change? What lesson have you identified for future team projects? 
 
@@ -295,7 +296,7 @@ For the presentation, we recommend that you prepare slides and practice timing. 
 
 * [ ] 10pt: Reflection on the recommendation service that makes a good faith attempt at critically discussing the project. The reflection is grounded in concrete experiences.
 * [ ] 10pt: Reflection on teamwork throughout this project that makes a good faith attempt at critically discussing the team’s experience. The reflection is grounded in concrete experiences.
-* [ ] 10pt: A presentation given to the entire class that includes key design decisions and reflections on the entire project. The presentation is understandable to the target audience. All team members have an active role in the presentation. Slides are uploaded to GitHub.
+* [ ] 10pt: A video presentation shared with the entire class that includes key design decisions and reflections on the entire project. The presentation is understandable to the target audience. All team members have an active role in the presentation. Slides are uploaded to GitHub.
 
 
 
